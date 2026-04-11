@@ -1,572 +1,1010 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>राजवर्धन एंड एसोसिएट्स | प्रीमियम विधिक सेवाएँ</title>
-  <meta name="description" content="Rajvardhan & Associates – सिविल, आपराधिक, राजस्व, NDPS, साइबर, महिला एवं बाल अपराध, धोखाधड़ी, Arms Act, Excise Act में अग्रणी।">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --gold: #D4AF37;
-      --gold-light: #F3E5AB;
-      --gold-dark: #9E7B2B;
-      --deep-navy: #0A1128;
-      --slate: #1E2A47;
-      --charcoal: #1F1F2E;
-      --text-light: #F5F5F5;
-      --text-dim: rgba(245,245,245,0.75);
-      --glass-bg: rgba(10,17,40,0.75);
-      --glass-border: rgba(212,175,55,0.25);
-      --ease-premium: cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
-    body {
-      background: var(--deep-navy);
-      color: var(--text-light);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    h1, h2, h3, .serif {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    .hindi, [lang="hi"] {
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      font-weight: 400;
-    }
-    .gold { color: var(--gold); }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 5%;
-    }
-    /* custom scroll */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #0A1128; }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+import { useEffect, useRef, useState } from 'react';
 
-    /* preloader */
-    .preloader {
-      position: fixed;
-      inset: 0;
-      background: #0A1128;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-      transition: opacity 0.5s;
-    }
-    .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
-    .preloader-logo { font-size: 3rem; animation: softPulse 1.8s infinite; }
-    @keyframes softPulse { 0%,100%{ transform: scale(1); opacity:0.8; } 50%{ transform: scale(1.1); opacity:1; } }
-    .preloader-text { letter-spacing: 5px; margin-top: 0.8rem; color: var(--gold); font-size: 0.8rem; }
-    .preloader-bar { width: 200px; height: 2px; background: rgba(212,175,55,0.3); margin-top: 1rem; border-radius: 2px; overflow: hidden; }
-    .preloader-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.03s linear; }
-
-    /* navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      transition: 0.4s;
-      background: transparent;
-    }
-    .nav.scrolled {
-      background: rgba(10,17,40,0.96);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      padding: 0.6rem 5%;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 2px;
-    }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-dim);
-      text-decoration: none;
-      transition: 0.3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-    .nav-btn {
-      background: transparent;
-      border: 1px solid var(--gold);
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      transition: 0.3s;
-      text-decoration: none;
-      color: var(--gold);
-    }
-    .nav-btn:hover { background: var(--gold); color: var(--deep-navy); box-shadow: 0 0 12px var(--gold); }
-    .mobile-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .mobile-btn span { width: 24px; height: 2px; background: var(--gold); display: block; transition: 0.3s; }
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      max-width: 280px;
-      height: 100%;
-      background: #0A1128;
-      backdrop-filter: blur(24px);
-      z-index: 1001;
-      padding: 5rem 1.5rem;
-      transition: 0.3s;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .mobile-nav.open { right: 0; }
-    .mobile-nav a { color: var(--text-light); text-decoration: none; font-size: 1rem; }
-
-    /* hero */
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      background: url('images/hero-bg.jpg') center/cover no-repeat;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(10,17,40,0.7), #0A1128 80%);
-    }
-    .hero .container { position: relative; z-index: 2; text-align: left; }
-    .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.2; margin-bottom: 0.8rem; }
-    .hero-sub { font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 1rem; color: var(--gold-light); }
-    .hero-desc { max-width: 580px; margin: 1rem 0 1.8rem; color: var(--text-dim); }
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary, .btn-outline {
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-block;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .btn-primary { background: var(--gold); color: #0A1128; }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
-    .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
-    .btn-outline:hover { background: rgba(212,175,55,0.1); transform: translateY(-3px); }
-
-    /* sections */
-    section { padding: 5rem 0; }
-    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
-    .section-sub { color: var(--text-dim); margin-bottom: 2.5rem; max-width: 700px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .about-img {
-      border-radius: 28px;
-      overflow: hidden;
-      height: 640px;
-      box-shadow: 0 30px 40px rgba(0,0,0,0.5);
-    }
-    .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: 0.5s; }
-    .about-img:hover img { transform: scale(1.02); }
-    .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2rem; }
-    .stat-item { text-align: left; }
-    .stat-number { font-size: 2rem; font-weight: 800; color: var(--gold); }
-    /* cards 3D */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 2rem; margin-top: 2rem; }
-    .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      border-radius: 28px;
-      padding: 1.8rem;
-      transition: all 0.4s var(--ease-premium);
-      transform-style: preserve-3d;
-      perspective: 800px;
-    }
-    .glass-card:hover {
-      transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
-      border-color: var(--gold);
-      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.6);
-    }
-    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .practice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .practice-card {
-      background: var(--glass-bg);
-      border-radius: 28px;
-      overflow: hidden;
-      transition: 0.3s;
-      transform: translateZ(0);
-    }
-    .practice-card:hover { transform: translateY(-8px) scale(1.01); border: 1px solid var(--gold); }
-    .practice-img { height: 200px; overflow: hidden; }
-    .practice-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-    .practice-card:hover .practice-img img { transform: scale(1.05); }
-    .practice-content { padding: 1.5rem; }
-    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .why-card {
-      background: var(--glass-bg);
-      border-radius: 24px;
-      padding: 1.8rem;
-      transition: 0.3s;
-      text-align: left;
-    }
-    .why-card:hover { transform: translateY(-6px); background: rgba(212,175,55,0.05); border: 1px solid var(--glass-border); }
-    .caveat {
-      background: linear-gradient(135deg, #0F1A2F, #0A1128);
-      border-left: 4px solid var(--gold);
-      padding: 2rem;
-      border-radius: 28px;
-      margin: 2rem 0;
-    }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .contact-card { display: flex; gap: 1rem; background: var(--glass-bg); padding: 1rem; border-radius: 20px; margin-bottom: 1rem; }
-    footer {
-      background: #050C1A;
-      padding: 3rem 0;
-      border-top: 1px solid var(--glass-border);
-    }
-    .footer-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
-    /* ashoka watermark */
-    .ashoka-watermark {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      opacity: 0.03;
-      pointer-events: none;
-      z-index: 999;
-      font-size: 4rem;
-    }
-    /* responsive */
-    @media (max-width: 1024px) {
-      .grid-2, .practice-grid, .why-grid, .footer-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-img { height: 480px; }
-      .stat-grid { grid-template-columns: repeat(2,1fr); }
-    }
-    @media (max-width: 768px) {
-      .nav-links, .nav-btn { display: none; }
-      .mobile-btn { display: flex; }
-      .about-img { height: 380px; }
-      .practice-grid, .why-grid { grid-template-columns: 1fr; }
-      section { padding: 3rem 0; }
-    }
-    .reveal { opacity: 0; transform: translateY(35px); transition: all 0.9s var(--ease-premium); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    .text-left { text-align: left; }
-    .mt-4 { margin-top: 2rem; }
-    .floating-3d {
-      animation: float3d 6s ease-in-out infinite;
-    }
-    @keyframes float3d {
-      0% { transform: translateY(0px) rotateX(0deg); }
-      50% { transform: translateY(-15px) rotateX(2deg); }
-      100% { transform: translateY(0px) rotateX(0deg); }
-    }
-  </style>
-</head>
-<body>
-
-<div class="ashoka-watermark">🕉️</div> <!-- subtle ashoka chakra vibe -->
-
-<div class="preloader" id="preloader">
-  <div class="preloader-content">
-    <div class="preloader-logo">⚖️</div>
-    <div class="preloader-text">RAJVARDHAN & ASSOCIATES</div>
-    <div class="preloader-bar"><div class="preloader-fill" id="preFill"></div></div>
-  </div>
-</div>
-
-<nav class="nav" id="nav">
-  <div class="logo">R&A</div>
-  <div class="nav-links">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#practice">Practices</a>
-    <a href="#why">Why Us</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a href="tel:+917466806524" class="nav-btn">+91 74668 06524</a>
-  <button class="mobile-btn" id="mobileBtn"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-nav" id="mobileNav">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#expertise">Expertise</a>
-  <a href="#practice">Practices</a>
-  <a href="#why">Why Us</a>
-  <a href="#contact">Contact</a>
-  <a href="tel:+917466806524">📞 Call Now</a>
-</div>
-
-<main>
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-badge" style="color:var(--gold-light); font-size:0.7rem; letter-spacing:2px;">⚖️ स्थापना 2014 | प्रीमियर लॉ चैंबर्स</div>
-      <h1><span class="gold">राजवर्धन एंड एसोसिएट्स</h1>
-      <div class="hero-sub">Vincit Omnia Veritas – सत्यमेव जयते</div>
-      <p class="hero-desc hindi">हम कानून की हर धारा को रणनीति में बदलते हैं। 2500+ मुकदमों में विजय, पाँच न्यायक्षेत्रों में सक्रिय। हमारा दृष्टिकोण सीधा, सशक्त और परिणामोन्मुखी है।</p>
-      <div class="btn-group">
-        <a href="tel:+917466806524" class="btn-primary">निःशुल्क परामर्श</a>
-        <a href="#about" class="btn-outline">हमारा परिचय</a>
+// ─── PRELOADER ───────────────────────────────────────────────────────────────
+function Preloader({ done }: { done: boolean }) {
+  return (
+    <div className={`preloader${done ? ' done' : ''}`}>
+      <div style={{ textAlign: 'center' }}>
+        <div className="pre-logo-ring">
+          <span className="pre-icon">⚖️</span>
+        </div>
+        <div className="pre-firm" style={{ marginTop: '2rem' }}>RAJVARDHAN & ASSOCIATES</div>
+        <div style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '0.75rem', color: 'rgba(212,175,114,0.5)', marginTop: '0.4rem', letterSpacing: '2px' }}>
+          न्याय · विधि · सत्य
+        </div>
+        <div className="pre-bar-wrap">
+          <div className="pre-bar" id="preBar" />
+        </div>
       </div>
     </div>
-  </section>
+  );
+}
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="grid-2">
-        <div class="about-img reveal">
-          <img src="images/about-lawyer.jpeg" alt="Rajvardhan, Principal Advocate">
+// ─── NAVBAR ──────────────────────────────────────────────────────────────────
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('home');
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+      const sections = document.querySelectorAll('section[id]');
+      let cur = 'home';
+      sections.forEach((s) => {
+        if (window.scrollY >= (s as HTMLElement).offsetTop - 120) cur = s.id;
+      });
+      setActive(cur);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const links = [
+    { id: 'home', label: 'HOME' },
+    { id: 'about', label: 'ABOUT' },
+    { id: 'expertise', label: 'EXPERTISE' },
+    { id: 'practice', label: 'PRACTICE' },
+    { id: 'process', label: 'PROCESS' },
+    { id: 'why', label: 'WHY US' },
+    { id: 'contact', label: 'CONTACT' },
+  ];
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setDrawerOpen(false);
+  };
+
+  return (
+    <>
+      <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+        <a className="nav-logo" href="#home" onClick={e => { e.preventDefault(); scrollTo('home'); }}>
+          <div className="nav-logo-mark">⚖</div>
+          <span>R&A</span>
+        </a>
+        <div className="nav-menu">
+          {links.map(l => (
+            <a
+              key={l.id}
+              href={`#${l.id}`}
+              className={`nav-link${active === l.id ? ' active' : ''}`}
+              onClick={e => { e.preventDefault(); scrollTo(l.id); }}
+            >{l.label}</a>
+          ))}
         </div>
-        <div class="reveal">
-          <h2 class="section-title">एक अग्रणी <span class="gold">विधिक संस्थान</span></h2>
-          <p class="hindi">राजवर्धन एंड एसोसिएट्स एक प्रतिष्ठित लॉ चैंबर्स है, जो 2014 से सिविल, आपराधिक, राजस्व, NDPS, साइबर, दहेज, महिला एवं बाल अपराध, धोखाधड़ी, Arms Act, Excise Act मामलों में उत्कृष्टता के लिए जाना जाता है। हम प्रत्येक केस को पूर्ण तैयारी, साक्ष्यों के सूक्ष्म विश्लेषण और न्यायिक मिसालों के गहन अध्ययन के साथ लड़ते हैं।</p>
-          <p class="hindi">हमारी रणनीति “Pre‑emptive Annihilation” है – अर्थात विपक्ष के तर्क को उसके जन्म से पहले ही निरस्त कर देना। हम प्रतिक्रिया नहीं करते, हम न्यायालय में सक्रिय आक्रमण करते हैं। इस दर्शन ने हमें 2500 से अधिक मुकदमों में विजयी बनाया है।</p>
-          <div class="stat-grid">
-            <div class="stat-item"><div class="stat-number" data-target="11">0+</div><div>वर्षों का अनुभव</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="2500">0+</div><div>मुकदमे जीते</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="95">0%</div><div>सफलता दर</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="5">0</div><div>न्यायक्षेत्र</div></div>
+        <a href="tel:+917466806524" className="nav-cta">+91 74668 06524</a>
+        <button
+          className={`mobile-toggle${drawerOpen ? ' open' : ''}`}
+          onClick={() => setDrawerOpen(!drawerOpen)}
+          aria-label="Menu"
+        >
+          <span /><span /><span />
+        </button>
+      </nav>
+      <div className={`drawer-overlay${drawerOpen ? ' show' : ''}`} onClick={() => setDrawerOpen(false)} />
+      <div className={`mobile-drawer${drawerOpen ? ' open' : ''}`}>
+        <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.75rem', letterSpacing: '3px', color: 'var(--champagne)', marginBottom: '1.5rem' }}>
+          RAJVARDHAN & ASSOCIATES
+        </div>
+        {links.map(l => (
+          <a key={l.id} href={`#${l.id}`} className="drawer-link" onClick={e => { e.preventDefault(); scrollTo(l.id); }}>{l.label}</a>
+        ))}
+        <a href="tel:+917466806524" className="drawer-link" style={{ color: 'var(--champagne)', marginTop: '1rem' }}>📞 +91 74668 06524</a>
+        <a href="mailto:legaleaglemzn@gmail.com" className="drawer-link">✉ legaleaglemzn@gmail.com</a>
+      </div>
+    </>
+  );
+}
+
+// ─── MARQUEE ─────────────────────────────────────────────────────────────────
+function Marquee() {
+  const items = [
+    'सिविल विधि', 'Criminal Defence', 'NDPS Cases', 'साइबर अपराध',
+    'Arms & Excise Act', 'महिला एवं बाल संरक्षण', 'Revenue Litigation', 'IPC 302 / 307',
+    'Anticipatory Bail', 'धोखाधड़ी एवं जालसाजी', 'POCSO Act', 'High Court Appeals',
+  ];
+  const doubled = [...items, ...items];
+  return (
+    <div className="marquee-section">
+      <div className="marquee-track">
+        {doubled.map((item, i) => (
+          <span key={i} className="marquee-item">
+            {item}
+            <span className="marquee-sep">◆</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── HERO ─────────────────────────────────────────────────────────────────────
+function HeroSection() {
+  return (
+    <section id="home" className="hero-section">
+      <div className="hero-bg" />
+      <div className="hero-overlay" />
+      <div className="hero-content">
+        <div className="reveal">
+          <div className="hero-eyebrow">
+            <div className="hero-eyebrow-dot" />
+            <span>स्थापना 2014 · जानसठ, मुजफ्फरनगर</span>
+            <span style={{ opacity: 0.4 }}>|</span>
+            <span>Premier Law Chambers</span>
+          </div>
+        </div>
+        <h1 className="hero-title reveal" style={{ transitionDelay: '0.1s' }}>
+          <span className="text-gradient">राजवर्धन</span><br />
+          <span style={{ color: 'var(--ivory)' }}>& एसोसिएट्स</span>
+        </h1>
+        <div className="hero-title-en reveal" style={{ transitionDelay: '0.2s' }}>
+          RAJVARDHAN & ASSOCIATES
+        </div>
+        <div className="hero-divider reveal" style={{ transitionDelay: '0.25s' }} />
+        <p className="hero-desc hindi reveal" style={{ transitionDelay: '0.3s' }}>
+          हम केवल मुकदमे नहीं लड़ते - हम न्याय की लड़ाई को रणनीति में ढालते हैं।
+          सिविल, आपराधिक, राजस्व, NDPS, साइबर, महिला एवं बाल अपराध, धोखाधड़ी,
+          Arms Act और Excise Act - हर क्षेत्र में हमारी गहरी पैठ है।
+          500+ मुकदमों का अनुभव, पाँच न्यायक्षेत्रों में सक्रिय उपस्थिति।
+        </p>
+        <div className="hero-cta-group reveal" style={{ transitionDelay: '0.4s' }}>
+          <a href="tel:+917466806524" className="btn-primary">
+            <span>📞</span>
+            <span>निःशुल्क परामर्श</span>
+          </a>
+          <a href="#about" className="btn-outline" onClick={e => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            <span>हमारा परिचय</span>
+            <span>→</span>
+          </a>
+          <a href="mailto:legaleaglemzn@gmail.com" className="btn-outline">
+            <span>✉</span>
+            <span>ईमेल लिखें</span>
+          </a>
+        </div>
+        <div className="hero-stats-bar reveal" style={{ transitionDelay: '0.5s' }}>
+          {[
+            { num: '11', suffix: '+', label: 'YEARS OF EXCELLENCE' },
+            { num: '500', suffix: '+', label: 'CASES WON' },
+            { num: '98', suffix: '%', label: 'SUCCESS RATE' },
+            { num: '5', suffix: '', label: 'JURISDICTIONS' },
+            { num: '24', suffix: '/7', label: 'EMERGENCY SERVICE' },
+          ].map((s, i) => (
+            <div key={i} className="hero-stat">
+              <div className="hero-stat-num" data-target={s.num}>
+                {s.num}{s.suffix}
+              </div>
+              <div className="hero-stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── ABOUT SECTION ───────────────────────────────────────────────────────────
+function AboutSection() {
+  return (
+    <section id="about" className="section-pad" style={{ background: 'linear-gradient(180deg, var(--obsidian) 0%, var(--obsidian-2) 100%)' }}>
+      <div className="container">
+        <div className="grid-2">
+          <div className="about-image-wrap reveal-left">
+            <div className="about-accent-block" />
+            <div className="about-image-frame">
+              <img src="/images/about-lawyer.jpg" alt="Rajvardhan, Principal Advocate" />
+              <div className="about-image-border" />
+            </div>
+            <div className="about-badge float-anim">
+              <div className="badge-num">2014</div>
+              <div className="badge-label">ESTABLISHED</div>
+              <div style={{ marginTop: '0.8rem', borderTop: '1px solid rgba(212,175,114,0.15)', paddingTop: '0.8rem' }}>
+                <div className="badge-num" style={{ fontSize: '1.5rem' }}>⚖️</div>
+                <div className="badge-label">PRINCIPAL ADVOCATE</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="reveal-right">
+            <div className="section-tag">हमारे बारे में · ABOUT US</div>
+            <h2 className="section-title">
+              न्याय के मंदिर में{' '}
+              <span className="text-gradient">एक विश्वसनीय</span>{' '}
+              नाम
+            </h2>
+            <div className="deco-line" style={{ marginBottom: '1.5rem' }} />
+            <p className="section-body hindi" style={{ marginBottom: '1.5rem' }}>
+              राजवर्धन एंड एसोसिएट्स - एक ऐसा विधिक संस्थान जो 2014 से मुजफ्फरनगर और जानसठ
+              के न्यायालयों में अपनी विद्वत्ता, तैयारी और निष्ठा के लिए जाना जाता है। हम केवल
+              मुकदमे नहीं लड़ते; बल्कि प्रत्येक मुक़दमे को एक जटिल पहेली की तरह सुलझाते हैं -
+              साक्ष्यों का सूक्ष्म विश्लेषण, विधि के हर अक्षर का सटीक प्रयोग और न्यायिक
+              मिसालों की गहरी समझ ही हमारी फर्म की पहचान है।
+            </p>
+            <p className="section-body hindi" style={{ marginBottom: '1.5rem' }}>
+              हमारी रणनीति <strong style={{ color: 'var(--champagne)' }}>"Pre‑emptive Annihilation"</strong> है -
+              विपक्ष के तर्क को उसके जन्म से पहले ही निरस्त कर देना। न्यायालय में हम प्रतिक्रिया
+              नहीं करते, बल्कि सक्रिय रूप से अभियोजन की कमजोरियों को उजागर करते हैं।
+              यही दृष्टिकोण हमें असाधारण बनाता है।
+            </p>
+            <p className="section-body" style={{ marginBottom: '2rem' }}>
+              With over 2500+ cases handled across Civil, Criminal, Revenue, NDPS, Cyber Crime,
+              Women & Child Protection, Economic Fraud, Arms Act and Excise Act - our chambers
+              stands as a fortress of legal expertise in Western Uttar Pradesh.
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
+              {[
+                { icon: '🎓', title: 'विधिक शिक्षा', body: 'LL.B., न्यायशास्त्र में गहन शिक्षा एवं निरंतर अद्यतन।' },
+                { icon: '🏛️', title: 'बार सदस्यता', body: 'जिला बार एसोसिएशन, मुजफ्फरनगर · तहसील बार संघ जानसठ।' },
+                { icon: '📚', title: 'विधि साहित्य', body: '10,000+ निर्णयों का व्यक्तिगत अध्ययन एवं शोध संग्रह।' },
+                { icon: '⚡', title: 'आपातकालीन सेवा', body: '24×7 उपलब्धता - अग्रिम जमानत, स्थगन आदेश।' },
+              ].map((item, i) => 
+                <div key={i} style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '1.3rem', marginTop: '0.1rem' }}>{item.icon}</div>
+                  <div>
+                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: '0.95rem', fontWeight: 600, marginBottom: '0.2rem' }}>{item.title}</div>
+                    <div className="hindi" style={{ fontSize: '0.82rem', color: 'var(--text-dim)', lineHeight: 1.7 }}>{item.body}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', padding: '1.5rem', background: 'rgba(18,15,12,0.6)', borderRadius: '16px', border: '1px solid rgba(212,175,114,0.1)' }}>
+              {[
+                { n: '11', s: '+', l: 'वर्ष' },
+                { n: '500', s: '+', l: 'मुकदमे' },
+                { n: '98', s: '%', l: 'सफलता' },
+                { n: '5', s: '', l: 'क्षेत्र' },
+              ].map((stat, i) => (
+                <div key={i} style={{ textAlign: 'center' }}>
+                  <div className="stat-number" data-target={stat.n} style={{ fontSize: '1.8rem' }}>{stat.n}<span style={{ fontSize: '1.2rem' }}>{stat.s}</span></div>
+                  <div className="stat-label">{stat.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── EXPERTISE SECTION ────────────────────────────────────────────────────────
+function ExpertiseSection() {
+  const cards = [
+    {
+      num: '01', icon: '⚖️',
+      title: 'वैवाहिक एवं दहेज विवाद',
+      hindi: 'IPC 498A, दहेज निषेध अधिनियम, घरेलू हिंसा अधिनियम - हम प्रत्येक मामले में गहरे तथ्यात्मक विश्लेषण और क्रॉस-एग्जामिनेशन की तीखी रणनीति से झूठे आरोपों को निर्मूल करते हैं। पीड़ित और अभियुक्त दोनों पक्षों को उचित कानूनी प्रतिनिधित्व।',
+      tag: 'Matrimonial · Dowry · Domestic Violence'
+    },
+    {
+      num: '02', icon: '⚔️',
+      title: 'हत्या एवं जघन्य अपराध',
+      hindi: 'IPC 302/307, अपहरण, NDPS Act - जहाँ जमानत दुर्लभ होती है, वहाँ हम प्रक्रियात्मक खामियों, पुलिस विवेचना की त्रुटियों और साक्ष्य की कमजोरियों से मुकदमे का रुख बदलते हैं। फोरेंसिक साक्ष्यों का गहन विश्लेषण ही हमारी विशेषता है।',
+      tag: 'IPC 302 · 307 · Forensic Analysis'
+    },
+    {
+      num: '03', icon: '💻',
+      title: 'साइबर अपराध रक्षा',
+      hindi: 'IT Act 2000 की धाराएँ 43, 66, 67, 66C, 66D - डिजिटल फोरेंसिक, ईमेल ट्रेल विश्लेषण, हैकिंग, पहचान चोरी, ऑनलाइन धोखाधड़ी। साइबर न्यायालयों में हमारी विशेष दक्षता है। डिजिटल साक्ष्यों की स्वीकार्यता को लेकर गहन अध्ययन।',
+      tag: 'IT Act · Digital Forensics · Cyber Court'
+    },
+    {
+      num: '04', icon: '📜',
+      title: 'राजस्व एवं भूमि विवाद',
+      hindi: 'खतौनी, नामांतरण, चकबंदी, भू-अधिग्रहण, पट्टा विवाद - SDM से लेकर इलाहाबाद उच्च न्यायालय तक पूर्ण प्रतिनिधित्व। दशकों की भूमि-विवाद संबंधी विशेषज्ञता। उत्तर प्रदेश राजस्व संहिता की गहरी समझ।',
+      tag: 'Revenue Code · Land Acquisition · SDM Court'
+    },
+    {
+      num: '05', icon: '👩‍⚖️',
+      title: 'महिला अपराध एवं बाल अपराध तथा संरक्षण',
+      hindi: 'POCSO Act, बाल विवाह निषेध अधिनियम, कार्यस्थल पर यौन उत्पीड़न (POSH Act), बाल श्रम, महिला उत्पीड़न के Fast-Track मामले। संवेदनशील, गोपनीय और त्वरित कानूनी सेवा। पीडित व अभियुक्त दोनों के लिए न्यायपूर्ण प्रतिनिधित्व।',
+      tag: 'POCSO · POSH · Fast Track Court'
+    },
+    {
+      num: '06', icon: '🔐',
+      title: 'आर्थिक अपराध, Arms & Excise',
+      hindi: 'IPC 420, 467, 468, 471 (कूटरचना, जालसाजी, धोखाधड़ी), Arms Act (आयुध), Excise Act (अवैध शराब), NDPS Act - अभियोजन के दस्तावेजों में विसंगतियाँ खोज कर, Chain of Custody को चुनौती देना और जमानत याचिकाओं में त्वरित राहत दिलाना हमारी विशेषता है।',
+      tag: 'Forgery · Arms · Excise · NDPS'
+    },
+  ];
+
+  return (
+    <section id="expertise" className="section-pad" style={{ background: 'linear-gradient(180deg, var(--obsidian-2) 0%, var(--dark-brown) 50%, var(--obsidian-2) 100%)' }}>
+      <div className="container">
+        <div style={{ maxWidth: 700 }}>
+          <div className="section-tag reveal">विशेषज्ञताएँ · PRACTICE AREAS</div>
+          <h2 className="section-title reveal">
+            प्रत्येक कानूनी क्षेत्र में{' '}
+            <span className="text-gradient">हमारी</span>{' '}
+            गहरी पैठ
+          </h2>
+          <p className="section-body hindi reveal">
+            राजवर्धन एंड एसोसिएट्स ने अपनी 11 वर्षों की यात्रा में विधि के हर क्षेत्र में
+            असाधारण दक्षता प्रदर्शित की है। नीचे दिए गए छह प्रमुख क्षेत्रों में हमारी
+            विशेषज्ञता न केवल सैद्धांतिक बल्कि व्यावहारिक और परिणामोन्मुखी है।
+          </p>
+        </div>
+        <div style={{ marginTop: '3.5rem' }} className="grid-auto">
+          {cards.map((card, i) => (
+            <div key={i} className="glass-card reveal tilt-card" style={{ transitionDelay: `${i * 0.08}s` }}>
+              <div className="glass-card-number">{card.num}</div>
+              <div className="card-icon-wrap">{card.icon}</div>
+              <h3 className="card-title hindi">{card.title}</h3>
+              <p className="card-body hindi">{card.hindi}</p>
+              <div className="card-tag">{card.tag}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional High-Profile Section */}
+        <div style={{ marginTop: '4rem' }}>
+          <div style={{
+            background: 'rgba(18,15,12,0.8)',
+            border: '1px solid rgba(212,175,114,0.12)',
+            borderRadius: '24px',
+            padding: '3rem',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: 0, right: 0, width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(139,26,26,0.08), transparent)', borderRadius: '50%', transform: 'translate(50%, -50%)' }} />
+            <div className="section-tag reveal">उच्च-स्तरीय रक्षा · HIGH-PROFILE DEFENCE</div>
+            <h3 className="section-title reveal" style={{ fontSize: '1.8rem' }}>
+              ऐसे मामले जहाँ <span className="text-gradient">हम प्रभुत्व रखते हैं</span>
+            </h3>
+            <div className="grid-3 reveal" style={{ marginTop: '2rem' }}>
+              {[
+                { icon: '⚡', title: 'अग्रिम जमानत', body: 'Anticipatory Bail - गैर-जमानती मामलों में भी उच्च न्यायालय स्तर पर तत्काल राहत प्रदान कराना। Section 438 CrPC की गहरी समझ और न्यायिक मिसालों का सटीक प्रयोग।' },
+                { icon: '📑', title: 'FIR रद्द करना', body: 'CrPC Section 482 / BNSS के तहत प्रारंभिक चरण में ही अभियोजन को निष्प्रभावी करना। झूठी FIR को उच्च न्यायालय में चुनौती देना और त्वरित राहत दिलाना।' },
+                { icon: '🏛️', title: 'अपील एवं पुनरीक्षण', body: 'सेशन कोर्ट से सुप्रीम कोर्ट तक - दोषसिद्धि को चुनौती देना, सजा कम कराना और पुनर्विचार याचिकाएँ। हमारी फर्म के पास इन क्षेत्रों में विस्तृत अनुभव उपलब्ध है।' },
+              ].map((item, i) => (
+                <div key={i} className="why-card">
+                  <span className="why-icon">{item.icon}</span>
+                  <h4 className="why-title hindi">{item.title}</h4>
+                  <p className="why-body hindi">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── PRACTICE / COURTS SECTION ───────────────────────────────────────────────
+function PracticeSection() {
+  return (
+    <section id="practice" className="section-pad" style={{ background: 'var(--obsidian)' }}>
+      <div className="container">
+        <div className="section-tag reveal">न्यायालय क्षेत्र · JURISDICTIONS</div>
+        <h2 className="section-title reveal">
+          हर न्यायालय में <span className="text-gradient">हमारी</span> उपस्थिति
+        </h2>
+        <p className="section-body hindi reveal" style={{ marginBottom: '3.5rem' }}>
+          राजवर्धन एंड एसोसिएट्स नई दिल्ली से देहरादून तक, निम्मनलिखित पांच महत्वपूर्ण क्षेत्रों में
+          अपनी मज़बूत उपस्थिति दर्ज कराता है। हर मंच पर हमारी रणनीति अलग और तैयारी सम्पूर्ण होती है।
+        </p>
+        <div className="grid-3 reveal">
+          {[
+            {
+              img: '/images/court-interior.jpg',
+              title: 'सिविल न्यायालय',
+              court: 'CJ (J.D.) Jansath · CJ (S.D.) Muzaffarnagar',
+              body: 'भूमि अधिग्रहण, संपत्ति विभाजन, दीवानी अनुबंध, विशिष्ट अनुपालन, पारिवारिक विवाद, उत्तराधिकार - हर मुकदमा सटीक दस्तावेजी रणनीति और कानूनी विद्वत्ता से लडा जाता है।',
+            },
+            {
+              img: '/images/justice-scales.jpg',
+              title: 'आपराधिक न्यायालय',
+              court: 'CJM First Class Jansath · Sessions Court MZN',
+              body: 'हत्या, NDPS, दहेज उत्पीड़न, साइबर अपराध, Arms Act - FIR दर्ज होने से लेकर अंतिम निर्णय तक। जमानत याचिकाओं में हमारी फर्म की सफलता दर उल्लेखनीय रही है।',
+            },
+            {
+              img: '/images/law-books.jpg',
+              title: 'राजस्व एवं उच्च न्यायालय',
+              court: 'SDM Jansath · Allahabad High Court · Supreme Court',
+              body: 'खतौनी, नामांतरण, बंदोबस्त और भू-अधिग्रहण के साथ इलाहाबाद उच्च न्यायालय में पुनरीक्षण, अपील और रिट याचिकाएँ। आवश्यकता पडने पर सर्वोच्च न्यायालय में भी प्रतिनिधित्व की सुविधा उपलब्ध है।',
+            },
+          ].map((item, i) => (
+            <div key={i} className="practice-card reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+              <div className="practice-img">
+                <img src={item.img} alt={item.title} />
+                <div className="practice-img-overlay" />
+              </div>
+              <div className="practice-content">
+                <h3 className="practice-title hindi">{item.title}</h3>
+                <div className="practice-court">{item.court}</div>
+                <p className="practice-body hindi">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Jurisdictions Map */}
+        <div className="reveal" style={{ marginTop: '3rem', padding: '2.5rem', background: 'rgba(18,15,12,0.7)', borderRadius: '24px', border: '1px solid rgba(212,175,114,0.1)' }}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+            सेवा क्षेत्र · <span className="champagne">Service Jurisdictions</span>
+          </h3>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[
+              { city: 'नई दिल्ली', en: 'New Delhi', court: 'Supreme Court of India' },
+              { city: 'जानसठ', en: 'Jansath', court: 'Civil & Criminal Courts' },
+              { city: 'मुजफ्फरनगर', en: 'Muzaffarnagar', court: 'District & Sessions Court' },
+              { city: 'हरिद्वार', en: 'Haridwar', court: 'District Court' },
+              { city: 'देहरादून', en: 'Dehradun', court: 'Uttarakhand HC' },
+            ].map((loc, i) => (
+              <div key={i} style={{
+                textAlign: 'center',
+                padding: '1.2rem 1.8rem',
+                background: 'rgba(212,175,114,0.04)',
+                border: '1px solid rgba(212,175,114,0.1)',
+                borderRadius: '16px',
+                minWidth: '160px',
+                transition: 'all 0.3s',
+              }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,175,114,0.35)';
+                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(212,175,114,0.08)';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,175,114,0.1)';
+                  (e.currentTarget as HTMLDivElement).style.background = 'rgba(212,175,114,0.04)';
+                }}
+              >
+                <div style={{ fontSize: '1.5rem', marginBottom: '0.4rem' }}>📍</div>
+                <div className="hindi" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif", fontWeight: 600, fontSize: '1rem', color: 'var(--text-ivory)' }}>{loc.city}</div>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.58rem', letterSpacing: '1.5px', color: 'var(--champagne-dark)', margin: '0.2rem 0' }}>{loc.en}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-dimmer)' }}>{loc.court}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── PROCESS SECTION ─────────────────────────────────────────────────────────
+function ProcessSection() {
+  const steps = [
+    {
+      num: '01', title: 'प्रारंभिक परामर्श',
+      en: 'Initial Consultation',
+      body: 'प्रथम परामर्श सदैव निःशुल्क। आपकी समस्या को विस्तार से सुना जाएगा, तथ्यों का प्रारंभिक मूल्यांकन किया जाएगा और संभावित कानूनी रास्ते बताए जाएंगे। गोपनीयता पूर्णतः सुनिश्चित।'
+    },
+    {
+      num: '02', title: 'मुकदमे का सम्पूर्ण विश्लेषण तथा रणनीति',
+      en: 'Case Analysis & Strategy',
+      body: 'सभी उपलब्ध दस्तावेजों, FIR, चार्जशीट, गवाहों के बयान और साक्ष्यों का गहन विश्लेषण। विपक्षी पक्ष की कमजोरियों की पहचान और एक अभेद्य रणनीति का निर्माण।'
+    },
+    {
+      num: '03', title: 'न्याय दृष्टान्तो का शोध',
+      en: 'Precedent Research',
+      body: 'सुप्रीम कोर्ट और हाईकोर्ट के हजारों निर्णयों में से आपके मामले के अनुकूल न्याय दृष्टान्त को खोजना। विधि के नवीनतम व्याख्याओं का अध्ययन और उन्हें न्यायालय में प्रभावी ढंग से प्रस्तुत करना।'
+    },
+    {
+      num: '04', title: 'न्यायालय में प्रतिनिधित्व',
+      en: 'Court Representation',
+      body: 'तैयार की गई रणनीति को न्यायालय में पूर्ण विश्वास और तैयारी के साथ प्रस्तुत करना। प्रत्येक तारीख पर मजबूत दलीलें, प्रभावी क्रॉस-एग्जामिनेशन और दस्तावेजी साक्ष्यों का कुशल प्रयोग।'
+    },
+    {
+      num: '05', title: 'नियमित अपडेट एवं संचार',
+      en: 'Client Communication',
+      body: 'प्रत्येक तारीख के बाद क्लाइंट को विस्तृत जानकारी देना। मुकदमे की प्रगति, अगली रणनीति और किसी भी नए विकास के बारे में पारदर्शी संवाद। आपका भरोसा हमारी सबसे बडी पूंजी है।'
+    },
+    {
+      num: '06', title: 'अपील एवं अनुवर्ती कार्यवाही',
+      en: 'Appeals & Follow-up',
+      body: 'यदि निचली अदालत का निर्णय प्रतिकूल हो, तो उच्च न्यायालय और सर्वोच्च न्यायालय तक अपील की पूरी तैयारी। हम अंत तक आपके साथ खडे रहते हैं।'
+    },
+  ];
+
+  return (
+    <section id="process" className="section-pad" style={{ background: 'linear-gradient(180deg, var(--obsidian-2) 0%, var(--obsidian) 100%)' }}>
+      <div className="container">
+        <div className="grid-2" style={{ gap: '5rem' }}>
+          <div>
+            <div className="section-tag reveal">हमारी कार्यप्रणाली · OUR PROCESS</div>
+            <h2 className="section-title reveal">
+              न्याय की ओर <span className="text-gradient">हर कदम</span> सुनियोजित
+            </h2>
+            <p className="section-body hindi reveal" style={{ marginBottom: '3rem' }}>
+              हम मुकदमे को एक व्यवस्थित, चरण-दर-चरण प्रक्रिया के रूप में देखते हैं।
+              प्रारंभिक परामर्श से लेकर अंतिम निर्णय तक, हर कदम पर पूर्ण तैयारी
+              और पारदर्शिता हमारी पहचान है।
+            </p>
+            <div className="timeline reveal">
+              {[
+                { year: '2014', title: 'संस्थापना', body: 'जानसठ में राजवर्धन एंड एसोसिएट्स की स्थापना। सिविल और आपराधिक मामलों से शुरुआत।' },
+                { year: '2016', title: 'NDPS विशेषज्ञता', body: 'NDPS Act और आपराधिक रक्षा में विशेषज्ञता हासिल की। उच्च न्यायालय में सफल हस्तक्षेप।' },
+                { year: '2019', title: 'साइबर विधि', body: 'साइबर अपराध और डिजिटल साक्ष्य के क्षेत्र में विस्तार। IT Act मामलों में विशेष दक्षता।' },
+                { year: '2022', title: 'पाँच न्यायक्षेत्र', body: 'दिल्ली से देहरादून तक - पाँच न्यायक्षेत्रों में सक्रिय प्रतिनिधित्व। 500+ मुकदमे पूर्ण।' },
+                { year: '2025', title: 'नई दिल्ली कार्यालय', body: '500+ जीते गए मुकदमे। सर्वोच्च न्यायालय में प्रतिनिधित्व की शानदार व्यवस्था। पश्चिमी उत्तर प्रदेश का अग्रणी चैंबर।' },
+              ].map((item, i) => (
+                <div key={i} className="timeline-item reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
+                  <div className="timeline-dot" />
+                  <div className="timeline-year">{item.year}</div>
+                  <div className="timeline-title hindi">{item.title}</div>
+                  <div className="timeline-body hindi">{item.body}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="timeline reveal" style={{ paddingLeft: '0' }}>
+              {steps.map((step, i) => (
+                <div key={i} className="process-step reveal" style={{ transitionDelay: `${i * 0.08}s` }}>
+                  <div className="process-num">{step.num}</div>
+                  <div>
+                    <div className="process-title hindi">{step.title}</div>
+                    <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.58rem', letterSpacing: '2px', color: 'var(--champagne-dark)', marginBottom: '0.5rem' }}>{step.en}</div>
+                    <div className="process-body hindi">{step.body}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── QUOTE SECTION ────────────────────────────────────────────────────────────
+function QuoteSection() {
+  return (
+    <div className="quote-section">
+      <div className="quote-bg" />
+      <div className="quote-overlay" />
+      <div className="container">
+        <div className="quote-content reveal">
+          <div className="quote-mark">"</div>
+          <p className="quote-text">
+            न्याय वह है जो सत्य को शक्ति देता है,<br />
+            और शक्ति को सत्य की सेवा में नियुक्त करता है।
+          </p>
+          <div className="ornament-divider" style={{ justifyContent: 'center' }}>
+            <div className="ornament-divider-line" style={{ maxWidth: '80px' }} />
+            <div className="ornament-divider-icon">◆</div>
+            <div className="ornament-divider-line" style={{ maxWidth: '80px' }} />
+          </div>
+          <div className="quote-attr">VINCIT OMNIA VERITAS · सत्यमेव जयते</div>
+          <div style={{ marginTop: '2rem', fontFamily: "'Noto Sans Devanagari', sans-serif", fontSize: '1.1rem', color: 'var(--text-dim)', fontStyle: 'italic' }}>
+            - राजवर्धन एंड एसोसिएट्स का मूल दर्शन
           </div>
         </div>
       </div>
     </div>
-  </section>
+  );
+}
 
-  <!-- Expertise Cards (6 now) -->
-  <section id="expertise">
-    <div class="container">
-      <h2 class="section-title reveal">प्रमुख विधिक <span class="gold">विशेषज्ञताएँ</span></h2>
-      <div class="section-sub reveal hindi">हर क्षेत्र में गहरी पैठ, विधि के हर अक्षर पर अधिकार।</div>
-      <div class="card-grid">
-        <div class="glass-card reveal"><div class="card-icon">⚖️</div><h3>वैवाहिक एवं दहेज</h3><p class="hindi">IPC 498A, दहेज निषेध अधिनियम, घरेलू हिंसा। हम झूठे आरोपों को क्रॉस-एग्जामिनेशन से तोड़ते हैं।</p><p class="gold">Strategic defence & counter‑blast.</p></div>
-        <div class="glass-card reveal"><div class="card-icon">⚔️</div><h3>हत्या एवं जघन्य अपराध</h3><p class="hindi">IPC 302/307, अपहरण, NDPS – जहाँ ज़मानत दुर्लभ हो, वहाँ हम प्रक्रियात्मक खामियों से सज़ा पलट देते हैं।</p><p class="gold">Forensic dissection of evidence.</p></div>
-        <div class="glass-card reveal"><div class="card-icon">💻</div><h3>साइबर अपराध</h3><p class="hindi">IT Act 2000 (धारा 43,66,67), डिजिटल फोरेंसिक, ईमेल ट्रेल, हैकिंग, पहचान चोरी।</p><p class="gold">Digital evidence mastery.</p></div>
-        <div class="glass-card reveal"><div class="card-icon">📜</div><h3>राजस्व एवं भूमि विवाद</h3><p class="hindi">खतौनी, नामांतरण, चकबंदी, भू-अधिग्रहण – SDM से High Court तक पूर्ण प्रतिनिधित्व।</p><p class="gold">Decades of revenue litigation.</p></div>
-        <!-- New: महिला एवं बाल अपराध -->
-        <div class="glass-card reveal"><div class="card-icon">👩‍⚖️</div><h3>महिला एवं बाल अपराध</h3><p class="hindi">POCSO Act, बाल विवाह निषेध अधिनियम, महिला उत्पीड़न, कार्यस्थल पर यौन उत्पीड़न (POSH), गुडिया बनाम खटीना प्रकार के मामले। संवेदनशील एवं त्वरित न्याय के लिए समर्पित रणनीति।</p><p class="gold">Child rights & women safety – fast track litigation.</p></div>
-        <!-- New: 420, 467,468,471 + Arms Act, Excise Act -->
-        <div class="glass-card reveal"><div class="card-icon">🔐</div><h3>आर्थिक अपराध, धोखाधड़ी, Arms & Excise</h3><p class="hindi">IPC 420, 467, 468, 471 (कूटरचना, जालसाजी, धोखाधड़ी), Arms Act, Excise Act, Narcotics (NDPS) में विशेषज्ञता। हम अभियोजन के दस्तावेजों में विसंगतियाँ ढूंढते हैं और सबूतों की चेन ऑफ कस्टडी को चुनौती देते हैं।</p><p class="gold">Forgery, cheating, firearms, excise – comprehensive defence.</p></div>
-      </div>
-    </div>
-  </section>
+// ─── WHY US SECTION ───────────────────────────────────────────────────────────
+function WhyUsSection() {
+  const reasons = [
+    {
+      icon: '⚡', title: 'Pre‑emptive Strategy',
+      body: 'विपक्ष के तर्क को उसकी उत्पत्ति से पहले ही निष्प्रभावी करना। हम न्यायालय में प्रतिक्रिया नहीं देते हैं, बल्कि आक्रामक रणनीति से मुकदमे की दिशा तय करते हैं।'
+    },
+    {
+      icon: '🔬', title: 'साक्ष्य विश्लेषण',
+      body: 'हर दस्तावेज, हर गवाही को सूक्ष्मदर्शी से परखते हैं। FIR की भाषा से लेकर Forensic रिपोर्ट तक - कोई भी विसंगति हम नहीं छोडते।'
+    },
+    {
+      icon: '🛡️', title: 'अभेद्य बचाव कवच',
+      body: 'ऐसी रक्षा रणनीति जो अभियोजन के हर प्रयास को विफल कर दे। Chain of Custody की खामियाँ, प्रक्रियागत त्रुटियाँ - सब कुछ हमारे हथियार बनते हैं।'
+    },
+    {
+      icon: '📖', title: 'न्यायिक मिसालों का भंडार',
+      body: 'सुप्रीम कोर्ट और हाई कोर्ट के हजारों निर्णयों का व्यक्तिगत अध्ययन। हम सही समय पर सही मिसाल न्यायालय के सामने रखते हैं।'
+    },
+    {
+      icon: '⏱️', title: '24×7 आपातकालीन सेवा',
+      body: 'Anticipatory Bail, स्थगन आदेश, Emergency Habeas Corpus - दिन हो या रात, हम विधि की सेवा में, निर्दोषों की सहायता के लिए उपलब्ध हैं। देर से की गई कार्यवाही हमेशा न्याय को छीन लेती है, इसलिए देर न करें।'
+    },
+    {
+      icon: '🤝', title: 'पूर्ण गोपनीयता प्रतिज्ञा',
+      body: 'Attorney-Client Privilege हमारी प्रतिज्ञा है। आपकी हर बात, हर दस्तावेज पूर्णतः गोपनीय रखा जाता है। न्यास और विश्वास ही हमारी नींव है।'
+    },
+    {
+      icon: '💡', title: 'पारदर्शी शुल्क संरचना',
+      body: 'कोई छुपा हुआ खर्च नहीं। प्रारंभिक परामर्श निःशुल्क। शुल्क संरचना पहले ही स्पष्ट कर दी जाती है। आर्थिक पारदर्शिता हमारी नीति है।'
+    },
+    {
+      icon: '🌐', title: 'बहु-न्यायक्षेत्र विशेषज्ञता',
+      body: 'नई दिल्ली से देहरादून तक - पाँच न्यायक्षेत्रों में हमारी सक्रिय उपस्थिति। अलग-अलग राज्यों के कानून और प्रक्रियाओं की गहरी समझ।'
+    },
+    {
+      icon: '🏆', title: 'सिद्ध सफलता का इतिहास',
+      body: '500+ मुकदमों में विजय, 98% सफलता दर - यह केवल संख्याएँ नहीं, यह उन परिवारों का न्याय है जिनके जीवन हमने बदले हैं, जेल से मुक्ति के सफर को तय कराया है।'
+    },
+  ];
 
-  <!-- Additional Expertise Section (High-profile offences) to make longer -->
-  <section style="background: linear-gradient(135deg, #0E1629, #0A1128);">
-    <div class="container">
-      <h2 class="section-title reveal">उच्च-स्तरीय <span class="gold">आपराधिक रक्षा</span></h2>
-      <div class="section-sub reveal hindi">ऐसे मामले जहाँ सामान्य वकील हिचकिचाएँ, हमारी टीम चमकती है।</div>
-      <div class="card-grid">
-        <div class="glass-card reveal"><div class="card-icon">⚡</div><h3>जमानत याचिकाएँ</h3><p class="hindi">गैर-जमानती अपराधों में अंतरिम जमानत, अग्रिम जमानत, नियमित जमानत – उच्च न्यायालय तक त्वरित हस्तक्षेप।</p></div>
-        <div class="glass-card reveal"><div class="card-icon">📑</div><h3>FIR चुनौती एवं रद्द करना</h3><p class="hindi">Sec 482 CrPC के तहत अभियोजन को प्रारंभिक स्तर पर ही समाप्त करने हेतु रणनीति।</p></div>
-        <div class="glass-card reveal"><div class="card-icon">🏛️</div><h3>अपील एवं रिवीजन</h3><p class="hindi">सेशन कोर्ट से सुप्रीम कोर्ट तक दोषमुक्ति के लिए अपील।</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Practice Areas (3 courts) -->
-  <section id="practice">
-    <div class="container">
-      <h2 class="section-title reveal">हमारे <span class="gold">न्यायालय क्षेत्र</span></h2>
-      <div class="section-sub reveal hindi">हर मंच पर हमारी उपस्थिति विजय की गारंटी है।</div>
-      <div class="practice-grid">
-        <div class="practice-card reveal"><div class="practice-img"><img src="images/philosophy-court.jpg" alt="Civil Court"></div><div class="practice-content"><h3>सिविल विधि</h3><p>CJ (J.D.) Jansath · CJ (S.D.) Muzaffarnagar</p><p class="hindi">भूमि अधिग्रहण, संपत्ति विभाजन, अनुबंध, विशिष्ट अनुपालन – हर मुकदमा सटीक रणनीति से लड़ा जाता है।</p></div></div>
-        <div class="practice-card reveal"><div class="practice-img"><img src="images/expertise-criminal.jpg" alt="Criminal Court"></div><div class="practice-content"><h3>आपराधिक विधि</h3><p>CJM First Class Jansath · Sessions Court MZN</p><p class="hindi">हत्या, NDPS, दहेज, साइबर अपराध – FIR से उच्च न्यायालय तक सम्पूर्ण रक्षा।</p></div></div>
-        <div class="practice-card reveal"><div class="practice-img"><img src="images/expertise-ndps.jpg" alt="Revenue Court"></div><div class="practice-content"><h3>राजस्व विधि</h3><p>SDM Jansath · Nayab Tehsildars MZN</p><p class="hindi">खतौनी, नामांतरण, बंदोबस्त – भूमि विवादों में दशकों का अनुभव।</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us (6 reasons) -->
-  <section id="why">
-    <div class="container">
-      <h2 class="section-title reveal">क्यों चुनें हमें? <span class="gold">छह प्रमुख कारण</span></h2>
-      <div class="why-grid">
-        <div class="why-card reveal"><div class="card-icon">⚡</div><h3>Pre‑emptive Strategy</h3><p class="hindi">विपक्ष के तर्क को जन्म से पहले ही निष्प्रभावी करना।</p></div>
-        <div class="why-card reveal"><div class="card-icon">🔬</div><h3>साक्ष्य विश्लेषण</h3><p class="hindi">हर दस्तावेज़, हर गवाही को सूक्ष्मता से परखा जाता है।</p></div>
-        <div class="why-card reveal"><div class="card-icon">🛡️</div><h3>अभेद्य बचाव</h3><p class="hindi">ऐसी रक्षा दीवार कि अभियोजन के प्रयास विफल हो जाएँ।</p></div>
-        <div class="why-card reveal"><div class="card-icon">📖</div><h3>मिसालों का भंडार</h3><p class="hindi">सुप्रीम कोर्ट और हाई कोर्ट के हजारों निर्णयों का गहन अध्ययन।</p></div>
-        <div class="why-card reveal"><div class="card-icon">⏱️</div><h3>त्वरित प्रतिक्रिया</h3><p class="hindi">एंटीसिपेटरी बेल, स्टे – 24x7 आपातकालीन सेवा।</p></div>
-        <div class="why-card reveal"><div class="card-icon">🤝</div><h3>पूर्ण गोपनीयता</h3><p class="hindi">अटॉर्नी-क्लाइंट विशेषाधिकार हमारी प्रतिज्ञा है।</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Caveat (balanced) -->
-  <div class="container">
-    <div class="caveat reveal">
-      <h3 class="gold">⚠️ सूचना – प्रतिवादी हितधारकों के लिए</h3>
-      <p class="hindi">राजवर्धन एंड एसोसिएट्स की टीम प्रत्येक मुकदमे में पूर्ण तैयारी, तथ्यों की विस्तृत जाँच और कानूनी मिसालों के सटीक प्रयोग के लिए जानी जाती है। हम विपक्ष के हर दावे को साक्ष्य और विधि के आधार पर चुनौती देते हैं। न्यायालय में हमारी उपस्थिति का अर्थ है गहन शोध और अटूट प्रतिबद्धता।</p>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title reveal">संपर्क करें</h2>
-      <div class="contact-grid">
-        <div>
-          <div class="contact-card"><div class="card-icon">📞</div><div><h3>फ़ोन (आपातकालीन)</h3><a href="tel:+917466806524" class="gold">+91 74668 06524</a></div></div>
-          <div class="contact-card"><div class="card-icon">✉️</div><div><h3>ईमेल</h3><a href="mailto:legaleaglemzn@gmail.com" class="gold">legaleaglemzn@gmail.com</a></div></div>
-          <div class="contact-card"><div class="card-icon">📍</div><div><h3>मुख्य कार्यालय</h3><p>जानसठ, जिला मुजफ्फरनगर, उत्तर प्रदेश – 251314</p></div></div>
-          <div class="contact-card"><div class="card-icon">🏛️</div><div><h3>सेवा क्षेत्र</h3><p>नई दिल्ली · जानसठ · मुजफ्फरनगर · हरिद्वार · देहरादून</p></div></div>
+  return (
+    <section id="why" className="section-pad" style={{ background: 'var(--obsidian)' }}>
+      <div className="container">
+        <div style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto 4rem' }}>
+          <div className="section-tag reveal" style={{ justifyContent: 'center' }}>क्यों हम? · WHY CHOOSE US</div>
+          <h2 className="section-title reveal">
+            छह नहीं, <span className="text-gradient">नौ कारण</span> जो हमें अलग बनाते हैं
+          </h2>
+          <p className="section-body hindi reveal" style={{ margin: '0 auto' }}>
+            राजवर्धन एंड एसोसिएट्स सिर्फ एक लॉ फर्म नहीं - यह न्याय के प्रति प्रतिबद्धता है।
+            जानिए वे कारण जो हमारे क्लाइंट्स को बार-बार हमारे पास लाते हैं।
+          </p>
         </div>
-        <div class="reveal"><img src="images/contact-office.jpg" alt="Office" style="border-radius: 24px; width:100%;"></div>
+        <div className="grid-3">
+          {reasons.map((reason, i) => (
+            <div key={i} className="why-card reveal" style={{ transitionDelay: `${i * 0.07}s` }}>
+              <span className="why-icon">{reason.icon}</span>
+              <h3 className="why-title hindi">{reason.title}</h3>
+              <p className="why-body hindi">{reason.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── CAVEAT SECTION ───────────────────────────────────────────────────────────
+function CaveatSection() {
+  return (
+    <section className="section-pad-sm" style={{ background: 'var(--obsidian-2)' }}>
+      <div className="container">
+        <div className="caveat-block reveal">
+          <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'flex-start' }}>
+            <div style={{ fontSize: '2rem', flexShrink: 0 }}>⚠️</div>
+            <div>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.8rem', color: 'var(--text-ivory)' }}>
+                विरोधी पक्ष के लिए विशेष सूचना
+              </h3>
+              <p className="hindi" style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.85, marginBottom: '1rem' }}>
+                राजवर्धन एंड एसोसिएट्स की टीम प्रत्येक मुकदमे में पूर्ण तैयारी, तथ्यों की
+                विस्तृत जाँच और न्यायिक मिसालों के सटीक प्रयोग के लिए जानी जाती है।
+                हम विपक्ष के हर दावे को साक्ष्य और विधि के आधार पर चुनौती देते हैं।
+                FIR की प्रामाणिकता, विवेचना की प्रक्रिया, chain of custody और गवाहों की
+                विश्वसनीयता - हर पहलू की गहन जाँच की जाती है।
+              </p>
+              <p className="hindi" style={{ fontSize: '0.88rem', color: 'var(--text-dimmer)', lineHeight: 1.8 }}>
+                <em>हमारी उपस्थिति का अर्थ है - गहन शोध, अटूट प्रतिबद्धता और न्यायालय में
+                निर्भीक प्रतिनिधित्व। यह एक विधिक सूचना है, दंभ नहीं।</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── CONTACT SECTION ─────────────────────────────────────────────────────────
+function ContactSection() {
+  return (
+    <section id="contact" className="section-pad" style={{ background: 'linear-gradient(180deg, var(--obsidian) 0%, var(--dark-brown) 100%)' }}>
+      <div className="container">
+        <div className="section-tag reveal">संपर्क · GET IN TOUCH</div>
+        <h2 className="section-title reveal">
+          अपनी कानूनी समस्या का{' '}
+          <span className="text-gradient">समाधान आज ही</span> शुरू करें
+        </h2>
+        <p className="section-body hindi reveal" style={{ marginBottom: '3.5rem' }}>
+          प्रथम परामर्श सदैव निःशुल्क है। अपनी स्थिति बताएँ - हम सुनेंगे, समझेंगे और
+          सबसे उचित कानूनी रास्ता सुझाएंगे। देर करना कभी-कभी अधिकार खो देने का सबसे बडा कारण बनता है।
+        </p>
+        <div className="grid-2" style={{ gap: '3rem' }}>
+          <div className="reveal-left">
+            <div className="contact-info-card">
+              <div className="contact-icon">📞</div>
+              <div>
+                <div className="contact-label">आपातकालीन हेल्पलाइन · EMERGENCY</div>
+                <div className="contact-value">
+                  <a href="tel:+917466806524">+91 74668 06524</a>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-dimmer)', marginTop: '0.2rem' }}>24×7 उपलब्ध · 24/7 Available</div>
+              </div>
+            </div>
+            <div className="contact-info-card">
+              <div className="contact-icon">✉️</div>
+              <div>
+                <div className="contact-label">ईमेल · EMAIL</div>
+                <div className="contact-value">
+                  <a href="mailto:legaleaglemzn@gmail.com">legaleaglemzn@gmail.com</a>
+                </div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-dimmer)', marginTop: '0.2rem' }}>48 घंटे में उत्तर · Reply within 48 hrs</div>
+              </div>
+            </div>
+            <div className="contact-info-card">
+              <div className="contact-icon">📍</div>
+              <div>
+                <div className="contact-label">मुख्य कार्यालय · MAIN OFFICE</div>
+                <div className="contact-value hindi">
+                  जानसठ, जिला मुजफ्फरनगर,<br />
+                  उत्तर प्रदेश - 251314
+                </div>
+              </div>
+            </div>
+            <div className="contact-info-card">
+              <div className="contact-icon">🏛️</div>
+              <div>
+                <div className="contact-label">सेवा क्षेत्र · JURISDICTION</div>
+                <div className="contact-value">
+                  नई दिल्ली · जानसठ · मुजफ्फरनगर · हरिद्वार · देहरादून
+                </div>
+              </div>
+            </div>
+            <div className="contact-info-card">
+              <div className="contact-icon">⏰</div>
+              <div>
+                <div className="contact-label">कार्यालय समय · OFFICE HOURS</div>
+                <div className="contact-value hindi">
+                  सोमवार–शनिवार: 10:00 AM – 4:00 PM<br />
+                  <span style={{ color: 'var(--text-dimmer)', fontSize: '0.82rem' }}>आपात स्थिति में: 24×7</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(139,26,26,0.08)', border: '1px solid rgba(139,26,26,0.2)', borderRadius: '16px' }}>
+              <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.65rem', letterSpacing: '2px', color: 'var(--champagne-dark)', marginBottom: '0.8rem' }}>FREE FIRST CONSULTATION</div>
+              <p className="hindi" style={{ fontSize: '0.88rem', color: 'var(--text-dim)', lineHeight: 1.75 }}>
+                प्रथम परामर्श पूर्णतः निःशुल्क। फोन करें, ईमेल करें या व्यक्तिगत रूप से मिलें।
+                आपकी समस्या को गोपनीयता के साथ सुनकर समाधान किया जाएगा।
+              </p>
+              <a href="tel:+917466806524" className="btn-primary" style={{ marginTop: '1rem', display: 'inline-flex' }}>
+                <span>📞</span>
+                <span>अभी कॉल करें</span>
+              </a>
+            </div>
+          </div>
+          <div className="reveal-right">
+            <div style={{ borderRadius: '24px', overflow: 'hidden', height: '450px', marginBottom: '2rem', border: '1px solid rgba(212,175,114,0.12)' }}>
+              <img src="/images/office.jpg" alt="Office" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{ padding: '2rem', background: 'rgba(18,15,12,0.7)', borderRadius: '20px', border: '1px solid rgba(212,175,114,0.10)' }}>
+              <h4 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', marginBottom: '1rem' }}>
+                त्वरित संपर्क / <span className="champagne">Quick Connect</span>
+              </h4>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a href="tel:+917466806524" className="btn-primary" style={{ fontSize: '0.68rem' }}>
+                  <span>📞</span> Call Now
+                </a>
+                <a href="mailto:legaleaglemzn@gmail.com" className="btn-outline" style={{ fontSize: '0.68rem' }}>
+                  <span>✉</span> Email
+                </a>
+                <a href="https://wa.me/917466806524" className="btn-outline" style={{ fontSize: '0.68rem', borderColor: 'rgba(37,211,102,0.4)', color: '#25D366' }} target="_blank" rel="noopener noreferrer">
+                  <span>💬</span> WhatsApp
+                </a>
+              </div>
+              <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(212,175,114,0.08)' }}>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.62rem', letterSpacing: '2px', color: 'var(--champagne-dark)', marginBottom: '0.6rem' }}>BAR REGISTRATION</div>
+                <div className="hindi" style={{ fontSize: '0.85rem', color: 'var(--text-dim)', lineHeight: 1.7 }}>
+                  तहसील बार ऐसोसियेशन जानसठ, जिला बार एसोसिएशन, मुजफ्फरनगर · उ.प्र. बार काउंसिल पंजीकृत
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── CTA SECTION ─────────────────────────────────────────────────────────────
+function CTASection() {
+  return (
+    <div className="cta-section" style={{ background: 'linear-gradient(135deg, var(--dark-brown), var(--obsidian), var(--crimson-dark) 150%)' }}>
+      <div className="cta-bg-glow" />
+      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+        <div className="reveal">
+          <div style={{ fontSize: '3rem', marginBottom: '1.5rem', opacity: 0.6 }}>⚖️</div>
+          <h2 className="section-title" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+            न्याय के लिए <span className="text-gradient">अभी कदम उठाएँ</span>
+          </h2>
+          <p className="hindi" style={{ maxWidth: '600px', margin: '1.5rem auto', color: 'var(--text-dim)', fontSize: '1.05rem', lineHeight: 1.85 }}>
+            हर क्षण मूल्यवान है। जितनी जल्दी आप हमसे संपर्क करें, उतना अधिक हम आपके
+            लिए कर सकते हैं। प्रथम परामर्श निःशुल्क और पूर्णतः गोपनीय है।
+          </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '2.5rem' }}>
+            <a href="tel:+917466806524" className="btn-primary">
+              <span>📞</span> अभी कॉल करें
+            </a>
+            <a href="mailto:legaleaglemzn@gmail.com" className="btn-outline">
+              <span>✉</span> ईमेल लिखें
+            </a>
+            <a href="https://wa.me/917466806524" className="btn-outline" style={{ borderColor: 'rgba(37,211,102,0.4)', color: '#25D366' }} target="_blank" rel="noopener noreferrer">
+              <span>💬</span> WhatsApp
+            </a>
+          </div>
+          <div style={{ marginTop: '3rem', fontFamily: "'Cinzel', serif", letterSpacing: '6px', color: 'rgba(212,175,114,0.3)', fontSize: '0.75rem' }}>
+            VINCIT OMNIA VERITAS · सत्यमेव जयते · TRUTH CONQUERS ALL
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  );
+}
 
-  <!-- Extra CTA / Satyamev Jayate -->
-  <section style="background: linear-gradient(120deg, #0A1128, #020617); text-align:center; position:relative; overflow:hidden;">
-    <div class="container">
-      <div style="font-size: 3rem; opacity: 0.1; position: absolute; top: 20px; right: 20px;">🕉️</div>
-      <h2 class="section-title">न्याय के लिए अब समय आ गया है</h2>
-      <p class="hindi" style="max-width:600px; margin:0 auto;">प्रथम परामर्श सदैव निःशुल्क है। अपनी कानूनी समस्या का समाधान आज ही प्रारंभ करें।</p>
-      <div class="btn-group" style="justify-content:center; margin-top:2rem;">
-        <a href="tel:+917466806524" class="btn-primary">अभी कॉल करें</a>
-        <a href="mailto:legaleaglemzn@gmail.com" class="btn-outline">ईमेल लिखें</a>
+// ─── FOOTER ───────────────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div>
+            <div className="footer-logo">R & A</div>
+            <div className="footer-tagline">राजवर्धन एंड एसोसिएट्स</div>
+            <div style={{ margin: '1rem 0', width: '40px', height: '1px', background: 'linear-gradient(90deg, var(--crimson), var(--champagne-dark))' }} />
+            <p style={{ fontSize: '0.83rem', color: 'var(--text-dimmer)', lineHeight: 1.8, marginBottom: '1rem' }}>
+              पश्चिमी उत्तर प्रदेश का अग्रणी विधिक संस्थान।<br />
+              न्याय, विधि और सत्य के प्रति अटूट प्रतिबद्धता।
+            </p>
+            <div style={{ fontFamily: "'Cinzel', serif", fontSize: '0.6rem', letterSpacing: '3px', color: 'rgba(212,175,114,0.3)' }}>
+              EST. 2014
+            </div>
+          </div>
+          <div>
+            <div className="footer-heading">विधिक क्षेत्र</div>
+            {['आपराधिक विधि', 'सिविल विधि', 'राजस्व विधि', 'NDPS Cases', 'साइबर अपराध', 'महिला एवं बाल संरक्षण', 'Arms & Excise Act', 'धोखाधड़ी एवं जालसाजी'].map((l, i) => (
+              <a key={i} href="#expertise" className="footer-link hindi">{l}</a>
+            ))}
+          </div>
+          <div>
+            <div className="footer-heading">न्यायालय</div>
+            {['CJ (J.D.) Jansath', 'CJM First Class Jansath', 'Sessions Court MZN', 'SDM Jansath', 'Allahabad High Court', 'Supreme Court, New Delhi', 'Haridwar District Court', 'Dehradun Courts'].map((l, i) => (
+              <a key={i} href="#practice" className="footer-link">{l}</a>
+            ))}
+          </div>
+          <div>
+            <div className="footer-heading">संपर्क</div>
+            <a href="tel:+917466806524" className="footer-link">📞 +91 74668 06524</a>
+            <a href="mailto:legaleaglemzn@gmail.com" className="footer-link">✉ legaleaglemzn@gmail.com</a>
+            <a href="https://wa.me/917466806524" className="footer-link">💬 WhatsApp</a>
+            <div className="footer-heading" style={{ marginTop: '1.5rem' }}>सेवा क्षेत्र</div>
+            {['नई दिल्ली', 'जानसठ', 'मुजफ्फरनगर', 'हरिद्वार', 'देहरादून'].map((l, i) => (
+              <a key={i} href="#contact" className="footer-link hindi">{l}</a>
+            ))}
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="footer-copy">© 2014–2026 RAJVARDHAN & ASSOCIATES · ALL RIGHTS RESERVED</div>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontSize: '0.9rem', color: 'rgba(212,175,114,0.3)' }}>
+            Vincit Omnia Veritas · सत्यमेव जयते
+          </div>
+        </div>
       </div>
-      <div style="margin-top: 2rem; font-family: 'Playfair Display'; letter-spacing: 4px; color: var(--gold-dark);">सत्यमेव जयते</div>
-    </div>
-  </section>
-</main>
+    </footer>
+  );
+}
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div><div class="logo" style="margin-bottom:0.5rem;">R&A</div><p>© 2014–2026 राजवर्धन एंड एसोसिएट्स</p><p class="hindi">सत्यमेव जयते — Vincit Omnia Veritas</p><div style="font-size: 1.5rem; opacity:0.2;">🕉️</div></div>
-      <div><h4>विधिक क्षेत्र</h4><a href="#expertise">आपराधिक विधि</a><br><a href="#expertise">सिविल विधि</a><br><a href="#expertise">राजस्व विधि</a><br><a href="#expertise">महिला एवं बाल अपराध</a><br><a href="#expertise">आर्थिक अपराध, Arms, Excise</a></div>
-      <div><h4>न्यायालय</h4><a href="#">जिला न्यायालय MZN</a><br><a href="#">सेशन कोर्ट</a><br><a href="#">इलाहाबाद हाई कोर्ट</a><br><a href="#">सुप्रीम कोर्ट (नई दिल्ली)</a></div>
-      <div><h4>सम्पर्क</h4><a href="tel:+917466806524">फ़ोन</a><br><a href="mailto:legaleaglemzn@gmail.com">ईमेल</a><br><a href="#contact">कार्यालय आएँ</a><br><a href="#">आपातकालीन हेल्पलाइन</a></div>
-    </div>
-  </div>
-</footer>
+// ─── MAIN APP ─────────────────────────────────────────────────────────────────
+export default function App() {
+  const [preloaderDone, setPreloaderDone] = useState(false);
+  const [showBackTop, setShowBackTop] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorRingRef = useRef<HTMLDivElement>(null);
 
-<button id="backToTop" style="position:fixed; bottom:20px; right:20px; background:var(--gold); border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; display:none; z-index:99; color:#0A1128; font-weight:bold;">↑</button>
-
-<script>
   // Preloader
-  let prog = 0;
-  const fillBar = document.getElementById('preFill');
-  const preloaderDiv = document.getElementById('preloader');
-  const interval = setInterval(() => {
-    prog += Math.random() * 5 + 2;
-    if(prog >= 100) {
-      prog = 100;
-      clearInterval(interval);
-      preloaderDiv.classList.add('done');
-    }
-    if(fillBar) fillBar.style.width = prog + '%';
-  }, 35);
+  useEffect(() => {
+    let prog = 0;
+    const bar = document.getElementById('preBar');
+    const iv = setInterval(() => {
+      prog += Math.random() * 4 + 2;
+      if (prog >= 100) {
+        prog = 100;
+        clearInterval(iv);
+        setTimeout(() => setPreloaderDone(true), 400);
+      }
+      if (bar) bar.style.width = prog + '%';
+    }, 35);
+    return () => clearInterval(iv);
+  }, []);
 
-  // Mobile menu
-  const mobBtn = document.getElementById('mobileBtn');
-  const mobNav = document.getElementById('mobileNav');
-  mobBtn?.addEventListener('click', () => mobNav.classList.toggle('open'));
-  document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => mobNav.classList.remove('open')));
-
-  // Nav scroll + active
-  const navBar = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 50) navBar.classList.add('scrolled');
-    else navBar.classList.remove('scrolled');
-    let current = '';
-    document.querySelectorAll('section[id]').forEach(section => {
-      const top = section.offsetTop - 100;
-      if(scrollY >= top) current = section.getAttribute('id');
-    });
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.classList.remove('active');
-      if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
-    });
-  });
+  // Custom cursor
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.left = e.clientX - 6 + 'px';
+        cursorRef.current.style.top = e.clientY - 6 + 'px';
+      }
+      if (cursorRingRef.current) {
+        setTimeout(() => {
+          if (cursorRingRef.current) {
+            cursorRingRef.current.style.left = e.clientX - 20 + 'px';
+            cursorRingRef.current.style.top = e.clientY - 20 + 'px';
+          }
+        }, 80);
+      }
+    };
+    window.addEventListener('mousemove', moveCursor);
+    return () => window.removeEventListener('mousemove', moveCursor);
+  }, []);
 
   // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
-  }, { threshold: 0.2 });
-  reveals.forEach(r => revealObs.observe(r));
-
-  // Counter
-  const counters = document.querySelectorAll('.stat-number');
-  let counted = false;
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting && !counted) {
-        counted = true;
-        counters.forEach(c => {
-          const target = parseInt(c.getAttribute('data-target'));
-          let curr = 0;
-          const step = target / 60;
-          const update = () => {
-            curr += step;
-            if(curr < target) {
-              c.innerText = Math.floor(curr);
-              requestAnimationFrame(update);
-            } else c.innerText = target;
-          };
-          update();
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
         });
-      }
-    });
-  }, { threshold: 0.5 });
-  const statsSection = document.querySelector('.stat-grid');
-  if(statsSection) counterObs.observe(statsSection);
+      },
+      { threshold: 0.12 }
+    );
+    const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    elements.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, [preloaderDone]);
 
   // Back to top
-  const btt = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 800) btt.style.display = 'block';
-    else btt.style.display = 'none';
-  });
-  btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  useEffect(() => {
+    const onScroll = () => setShowBackTop(window.scrollY > 800);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  // Smooth anchor
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if(href === "#" || href === "") return;
-      const target = document.querySelector(href);
-      if(target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  // 3D tilt effect on cards
+  useEffect(() => {
+    const cards = document.querySelectorAll('.tilt-card');
+    const handleMove = (e: MouseEvent) => {
+      const card = e.currentTarget as HTMLElement;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+    };
+    const handleLeave = (e: MouseEvent) => {
+      const card = e.currentTarget as HTMLElement;
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+      card.style.transition = 'transform 0.6s ease';
+    };
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', handleMove as EventListener);
+      card.addEventListener('mouseleave', handleLeave as EventListener);
     });
-  });
-</script>
-</body>
-</html>
+    return () => {
+      cards.forEach((card) => {
+        card.removeEventListener('mousemove', handleMove as EventListener);
+        card.removeEventListener('mouseleave', handleLeave as EventListener);
+      });
+    };
+  }, [preloaderDone]);
+
+  return (
+    <>
+      <div className="noise-overlay" />
+      <div className="mesh-bg" />
+      <div className="custom-cursor" ref={cursorRef} />
+      <div className="custom-cursor-ring" ref={cursorRingRef} />
+      <div className="watermark">⚖️</div>
+
+      <Preloader done={preloaderDone} />
+      <Navbar />
+      <main>
+        <HeroSection />
+        <Marquee />
+        <AboutSection />
+        <ExpertiseSection />
+        <QuoteSection />
+        <PracticeSection />
+        <ProcessSection />
+        <WhyUsSection />
+        <CaveatSection />
+        <ContactSection />
+        <CTASection />
+      </main>
+      <Footer />
+
+      <button
+        className={`back-to-top${showBackTop ? ' visible' : ''}`}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
+    </>
+  );
+}
