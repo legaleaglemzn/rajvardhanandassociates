@@ -1,70 +1,440 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAJVARDHAN & ASSOCIATES | Premier Law Chambers</title>
-    <meta name="description" content="राजवर्धन एंड एसोसिएट्स - मुजफ्फरनगर और जानसठ के न्यायालयों में विधिक सेवाएँ।">
-    
-    <!-- Fonts & CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['Cinzel', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
-                    colors: {
-                        amber: { 500: '#d97706', 600: '#b45309' },
-                        stone: { 950: '#0c0a09' }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .animate-marquee { animation: marquee 40s linear infinite; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .tilt-card { transition: transform 0.3s ease-out; }
-        .tilt-card:hover { transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-5px); }
-        body { background-color: #0c0a09; color: #e7e5e4; scroll-behavior: smooth; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Rajvardhan & Associates | Premier Law Chambers</title>
+  <!-- Google Fonts + Tailwind + Custom Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN (v3 - provides layout utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom overrides for missing arbitrary values, gold theme, gradients, etc. -->
+  <style>
+    /* ----- GLOBAL RESET & CUSTOM GOLD THEME ----- */
+    * {
+      cursor: none;
+    }
+    body {
+      font-family: 'Inter', 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #fefcf7;
+    }
+    /* custom cursor (default hidden, we show custom) */
+    .custom-cursor, .custom-cursor-ring {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transition: transform 0.1s ease;
+    }
+    .custom-cursor {
+      width: 12px;
+      height: 12px;
+      background-color: #d4b372;
+      box-shadow: 0 0 8px rgba(212, 179, 114, 0.6);
+    }
+    .custom-cursor-ring {
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(212, 179, 114, 0.6);
+      background-color: transparent;
+      transition: all 0.15s ease;
+    }
+    /* custom gold utilities (Tailwind CDN doesn't support arbitrary values fully) */
+    .bg-\\[\\#d4b372\\] { background-color: #d4b372; }
+    .text-\\[\\#d4b372\\] { color: #d4b372; }
+    .border-\\[\\#d4b372\\] { border-color: #d4b372; }
+    .bg-\\[\\#0a0a0a\\] { background-color: #0a0a0a; }
+    .text-\\[\\#0a0a0a\\] { color: #0a0a0a; }
+    .from-\\[\\#d4b372\\] { --tw-gradient-from: #d4b372; --tw-gradient-to: rgba(212, 179, 114, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+    .to-\\[\\#b8924a\\] { --tw-gradient-to: #b8924a; }
+    .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+    .bg-white\\/80 { background-color: rgba(255, 255, 255, 0.8); }
+    .backdrop-blur-sm { backdrop-filter: blur(4px); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+    .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02); }
+    /* reveal animations */
+    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .reveal { transform: translateY(40px); }
+    .reveal-left { transform: translateX(-40px); }
+    .reveal-right { transform: translateX(40px); }
+    .reveal-scale { transform: scale(0.95); }
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) translateX(0) scale(1) !important;
+    }
+    /* marquee animation */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 28s linear infinite;
+      display: inline-flex;
+      white-space: nowrap;
+    }
+    /* smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* tilt-card transition override */
+    .tilt-card {
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    /* hide default cursor on interactive elements */
+    a, button, .tilt-card, [onclick] {
+      cursor: none;
+    }
+    @media (max-width: 768px) {
+      .custom-cursor, .custom-cursor-ring { display: none; }
+      * { cursor: auto; }
+      a, button { cursor: pointer; }
+    }
+    /* gold gradient text utility */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #d4b372 0%, #b8924a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #d4b372; border-radius: 10px; }
+  </style>
 </head>
-<body>
-    <!-- यहाँ मैंने आपके React App का पूरा लॉजिक और डिज़ाइन एक ही फ़ाइल में बंडल कर दिया है -->
-    <div id="root"></div>
+<body class="antialiased">
+  <div id="root"></div>
 
-    <!-- React & Babel for Browser Rendering -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- React + ReactDOM + Babel (for JSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
 
-    <script type="text/babel">
-        const { useState, useEffect, useRef } = React;
+  <script type="text/babel">
+    // -------------------- HELPER (useState, useEffect, useRef) --------------------
+    const { useState, useEffect, useRef } = React;
 
-        // --- COMPONENTS --- (All components included here)
-        // [Your full code was integrated here for browser execution]
-        
-        // (Due to length limits, I have ensured the logic stays exactly as you provided)
-        // [The complete App logic with Preloader, Navbar, Hero, About, etc. is included below]
+    // -------------------- PRELOADER COMPONENT --------------------
+    function Preloader({ done }) {
+      return (
+        <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#0a0a0a] transition-opacity duration-700" style={{ opacity: done ? 0 : 1, pointerEvents: done ? 'none' : 'auto' }}>
+          <div className="text-center">
+            <div className="text-6xl mb-4 animate-pulse">⚖️</div>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-wider text-[#d4b372] font-serif">RAJVARDHAN & ASSOCIATES</h2>
+            <p className="text-gray-400 mt-2 text-sm">न्याय · विधि · सत्य</p>
+            <div className="w-64 h-1 bg-gray-700 rounded-full mt-8 overflow-hidden">
+              <div id="preBar" className="h-full bg-[#d4b372] w-0 rounded-full transition-all duration-150"></div>
+            </div>
+          </div>
+        </div>
+      );
+    }
 
-        function App() {
-            // ... (Full implementation of your React code)
-            return (
-                /* The exact layout from your prompt with added animations */
-                <div>...</div>
-            );
-        }
+    // -------------------- NAVBAR --------------------
+    function Navbar() {
+      const [scrolled, setScrolled] = useState(false);
+      const [active, setActive] = useState('home');
+      const [drawerOpen, setDrawerOpen] = useState(false);
+      
+      useEffect(() => {
+        const onScroll = () => {
+          setScrolled(window.scrollY > 60);
+          const sections = document.querySelectorAll('section[id]');
+          let cur = 'home';
+          sections.forEach((s) => {
+            if (window.scrollY >= (s).offsetTop - 120) cur = s.id;
+          });
+          setActive(cur);
+        };
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+      
+      const links = [
+        { id: 'home', label: 'HOME' }, { id: 'about', label: 'ABOUT' }, { id: 'expertise', label: 'EXPERTISE' },
+        { id: 'practice', label: 'PRACTICE' }, { id: 'process', label: 'PROCESS' }, { id: 'why', label: 'WHY US' },
+        { id: 'contact', label: 'CONTACT' }
+      ];
+      
+      const scrollTo = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        setDrawerOpen(false);
+      };
+      
+      return (
+        <>
+          <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-white/70 backdrop-blur-sm py-4'}`}>
+            <div className="container mx-auto px-5 md:px-12 flex justify-between items-center">
+              <div onClick={(e) => { e.preventDefault(); scrollTo('home'); }} className="flex items-center gap-2 cursor-pointer">
+                <span className="text-2xl font-bold text-[#d4b372]">⚖</span>
+                <span className="font-bold text-lg tracking-wide text-gray-800">R&A</span>
+              </div>
+              <div className="hidden md:flex space-x-6 text-sm font-medium">
+                {links.map(l => (
+                  <a key={l.id} href="#" onClick={(e) => { e.preventDefault(); scrollTo(l.id); }} className={`transition-all duration-300 ${active === l.id ? 'text-[#d4b372] border-b-2 border-[#d4b372]' : 'text-gray-700 hover:text-[#d4b372]'}`}>{l.label}</a>
+                ))}
+              </div>
+              <div className="hidden md:block">
+                <a href="tel:+917466806524" className="bg-[#d4b372] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-[#b8924a] transition">+91 74668 06524</a>
+              </div>
+              <button onClick={() => setDrawerOpen(!drawerOpen)} className="md:hidden text-2xl text-gray-800">☰</button>
+            </div>
+          </nav>
+          {drawerOpen && (
+            <div className="fixed inset-0 bg-black/60 z-[60] md:hidden" onClick={() => setDrawerOpen(false)}>
+              <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl p-6 flex flex-col" onClick={(e) => e.stopPropagation()}>
+                <button className="self-end text-2xl" onClick={() => setDrawerOpen(false)}>✕</button>
+                <div className="mt-8 space-y-5">
+                  {links.map(l => (
+                    <a key={l.id} href="#" onClick={(e) => { e.preventDefault(); scrollTo(l.id); }} className="block text-gray-800 font-medium text-lg border-b pb-2">{l.label}</a>
+                  ))}
+                  <div className="pt-4"><a href="tel:+917466806524" className="bg-[#d4b372] text-white px-5 py-2 rounded-full inline-block">📞 +91 74668 06524</a></div>
+                  <div className="pt-2 text-sm text-gray-500">✉ legaleaglemzn@gmail.com</div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      );
+    }
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+    // -------------------- MARQUEE --------------------
+    function Marquee() {
+      const items = ['सिविल विधि', 'Criminal Defence', 'NDPS Cases', 'साइबर अपराध', 'Arms & Excise Act', 'महिला एवं बाल संरक्षण', 'Revenue Litigation', 'IPC 302 / 307', 'Anticipatory Bail', 'धोखाधड़ी एवं जालसाजी', 'POCSO Act', 'High Court Appeals'];
+      const doubled = [...items, ...items];
+      return (
+        <div className="bg-[#0a0a0a] text-[#d4b372] py-3 overflow-hidden whitespace-nowrap">
+          <div className="animate-marquee inline-flex gap-6 text-sm font-medium tracking-wide">
+            {doubled.map((item, i) => (<span key={i} className="mx-2">{item} ◆</span>))}
+          </div>
+        </div>
+      );
+    }
+
+    // -------------------- HERO SECTION --------------------
+    function HeroSection() {
+      return (
+        <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-[#faf6ed] to-[#fffaf0]">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="reveal-left">
+                <p className="text-[#d4b372] uppercase tracking-wider text-sm font-semibold">स्थापना 2014 · जानसठ, मुजफ्फरनगर | Premier Law Chambers</p>
+                <h1 className="text-4xl md:text-6xl font-bold mt-4 leading-tight"><span className="text-gray-800">राजवर्धन</span><br /><span className="text-gold-gradient">& एसोसिएट्स</span></h1>
+                <p className="text-gray-600 mt-5 leading-relaxed">हम केवल मुकदमे नहीं लड़ते - हम न्याय की लड़ाई को रणनीति में ढालते हैं। सिविल, आपराधिक, राजस्व, NDPS, साइबर, महिला एवं बाल अपराध, धोखाधड़ी, Arms Act और Excise Act - हर क्षेत्र में हमारी गहरी पैठ है। 500+ मुकदमों का अनुभव, पाँच न्यायक्षेत्रों में सक्रिय उपस्थिति।</p>
+                <div className="flex flex-wrap gap-4 mt-8">
+                  <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#d4b372] text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-[#b8924a] transition">📞 निःशुल्क परामर्श →</button>
+                  <button onClick={() => window.location.href = 'mailto:legaleaglemzn@gmail.com'} className="border border-[#d4b372] text-[#d4b372] px-6 py-3 rounded-lg font-semibold hover:bg-[#d4b372] hover:text-white transition">✉ ईमेल लिखें</button>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-5 reveal-right">
+                {[{ num: '11', suffix: '+', label: 'YEARS OF EXCELLENCE' }, { num: '500', suffix: '+', label: 'CASES WON' }, { num: '98', suffix: '%', label: 'SUCCESS RATE' }, { num: '5', suffix: '', label: 'JURISDICTIONS' }, { num: '24', suffix: '/7', label: 'EMERGENCY SERVICE' }].map((s, i) => (
+                  <div key={i} className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl text-center shadow-md border border-[#d4b372]/20"><div className="text-3xl font-black text-[#d4b372]">{s.num}{s.suffix}</div><div className="text-xs text-gray-600 uppercase">{s.label}</div></div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // -------------------- ABOUT SECTION --------------------
+    function AboutSection() {
+      return (
+        <section id="about" className="py-20 bg-white">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">⚖️ PRINCIPAL ADVOCATE</span><h2 className="text-3xl md:text-4xl font-bold mt-2">हमारे बारे में · ABOUT US</h2><div className="w-24 h-1 bg-[#d4b372] mx-auto mt-3"></div></div>
+            <div className="grid md:grid-cols-2 gap-10 mt-12">
+              <div className="reveal-left"><p className="text-gray-700 leading-relaxed">राजवर्धन एंड एसोसिएट्स - एक ऐसा विधिक संस्थान जो 2014 से मुजफ्फरनगर और जानसठ के न्यायालयों में अपनी विद्वत्ता, तैयारी और निष्ठा के लिए जाना जाता है। हम केवल मुकदमे नहीं लड़ते; बल्कि प्रत्येक मुक़दमे को एक जटिल पहेली की तरह सुलझाते हैं - साक्ष्यों का सूक्ष्म विश्लेषण, विधि के हर अक्षर का सटीक प्रयोग और न्यायिक मिसालों की गहरी समझ ही हमारी फर्म की पहचान है।</p><p className="mt-4 text-gray-700">With over 2500+ cases handled across Civil, Criminal, Revenue, NDPS, Cyber Crime, our chambers stands as a fortress of legal expertise in Western Uttar Pradesh.</p></div>
+              <div className="grid grid-cols-2 gap-4 reveal-right">
+                {[{ icon: '🎓', title: 'विधिक शिक्षा', body: 'LL.B., न्यायशास्त्र में गहन शिक्षा' }, { icon: '🏛️', title: 'बार सदस्यता', body: 'जिला बार एसोसिएशन, मुजफ्फरनगर' }, { icon: '📚', title: 'विधि साहित्य', body: '10,000+ निर्णयों का अध्ययन' }, { icon: '⚡', title: 'आपातकालीन सेवा', body: '24×7 उपलब्धता' }].map((item, i) => (<div key={i} className="bg-gray-50 p-4 rounded-xl border-l-4 border-[#d4b372]"><div className="text-2xl">{item.icon}</div><h3 className="font-bold">{item.title}</h3><p className="text-sm text-gray-600">{item.body}</p></div>))}
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 mt-12 text-center reveal">
+              {[{ n: '11', s: '+', l: 'वर्ष' }, { n: '500', s: '+', l: 'मुकदमे' }, { n: '98', s: '%', l: 'सफलता' }, { n: '5', s: '', l: 'क्षेत्र' }].map((stat, i) => (<div key={i}><div className="text-3xl font-black text-[#d4b372]">{stat.n}{stat.s}</div><div className="text-gray-600">{stat.l}</div></div>))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // -------------------- EXPERTISE SECTION --------------------
+    function ExpertiseSection() {
+      const cards = [{ num: '01', icon: '⚖️', title: 'वैवाहिक एवं दहेज विवाद', hindi: 'IPC 498A, दहेज निषेध अधिनियम, घरेलू हिंसा अधिनियम - हम प्रत्येक मामले में गहरे विश्लेषण से झूठे आरोपों को निर्मूल करते हैं।', tag: 'Matrimonial · Dowry' }, { num: '02', icon: '⚔️', title: 'हत्या एवं जघन्य अपराध', hindi: 'IPC 302/307, NDPS Act - प्रक्रियात्मक खामियों से मुकदमे का रुख बदलते हैं।', tag: 'IPC 302 · 307' }, { num: '03', icon: '💻', title: 'साइबर अपराध रक्षा', hindi: 'IT Act 2000, डिजिटल फोरेंसिक, हैकिंग, पहचान चोरी।', tag: 'IT Act · Digital Forensics' }, { num: '04', icon: '📜', title: 'राजस्व एवं भूमि विवाद', hindi: 'खतौनी, नामांतरण, चकबंदी, भू-अधिग्रहण - SDM से High Court तक।', tag: 'Revenue Code · Land Acquisition' }, { num: '05', icon: '👩‍⚖️', title: 'महिला एवं बाल संरक्षण', hindi: 'POCSO Act, POSH Act, बाल विवाह निषेध।', tag: 'POCSO · POSH' }, { num: '06', icon: '🔐', title: 'आर्थिक अपराध, Arms & Excise', hindi: 'IPC 420, 467, Arms Act, Excise Act, NDPS - Chain of Custody चुनौती।', tag: 'Forgery · Arms · NDPS' }];
+      return (
+        <section id="expertise" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">विशेषज्ञताएँ · PRACTICE AREAS</span><h2 className="text-3xl md:text-4xl font-bold mt-2">प्रत्येक कानूनी क्षेत्र में हमारी गहरी पैठ</h2></div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+              {cards.map((card, i) => (<div key={i} className="tilt-card bg-white rounded-2xl p-6 shadow-lg border border-[#d4b372]/20 transition-all hover:shadow-2xl"><div className="text-4xl mb-2">{card.icon}</div><div className="text-xs text-[#d4b372]">{card.num}</div><h3 className="text-xl font-bold mt-1">{card.title}</h3><p className="text-gray-600 text-sm mt-3">{card.hindi}</p><div className="mt-4 text-xs uppercase tracking-wide text-[#b8924a]">{card.tag}</div></div>))}
+            </div>
+            <div className="mt-20 bg-white rounded-2xl p-8 reveal"><h3 className="text-2xl font-bold text-center">उच्च-स्तरीय रक्षा · HIGH-PROFILE DEFENCE</h3><div className="grid md:grid-cols-3 gap-6 mt-8">{[{ icon: '⚡', title: 'अग्रिम जमानत', body: 'Anticipatory Bail - Section 438 CrPC' }, { icon: '📑', title: 'FIR रद्द करना', body: 'CrPC Section 482 / BNSS के तहत' }, { icon: '🏛️', title: 'अपील एवं पुनरीक्षण', body: 'Sessions Court से Supreme Court तक' }].map((item, i) => (<div key={i} className="text-center p-4"><div className="text-3xl">{item.icon}</div><h4 className="font-bold">{item.title}</h4><p className="text-sm text-gray-500">{item.body}</p></div>))}</div></div>
+          </div>
+        </section>
+      );
+    }
+
+    // -------------------- PRACTICE / COURTS SECTION --------------------
+    function PracticeSection() {
+      return (
+        <section id="practice" className="py-20 bg-white">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">न्यायालय क्षेत्र · JURISDICTIONS</span><h2 className="text-3xl font-bold">हर न्यायालय में हमारी उपस्थिति</h2></div>
+            <div className="grid md:grid-cols-3 gap-8 mt-12">
+              {[{ title: 'सिविल न्यायालय', court: 'CJ (J.D.) Jansath · CJ (S.D.) Muzaffarnagar', body: 'भूमि अधिग्रहण, संपत्ति विभाजन, दीवानी अनुबंध' }, { title: 'आपराधिक न्यायालय', court: 'CJM First Class Jansath · Sessions Court MZN', body: 'हत्या, NDPS, दहेज उत्पीड़न, साइबर अपराध' }, { title: 'राजस्व एवं उच्च न्यायालय', court: 'SDM Jansath · Allahabad High Court', body: 'खतौनी, नामांतरण, रिट याचिकाएँ' }].map((item, i) => (<div key={i} className="rounded-xl overflow-hidden shadow-lg border border-gray-100"><div className="h-40 bg-gradient-to-r from-[#d4b372] to-[#b8924a] flex items-center justify-center text-white text-5xl">⚖️</div><div className="p-5"><h3 className="font-bold text-xl">{item.title}</h3><p className="text-sm text-[#d4b372]">{item.court}</p><p className="text-gray-600 text-sm mt-2">{item.body}</p></div></div>))}
+            </div>
+            <div className="mt-16 bg-gray-50 p-6 rounded-2xl reveal"><h3 className="text-center font-bold text-xl">सेवा क्षेत्र · Service Jurisdictions</h3><div className="flex flex-wrap justify-center gap-5 mt-5">{['नई दिल्ली', 'जानसठ', 'मुजफ्फरनगर', 'हरिद्वार', 'देहरादून'].map((city, i) => (<div key={i} className="bg-white px-4 py-2 rounded-full shadow text-sm border border-[#d4b372]/30">📍 {city}</div>))}</div></div>
+          </div>
+        </section>
+      );
+    }
+
+    // -------------------- PROCESS SECTION --------------------
+    function ProcessSection() {
+      const steps = [{ num: '01', title: 'प्रारंभिक परामर्श', en: 'Initial Consultation', body: 'प्रथम परामर्श सदैव निःशुल्क। समस्या का मूल्यांकन।' }, { num: '02', title: 'मुकदमे का सम्पूर्ण विश्लेषण', en: 'Case Analysis', body: 'दस्तावेजों, FIR, चार्जशीट का गहन विश्लेषण।' }, { num: '03', title: 'न्याय दृष्टान्तो का शोध', en: 'Precedent Research', body: 'हजारों निर्णयों में से अनुकूल मिसाल खोजना।' }, { num: '04', title: 'न्यायालय में प्रतिनिधित्व', en: 'Court Representation', body: 'प्रभावी क्रॉस-एग्जामिनेशन और दलीलें।' }, { num: '05', title: 'नियमित अपडेट', en: 'Communication', body: 'पारदर्शी संवाद, हर तारीख की जानकारी।' }, { num: '06', title: 'अपील एवं अनुवर्ती', en: 'Appeals', body: 'उच्च न्यायालय तक पूर्ण सहयोग।' }];
+      return (
+        <section id="process" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">हमारी कार्यप्रणाली · OUR PROCESS</span><h2 className="text-3xl font-bold">न्याय की ओर हर कदम सुनियोजित</h2></div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-12">
+              {steps.map((step, i) => (<div key={i} className="bg-white p-5 rounded-xl shadow-md border-t-4 border-[#d4b372] reveal"><div className="text-3xl font-black text-[#d4b372]">{step.num}</div><h3 className="font-bold text-lg">{step.title}</h3><p className="text-xs text-gray-400">{step.en}</p><p className="text-gray-600 text-sm mt-2">{step.body}</p></div>))}
+            </div>
+            <div className="mt-16 bg-white p-6 rounded-2xl shadow"><h3 className="font-bold text-center mb-4">विकास यात्रा</h3><div className="flex flex-wrap justify-between gap-3 text-sm">{[{ year: '2014', title: 'संस्थापना' }, { year: '2016', title: 'NDPS विशेषज्ञता' }, { year: '2019', title: 'साइबर विधि' }, { year: '2022', title: 'पाँच न्यायक्षेत्र' }, { year: '2025', title: 'नई दिल्ली कार्यालय' }].map((m, i) => (<div key={i} className="text-center"><div className="font-bold text-[#d4b372]">{m.year}</div><div className="text-gray-700 text-xs">{m.title}</div></div>))}</div></div>
+          </div>
+        </section>
+      );
+    }
+    
+    // -------------------- QUOTE SECTION --------------------
+    function QuoteSection() {
+      return (<div className="bg-[#0a0a0a] text-white py-16 text-center"><div className="container mx-auto px-5"><p className="text-2xl md:text-3xl italic font-light">"न्याय वह है जो सत्य को शक्ति देता है, और शक्ति को सत्य की सेवा में नियुक्त करता है।"</p><p className="mt-4 text-[#d4b372]">◆ VINCIT OMNIA VERITAS · सत्यमेव जयते</p></div></div>);
+    }
+    
+    // -------------------- WHY US SECTION --------------------
+    function WhyUsSection() {
+      const reasons = [{ icon: '⚡', title: 'Pre‑emptive Strategy', body: 'विपक्ष के तर्क को उत्पत्ति से पहले निष्प्रभावी करना।' }, { icon: '🔬', title: 'साक्ष्य विश्लेषण', body: 'हर दस्तावेज, हर गवाही की गहन जाँच।' }, { icon: '🛡️', title: 'अभेद्य बचाव कवच', body: 'Chain of Custody खामियाँ हमारे हथियार।' }, { icon: '📖', title: 'न्यायिक मिसालों का भंडार', body: 'हजारों निर्णयों का अध्ययन।' }, { icon: '⏱️', title: '24×7 आपातकालीन सेवा', body: 'Anticipatory Bail, Habeas Corpus' }, { icon: '🤝', title: 'पूर्ण गोपनीयता', body: 'Attorney-Client Privilege' }];
+      return (
+        <section id="why" className="py-20 bg-white">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">क्यों हम? · WHY CHOOSE US</span><h2 className="text-3xl font-bold">छह नहीं, नौ कारण जो हमें अलग बनाते हैं</h2></div>
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              {reasons.map((r, i) => (<div key={i} className="tilt-card bg-gray-50 p-5 rounded-xl text-center hover:shadow-lg transition"><div className="text-4xl">{r.icon}</div><h3 className="font-bold mt-2">{r.title}</h3><p className="text-gray-600 text-sm mt-2">{r.body}</p></div>))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+    
+    // -------------------- CAVEAT SECTION --------------------
+    function CaveatSection() {
+      return (<div className="bg-amber-50 border-l-8 border-[#d4b372] p-6 mx-5 md:mx-auto max-w-5xl my-10 rounded-lg"><p className="font-bold">⚠️ विरोधी पक्ष के लिए विशेष सूचना</p><p className="text-gray-700 text-sm mt-1">राजवर्धन एंड एसोसिएट्स की टीम प्रत्येक मुकदमे में पूर्ण तैयारी, तथ्यों की विस्तृत जाँच और न्यायिक मिसालों के सटीक प्रयोग के लिए जानी जाती है। हमारी उपस्थिति का अर्थ है - गहन शोध, अटूट प्रतिबद्धता और न्यायालय में निर्भीक प्रतिनिधित्व।</p></div>);
+    }
+    
+    // -------------------- CONTACT SECTION --------------------
+    function ContactSection() {
+      return (
+        <section id="contact" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-5 md:px-12">
+            <div className="text-center reveal"><span className="text-[#d4b372] font-semibold">संपर्क · GET IN TOUCH</span><h2 className="text-3xl font-bold">अपनी कानूनी समस्या का समाधान आज ही शुरू करें</h2></div>
+            <div className="grid md:grid-cols-2 gap-10 mt-12">
+              <div className="space-y-5"><div className="flex gap-4 items-center"><span className="text-3xl">📞</span><div><p className="font-bold">आपातकालीन हेल्पलाइन</p><a href="tel:+917466806524" className="text-[#d4b372] text-xl">+91 74668 06524</a><p className="text-xs">24×7 उपलब्ध</p></div></div><div><span className="text-3xl">✉️</span><div><p className="font-bold">ईमेल</p><a href="mailto:legaleaglemzn@gmail.com" className="text-[#d4b372]">legaleaglemzn@gmail.com</a></div></div><div><span className="text-3xl">📍</span><div><p>जानसठ, जिला मुजफ्फरनगर, उत्तर प्रदेश - 251314</p></div></div></div>
+              <div className="bg-white p-6 rounded-2xl shadow"><h3 className="font-bold text-xl">प्रथम परामर्श निःशुल्क</h3><p className="text-gray-600 mt-2">फोन करें, ईमेल करें या व्यक्तिगत रूप से मिलें।</p><button onClick={() => window.location.href='tel:+917466806524'} className="mt-4 bg-[#d4b372] text-white px-5 py-2 rounded-full">📞 अभी कॉल करें</button></div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    
+    // -------------------- CTA SECTION --------------------
+    function CTASection() {
+      return (<div className="bg-gradient-to-r from-[#d4b372] to-[#b8924a] text-white py-16 text-center"><h3 className="text-3xl font-bold">⚖️ न्याय के लिए अभी कदम उठाएँ</h3><p className="mt-2">प्रथम परामर्श निःशुल्क और गोपनीय</p><div className="flex gap-4 justify-center mt-6"><button onClick={()=>window.location.href='tel:+917466806524'} className="bg-white text-[#d4b372] px-5 py-2 rounded-full font-bold">📞 कॉल करें</button><button className="border border-white px-5 py-2 rounded-full">✉ ईमेल</button></div></div>);
+    }
+    
+    // -------------------- FOOTER --------------------
+    function Footer() {
+      return (<footer className="bg-[#0a0a0a] text-gray-300 pt-12 pb-6"><div className="container mx-auto px-5 md:px-12 grid md:grid-cols-4 gap-8"><div><div className="text-2xl text-[#d4b372] font-bold">R&A</div><p className="text-sm mt-2">राजवर्धन एंड एसोसिएट्स<br />पश्चिमी उत्तर प्रदेश का अग्रणी विधिक संस्थान।</p></div><div><h4 className="font-bold text-white">विधिक क्षेत्र</h4><ul className="text-xs space-y-1 mt-2"><li>आपराधिक विधि</li><li>सिविल विधि</li><li>NDPS Cases</li><li>साइबर अपराध</li></ul></div><div><h4 className="font-bold text-white">न्यायालय</h4><ul className="text-xs space-y-1 mt-2"><li>CJ (J.D.) Jansath</li><li>Allahabad High Court</li><li>Supreme Court</li></ul></div><div><h4 className="font-bold text-white">संपर्क</h4><p className="text-sm">📞 +91 74668 06524<br />✉ legaleaglemzn@gmail.com</p></div></div><div className="text-center text-xs pt-8 border-t border-gray-800 mt-8">© 2014–2026 RAJVARDHAN & ASSOCIATES · सत्यमेव जयते</div></footer>);
+    }
+    
+    // -------------------- MAIN APP --------------------
+    function App() {
+      const [preloaderDone, setPreloaderDone] = useState(false);
+      const [showBackTop, setShowBackTop] = useState(false);
+      const cursorRef = useRef(null);
+      const cursorRingRef = useRef(null);
+      
+      useEffect(() => {
+        let prog = 0;
+        const bar = document.getElementById('preBar');
+        const iv = setInterval(() => {
+          prog += Math.random() * 4 + 2;
+          if (prog >= 100) { prog = 100; clearInterval(iv); setTimeout(() => setPreloaderDone(true), 400); }
+          if (bar) bar.style.width = prog + '%';
+        }, 35);
+        return () => clearInterval(iv);
+      }, []);
+      
+      useEffect(() => {
+        const moveCursor = (e) => {
+          if (cursorRef.current) { cursorRef.current.style.left = e.clientX - 6 + 'px'; cursorRef.current.style.top = e.clientY - 6 + 'px'; }
+          if (cursorRingRef.current) { setTimeout(() => { if (cursorRingRef.current) { cursorRingRef.current.style.left = e.clientX - 20 + 'px'; cursorRingRef.current.style.top = e.clientY - 20 + 'px'; } }, 80); }
+        };
+        window.addEventListener('mousemove', moveCursor);
+        return () => window.removeEventListener('mousemove', moveCursor);
+      }, []);
+      
+      useEffect(() => {
+        const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => obs.observe(el));
+        return () => obs.disconnect();
+      }, [preloaderDone]);
+      
+      useEffect(() => {
+        const onScroll = () => setShowBackTop(window.scrollY > 800);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+      
+      useEffect(() => {
+        const cards = document.querySelectorAll('.tilt-card');
+        const handleMove = (e) => {
+          const card = e.currentTarget;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left, y = e.clientY - rect.top;
+          const centerX = rect.width/2, centerY = rect.height/2;
+          const rotateX = ((y - centerY)/centerY)*-8, rotateY = ((x - centerX)/centerX)*8;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        };
+        const handleLeave = (e) => { e.currentTarget.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)'; };
+        cards.forEach(card => { card.addEventListener('mousemove', handleMove); card.addEventListener('mouseleave', handleLeave); });
+        return () => { cards.forEach(card => { card.removeEventListener('mousemove', handleMove); card.removeEventListener('mouseleave', handleLeave); }); };
+      }, [preloaderDone]);
+      
+      return (<>
+        <div ref={cursorRef} className="custom-cursor"></div>
+        <div ref={cursorRingRef} className="custom-cursor-ring"></div>
+        {!preloaderDone && <Preloader done={preloaderDone} />}
+        <Navbar />
+        <Marquee />
+        <HeroSection />
+        <AboutSection />
+        <ExpertiseSection />
+        <PracticeSection />
+        <ProcessSection />
+        <QuoteSection />
+        <WhyUsSection />
+        <CaveatSection />
+        <ContactSection />
+        <CTASection />
+        <Footer />
+        {showBackTop && <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-6 right-6 bg-[#d4b372] text-white w-12 h-12 rounded-full shadow-xl z-40 text-2xl">↑</button>}
+      </>);
+    }
+    
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
 </body>
 </html>
