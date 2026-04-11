@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>राजवर्धन एंड एसोसिएट्स | प्रीमियर लॉ चैंबर्स</title>
-  <meta name="description" content="Rajvardhan & Associates – सिविल, आपराधिक, राजस्व, NDPS, साइबर मामलों में अग्रणी कानूनी सेवाएँ। नई दिल्ली, जानसठ, मुजफ्फरनगर, हरिद्वार, देहरादून।">
-  <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <title>राजवर्धन एंड एसोसिएट्स | प्रीमियम विधिक सेवाएँ</title>
+  <meta name="description" content="Rajvardhan & Associates – सिविल, आपराधिक, राजस्व, NDPS, साइबर, महिला एवं बाल अपराध, धोखाधड़ी, Arms Act, Excise Act में अग्रणी।">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -194,7 +194,7 @@
     .about-img {
       border-radius: 28px;
       overflow: hidden;
-      height: 640px; /* increased height */
+      height: 640px;
       box-shadow: 0 30px 40px rgba(0,0,0,0.5);
     }
     .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: 0.5s; }
@@ -257,6 +257,16 @@
       border-top: 1px solid var(--glass-border);
     }
     .footer-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+    /* ashoka watermark */
+    .ashoka-watermark {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 999;
+      font-size: 4rem;
+    }
     /* responsive */
     @media (max-width: 1024px) {
       .grid-2, .practice-grid, .why-grid, .footer-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -274,9 +284,19 @@
     .reveal.active { opacity: 1; transform: translateY(0); }
     .text-left { text-align: left; }
     .mt-4 { margin-top: 2rem; }
+    .floating-3d {
+      animation: float3d 6s ease-in-out infinite;
+    }
+    @keyframes float3d {
+      0% { transform: translateY(0px) rotateX(0deg); }
+      50% { transform: translateY(-15px) rotateX(2deg); }
+      100% { transform: translateY(0px) rotateX(0deg); }
+    }
   </style>
 </head>
 <body>
+
+<div class="ashoka-watermark">🕉️</div> <!-- subtle ashoka chakra vibe -->
 
 <div class="preloader" id="preloader">
   <div class="preloader-content">
@@ -313,31 +333,31 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="container">
-      <div class="hero-badge" style="color:var(--gold-light); font-size:0.7rem; letter-spacing:2px;">⚖️ EST. 2014 | चैंबर्स ऑफ EXCELLENCE</div>
-      <h1><span class="gold">राजवर्धन</span><br>& एसोसिएट्स</h1>
-      <div class="hero-sub">Vincit Omnia Veritas – सत्य की विजय</div>
-      <p class="hero-desc hindi">हम कानून की प्रत्येक धारा को रणनीति में बदलते हैं। 500 से अधिक मुकदमों में विजय, पाँच न्यायालय क्षेत्रों में सक्रिय उपस्थिति। हमारा दृष्टिकोण सीधा, सशक्त और परिणामोन्मुखी है।</p>
+      <div class="hero-badge" style="color:var(--gold-light); font-size:0.7rem; letter-spacing:2px;">⚖️ स्थापना 2014 | प्रीमियर लॉ चैंबर्स</div>
+      <h1><span class="gold">राजवर्धन एंड एसोसिएट्स</h1>
+      <div class="hero-sub">Vincit Omnia Veritas – सत्यमेव जयते</div>
+      <p class="hero-desc hindi">हम कानून की हर धारा को रणनीति में बदलते हैं। 2500+ मुकदमों में विजय, पाँच न्यायक्षेत्रों में सक्रिय। हमारा दृष्टिकोण सीधा, सशक्त और परिणामोन्मुखी है।</p>
       <div class="btn-group">
-        <a href="tel:+917466806524" class="btn-primary">प्रारंभिक परामर्श</a>
-        <a href="#about" class="btn-outline">अधिक जानें</a>
+        <a href="tel:+917466806524" class="btn-primary">निःशुल्क परामर्श</a>
+        <a href="#about" class="btn-outline">हमारा परिचय</a>
       </div>
     </div>
   </section>
 
-  <!-- About with taller image -->
+  <!-- About -->
   <section id="about">
     <div class="container">
       <div class="grid-2">
         <div class="about-img reveal">
-          <img src="images/about-lawyer.jpeg" alt="Rajvardhan, Principal Advocate">
+          <img src="images/about-lawyer.jpg" alt="Rajvardhan, Principal Advocate">
         </div>
         <div class="reveal">
           <h2 class="section-title">एक अग्रणी <span class="gold">विधिक संस्थान</span></h2>
-          <p class="hindi">राजवर्धन एंड एसोसिएट्स एक प्रतिष्ठित लॉ चैंबर्स है, जो 2014 से सिविल, आपराधिक, राजस्व, NDPS, साइबर और दहेज मामलों में उत्कृष्टता के लिए जाना जाता है। हम प्रत्येक केस को पूर्ण तैयारी, साक्ष्यों के सूक्ष्म विश्लेषण और न्यायिक मिसालों के गहन अध्ययन के साथ लड़ते हैं।</p>
-          <p class="hindi">हमारी रणनीति “Pre‑emptive Annihilation” है – अर्थात विपक्ष के तर्क को उसके जन्म से पहले ही निरस्त कर देना। हम प्रतिक्रिया नहीं करते, हम न्यायालय में सक्रिय आक्रमण करते हैं। इस दर्शन ने हमें 500 से अधिक मुकदमों में विजयी बनाया है।</p>
+          <p class="hindi">राजवर्धन एंड एसोसिएट्स एक प्रतिष्ठित लॉ चैंबर्स है, जो 2014 से सिविल, आपराधिक, राजस्व, NDPS, साइबर, दहेज, महिला एवं बाल अपराध, धोखाधड़ी, Arms Act, Excise Act मामलों में उत्कृष्टता के लिए जाना जाता है। हम प्रत्येक केस को पूर्ण तैयारी, साक्ष्यों के सूक्ष्म विश्लेषण और न्यायिक मिसालों के गहन अध्ययन के साथ लड़ते हैं।</p>
+          <p class="hindi">हमारी रणनीति “Pre‑emptive Annihilation” है – अर्थात विपक्ष के तर्क को उसके जन्म से पहले ही निरस्त कर देना। हम प्रतिक्रिया नहीं करते, हम न्यायालय में सक्रिय आक्रमण करते हैं। इस दर्शन ने हमें 2500 से अधिक मुकदमों में विजयी बनाया है।</p>
           <div class="stat-grid">
             <div class="stat-item"><div class="stat-number" data-target="11">0+</div><div>वर्षों का अनुभव</div></div>
-            <div class="stat-item"><div class="stat-number" data-target="500">0+</div><div>मुकदमे जीते</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="2500">0+</div><div>मुकदमे जीते</div></div>
             <div class="stat-item"><div class="stat-number" data-target="95">0%</div><div>सफलता दर</div></div>
             <div class="stat-item"><div class="stat-number" data-target="5">0</div><div>न्यायक्षेत्र</div></div>
           </div>
@@ -346,7 +366,7 @@
     </div>
   </section>
 
-  <!-- Expertise Cards (4) -->
+  <!-- Expertise Cards (6 now) -->
   <section id="expertise">
     <div class="container">
       <h2 class="section-title reveal">प्रमुख विधिक <span class="gold">विशेषज्ञताएँ</span></h2>
@@ -356,6 +376,23 @@
         <div class="glass-card reveal"><div class="card-icon">⚔️</div><h3>हत्या एवं जघन्य अपराध</h3><p class="hindi">IPC 302/307, अपहरण, NDPS – जहाँ ज़मानत दुर्लभ हो, वहाँ हम प्रक्रियात्मक खामियों से सज़ा पलट देते हैं।</p><p class="gold">Forensic dissection of evidence.</p></div>
         <div class="glass-card reveal"><div class="card-icon">💻</div><h3>साइबर अपराध</h3><p class="hindi">IT Act 2000 (धारा 43,66,67), डिजिटल फोरेंसिक, ईमेल ट्रेल, हैकिंग, पहचान चोरी।</p><p class="gold">Digital evidence mastery.</p></div>
         <div class="glass-card reveal"><div class="card-icon">📜</div><h3>राजस्व एवं भूमि विवाद</h3><p class="hindi">खतौनी, नामांतरण, चकबंदी, भू-अधिग्रहण – SDM से High Court तक पूर्ण प्रतिनिधित्व।</p><p class="gold">Decades of revenue litigation.</p></div>
+        <!-- New: महिला एवं बाल अपराध -->
+        <div class="glass-card reveal"><div class="card-icon">👩‍⚖️</div><h3>महिला एवं बाल अपराध</h3><p class="hindi">POCSO Act, बाल विवाह निषेध अधिनियम, महिला उत्पीड़न, कार्यस्थल पर यौन उत्पीड़न (POSH), गुडिया बनाम खटीना प्रकार के मामले। संवेदनशील एवं त्वरित न्याय के लिए समर्पित रणनीति।</p><p class="gold">Child rights & women safety – fast track litigation.</p></div>
+        <!-- New: 420, 467,468,471 + Arms Act, Excise Act -->
+        <div class="glass-card reveal"><div class="card-icon">🔐</div><h3>आर्थिक अपराध, धोखाधड़ी, Arms & Excise</h3><p class="hindi">IPC 420, 467, 468, 471 (कूटरचना, जालसाजी, धोखाधड़ी), Arms Act, Excise Act, Narcotics (NDPS) में विशेषज्ञता। हम अभियोजन के दस्तावेजों में विसंगतियाँ ढूंढते हैं और सबूतों की चेन ऑफ कस्टडी को चुनौती देते हैं।</p><p class="gold">Forgery, cheating, firearms, excise – comprehensive defence.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Expertise Section (High-profile offences) to make longer -->
+  <section style="background: linear-gradient(135deg, #0E1629, #0A1128);">
+    <div class="container">
+      <h2 class="section-title reveal">उच्च-स्तरीय <span class="gold">आपराधिक रक्षा</span></h2>
+      <div class="section-sub reveal hindi">ऐसे मामले जहाँ सामान्य वकील हिचकिचाएँ, हमारी टीम चमकती है।</div>
+      <div class="card-grid">
+        <div class="glass-card reveal"><div class="card-icon">⚡</div><h3>जमानत याचिकाएँ</h3><p class="hindi">गैर-जमानती अपराधों में अंतरिम जमानत, अग्रिम जमानत, नियमित जमानत – उच्च न्यायालय तक त्वरित हस्तक्षेप।</p></div>
+        <div class="glass-card reveal"><div class="card-icon">📑</div><h3>FIR चुनौती एवं रद्द करना</h3><p class="hindi">Sec 482 CrPC के तहत अभियोजन को प्रारंभिक स्तर पर ही समाप्त करने हेतु रणनीति।</p></div>
+        <div class="glass-card reveal"><div class="card-icon">🏛️</div><h3>अपील एवं रिवीजन</h3><p class="hindi">सेशन कोर्ट से सुप्रीम कोर्ट तक दोषमुक्ति के लिए अपील।</p></div>
       </div>
     </div>
   </section>
@@ -388,7 +425,7 @@
     </div>
   </section>
 
-  <!-- Caveat (balanced tone) -->
+  <!-- Caveat (balanced) -->
   <div class="container">
     <div class="caveat reveal">
       <h3 class="gold">⚠️ सूचना – प्रतिवादी हितधारकों के लिए</h3>
@@ -412,15 +449,17 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section style="background: linear-gradient(120deg, #0A1128, #020617); text-align:center;">
+  <!-- Extra CTA / Satyamev Jayate -->
+  <section style="background: linear-gradient(120deg, #0A1128, #020617); text-align:center; position:relative; overflow:hidden;">
     <div class="container">
+      <div style="font-size: 3rem; opacity: 0.1; position: absolute; top: 20px; right: 20px;">🕉️</div>
       <h2 class="section-title">न्याय के लिए अब समय आ गया है</h2>
       <p class="hindi" style="max-width:600px; margin:0 auto;">प्रथम परामर्श सदैव निःशुल्क है। अपनी कानूनी समस्या का समाधान आज ही प्रारंभ करें।</p>
       <div class="btn-group" style="justify-content:center; margin-top:2rem;">
         <a href="tel:+917466806524" class="btn-primary">अभी कॉल करें</a>
         <a href="mailto:legaleaglemzn@gmail.com" class="btn-outline">ईमेल लिखें</a>
       </div>
+      <div style="margin-top: 2rem; font-family: 'Playfair Display'; letter-spacing: 4px; color: var(--gold-dark);">सत्यमेव जयते</div>
     </div>
   </section>
 </main>
@@ -428,10 +467,10 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><div class="logo" style="margin-bottom:0.5rem;">R&A</div><p>© 2014–2026 राजवर्धन एंड एसोसिएट्स</p><p class="hindi">सत्यमेव जयते — Vincit Omnia Veritas</p></div>
-      <div><h4>विधिक क्षेत्र</h4><a href="#expertise">आपराधिक विधि</a><br><a href="#expertise">सिविल विधि</a><br><a href="#expertise">राजस्व विधि</a></div>
-      <div><h4>न्यायालय</h4><a href="#">जिला न्यायालय MZN</a><br><a href="#">सेशन कोर्ट</a><br><a href="#">इलाहाबाद हाई कोर्ट</a></div>
-      <div><h4>सम्पर्क</h4><a href="tel:+917466806524">फ़ोन</a><br><a href="mailto:legaleaglemzn@gmail.com">ईमेल</a><br><a href="#contact">कार्यालय आएँ</a></div>
+      <div><div class="logo" style="margin-bottom:0.5rem;">R&A</div><p>© 2014–2026 राजवर्धन एंड एसोसिएट्स</p><p class="hindi">सत्यमेव जयते — Vincit Omnia Veritas</p><div style="font-size: 1.5rem; opacity:0.2;">🕉️</div></div>
+      <div><h4>विधिक क्षेत्र</h4><a href="#expertise">आपराधिक विधि</a><br><a href="#expertise">सिविल विधि</a><br><a href="#expertise">राजस्व विधि</a><br><a href="#expertise">महिला एवं बाल अपराध</a><br><a href="#expertise">आर्थिक अपराध, Arms, Excise</a></div>
+      <div><h4>न्यायालय</h4><a href="#">जिला न्यायालय MZN</a><br><a href="#">सेशन कोर्ट</a><br><a href="#">इलाहाबाद हाई कोर्ट</a><br><a href="#">सुप्रीम कोर्ट (नई दिल्ली)</a></div>
+      <div><h4>सम्पर्क</h4><a href="tel:+917466806524">फ़ोन</a><br><a href="mailto:legaleaglemzn@gmail.com">ईमेल</a><br><a href="#contact">कार्यालय आएँ</a><br><a href="#">आपातकालीन हेल्पलाइन</a></div>
     </div>
   </div>
 </footer>
@@ -459,7 +498,7 @@
   mobBtn?.addEventListener('click', () => mobNav.classList.toggle('open'));
   document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => mobNav.classList.remove('open')));
 
-  // Nav scroll + active highlight
+  // Nav scroll + active
   const navBar = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     if(window.scrollY > 50) navBar.classList.add('scrolled');
@@ -475,7 +514,7 @@
     });
   });
 
-  // Scroll reveal
+  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
