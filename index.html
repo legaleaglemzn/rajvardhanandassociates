@@ -2,12 +2,11 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Rajvardhan & Associates ⚖️ Supreme Legal Excellence Since 2014</title>
-  <meta name="description" content="Rajvardhan & Associates - Premier law firm providing Civil, Criminal and Revenue law services since 2014 across Jansath, Muzaffarnagar, Delhi, Haridwar, Dehradun.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>राजवर्धन एंड एसोसिएट्स | प्रीमियर लॉ चैंबर्स</title>
+  <meta name="description" content="Rajvardhan & Associates – सिविल, आपराधिक, राजस्व, NDPS, साइबर मामलों में अग्रणी कानूनी सेवाएँ। नई दिल्ली, जानसठ, मुजफ्फरनगर, हरिद्वार, देहरादून।">
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,905 +14,520 @@
       box-sizing: border-box;
     }
     :root {
-      --gold: #c9a84c;
-      --gold-bright: #e8c95a;
-      --gold-light: #f5e6c8;
-      --gold-dark: #8b6914;
-      --gold-glow: #c9a84c59;
-      --accent-crimson: #8b1a2b;
-      --accent-emerald: #1b7a5a;
-      --accent-sapphire: #1e3a6d;
-      --accent-copper: #b87333;
-      --bg-deep: #020010;
-      --bg-mid: #080825;
-      --bg-card: #080825b3;
-      --glass: #0a0a2d8c;
-      --glass-border: #c9a84c1f;
-      --text-main: #f0ede6;
-      --text-dim: #f0ede680;
-      --text-mid: #f0ede6b8;
-      --ff-royal: "Cinzel Decorative", serif;
-      --ff-display: "Playfair Display", "Georgia", serif;
-      --ff-elegant: "DM Serif Display", serif;
-      --ff-heading: "Marcellus", serif;
-      --ff-body: "Cormorant Infant", "Georgia", serif;
-      --ff-modern: "Outfit", system-ui, sans-serif;
-      --ff-tech: "Space Grotesk", monospace;
-      --ff-artistic: "Syne", sans-serif;
-      --ff-classic: "Libre Baskerville", serif;
-      --ff-philosophy: "Philosopher", serif;
-      --ff-grand: "Italiana", serif;
-      --ff-hindi: "Noto Sans Devanagari", sans-serif;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --gold: #D4AF37;
+      --gold-light: #F3E5AB;
+      --gold-dark: #9E7B2B;
+      --deep-navy: #0A1128;
+      --slate: #1E2A47;
+      --charcoal: #1F1F2E;
+      --text-light: #F5F5F5;
+      --text-dim: rgba(245,245,245,0.75);
+      --glass-bg: rgba(10,17,40,0.75);
+      --glass-border: rgba(212,175,55,0.25);
+      --ease-premium: cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
     body {
-      font-family: var(--ff-body);
-      background: var(--bg-deep);
-      color: var(--text-main);
-      line-height: 1.75;
+      background: var(--deep-navy);
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
       overflow-x: hidden;
     }
-    img {
-      max-width: 100%;
-      display: block;
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
+    .hindi, [lang="hi"] {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      font-weight: 400;
     }
-    /* custom scrollbar */
+    .gold { color: var(--gold); }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+    /* custom scroll */
     ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #050520; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-dark)); border-radius: 9px; }
+    ::-webkit-scrollbar-track { background: #0A1128; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
     /* preloader */
     .preloader {
       position: fixed;
       inset: 0;
-      background: #000;
+      background: #0A1128;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 999999;
-      transition: opacity 0.8s, visibility 0.8s;
+      z-index: 10000;
+      transition: opacity 0.5s;
     }
     .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
-    .pre-scale { font-size: 4rem; animation: preFloat 2s ease-in-out infinite; }
-    @keyframes preFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.08); } }
-    .pre-name {
-      font-family: var(--ff-royal);
-      color: var(--gold);
-      letter-spacing: 10px;
-      text-transform: uppercase;
-      margin-top: 1.4rem;
-      font-size: clamp(0.8rem, 2.5vw, 1.3rem);
-    }
-    .pre-bar {
-      width: 180px;
-      height: 2px;
-      background: #ffffff0a;
-      border-radius: 2px;
-      margin-top: 2rem;
-      overflow: hidden;
-    }
-    .pre-fill {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-bright));
-      transition: width 50ms;
-    }
-    .pre-pct {
-      font-family: var(--ff-tech);
-      color: var(--gold);
-      font-size: 0.6rem;
-      letter-spacing: 5px;
-      margin-top: 0.6rem;
-    }
+    .preloader-logo { font-size: 3rem; animation: softPulse 1.8s infinite; }
+    @keyframes softPulse { 0%,100%{ transform: scale(1); opacity:0.8; } 50%{ transform: scale(1.1); opacity:1; } }
+    .preloader-text { letter-spacing: 5px; margin-top: 0.8rem; color: var(--gold); font-size: 0.8rem; }
+    .preloader-bar { width: 200px; height: 2px; background: rgba(212,175,55,0.3); margin-top: 1rem; border-radius: 2px; overflow: hidden; }
+    .preloader-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.03s linear; }
+
     /* navigation */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
+      padding: 1rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.4rem 4rem;
-      z-index: 10000;
-      transition: all 0.5s var(--ease-smooth);
+      z-index: 1000;
+      transition: 0.4s;
+      background: transparent;
     }
-    .nav.stuck {
-      background: #020010f0;
-      backdrop-filter: blur(28px) saturate(180%);
+    .nav.scrolled {
+      background: rgba(10,17,40,0.96);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--glass-border);
-      padding: 0.85rem 4rem;
+      padding: 0.6rem 5%;
     }
-    .nav-logo {
-      font-family: var(--ff-royal);
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
       color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 0.85rem;
+      letter-spacing: 2px;
     }
-    .nav-center { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-center a {
-      font-family: var(--ff-modern);
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.68rem;
-      font-weight: 400;
-      padding: 0.3rem 0;
+      text-decoration: none;
+      transition: 0.3s;
       position: relative;
-      transition: color 0.3s;
     }
-    .nav-center a::after {
+    .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -5px;
       left: 0;
       width: 0;
       height: 1px;
       background: var(--gold);
-      transition: width 0.4s var(--ease-out);
+      transition: width 0.3s;
     }
-    .nav-center a:hover, .nav-center a.on { color: var(--gold); }
-    .nav-center a:hover::after, .nav-center a.on::after { width: 100%; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
     .nav-btn {
-      font-family: var(--ff-modern);
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 0.65rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
       font-weight: 500;
-      padding: 0.55rem 1.8rem;
-      border: 1px solid #c9a84c59;
-      border-radius: 50px;
-      transition: all 0.4s;
+      transition: 0.3s;
+      text-decoration: none;
+      color: var(--gold);
     }
-    .nav-btn:hover {
-      background: var(--gold);
-      color: #000;
-      box-shadow: 0 0 35px var(--gold-glow);
-    }
-    .ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 10002; }
-    .ham span { width: 22px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
-    .ham.open span:first-child { transform: rotate(45deg) translate(4px,4px); }
-    .ham.open span:nth-child(2) { opacity: 0; }
-    .ham.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    .mob-menu {
-      position: fixed;
-      inset: 0;
-      background: #000000f7;
-      backdrop-filter: blur(30px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-      z-index: 10001;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s;
-    }
-    .mob-menu.open { opacity: 1; visibility: visible; }
-    .mob-menu a {
-      font-family: var(--ff-heading);
-      font-size: 1.6rem;
-      letter-spacing: 4px;
-      color: var(--text-main);
-    }
-    .mob-menu a:hover { color: var(--gold); }
-    /* scroll indicator */
-    .scroll-bar {
+    .nav-btn:hover { background: var(--gold); color: var(--deep-navy); box-shadow: 0 0 12px var(--gold); }
+    .mobile-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .mobile-btn span { width: 24px; height: 2px; background: var(--gold); display: block; transition: 0.3s; }
+    .mobile-nav {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-crimson), var(--gold), var(--gold-bright));
-      box-shadow: 0 0 15px var(--gold-glow);
-      z-index: 100001;
+      right: -100%;
+      width: 70%;
+      max-width: 280px;
+      height: 100%;
+      background: #0A1128;
+      backdrop-filter: blur(24px);
+      z-index: 1001;
+      padding: 5rem 1.5rem;
+      transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.018;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      z-index: 99990;
-    }
+    .mobile-nav.open { right: 0; }
+    .mobile-nav a { color: var(--text-light); text-decoration: none; font-size: 1rem; }
+
     /* hero */
     .hero {
-      position: relative;
       min-height: 100vh;
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 2rem;
-      overflow: hidden;
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.2) contrast(1.2) saturate(0.7);
-    }
-    .hero-bg::before {
+    .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(at 40% 60%, #c9a84c14, transparent 55%), radial-gradient(at 70% 30%, #1e3a6d14, transparent 50%), radial-gradient(at 50% 100%, #8b1a2b0d, transparent 40%);
-      z-index: 1;
+      background: radial-gradient(circle at 20% 30%, rgba(10,17,40,0.7), #0A1128 80%);
     }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(#02001080, #02001033 40%, #020010cc);
-      z-index: 2;
-    }
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .hero-orb-1 { background: #c9a84c1a; width: 400px; height: 400px; top: 10%; left: 5%; animation: orbFloat 12s ease-in-out infinite; }
-    .hero-orb-2 { background: #1e3a6d14; width: 280px; height: 280px; bottom: 12%; right: 8%; animation: orbFloat 14s ease-in-out infinite reverse; }
-    .hero-orb-3 { background: #8b1a2b0f; width: 200px; height: 200px; top: 50%; right: 20%; animation: orbFloat 10s ease-in-out 3s infinite; }
-    @keyframes orbFloat { 0%,100% { transform: translate(0,0); } 33% { transform: translate(30px, -25px); } 66% { transform: translate(-20px, 18px); } }
-    .hero-content { position: relative; z-index: 3; max-width: 1000px; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #c9a84c0a;
-      backdrop-filter: blur(10px);
-      border: 1px solid #c9a84c26;
+    .hero .container { position: relative; z-index: 2; text-align: left; }
+    .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.2; margin-bottom: 0.8rem; }
+    .hero-sub { font-size: 0.9rem; letter-spacing: 4px; margin-bottom: 1rem; color: var(--gold-light); }
+    .hero-desc { max-width: 580px; margin: 1rem 0 1.8rem; color: var(--text-dim); }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary, .btn-outline {
+      padding: 0.8rem 1.8rem;
       border-radius: 50px;
-      padding: 0.45rem 1.4rem;
-      font-family: var(--ff-tech);
-      font-size: 0.58rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 2.5rem;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.85rem;
     }
-    .badge-dot { width: 6px; height: 6px; background: var(--gold-bright); border-radius: 50%; box-shadow: 0 0 8px var(--gold-glow); animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.8); } }
-    .hero-title {
-      font-family: var(--ff-royal);
-      font-size: clamp(2.2rem, 7vw, 5.5rem);
-      font-weight: 900;
-      letter-spacing: 3px;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-    }
-    .hero-latin {
-      font-family: var(--ff-grand);
-      font-size: clamp(1rem, 2.2vw, 1.5rem);
-      letter-spacing: 10px;
-      text-transform: uppercase;
-      color: var(--accent-copper);
-      margin-bottom: 0.4rem;
-    }
-    .hero-hindi {
-      font-family: var(--ff-hindi);
-      font-size: clamp(0.85rem, 1.6vw, 1.1rem);
-      color: #f5e6c880;
-      margin-bottom: 1.8rem;
-    }
-    .hero-desc {
-      font-family: var(--ff-classic);
-      max-width: 680px;
-      margin: 0 auto 2.8rem;
-      color: var(--text-dim);
-      font-size: clamp(0.92rem, 1.3vw, 1.1rem);
-      font-style: italic;
-      line-height: 2;
-    }
-    .hero-btns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    .btn-gold, .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-family: var(--ff-modern);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.95rem 2.6rem;
-      border-radius: 60px;
-      cursor: pointer;
-      transition: all 0.4s;
-    }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-gold::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, #ffffff59, transparent);
-      transition: left 0.6s;
-    }
-    .btn-gold:hover::before { left: 100%; }
-    .btn-gold:hover { box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-3px); }
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid #c9a84c4d;
-      color: var(--gold);
-      font-weight: 400;
-    }
-    .btn-ghost:hover { border-color: var(--gold); background: #c9a84c0d; transform: translateY(-3px); }
-    .hero-scroll-ind {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 3;
-    }
-    .hero-scroll-ind span { font-family: var(--ff-tech); font-size: 0.5rem; letter-spacing: 5px; text-transform: uppercase; color: #c9a84c4d; }
-    .scroll-ln { width: 1px; height: 50px; background: #c9a84c14; position: relative; overflow: hidden; }
-    .scroll-ln::after {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(180deg, transparent, var(--gold));
-      animation: scrollPulse 2.5s ease-in-out infinite;
-    }
-    @keyframes scrollPulse { 0% { top: -50%; } 100% { top: 100%; } }
-    .gold-text {
-      background: linear-gradient(135deg, gold 0%, var(--gold-bright) 20%, var(--gold) 50%, var(--gold-dark) 80%, var(--gold-bright) 100%);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 6s infinite;
-    }
-    @keyframes shimmer { 0%,100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
-    /* marquee */
-    .marquee-sec { padding: 1.3rem 0; border-top: 1px solid #c9a84c0d; border-bottom: 1px solid #c9a84c0d; background: #02001099; overflow: hidden; }
-    .marquee-track { display: flex; white-space: nowrap; animation: marquee 50s linear infinite; }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item { flex-shrink: 0; font-family: var(--ff-heading); font-size: 0.75rem; letter-spacing: 5px; text-transform: uppercase; color: #c9a84c1a; }
-    .marquee-dot { margin: 0 1.2rem; font-size: 0.35rem; color: var(--accent-copper); vertical-align: middle; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    /* stats */
-    .stats-sec { padding: 5rem 3rem; background: linear-gradient(180deg, var(--bg-deep), #08082566, var(--bg-deep)); }
-    .stats-row { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-    .stat-box {
-      text-align: center;
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      border-radius: 22px;
-      padding: 2.8rem 1.2rem;
-      transition: all 0.5s;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-box::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      transform: scaleX(0);
-      transition: transform 0.5s;
-    }
-    .stat-box:hover { border-color: #c9a84c4d; transform: translateY(-8px); }
-    .stat-box:hover::after { transform: scaleX(1); }
-    .stat-num { font-family: var(--ff-royal); font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 900; margin-bottom: 0.4rem; }
-    .stat-txt { font-family: var(--ff-modern); text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.62rem; color: var(--text-dim); }
+    .btn-primary { background: var(--gold); color: #0A1128; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
+    .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
+    .btn-outline:hover { background: rgba(212,175,55,0.1); transform: translateY(-3px); }
+
     /* sections */
-    .sec { padding: clamp(5rem, 14vw, 10rem) 0; }
-    .sec-padded { padding-left: 3rem; padding-right: 3rem; }
-    .divider { max-width: 1200px; height: 1px; margin: 0 auto; background: linear-gradient(90deg, transparent, #c9a84c1a, transparent); }
-    .text-center { text-align: center; }
-    .sec-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-family: var(--ff-tech);
-      font-size: 0.6rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--accent-copper);
-      margin-bottom: 1.2rem;
+    section { padding: 5rem 0; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1rem; }
+    .section-sub { color: var(--text-dim); margin-bottom: 2.5rem; max-width: 700px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .about-img {
+      border-radius: 28px;
+      overflow: hidden;
+      height: 640px; /* increased height */
+      box-shadow: 0 30px 40px rgba(0,0,0,0.5);
     }
-    .sec-label::before { content: ''; width: 28px; height: 1.5px; background: var(--accent-copper); }
-    .sec-label-center { justify-content: center; }
-    .sec-label-center::after { content: ''; width: 28px; height: 1.5px; background: var(--accent-copper); }
-    .sec-title { font-family: var(--ff-display); font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
-    .sec-title-lg { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-    .sec-desc { font-family: var(--ff-body); font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--text-dim); max-width: 640px; line-height: 1.9; }
-    .sec-desc-center { margin-left: auto; margin-right: auto; }
-    /* about */
-    .about-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .about-img-main { border-radius: 22px; overflow: hidden; position: relative; box-shadow: 0 35px 90px #00000080; }
-    .about-img-main img { width: 100%; height: 540px; object-fit: cover; transition: transform 0.7s var(--ease-out); filter: brightness(1.05) contrast(1.08); }
-    .about-img-main:hover img { transform: scale(1.04); }
-    .about-img-main::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 40%, #020010b3); pointer-events: none; border-radius: 22px; }
-    .about-img-frame { position: absolute; inset: -14px 14px 14px -14px; border: 1px solid #c9a84c26; border-radius: 26px; pointer-events: none; z-index: -1; }
-    .about-img-badge {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: #020010d9;
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 1rem 1.5rem;
-      z-index: 2;
-    }
-    .about-badge-num { font-family: var(--ff-royal); font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; }
-    .about-badge-txt { font-family: var(--ff-modern); font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-top: 0.2rem; }
-    .feat-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.5rem; list-style: none; }
-    .feat-list li { display: flex; align-items: flex-start; gap: 0.9rem; font-family: var(--ff-body); font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
-    .feat-check { width: 26px; height: 26px; background: #c9a84c14; border: 1px solid #c9a84c2e; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
-    /* philosophy */
-    .philosophy { position: relative; padding: clamp(5rem, 14vw, 10rem) 3rem; text-align: center; overflow: hidden; }
-    .philosophy-bg { position: absolute; inset: 0; z-index: 0; }
-    .philosophy-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.25) contrast(1.2) saturate(0.85); }
-    .philosophy-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep) 0%, #02001040 30%, #02001040 70%, var(--bg-deep) 100%); }
-    .philosophy-content { position: relative; z-index: 2; max-width: 850px; margin: 0 auto; }
-    .philosophy-quote { font-family: var(--ff-philosophy); font-size: clamp(1.3rem, 3.2vw, 2.2rem); font-weight: 700; font-style: italic; color: var(--gold-light); line-height: 1.7; margin: 2rem 0; }
-    .philosophy-quote::before { content: '"'; font-family: var(--ff-royal); font-size: 6rem; color: #c9a84c26; line-height: 0.4; display: block; margin-bottom: 0.8rem; }
-    .philosophy-source { font-family: var(--ff-tech); font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); }
-    .philosophy-ornament { display: flex; justify-content: center; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
-    .philosophy-ornament span { width: 45px; height: 1px; background: var(--accent-copper); }
-    /* expertise rows */
-    .exp-row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: clamp(4rem, 10vw, 7rem) 0; }
-    .exp-row.reverse { direction: rtl; }
-    .exp-row.reverse > * { direction: ltr; }
-    .exp-img-wrap { position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px #0006; }
-    .exp-img-wrap img { width: 100%; height: 440px; object-fit: cover; transition: transform 0.7s var(--ease-out); filter: brightness(1.05) contrast(1.08) saturate(1.05); }
-    .exp-img-wrap:hover img { transform: scale(1.06); }
-    .exp-img-num { position: absolute; top: 0.8rem; left: 1.5rem; font-family: var(--ff-royal); font-size: 5rem; font-weight: 900; color: #c9a84c14; line-height: 1; pointer-events: none; z-index: 2; }
-    .exp-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #02001033, transparent 50%); pointer-events: none; }
-    .exp-text .card-badge { display: inline-block; background: #b8733314; border: 1px solid #b8733340; border-radius: 50px; padding: 0.28rem 1.1rem; font-family: var(--ff-tech); font-size: 0.55rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-copper); margin-bottom: 1rem; }
-    .exp-text h3 { font-family: var(--ff-elegant); font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 400; line-height: 1.35; margin-bottom: 1rem; }
-    .exp-text p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.9; margin-bottom: 1rem; }
-    /* img band */
-    .img-band { position: relative; height: clamp(280px, 40vw, 480px); overflow: hidden; }
-    .img-band img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) saturate(1.1); }
-    .img-band::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep) 0%, transparent 20%, transparent 80%, var(--bg-deep) 100%); z-index: 1; pointer-events: none; }
-    .img-band-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
-    .img-band-text h3 { font-family: var(--ff-grand); font-size: clamp(1.2rem, 3vw, 2.2rem); letter-spacing: 10px; text-transform: uppercase; color: var(--gold-light); text-shadow: 0 4px 30px #000000b3; }
-    /* practice grid */
-    .practice-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .practice-card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; transition: all 0.5s var(--ease-smooth); }
-    .practice-card:hover { border-color: #c9a84c4d; transform: translateY(-12px); box-shadow: 0 35px 80px #00000080; }
-    .practice-card-img { position: relative; height: 230px; overflow: hidden; }
-    .practice-card-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.08) saturate(1.05); transition: transform 0.6s; }
-    .practice-card:hover .practice-card-img img { transform: scale(1.1); }
-    .practice-card-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 65%; background: linear-gradient(transparent, #080825eb); pointer-events: none; }
-    .practice-card-icon { position: absolute; bottom: -22px; left: 1.5rem; width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 10px 25px var(--gold-glow); z-index: 2; }
-    .practice-card-body { padding: 2.2rem 1.5rem 2rem; }
-    .practice-card-body h4 { font-family: var(--ff-elegant); font-size: 1.3rem; font-weight: 400; color: var(--text-main); margin-bottom: 0.5rem; }
-    .practice-card-body .court { font-family: var(--ff-tech); font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-copper); display: block; margin-bottom: 0.8rem; }
-    .practice-card-body p { font-size: 0.98rem; color: var(--text-dim); line-height: 1.75; }
-    /* why grid */
-    .why-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .why-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 22px; padding: 2.5rem 1.8rem; text-align: center; transition: all 0.5s; }
-    .why-card:hover { border-color: #c9a84c4d; transform: translateY(-8px); }
-    .why-icon { width: 58px; height: 58px; background: linear-gradient(135deg, #c9a84c1a, #c9a84c08); border: 1px solid #c9a84c1f; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.3rem; }
-    .why-card h4 { font-family: var(--ff-artistic); font-size: 0.95rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold-light); margin-bottom: 0.7rem; }
-    .why-card p { font-family: var(--ff-body); font-size: 0.92rem; color: var(--text-dim); line-height: 1.7; }
-    /* caveat */
-    .caveat { text-align: center; padding: clamp(4rem, 10vw, 7rem) 3rem; background: linear-gradient(135deg, #8b1a2b0f, #c9a84c08); border-top: 1px solid #8b1a2b26; border-bottom: 1px solid #8b1a2b26; position: relative; overflow: hidden; }
-    .caveat::before { content: "⚖️"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20rem; opacity: 0.015; pointer-events: none; }
-    .caveat h3 { font-family: var(--ff-royal); font-size: clamp(1.1rem, 2.5vw, 1.7rem); letter-spacing: 4px; color: var(--accent-crimson); filter: brightness(1.5); margin-bottom: 1.5rem; }
-    .caveat p { max-width: 800px; margin: 0 auto; font-family: var(--ff-hindi); font-size: clamp(0.9rem, 1.2vw, 1.05rem); color: var(--text-dim); line-height: 2; }
-    .caveat p+p { margin-top: 1.2rem; }
-    .caveat p strong { color: var(--accent-crimson); filter: brightness(1.5); }
-    /* contact */
-    .contact-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-cards { display: flex; flex-direction: column; gap: 1.2rem; }
-    .c-card { display: flex; align-items: flex-start; gap: 1.1rem; background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 18px; padding: 1.4rem 1.6rem; transition: all 0.4s; }
-    .c-card:hover { border-color: #c9a84c4d; transform: translateX(8px); }
-    .c-icon { width: 44px; height: 44px; background: linear-gradient(135deg, #c9a84c1a, #c9a84c08); border: 1px solid #c9a84c1a; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
-    .c-card h4 { font-family: var(--ff-tech); font-size: 0.58rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.25rem; font-weight: 500; }
-    .c-card a, .c-card .c-val { font-family: var(--ff-classic); font-size: 1rem; color: var(--gold-light); display: block; transition: color 0.3s; }
-    .c-card a:hover { color: var(--gold); text-shadow: 0 0 15px var(--gold-glow); }
-    .contact-img { border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px #00000073; position: relative; }
-    .contact-img img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; filter: brightness(1.08); transition: transform 0.6s; }
-    .contact-img:hover img { transform: scale(1.04); }
-    .contact-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #0200104d, transparent 60%); pointer-events: none; }
-    /* cta */
-    .cta-sec { position: relative; padding: clamp(5rem, 14vw, 9rem) 3rem; text-align: center; overflow: hidden; }
-    .cta-bg { position: absolute; inset: 0; z-index: 0; }
-    .cta-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.2) contrast(1.3) saturate(0.7); }
-    .cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep), #02001059, var(--bg-deep)); }
-    .cta-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
-    /* footer */
-    .footer { background: linear-gradient(180deg, var(--bg-deep), #000); padding: 5rem 3rem 2rem; border-top: 1px solid #c9a84c0d; }
-    .foot-grid { max-width: 1200px; margin: 0 auto 3rem; display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr; gap: 3rem; }
-    .foot-brand { max-width: 360px; }
-    .foot-logo { font-family: var(--ff-royal); font-size: 0.85rem; letter-spacing: 4px; color: var(--gold); display: block; margin-bottom: 0.8rem; }
-    .foot-brand p { font-family: var(--ff-body); font-size: 0.9rem; color: var(--text-dim); line-height: 1.75; }
-    .foot-col h5 { font-family: var(--ff-tech); font-size: 0.58rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--accent-copper); margin-bottom: 1rem; font-weight: 600; }
-    .foot-col a { display: block; font-family: var(--ff-modern); font-size: 0.8rem; font-weight: 300; color: var(--text-dim); margin-bottom: 0.75rem; transition: color 0.3s; }
-    .foot-col a:hover { color: var(--gold); }
-    .foot-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid #ffffff08; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .foot-bottom p { font-family: var(--ff-modern); font-size: 0.7rem; color: #ffffff2e; }
-    .foot-bottom .ft-gold { color: var(--gold); }
-    /* back to top */
-    .btt {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      width: 44px;
-      height: 44px;
-      background: var(--glass);
+    .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: 0.5s; }
+    .about-img:hover img { transform: scale(1.02); }
+    .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2rem; }
+    .stat-item { text-align: left; }
+    .stat-number { font-size: 2rem; font-weight: 800; color: var(--gold); }
+    /* cards 3D */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 2rem; margin-top: 2rem; }
+    .glass-card {
+      background: var(--glass-bg);
       backdrop-filter: blur(12px);
       border: 1px solid var(--glass-border);
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--gold);
-      cursor: pointer;
-      z-index: 9990;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s;
-      transform: translateY(16px);
+      border-radius: 28px;
+      padding: 1.8rem;
+      transition: all 0.4s var(--ease-premium);
+      transform-style: preserve-3d;
+      perspective: 800px;
     }
-    .btt.show { opacity: 1; visibility: visible; transform: translateY(0); }
-    .btt:hover { background: var(--gold); color: #000; box-shadow: 0 10px 28px var(--gold-glow); }
-    /* reveal animations */
-    .rv, .rv-l, .rv-r, .rv-s { transition: all 0.9s var(--ease-out); opacity: 0; }
-    .rv { transform: translateY(55px); }
-    .rv-l { transform: translateX(-65px); }
-    .rv-r { transform: translateX(65px); }
-    .rv-s { transform: scale(0.88); }
-    .rv.vis, .rv-l.vis, .rv-r.vis, .rv-s.vis { opacity: 1; transform: translate(0) scale(1); }
-    .stg > * { opacity: 0; transform: translateY(40px); transition: all 0.7s var(--ease-out); }
-    .stg.vis > :first-child { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-    .stg.vis > :nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-    .stg.vis > :nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.19s; }
-    .stg.vis > :nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
-    .stg.vis > :nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
-    .stg.vis > :nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
+    .glass-card:hover {
+      transform: translateY(-10px) rotateX(3deg) rotateY(3deg);
+      border-color: var(--gold);
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.6);
+    }
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .practice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .practice-card {
+      background: var(--glass-bg);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: 0.3s;
+      transform: translateZ(0);
+    }
+    .practice-card:hover { transform: translateY(-8px) scale(1.01); border: 1px solid var(--gold); }
+    .practice-img { height: 200px; overflow: hidden; }
+    .practice-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .practice-card:hover .practice-img img { transform: scale(1.05); }
+    .practice-content { padding: 1.5rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+    .why-card {
+      background: var(--glass-bg);
+      border-radius: 24px;
+      padding: 1.8rem;
+      transition: 0.3s;
+      text-align: left;
+    }
+    .why-card:hover { transform: translateY(-6px); background: rgba(212,175,55,0.05); border: 1px solid var(--glass-border); }
+    .caveat {
+      background: linear-gradient(135deg, #0F1A2F, #0A1128);
+      border-left: 4px solid var(--gold);
+      padding: 2rem;
+      border-radius: 28px;
+      margin: 2rem 0;
+    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .contact-card { display: flex; gap: 1rem; background: var(--glass-bg); padding: 1rem; border-radius: 20px; margin-bottom: 1rem; }
+    footer {
+      background: #050C1A;
+      padding: 3rem 0;
+      border-top: 1px solid var(--glass-border);
+    }
+    .footer-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
     /* responsive */
-    @media (max-width: 1100px) {
-      .nav { padding: 1rem 2rem; }
-      .nav.stuck { padding: 0.8rem 2rem; }
-      .about-grid, .exp-row, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .exp-row.reverse { direction: ltr; }
-      .practice-grid, .why-grid, .foot-grid { grid-template-columns: 1fr 1fr; }
-      .stats-row { grid-template-columns: repeat(2,1fr); }
+    @media (max-width: 1024px) {
+      .grid-2, .practice-grid, .why-grid, .footer-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-img { height: 480px; }
+      .stat-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 768px) {
-      .nav-center, .nav-btn { display: none; }
-      .ham { display: flex; }
-      .sec-padded { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .nav-links, .nav-btn { display: none; }
+      .mobile-btn { display: flex; }
+      .about-img { height: 380px; }
       .practice-grid, .why-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-      .stat-box { padding: 1.5rem 1rem; }
-      .foot-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .foot-bottom { flex-direction: column; text-align: center; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn-gold, .btn-ghost { width: 100%; max-width: 300px; justify-content: center; }
-      .about-img-main img, .exp-img-wrap img { height: 300px; }
-      .philosophy, .caveat { padding: 4rem 1.5rem; }
-      .stats-sec, .cta-sec { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .contact-grid { padding: 0; }
+      section { padding: 3rem 0; }
     }
-    @media (max-width: 480px) {
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .stat-num { font-size: 1.6rem; }
-      .practice-card-img { height: 180px; }
-      .hero-title { letter-spacing: 1px; }
-    }
+    .reveal { opacity: 0; transform: translateY(35px); transition: all 0.9s var(--ease-premium); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .text-left { text-align: left; }
+    .mt-4 { margin-top: 2rem; }
   </style>
 </head>
 <body>
 
 <div class="preloader" id="preloader">
-  <div class="pre-scale">⚖️</div>
-  <div class="pre-name">Rajvardhan & Associates</div>
-  <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
-  <div class="pre-pct" id="prePct">0%</div>
+  <div class="preloader-content">
+    <div class="preloader-logo">⚖️</div>
+    <div class="preloader-text">RAJVARDHAN & ASSOCIATES</div>
+    <div class="preloader-bar"><div class="preloader-fill" id="preFill"></div></div>
+  </div>
 </div>
-
-<div class="scroll-bar" id="scrollBar"></div>
-<div class="noise"></div>
 
 <nav class="nav" id="nav">
-  <a href="#hero" class="nav-logo">⚖️ Rajvardhan</a>
-  <ul class="nav-center">
-    <li><a href="#hero" class="on">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#practice">Practice</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:+917466806524" class="nav-btn">Free Consultation</a>
-  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
+  <div class="logo">R&A</div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#practice">Practices</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="tel:+917466806524" class="nav-btn">+91 74668 06524</a>
+  <button class="mobile-btn" id="mobileBtn"><span></span><span></span><span></span></button>
 </nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="#hero">Home</a>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#expertise">Expertise</a>
-  <a href="#practice">Practice Areas</a>
+  <a href="#practice">Practices</a>
   <a href="#why">Why Us</a>
   <a href="#contact">Contact</a>
+  <a href="tel:+917466806524">📞 Call Now</a>
 </div>
 
-<div class="content">
+<main>
   <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="images/hero-bg.jpg" alt="Supreme Court at Twilight">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-orb hero-orb-3"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge"><span class="badge-dot"></span>Est. 2014 - एक दशक की विधिक सर्वोच्चता</div>
-      <h1 class="hero-title"><span class="gold-text">Rajvardhan</span><br>& Associates</h1>
-      <p class="hero-latin">Vincit Omnia Veritas</p>
-      <p class="hero-hindi">- सत्य सर्वदा विजयी होता है -</p>
-      <p class="hero-desc">हम विधि की प्रत्येक धारा को अपना अस्त्र बनाते हैं, जिससे तर्कों की अग्नि में असत्य भस्म होता है, यही कारण है कि न्यायालय के प्रांगण में हमारा नाम विजय की गारंटी है。<br><span style="color: var(--accent-copper); font-family: var(--ff-tech); font-size: 0.7rem; letter-spacing: 2px;">NEW DELHI  •  JANSATH  •  MUZAFFARNAGAR  •  HARIDWAR  •  DEHRADUN</span></p>
-      <div class="hero-btns">
-        <a href="tel:+917466806524" class="btn-gold">निःशुल्क परामर्श प्राप्त करें <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#expertise" class="btn-ghost"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg> Explore Expertise</a>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-badge" style="color:var(--gold-light); font-size:0.7rem; letter-spacing:2px;">⚖️ EST. 2014 | चैंबर्स ऑफ EXCELLENCE</div>
+      <h1><span class="gold">राजवर्धन</span><br>& एसोसिएट्स</h1>
+      <div class="hero-sub">Vincit Omnia Veritas – सत्य की विजय</div>
+      <p class="hero-desc hindi">हम कानून की प्रत्येक धारा को रणनीति में बदलते हैं। 2500 से अधिक मुकदमों में विजय, पाँच न्यायालय क्षेत्रों में सक्रिय उपस्थिति। हमारा दृष्टिकोण सीधा, सशक्त और परिणामोन्मुखी है।</p>
+      <div class="btn-group">
+        <a href="tel:+917466806524" class="btn-primary">प्रारंभिक परामर्श</a>
+        <a href="#about" class="btn-outline">अधिक जानें</a>
       </div>
     </div>
-    <div class="hero-scroll-ind"><span>Scroll</span><div class="scroll-ln"></div></div>
   </section>
 
-  <!-- Marquee -->
-  <div class="marquee-sec"><div class="marquee-track" id="marqueeTrack"></div></div>
-
-  <!-- Stats -->
-  <section class="stats-sec"><div class="stats-row stg" id="statsRow">
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="11">0</span>+</div><div class="stat-txt">Years of Dominance</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="500">0</span>+</div><div class="stat-txt">Cases Conquered</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="95">0</span>%</div><div class="stat-txt">Victory Rate</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="5">0</span></div><div class="stat-txt">Court Jurisdictions</div></div>
-  </div></section>
-
-  <div class="divider"></div>
-
-  <!-- About -->
-  <section class="sec sec-padded" id="about"><div class="about-grid">
-    <div class="about-img-col rv-l"><div class="about-img-frame"></div><div class="about-img-main"><img src="images/about-lawyer.jpeg" alt="Rajvardhan - Advocate" loading="lazy"><div class="about-img-badge"><div class="about-badge-num">11+</div><div class="about-badge-txt">वर्षों की<br>विधिक विजय</div></div></div></div>
-    <div class="about-text-col rv-r"><div class="sec-label">About the Firm</div><h2 class="sec-title">जहाँ विधि बोलती है,<br><span class="gold-text">वहाँ हम राज करते हैं</span></h2><p class="sec-desc">राजवर्धन एंड एसोसिएट्स केवल विधि फर्म ही नहीं - बल्कि एक <strong>विधिक साम्राज्य</strong> है जो 2014 से न्यायालयों में अपनी अमिट छाप छोड़ रहा है। हम कानून की धाराओं के <em>मर्म को भेदकर </em> आरोपों के पीछे छिपे सच को उजागर करते हैं।</p><p class="sec-desc">हमारा दर्शन स्पष्ट है - <strong>"Pre-emptive Annihilation"</strong>। विपक्ष का तर्क जन्म लेने से पहले ही हमारी रणनीति उसे नष्ट कर चुकी होती है। <em>हम प्रतिक्रिया नहीं करते, हम आक्रमण करते हैं।</em></p><p class="sec-desc">जब आप राजवर्धन को चुनते हैं, तो आप केवल एक वकील नहीं चुनते - आप एक <strong>अजेय विधिक शक्ति</strong> का चयन करते हैं जो हार का नाम नहीं जानती।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>Civil, Criminal & Revenue में <strong style="color:var(--gold)">अपराजित उत्कृष्टता</strong></span></li><li><span class="feat-check">✦</span><span>Delhi से Dehradun तक - <strong style="color:var(--accent-copper)">5 शहरों में विधिक वर्चस्व</strong></span></li><li><span class="feat-check">✦</span><span>प्रत्येक केस में <strong style="color:var(--gold)">Surgical Precision</strong> के साथ Forensic Research</span></li><li><span class="feat-check">✦</span><span>High Court & Sessions Court में <strong style="color:var(--accent-copper)">विजयी Track Record</strong></span></li></ul></div>
-  </div></section>
-
-  <div class="divider"></div>
-
-  <!-- Philosophy -->
-  <section class="philosophy rv-s"><div class="philosophy-bg"><img src="images/philosophy-court.jpg" alt="Court Interior" loading="lazy"></div><div class="philosophy-content"><div class="philosophy-ornament"><span></span>⚖️<span></span></div><div class="sec-label sec-label-center">Our Philosophy</div><div class="philosophy-quote">"न्याय याचना से या मांगने से नहीं मिलता - वह विधि की तलवार से छीना जाता है जो अधिवक्ता  कानून के अक्षर-अक्षर को जानता है, कानून केवल उसी के पक्ष में बोलता है।"</div><div class="philosophy-source">- Rajvardhan & Associates, Since 2014</div></div></section>
-
-  <!-- Expertise -->
-  <section class="sec sec-padded" id="expertise"><div class="text-center rv"><div class="sec-label sec-label-center">Legal Expertise</div><h2 class="sec-title sec-title-lg">विशेषज्ञता के <span class="gold-text">चार स्तंभ</span></h2><p class="sec-desc sec-desc-center">विधि के प्रत्येक क्षेत्र में गहराई से किया गया कार्य, जो विपक्ष की धज्जियां उडा दे - Unmatched Depth, Unshakeable Resolve.</p></div>
-    <div class="exp-row rv"><div class="exp-text"><div class="card-badge">'Justitia Non Novit Patrem'</div><h3><span class="gold-text">01.</span> दहेज एवं वैवाहिक रक्षा</h3><p>मिथ्या आरोपों का जाल कितना भी सघन हो, हमारे तर्कों की धार उसे <strong style="color:var(--gold)">चीर देती है</strong>। IPC 498A, दहेज प्रतिषेध अधिनियम, और घरेलू हिंसा अधिनियम - हर धारा पर हमारी पकड अकाट्य है।</p><p>जहाँ परिवार का सम्मान दांव पर हो, जहाँ झूठे केस में फँसाने का षड्यंत्र रचा गया हो - वहाँ हमारी <strong style="color:var(--accent-copper)">Cross-examination की आंधी</strong> विपक्ष के हर गवाह को उडा कर ले जाती है।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IPC 498A / Dowry Prohibition Act - Complete Defence</span></li><li><span class="feat-check">✦</span><span>Domestic Violence Act - Strategic Counter</span></li><li><span class="feat-check">✦</span><span>Mutual Consent Divorce & Child Custody</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">01</div><img src="images/expertise-matrimonial.jpg" alt="Matrimonial Law" loading="lazy"></div></div>
-    <div class="exp-row reverse rv"><div class="exp-text"><div class="card-badge">'Actus Reus & Mens Rea'</div><h3><span class="gold-text">02.</span> हत्या एवं जघन्य अपराध</h3><p>IPC 302/307 - जहाँ फाँसी का फंदा लटकता हो, जहाँ आजीवन कारावास की छाया हो - वहाँ अभियोजन की कहानी के <strong style="color:var(--gold)">हर सूत्र को तोड़ना</strong> हमारी विशेषता है।</p><p>Post-mortem Report का सूक्ष्म विश्लेषण, Eye-witness की credibility को ध्वस्त करना, और <strong style="color:var(--accent-copper)">Supreme Court के Landmark Judgements</strong> का ऐसा प्रयोग कि न्यायाधीश भी सहमत होने को विवश हो जाएँ।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IPC 302 (Murder) & 307 (Attempt) - Razor-sharp Defence</span></li><li><span class="feat-check">✦</span><span>Sessions Court & High Court - Commanding Presence</span></li><li><span class="feat-check">✦</span><span>Bail in Non-bailable Offences - Proven Success</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">02</div><img src="images/expertise-criminal.jpg" alt="Criminal Defence" loading="lazy"></div></div>
-    <div class="exp-row rv"><div class="exp-text"><div class="card-badge">'Strictissimi Juris'</div><h3><span class="gold-text">03.</span> NDPS - मादक द्रव्य रक्षा</h3><p>NDPS Act - जहाँ 10 साल की सजा न्यूनतम हो, जहाँ जमानत भी एक युद्ध हो - वहाँ प्रक्रियात्मक खामियों का <strong style="color:var(--gold)">शल्य-चिकित्सक की भांति विच्छेदन</strong> करना हमारी विशेषज्ञता है।</p><p>Section 50 की Mandatory Compliance का उल्लंघन, FSL Report में Technical Discrepancies, Chain of Custody में <strong style="color:var(--accent-copper)">हर कड़ी का परीक्षण</strong> - ये वो हथियार हैं जिनसे हम निर्दोष को मुक्त कराते हैं।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>NDPS Act - Complete Procedural Challenge</span></li><li><span class="feat-check">✦</span><span>Section 50, 52A, 67 - Compliance Scrutiny</span></li><li><span class="feat-check">✦</span><span>Commercial Quantity Bail - Strategic Approach</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">03</div><img src="images/expertise-ndps.jpg" alt="NDPS Defence" loading="lazy"></div></div>
-    <div class="exp-row reverse rv"><div class="exp-text"><div class="card-badge">'Digital Juris Prudentia'</div><h3><span class="gold-text">04.</span> साइबर अपराध विधि</h3><p>डिजिटल दुनिया के अदृश्य अपराधियों को <strong style="color:var(--gold)">कोड के पीछे से खींचकर न्यायालय के प्रकाश में</strong> लाना - IT Act 2000 में यही हमारा मिशन है।</p><p>Digital Forensics, IP Tracking, Email Trail Analysis, Social Media Evidence Preservation - <strong style="color:var(--accent-copper)">Technology और Law का वो संगम</strong> जहाँ पीड़ित को न्याय मिलता है और अभियुक्त को सटीक बचाव।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IT Act 2000 - Sections 43, 66, 66A, 67</span></li><li><span class="feat-check">✦</span><span>Digital Evidence & Forensic Decryption</span></li><li><span class="feat-check">✦</span><span>Online Fraud, Hacking & Identity Theft</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">04</div><img src="images/expertise-cyber.jpg" alt="Cyber Crime Law" loading="lazy"></div></div>
+  <!-- About with taller image -->
+  <section id="about">
+    <div class="container">
+      <div class="grid-2">
+        <div class="about-img reveal">
+          <img src="images/about-lawyer.jpg" alt="Rajvardhan, Principal Advocate">
+        </div>
+        <div class="reveal">
+          <h2 class="section-title">एक अग्रणी <span class="gold">विधिक संस्थान</span></h2>
+          <p class="hindi">राजवर्धन एंड एसोसिएट्स एक प्रतिष्ठित लॉ चैंबर्स है, जो 2014 से सिविल, आपराधिक, राजस्व, NDPS, साइबर और दहेज मामलों में उत्कृष्टता के लिए जाना जाता है। हम प्रत्येक केस को पूर्ण तैयारी, साक्ष्यों के सूक्ष्म विश्लेषण और न्यायिक मिसालों के गहन अध्ययन के साथ लड़ते हैं।</p>
+          <p class="hindi">हमारी रणनीति “Pre‑emptive Annihilation” है – अर्थात विपक्ष के तर्क को उसके जन्म से पहले ही निरस्त कर देना। हम प्रतिक्रिया नहीं करते, हम न्यायालय में सक्रिय आक्रमण करते हैं। इस दर्शन ने हमें 2500 से अधिक मुकदमों में विजयी बनाया है।</p>
+          <div class="stat-grid">
+            <div class="stat-item"><div class="stat-number" data-target="11">0+</div><div>वर्षों का अनुभव</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="2500">0+</div><div>मुकदमे जीते</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="95">0%</div><div>सफलता दर</div></div>
+            <div class="stat-item"><div class="stat-number" data-target="5">0</div><div>न्यायक्षेत्र</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Image Band -->
-  <div class="img-band rv-s"><img src="images/legal-library.jpg" alt="Grand Legal Library" loading="lazy"><div class="img-band-text"><h3>Where Knowledge Meets Justice</h3></div></div>
+  <!-- Expertise Cards (4) -->
+  <section id="expertise">
+    <div class="container">
+      <h2 class="section-title reveal">प्रमुख विधिक <span class="gold">विशेषज्ञताएँ</span></h2>
+      <div class="section-sub reveal hindi">हर क्षेत्र में गहरी पैठ, विधि के हर अक्षर पर अधिकार।</div>
+      <div class="card-grid">
+        <div class="glass-card reveal"><div class="card-icon">⚖️</div><h3>वैवाहिक एवं दहेज</h3><p class="hindi">IPC 498A, दहेज निषेध अधिनियम, घरेलू हिंसा। हम झूठे आरोपों को क्रॉस-एग्जामिनेशन से तोड़ते हैं।</p><p class="gold">Strategic defence & counter‑blast.</p></div>
+        <div class="glass-card reveal"><div class="card-icon">⚔️</div><h3>हत्या एवं जघन्य अपराध</h3><p class="hindi">IPC 302/307, अपहरण, NDPS – जहाँ ज़मानत दुर्लभ हो, वहाँ हम प्रक्रियात्मक खामियों से सज़ा पलट देते हैं।</p><p class="gold">Forensic dissection of evidence.</p></div>
+        <div class="glass-card reveal"><div class="card-icon">💻</div><h3>साइबर अपराध</h3><p class="hindi">IT Act 2000 (धारा 43,66,67), डिजिटल फोरेंसिक, ईमेल ट्रेल, हैकिंग, पहचान चोरी।</p><p class="gold">Digital evidence mastery.</p></div>
+        <div class="glass-card reveal"><div class="card-icon">📜</div><h3>राजस्व एवं भूमि विवाद</h3><p class="hindi">खतौनी, नामांतरण, चकबंदी, भू-अधिग्रहण – SDM से High Court तक पूर्ण प्रतिनिधित्व।</p><p class="gold">Decades of revenue litigation.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Practice Areas -->
-  <section class="sec sec-padded" id="practice"><div class="text-center rv"><div class="sec-label sec-label-center">Practice Areas</div><h2 class="sec-title sec-title-lg">न्यायालय <span class="gold-text">क्षेत्राधिकार</span></h2><p class="sec-desc sec-desc-center">ट्रायल कोर्ट से लेकर अपीलीय न्यायालय तक - हर मंच पर हमारी उपस्थिति ही विजय की भूमिका रचती है।</p></div><div class="practice-grid stg">
-    <div class="practice-card"><div class="practice-card-img"><img src="images/philosophy-court.jpg" alt="Civil Court" loading="lazy"><div class="practice-card-icon">🏛️</div></div><div class="practice-card-body"><h4>⚖️ सिविल विधि</h4><span class="court">CJ (J.D.) Jansath • CJ (S.D.) Muzaffarnagar</span><p>भूमि अधिग्रहण, संपत्ति विभाजन, अनुबंध विवाद, उत्तराधिकार, स्थायी निषेधाज्ञा, Specific Performance - हर सिविल मामले में न्यायालय के समक्ष ऐसा तर्क जो विपक्ष को निरुत्तर कर दे।</p></div></div>
-    <div class="practice-card"><div class="practice-card-img"><img src="images/expertise-criminal.jpg" alt="Criminal Court" loading="lazy"><div class="practice-card-icon">⚔️</div></div><div class="practice-card-body"><h4>⚔️ आपराधिक विधि</h4><span class="court">CJM First Class Jansath • Sessions Court MZN</span><p>हत्या, दहेज, NDPS, लूट, अपहरण, साइबर अपराध - हर गंभीर आरोप में वो बचाव जो अभियोजन के पूरे केस को उलट कर रख दे। FIR से Acquittal तक - सम्पूर्ण रक्षा कवच।</p></div></div>
-    <div class="practice-card"><div class="practice-card-img"><img src="images/expertise-ndps.jpg" alt="Revenue Court" loading="lazy"><div class="practice-card-icon">📜</div></div><div class="practice-card-body"><h4>📜 राजस्व विधि</h4><span class="court">S.D.M. Jansath • Nayab Tehsildars MZN</span><p>खतौनी, नामांतरण, बंदोबस्त, भू-राजस्व विवाद, सीलिंग, चकबंदी - भूमि से जुड़े हर विवाद में दशकों का अनुभव और अचूक रणनीति।</p></div></div>
-  </div></section>
+  <!-- Practice Areas (3 courts) -->
+  <section id="practice">
+    <div class="container">
+      <h2 class="section-title reveal">हमारे <span class="gold">न्यायालय क्षेत्र</span></h2>
+      <div class="section-sub reveal hindi">हर मंच पर हमारी उपस्थिति विजय की गारंटी है।</div>
+      <div class="practice-grid">
+        <div class="practice-card reveal"><div class="practice-img"><img src="images/philosophy-court.jpg" alt="Civil Court"></div><div class="practice-content"><h3>सिविल विधि</h3><p>CJ (J.D.) Jansath · CJ (S.D.) Muzaffarnagar</p><p class="hindi">भूमि अधिग्रहण, संपत्ति विभाजन, अनुबंध, विशिष्ट अनुपालन – हर मुकदमा सटीक रणनीति से लड़ा जाता है।</p></div></div>
+        <div class="practice-card reveal"><div class="practice-img"><img src="images/expertise-criminal.jpg" alt="Criminal Court"></div><div class="practice-content"><h3>आपराधिक विधि</h3><p>CJM First Class Jansath · Sessions Court MZN</p><p class="hindi">हत्या, NDPS, दहेज, साइबर अपराध – FIR से उच्च न्यायालय तक सम्पूर्ण रक्षा।</p></div></div>
+        <div class="practice-card reveal"><div class="practice-img"><img src="images/expertise-ndps.jpg" alt="Revenue Court"></div><div class="practice-content"><h3>राजस्व विधि</h3><p>SDM Jansath · Nayab Tehsildars MZN</p><p class="hindi">खतौनी, नामांतरण, बंदोबस्त – भूमि विवादों में दशकों का अनुभव।</p></div></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="divider"></div>
+  <!-- Why Us (6 reasons) -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title reveal">क्यों चुनें हमें? <span class="gold">छह प्रमुख कारण</span></h2>
+      <div class="why-grid">
+        <div class="why-card reveal"><div class="card-icon">⚡</div><h3>Pre‑emptive Strategy</h3><p class="hindi">विपक्ष के तर्क को जन्म से पहले ही निष्प्रभावी करना।</p></div>
+        <div class="why-card reveal"><div class="card-icon">🔬</div><h3>साक्ष्य विश्लेषण</h3><p class="hindi">हर दस्तावेज़, हर गवाही को सूक्ष्मता से परखा जाता है।</p></div>
+        <div class="why-card reveal"><div class="card-icon">🛡️</div><h3>अभेद्य बचाव</h3><p class="hindi">ऐसी रक्षा दीवार कि अभियोजन के प्रयास विफल हो जाएँ।</p></div>
+        <div class="why-card reveal"><div class="card-icon">📖</div><h3>मिसालों का भंडार</h3><p class="hindi">सुप्रीम कोर्ट और हाई कोर्ट के हजारों निर्णयों का गहन अध्ययन।</p></div>
+        <div class="why-card reveal"><div class="card-icon">⏱️</div><h3>त्वरित प्रतिक्रिया</h3><p class="hindi">एंटीसिपेटरी बेल, स्टे – 24x7 आपातकालीन सेवा।</p></div>
+        <div class="why-card reveal"><div class="card-icon">🤝</div><h3>पूर्ण गोपनीयता</h3><p class="hindi">अटॉर्नी-क्लाइंट विशेषाधिकार हमारी प्रतिज्ञा है।</p></div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Why Us -->
-  <section class="sec sec-padded" id="why"><div class="text-center rv"><div class="sec-label sec-label-center">Why Choose Us</div><h2 class="sec-title">हमें क्यों चुनें - <span class="gold-text">6 अकाट्य कारण</span></h2><p class="sec-desc sec-desc-center">जब दांव ऊंचा हो, जब केस कठिन हो, जब हर कोई हार मान ले - तब राजवर्धन एंड एसोसिएट्स वो नाम है जो जीत लिख देता है।</p></div><div class="why-grid stg">
-    <div class="why-card"><div class="why-icon">⚡</div><h4>Pre-emptive Strike</h4><p>विपक्ष का तर्क मुँह खोलने से पहले ही तार-तार। हम इंतज़ार नहीं करते - हम पहले वार करते हैं।</p></div>
-    <div class="why-card"><div class="why-icon">🔬</div><h4>Forensic Precision</h4><p>साक्ष्यों का वो सूक्ष्म विच्छेदन जो अभियोजन की नींव हिला दे। हर दस्तावेज़, हर गवाही - कुछ नहीं बचता।</p></div>
-    <div class="why-card"><div class="why-icon">🛡️</div><h4>Impregnable Shield</h4><p>ऐसी अभेद्य रक्षा दीवार कि अन्याय का हर प्रयास उससे टकराकर चूर-चूर हो जाए।</p></div>
-    <div class="why-card"><div class="why-icon">📖</div><h4>Precedent Arsenal</h4><p>Supreme Court और High Court के हज़ारों निर्णयों का गहन अध्ययन - हर तर्क के पीछे एक Landmark Judgement।</p></div>
-    <div class="why-card"><div class="why-icon">⏱️</div><h4>Lightning Response</h4><p>Anticipatory Bail हो या Emergency Stay - संकट की घड़ी में बिजली की गति से विधिक हस्तक्षेप।</p></div>
-    <div class="why-card"><div class="why-icon">🤝</div><h4>Sacred Trust</h4><p>आपका राज़ हमारा राज़ है। गोपनीयता हमारा धर्म है, विश्वासघात शब्द हमारे शब्दकोश में नहीं।</p></div>
-  </div></section>
-
-  <!-- Caveat -->
-  <section class="caveat rv"><h3>⚠️ Caveat Opponens - विपक्ष सावधान!</h3><p>यदि आपने अन्याय का मार्ग चुना है, तो जान लीजिए - राजवर्धन एंड एसोसिएट्स आपके विरुद्ध <strong> एक ऐसी अभेद्य प्राचीर</strong> है जिसे भेदना असंभव है। न्यायालय के सम्मुख हमारी तैयारी इतनी सम्पूर्ण होती है कि आपकी प्रत्येक दलील <strong>'Null and Void'</strong> सिद्ध होगी।</p><p>हम वो तूफ़ान हैं जो <strong>अन्याय की जड़ें उखाड़ फेंकता है</strong>। हम वो प्रलय हैं जो झूठ के महलों को क्षण भर में ध्वस्त कर देती है।<strong> न्याय हमारा अस्त्र है, विधि हमारा कवच - और विजय हमारी नियति।</strong></p></section>
+  <!-- Caveat (balanced tone) -->
+  <div class="container">
+    <div class="caveat reveal">
+      <h3 class="gold">⚠️ सूचना – प्रतिवादी हितधारकों के लिए</h3>
+      <p class="hindi">राजवर्धन एंड एसोसिएट्स की टीम प्रत्येक मुकदमे में पूर्ण तैयारी, तथ्यों की विस्तृत जाँच और कानूनी मिसालों के सटीक प्रयोग के लिए जानी जाती है। हम विपक्ष के हर दावे को साक्ष्य और विधि के आधार पर चुनौती देते हैं। न्यायालय में हमारी उपस्थिति का अर्थ है गहन शोध और अटूट प्रतिबद्धता।</p>
+    </div>
+  </div>
 
   <!-- Contact -->
-  <section class="sec sec-padded" id="contact"><div class="rv"><div class="sec-label">Contact Us</div><h2 class="sec-title">अपनी <span class="gold-text">विधिक यात्रा</span> आरम्भ करें</h2><p class="sec-desc">पहला कदम उठाइए - प्रथम परामर्श सदैव निःशुल्क। आपकी समस्या कितनी भी जटिल हो, समाधान हमारे पास है।</p></div><div class="contact-grid"><div class="contact-cards stg">
-      <div class="c-card"><div class="c-icon">📞</div><div><h4>Phone - तुरंत सम्पर्क</h4><a href="tel:+917466806524">+91 74668 06524</a></div></div>
-      <div class="c-card"><div class="c-icon">✉️</div><div><h4>Email - विस्तृत परामर्श</h4><a href="mailto:legaleaglemzn@gmail.com">legaleaglemzn@gmail.com</a></div></div>
-      <div class="c-card"><div class="c-icon">📍</div><div><h4>Head Office</h4><span class="c-val">Jansath, District Muzaffarnagar, Uttar Pradesh</span></div></div>
-      <div class="c-card"><div class="c-icon">🏛️</div><div><h4>Active Jurisdictions</h4><span class="c-val">New Delhi • Jansath • Muzaffarnagar • Haridwar • Dehradun</span></div></div>
-      <div class="c-card"><div class="c-icon">🕐</div><div><h4>Working Hours</h4><span class="c-val">Mon – Sat: 9:00 AM – 7:00 PM | Emergency: 24×7</span></div></div>
-    </div><div class="contact-img rv-r"><img src="images/contact-office.jpg" alt="Law Office" loading="lazy"></div></div></section>
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">संपर्क करें</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-card"><div class="card-icon">📞</div><div><h3>फ़ोन (आपातकालीन)</h3><a href="tel:+917466806524" class="gold">+91 74668 06524</a></div></div>
+          <div class="contact-card"><div class="card-icon">✉️</div><div><h3>ईमेल</h3><a href="mailto:legaleaglemzn@gmail.com" class="gold">legaleaglemzn@gmail.com</a></div></div>
+          <div class="contact-card"><div class="card-icon">📍</div><div><h3>मुख्य कार्यालय</h3><p>जानसठ, जिला मुजफ्फरनगर, उत्तर प्रदेश – 251314</p></div></div>
+          <div class="contact-card"><div class="card-icon">🏛️</div><div><h3>सेवा क्षेत्र</h3><p>नई दिल्ली · जानसठ · मुजफ्फरनगर · हरिद्वार · देहरादून</p></div></div>
+        </div>
+        <div class="reveal"><img src="images/contact-office.jpg" alt="Office" style="border-radius: 24px; width:100%;"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
-  <section class="cta-sec rv-s"><div class="cta-bg"><img src="images/cta-justice.jpg" alt="Lady Justice" loading="lazy"></div><div class="cta-content"><div class="sec-label sec-label-center">Take Action Now</div><h2 class="sec-title sec-title-lg text-center">न्याय का समय<br><span class="gold-text">अभी है।</span></h2><p class="sec-desc sec-desc-center text-center">देरी अन्याय को बल देती है। हर बीता पल आपके विपक्ष को मज़बूत करता है। आज ही सम्पर्क करें - कल बहुत देर हो सकती है।</p><div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;"><a href="tel:+917466806524" class="btn-gold">अभी Call करें - निःशुल्क <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="mailto:legaleaglemzn@gmail.com" class="btn-ghost">✉️ Email भेजें</a></div></div></section>
+  <section style="background: linear-gradient(120deg, #0A1128, #020617); text-align:center;">
+    <div class="container">
+      <h2 class="section-title">न्याय के लिए अब समय आ गया है</h2>
+      <p class="hindi" style="max-width:600px; margin:0 auto;">प्रथम परामर्श सदैव निःशुल्क है। अपनी कानूनी समस्या का समाधान आज ही प्रारंभ करें।</p>
+      <div class="btn-group" style="justify-content:center; margin-top:2rem;">
+        <a href="tel:+917466806524" class="btn-primary">अभी कॉल करें</a>
+        <a href="mailto:legaleaglemzn@gmail.com" class="btn-outline">ईमेल लिखें</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <!-- Footer -->
-  <footer class="footer"><div class="foot-grid"><div class="foot-brand"><span class="foot-logo">⚖️ Rajvardhan & Associates</span><p>न्याय याचना से नहीं मिलता - वह विधि के ज्ञान, तर्कों की शक्ति, और अदम्य साहस से प्राप्त होता है। 2014 से अविरत विधिक सेवा - सत्यमेव जयते।</p></div><div class="foot-col"><h5>Expertise</h5><a href="#expertise">Criminal Defence</a><a href="#expertise">Civil Litigation</a><a href="#expertise">Revenue Law</a><a href="#expertise">Cyber Crime</a><a href="#expertise">NDPS Defence</a><a href="#expertise">Dowry Cases</a></div><div class="foot-col"><h5>Courts</h5><a href="#practice">District Court MZN</a><a href="#practice">Sessions Court</a><a href="#practice">CJM Jansath</a><a href="#practice">SDM Revenue Court</a><a href="#practice">Allahabad High Court</a></div><div class="foot-col"><h5>Connect</h5><a href="tel:+917466806524">📞 Call Now</a><a href="mailto:legaleaglemzn@gmail.com">✉️ Email</a><a href="#contact">📍 Visit Office</a><a href="#about">📖 About Us</a></div></div><div class="foot-bottom"><p>© 2014–2026 <span class="ft-gold">Rajvardhan & Associates</span>. All Rights Reserved.</p><p>सत्यमेव जयते - <span class="ft-gold">Vincit Omnia Veritas</span></p></div></footer>
-</div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="logo" style="margin-bottom:0.5rem;">R&A</div><p>© 2014–2026 राजवर्धन एंड एसोसिएट्स</p><p class="hindi">सत्यमेव जयते — Vincit Omnia Veritas</p></div>
+      <div><h4>विधिक क्षेत्र</h4><a href="#expertise">आपराधिक विधि</a><br><a href="#expertise">सिविल विधि</a><br><a href="#expertise">राजस्व विधि</a></div>
+      <div><h4>न्यायालय</h4><a href="#">जिला न्यायालय MZN</a><br><a href="#">सेशन कोर्ट</a><br><a href="#">इलाहाबाद हाई कोर्ट</a></div>
+      <div><h4>सम्पर्क</h4><a href="tel:+917466806524">फ़ोन</a><br><a href="mailto:legaleaglemzn@gmail.com">ईमेल</a><br><a href="#contact">कार्यालय आएँ</a></div>
+    </div>
+  </div>
+</footer>
 
-<button class="btt" id="backToTop" title="Back to Top">↑</button>
+<button id="backToTop" style="position:fixed; bottom:20px; right:20px; background:var(--gold); border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; display:none; z-index:99; color:#0A1128; font-weight:bold;">↑</button>
 
 <script>
-  (function(){
-    // Preloader
-    let progress = 0;
-    const preFill = document.getElementById('preFill');
-    const prePct = document.getElementById('prePct');
-    const preloader = document.getElementById('preloader');
-    const interval = setInterval(() => {
-      progress += Math.random() * 4.5 + 1.5;
-      if(progress >= 100) {
-        progress = 100;
-        clearInterval(interval);
-        preloader.classList.add('done');
-      }
-      if(preFill) preFill.style.width = progress + '%';
-      if(prePct) prePct.innerText = Math.floor(progress) + '%';
-    }, 40);
-
-    // Mobile menu
-    const ham = document.getElementById('hamBtn');
-    const mobMenu = document.getElementById('mobMenu');
-    if(ham && mobMenu) {
-      ham.addEventListener('click', () => {
-        ham.classList.toggle('open');
-        mobMenu.classList.toggle('open');
-      });
-      mobMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          ham.classList.remove('open');
-          mobMenu.classList.remove('open');
-        });
-      });
+  // Preloader
+  let prog = 0;
+  const fillBar = document.getElementById('preFill');
+  const preloaderDiv = document.getElementById('preloader');
+  const interval = setInterval(() => {
+    prog += Math.random() * 5 + 2;
+    if(prog >= 100) {
+      prog = 100;
+      clearInterval(interval);
+      preloaderDiv.classList.add('done');
     }
+    if(fillBar) fillBar.style.width = prog + '%';
+  }, 35);
 
-    // Navbar background on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) nav.classList.add('stuck');
-      else nav.classList.remove('stuck');
+  // Mobile menu
+  const mobBtn = document.getElementById('mobileBtn');
+  const mobNav = document.getElementById('mobileNav');
+  mobBtn?.addEventListener('click', () => mobNav.classList.toggle('open'));
+  document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', () => mobNav.classList.remove('open')));
+
+  // Nav scroll + active highlight
+  const navBar = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50) navBar.classList.add('scrolled');
+    else navBar.classList.remove('scrolled');
+    let current = '';
+    document.querySelectorAll('section[id]').forEach(section => {
+      const top = section.offsetTop - 100;
+      if(scrollY >= top) current = section.getAttribute('id');
     });
-
-    // Scroll progress bar
-    const scrollBar = document.getElementById('scrollBar');
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (winScroll / height) * 100;
-      if(scrollBar) scrollBar.style.width = scrolled + '%';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === `#${current}`) link.classList.add('active');
     });
+  });
 
-    // Back to top
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 500) btt.classList.add('show');
-      else btt.classList.remove('show');
-    });
-    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.2 });
+  reveals.forEach(r => revealObs.observe(r));
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if(href === "#" || href === "") return;
-        const target = document.querySelector(href);
-        if(target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Scroll reveal
-    const revealElements = document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s, .stg');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('vis');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Counter animation (stats)
-    const statsRow = document.getElementById('statsRow');
-    let counted = false;
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting && !counted) {
-          counted = true;
-          document.querySelectorAll('.counter').forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target') || '0');
-            let current = 0;
-            const increment = target / 60;
-            const updateCounter = () => {
-              current += increment;
-              if(current < target) {
-                counter.innerText = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-              } else {
-                counter.innerText = target;
-              }
-            };
-            updateCounter();
-          });
-        }
-      });
-    }, { threshold: 0.4 });
-    if(statsRow) counterObserver.observe(statsRow);
-
-    // Marquee dynamic
-    const marqueeTrack = document.getElementById('marqueeTrack');
-    if(marqueeTrack) {
-      const items = ['दहेज रक्षा', 'हत्या बचाव', 'NDPS Defence', 'Cyber Crime', 'भूमि विवाद', 'Bail Applications', 'High Court Appeals', 'Revenue Law', 'Civil Litigation', 'Criminal Defence'];
-      let html = '';
-      for(let i=0; i<2; i++) {
-        items.forEach(item => {
-          html += `<span class="marquee-item">${item}<span class="marquee-dot">◆</span></span>`;
+  // Counter
+  const counters = document.querySelectorAll('.stat-number');
+  let counted = false;
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !counted) {
+        counted = true;
+        counters.forEach(c => {
+          const target = parseInt(c.getAttribute('data-target'));
+          let curr = 0;
+          const step = target / 60;
+          const update = () => {
+            curr += step;
+            if(curr < target) {
+              c.innerText = Math.floor(curr);
+              requestAnimationFrame(update);
+            } else c.innerText = target;
+          };
+          update();
         });
       }
-      marqueeTrack.innerHTML = html;
-    }
-
-    // Active nav highlight on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollPos = window.scrollY + 200;
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-      document.querySelectorAll('.nav-center a, .mob-menu a').forEach(link => {
-        link.classList.remove('on');
-        const href = link.getAttribute('href');
-        if(href === `#${current}`) link.classList.add('on');
-      });
     });
-  })();
+  }, { threshold: 0.5 });
+  const statsSection = document.querySelector('.stat-grid');
+  if(statsSection) counterObs.observe(statsSection);
+
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 800) btt.style.display = 'block';
+    else btt.style.display = 'none';
+  });
+  btt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Smooth anchor
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if(href === "#" || href === "") return;
+      const target = document.querySelector(href);
+      if(target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 </body>
 </html>
