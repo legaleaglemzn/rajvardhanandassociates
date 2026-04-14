@@ -1,919 +1,3785 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Rajvardhan & Associates ⚖️ Supreme Legal Excellence Since 2014</title>
-  <meta name="description" content="Rajvardhan & Associates - Premier law firm providing Civil, Criminal and Revenue law services since 2014 across Jansath, Muzaffarnagar, Delhi, Haridwar, Dehradun.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Marcellus&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    :root {
-      --gold: #c9a84c;
-      --gold-bright: #e8c95a;
-      --gold-light: #f5e6c8;
-      --gold-dark: #8b6914;
-      --gold-glow: #c9a84c59;
-      --accent-crimson: #8b1a2b;
-      --accent-emerald: #1b7a5a;
-      --accent-sapphire: #1e3a6d;
-      --accent-copper: #b87333;
-      --bg-deep: #020010;
-      --bg-mid: #080825;
-      --bg-card: #080825b3;
-      --glass: #0a0a2d8c;
-      --glass-border: #c9a84c1f;
-      --text-main: #f0ede6;
-      --text-dim: #f0ede680;
-      --text-mid: #f0ede6b8;
-      --ff-royal: "Cinzel Decorative", serif;
-      --ff-display: "Playfair Display", "Georgia", serif;
-      --ff-elegant: "DM Serif Display", serif;
-      --ff-heading: "Marcellus", serif;
-      --ff-body: "Cormorant Infant", "Georgia", serif;
-      --ff-modern: "Outfit", system-ui, sans-serif;
-      --ff-tech: "Space Grotesk", monospace;
-      --ff-artistic: "Syne", sans-serif;
-      --ff-classic: "Libre Baskerville", serif;
-      --ff-philosophy: "Philosopher", serif;
-      --ff-grand: "Italiana", serif;
-      --ff-hindi: "Noto Sans Devanagari", sans-serif;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    body {
-      font-family: var(--ff-body);
-      background: var(--bg-deep);
-      color: var(--text-main);
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    /* custom scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #050520; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--gold), var(--gold-dark)); border-radius: 9px; }
-    /* preloader */
-    .preloader {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999999;
-      transition: opacity 0.8s, visibility 0.8s;
-    }
-    .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
-    .pre-scale { font-size: 4rem; animation: preFloat 2s ease-in-out infinite; }
-    @keyframes preFloat { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.08); } }
-    .pre-name {
-      font-family: var(--ff-royal);
-      color: var(--gold);
-      letter-spacing: 10px;
-      text-transform: uppercase;
-      margin-top: 1.4rem;
-      font-size: clamp(0.8rem, 2.5vw, 1.3rem);
-    }
-    .pre-bar {
-      width: 180px;
-      height: 2px;
-      background: #ffffff0a;
-      border-radius: 2px;
-      margin-top: 2rem;
-      overflow: hidden;
-    }
-    .pre-fill {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-bright));
-      transition: width 50ms;
-    }
-    .pre-pct {
-      font-family: var(--ff-tech);
-      color: var(--gold);
-      font-size: 0.6rem;
-      letter-spacing: 5px;
-      margin-top: 0.6rem;
-    }
-    /* navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.4rem 4rem;
-      z-index: 10000;
-      transition: all 0.5s var(--ease-smooth);
-    }
-    .nav.stuck {
-      background: #020010f0;
-      backdrop-filter: blur(28px) saturate(180%);
-      border-bottom: 1px solid var(--glass-border);
-      padding: 0.85rem 4rem;
-    }
-    .nav-logo {
-      font-family: var(--ff-royal);
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 0.85rem;
-    }
-    .nav-center { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-center a {
-      font-family: var(--ff-modern);
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.68rem;
-      font-weight: 400;
-      padding: 0.3rem 0;
-      position: relative;
-      transition: color 0.3s;
-    }
-    .nav-center a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: width 0.4s var(--ease-out);
-    }
-    .nav-center a:hover, .nav-center a.on { color: var(--gold); }
-    .nav-center a:hover::after, .nav-center a.on::after { width: 100%; }
-    .nav-btn {
-      font-family: var(--ff-modern);
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 0.65rem;
-      font-weight: 500;
-      padding: 0.55rem 1.8rem;
-      border: 1px solid #c9a84c59;
-      border-radius: 50px;
-      transition: all 0.4s;
-    }
-    .nav-btn:hover {
-      background: var(--gold);
-      color: #000;
-      box-shadow: 0 0 35px var(--gold-glow);
-    }
-    .ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 10002; }
-    .ham span { width: 22px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
-    .ham.open span:first-child { transform: rotate(45deg) translate(4px,4px); }
-    .ham.open span:nth-child(2) { opacity: 0; }
-    .ham.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    .mob-menu {
-      position: fixed;
-      inset: 0;
-      background: #000000f7;
-      backdrop-filter: blur(30px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-      z-index: 10001;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s;
-    }
-    .mob-menu.open { opacity: 1; visibility: visible; }
-    .mob-menu a {
-      font-family: var(--ff-heading);
-      font-size: 1.6rem;
-      letter-spacing: 4px;
-      color: var(--text-main);
-    }
-    .mob-menu a:hover { color: var(--gold); }
-    /* scroll indicator */
-    .scroll-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent-crimson), var(--gold), var(--gold-bright));
-      box-shadow: 0 0 15px var(--gold-glow);
-      z-index: 100001;
-    }
-    .noise {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.018;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      z-index: 99990;
-    }
-    /* hero */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 2rem;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.2) contrast(1.2) saturate(0.7);
-    }
-    .hero-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(at 40% 60%, #c9a84c14, transparent 55%), radial-gradient(at 70% 30%, #1e3a6d14, transparent 50%), radial-gradient(at 50% 100%, #8b1a2b0d, transparent 40%);
-      z-index: 1;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(#02001080, #02001033 40%, #020010cc);
-      z-index: 2;
-    }
-    .hero-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .hero-orb-1 { background: #c9a84c1a; width: 400px; height: 400px; top: 10%; left: 5%; animation: orbFloat 12s ease-in-out infinite; }
-    .hero-orb-2 { background: #1e3a6d14; width: 280px; height: 280px; bottom: 12%; right: 8%; animation: orbFloat 14s ease-in-out infinite reverse; }
-    .hero-orb-3 { background: #8b1a2b0f; width: 200px; height: 200px; top: 50%; right: 20%; animation: orbFloat 10s ease-in-out 3s infinite; }
-    @keyframes orbFloat { 0%,100% { transform: translate(0,0); } 33% { transform: translate(30px, -25px); } 66% { transform: translate(-20px, 18px); } }
-    .hero-content { position: relative; z-index: 3; max-width: 1000px; }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #c9a84c0a;
-      backdrop-filter: blur(10px);
-      border: 1px solid #c9a84c26;
-      border-radius: 50px;
-      padding: 0.45rem 1.4rem;
-      font-family: var(--ff-tech);
-      font-size: 0.58rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold-bright);
-      margin-bottom: 2.5rem;
-    }
-    .badge-dot { width: 6px; height: 6px; background: var(--gold-bright); border-radius: 50%; box-shadow: 0 0 8px var(--gold-glow); animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.8); } }
-    .hero-title {
-      font-family: var(--ff-royal);
-      font-size: clamp(2.2rem, 7vw, 5.5rem);
-      font-weight: 900;
-      letter-spacing: 3px;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-    }
-    .hero-latin {
-      font-family: var(--ff-grand);
-      font-size: clamp(1rem, 2.2vw, 1.5rem);
-      letter-spacing: 10px;
-      text-transform: uppercase;
-      color: var(--accent-copper);
-      margin-bottom: 0.4rem;
-    }
-    .hero-hindi {
-      font-family: var(--ff-hindi);
-      font-size: clamp(0.85rem, 1.6vw, 1.1rem);
-      color: #f5e6c880;
-      margin-bottom: 1.8rem;
-    }
-    .hero-desc {
-      font-family: var(--ff-classic);
-      max-width: 680px;
-      margin: 0 auto 2.8rem;
-      color: var(--text-dim);
-      font-size: clamp(0.92rem, 1.3vw, 1.1rem);
-      font-style: italic;
-      line-height: 2;
-    }
-    .hero-btns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    .btn-gold, .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-family: var(--ff-modern);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.95rem 2.6rem;
-      border-radius: 60px;
-      cursor: pointer;
-      transition: all 0.4s;
-    }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-gold::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, #ffffff59, transparent);
-      transition: left 0.6s;
-    }
-    .btn-gold:hover::before { left: 100%; }
-    .btn-gold:hover { box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-3px); }
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid #c9a84c4d;
-      color: var(--gold);
-      font-weight: 400;
-    }
-    .btn-ghost:hover { border-color: var(--gold); background: #c9a84c0d; transform: translateY(-3px); }
-    .hero-scroll-ind {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 3;
-    }
-    .hero-scroll-ind span { font-family: var(--ff-tech); font-size: 0.5rem; letter-spacing: 5px; text-transform: uppercase; color: #c9a84c4d; }
-    .scroll-ln { width: 1px; height: 50px; background: #c9a84c14; position: relative; overflow: hidden; }
-    .scroll-ln::after {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(180deg, transparent, var(--gold));
-      animation: scrollPulse 2.5s ease-in-out infinite;
-    }
-    @keyframes scrollPulse { 0% { top: -50%; } 100% { top: 100%; } }
-    .gold-text {
-      background: linear-gradient(135deg, gold 0%, var(--gold-bright) 20%, var(--gold) 50%, var(--gold-dark) 80%, var(--gold-bright) 100%);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 6s infinite;
-    }
-    @keyframes shimmer { 0%,100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
-    /* marquee */
-    .marquee-sec { padding: 1.3rem 0; border-top: 1px solid #c9a84c0d; border-bottom: 1px solid #c9a84c0d; background: #02001099; overflow: hidden; }
-    .marquee-track { display: flex; white-space: nowrap; animation: marquee 50s linear infinite; }
-    .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item { flex-shrink: 0; font-family: var(--ff-heading); font-size: 0.75rem; letter-spacing: 5px; text-transform: uppercase; color: #c9a84c1a; }
-    .marquee-dot { margin: 0 1.2rem; font-size: 0.35rem; color: var(--accent-copper); vertical-align: middle; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    /* stats */
-    .stats-sec { padding: 5rem 3rem; background: linear-gradient(180deg, var(--bg-deep), #08082566, var(--bg-deep)); }
-    .stats-row { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-    .stat-box {
-      text-align: center;
-      background: var(--glass);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border);
-      border-radius: 22px;
-      padding: 2.8rem 1.2rem;
-      transition: all 0.5s;
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-box::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      transform: scaleX(0);
-      transition: transform 0.5s;
-    }
-    .stat-box:hover { border-color: #c9a84c4d; transform: translateY(-8px); }
-    .stat-box:hover::after { transform: scaleX(1); }
-    .stat-num { font-family: var(--ff-royal); font-size: clamp(1.8rem, 3.2vw, 2.6rem); font-weight: 900; margin-bottom: 0.4rem; }
-    .stat-txt { font-family: var(--ff-modern); text-transform: uppercase; letter-spacing: 2.5px; font-size: 0.62rem; color: var(--text-dim); }
-    /* sections */
-    .sec { padding: clamp(5rem, 14vw, 10rem) 0; }
-    .sec-padded { padding-left: 3rem; padding-right: 3rem; }
-    .divider { max-width: 1200px; height: 1px; margin: 0 auto; background: linear-gradient(90deg, transparent, #c9a84c1a, transparent); }
-    .text-center { text-align: center; }
-    .sec-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-family: var(--ff-tech);
-      font-size: 0.6rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--accent-copper);
-      margin-bottom: 1.2rem;
-    }
-    .sec-label::before { content: ''; width: 28px; height: 1.5px; background: var(--accent-copper); }
-    .sec-label-center { justify-content: center; }
-    .sec-label-center::after { content: ''; width: 28px; height: 1.5px; background: var(--accent-copper); }
-    .sec-title { font-family: var(--ff-display); font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
-    .sec-title-lg { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-    .sec-desc { font-family: var(--ff-body); font-size: clamp(1rem, 1.4vw, 1.2rem); color: var(--text-dim); max-width: 640px; line-height: 1.9; }
-    .sec-desc-center { margin-left: auto; margin-right: auto; }
-    /* about */
-    .about-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .about-img-main { border-radius: 22px; overflow: hidden; position: relative; box-shadow: 0 35px 90px #00000080; }
-    .about-img-main img { width: 100%; height: 540px; object-fit: cover; transition: transform 0.7s var(--ease-out); filter: brightness(1.05) contrast(1.08); }
-    .about-img-main:hover img { transform: scale(1.04); }
-    .about-img-main::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 40%, #020010b3); pointer-events: none; border-radius: 22px; }
-    .about-img-frame { position: absolute; inset: -14px 14px 14px -14px; border: 1px solid #c9a84c26; border-radius: 26px; pointer-events: none; z-index: -1; }
-    .about-img-badge {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      background: #020010d9;
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 1rem 1.5rem;
-      z-index: 2;
-    }
-    .about-badge-num { font-family: var(--ff-royal); font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; }
-    .about-badge-txt { font-family: var(--ff-modern); font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-top: 0.2rem; }
-    .feat-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.5rem; list-style: none; }
-    .feat-list li { display: flex; align-items: flex-start; gap: 0.9rem; font-family: var(--ff-body); font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
-    .feat-check { width: 26px; height: 26px; background: #c9a84c14; border: 1px solid #c9a84c2e; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
-    /* philosophy */
-    .philosophy { position: relative; padding: clamp(5rem, 14vw, 10rem) 3rem; text-align: center; overflow: hidden; }
-    .philosophy-bg { position: absolute; inset: 0; z-index: 0; }
-    .philosophy-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.25) contrast(1.2) saturate(0.85); }
-    .philosophy-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep) 0%, #02001040 30%, #02001040 70%, var(--bg-deep) 100%); }
-    .philosophy-content { position: relative; z-index: 2; max-width: 850px; margin: 0 auto; }
-    .philosophy-quote { font-family: var(--ff-philosophy); font-size: clamp(1.3rem, 3.2vw, 2.2rem); font-weight: 700; font-style: italic; color: var(--gold-light); line-height: 1.7; margin: 2rem 0; }
-    .philosophy-quote::before { content: '"'; font-family: var(--ff-royal); font-size: 6rem; color: #c9a84c26; line-height: 0.4; display: block; margin-bottom: 0.8rem; }
-    .philosophy-source { font-family: var(--ff-tech); font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); }
-    .philosophy-ornament { display: flex; justify-content: center; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
-    .philosophy-ornament span { width: 45px; height: 1px; background: var(--accent-copper); }
-    /* expertise rows */
-    .exp-row { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding: clamp(4rem, 10vw, 7rem) 0; }
-    .exp-row.reverse { direction: rtl; }
-    .exp-row.reverse > * { direction: ltr; }
-    .exp-img-wrap { position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px #0006; }
-    .exp-img-wrap img { width: 100%; height: 440px; object-fit: cover; transition: transform 0.7s var(--ease-out); filter: brightness(1.05) contrast(1.08) saturate(1.05); }
-    .exp-img-wrap:hover img { transform: scale(1.06); }
-    .exp-img-num { position: absolute; top: 0.8rem; left: 1.5rem; font-family: var(--ff-royal); font-size: 5rem; font-weight: 900; color: #c9a84c14; line-height: 1; pointer-events: none; z-index: 2; }
-    .exp-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #02001033, transparent 50%); pointer-events: none; }
-    .exp-text .card-badge { display: inline-block; background: #b8733314; border: 1px solid #b8733340; border-radius: 50px; padding: 0.28rem 1.1rem; font-family: var(--ff-tech); font-size: 0.55rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-copper); margin-bottom: 1rem; }
-    .exp-text h3 { font-family: var(--ff-elegant); font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 400; line-height: 1.35; margin-bottom: 1rem; }
-    .exp-text p { font-size: 1.05rem; color: var(--text-dim); line-height: 1.9; margin-bottom: 1rem; }
-    /* img band */
-    .img-band { position: relative; height: clamp(280px, 40vw, 480px); overflow: hidden; }
-    .img-band img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) saturate(1.1); }
-    .img-band::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep) 0%, transparent 20%, transparent 80%, var(--bg-deep) 100%); z-index: 1; pointer-events: none; }
-    .img-band-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; }
-    .img-band-text h3 { font-family: var(--ff-grand); font-size: clamp(1.2rem, 3vw, 2.2rem); letter-spacing: 10px; text-transform: uppercase; color: var(--gold-light); text-shadow: 0 4px 30px #000000b3; }
-    /* practice grid */
-    .practice-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .practice-card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; transition: all 0.5s var(--ease-smooth); }
-    .practice-card:hover { border-color: #c9a84c4d; transform: translateY(-12px); box-shadow: 0 35px 80px #00000080; }
-    .practice-card-img { position: relative; height: 230px; overflow: hidden; }
-    .practice-card-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.08) saturate(1.05); transition: transform 0.6s; }
-    .practice-card:hover .practice-card-img img { transform: scale(1.1); }
-    .practice-card-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 65%; background: linear-gradient(transparent, #080825eb); pointer-events: none; }
-    .practice-card-icon { position: absolute; bottom: -22px; left: 1.5rem; width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; box-shadow: 0 10px 25px var(--gold-glow); z-index: 2; }
-    .practice-card-body { padding: 2.2rem 1.5rem 2rem; }
-    .practice-card-body h4 { font-family: var(--ff-elegant); font-size: 1.3rem; font-weight: 400; color: var(--text-main); margin-bottom: 0.5rem; }
-    .practice-card-body .court { font-family: var(--ff-tech); font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-copper); display: block; margin-bottom: 0.8rem; }
-    .practice-card-body p { font-size: 0.98rem; color: var(--text-dim); line-height: 1.75; }
-    /* why grid */
-    .why-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
-    .why-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 22px; padding: 2.5rem 1.8rem; text-align: center; transition: all 0.5s; }
-    .why-card:hover { border-color: #c9a84c4d; transform: translateY(-8px); }
-    .why-icon { width: 58px; height: 58px; background: linear-gradient(135deg, #c9a84c1a, #c9a84c08); border: 1px solid #c9a84c1f; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.3rem; }
-    .why-card h4 { font-family: var(--ff-artistic); font-size: 0.95rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold-light); margin-bottom: 0.7rem; }
-    .why-card p { font-family: var(--ff-body); font-size: 0.92rem; color: var(--text-dim); line-height: 1.7; }
-    /* caveat */
-    .caveat { text-align: center; padding: clamp(4rem, 10vw, 7rem) 3rem; background: linear-gradient(135deg, #8b1a2b0f, #c9a84c08); border-top: 1px solid #8b1a2b26; border-bottom: 1px solid #8b1a2b26; position: relative; overflow: hidden; }
-    .caveat::before { content: "⚖️"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 20rem; opacity: 0.015; pointer-events: none; }
-    .caveat h3 { font-family: var(--ff-royal); font-size: clamp(1.1rem, 2.5vw, 1.7rem); letter-spacing: 4px; color: var(--accent-crimson); filter: brightness(1.5); margin-bottom: 1.5rem; }
-    .caveat p { max-width: 800px; margin: 0 auto; font-family: var(--ff-hindi); font-size: clamp(0.9rem, 1.2vw, 1.05rem); color: var(--text-dim); line-height: 2; }
-    .caveat p+p { margin-top: 1.2rem; }
-    .caveat p strong { color: var(--accent-crimson); filter: brightness(1.5); }
-    /* contact */
-    .contact-grid { max-width: 1280px; margin: 3rem auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-cards { display: flex; flex-direction: column; gap: 1.2rem; }
-    .c-card { display: flex; align-items: flex-start; gap: 1.1rem; background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 18px; padding: 1.4rem 1.6rem; transition: all 0.4s; }
-    .c-card:hover { border-color: #c9a84c4d; transform: translateX(8px); }
-    .c-icon { width: 44px; height: 44px; background: linear-gradient(135deg, #c9a84c1a, #c9a84c08); border: 1px solid #c9a84c1a; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
-    .c-card h4 { font-family: var(--ff-tech); font-size: 0.58rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.25rem; font-weight: 500; }
-    .c-card a, .c-card .c-val { font-family: var(--ff-classic); font-size: 1rem; color: var(--gold-light); display: block; transition: color 0.3s; }
-    .c-card a:hover { color: var(--gold); text-shadow: 0 0 15px var(--gold-glow); }
-    .contact-img { border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px #00000073; position: relative; }
-    .contact-img img { width: 100%; height: 100%; min-height: 400px; object-fit: cover; filter: brightness(1.08); transition: transform 0.6s; }
-    .contact-img:hover img { transform: scale(1.04); }
-    .contact-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #0200104d, transparent 60%); pointer-events: none; }
-    /* cta */
-    .cta-sec { position: relative; padding: clamp(5rem, 14vw, 9rem) 3rem; text-align: center; overflow: hidden; }
-    .cta-bg { position: absolute; inset: 0; z-index: 0; }
-    .cta-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.2) contrast(1.3) saturate(0.7); }
-    .cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-deep), #02001059, var(--bg-deep)); }
-    .cta-content { position: relative; z-index: 2; max-width: 750px; margin: 0 auto; }
-    /* footer */
-    .footer { background: linear-gradient(180deg, var(--bg-deep), #000); padding: 5rem 3rem 2rem; border-top: 1px solid #c9a84c0d; }
-    .foot-grid { max-width: 1200px; margin: 0 auto 3rem; display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr; gap: 3rem; }
-    .foot-brand { max-width: 360px; }
-    .foot-logo { font-family: var(--ff-royal); font-size: 0.85rem; letter-spacing: 4px; color: var(--gold); display: block; margin-bottom: 0.8rem; }
-    .foot-brand p { font-family: var(--ff-body); font-size: 0.9rem; color: var(--text-dim); line-height: 1.75; }
-    .foot-col h5 { font-family: var(--ff-tech); font-size: 0.58rem; letter-spacing: 3.5px; text-transform: uppercase; color: var(--accent-copper); margin-bottom: 1rem; font-weight: 600; }
-    .foot-col a { display: block; font-family: var(--ff-modern); font-size: 0.8rem; font-weight: 300; color: var(--text-dim); margin-bottom: 0.75rem; transition: color 0.3s; }
-    .foot-col a:hover { color: var(--gold); }
-    .foot-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid #ffffff08; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .foot-bottom p { font-family: var(--ff-modern); font-size: 0.7rem; color: #ffffff2e; }
-    .foot-bottom .ft-gold { color: var(--gold); }
-    /* back to top */
-    .btt {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      width: 44px;
-      height: 44px;
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      border-radius: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--gold);
-      cursor: pointer;
-      z-index: 9990;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s;
-      transform: translateY(16px);
-    }
-    .btt.show { opacity: 1; visibility: visible; transform: translateY(0); }
-    .btt:hover { background: var(--gold); color: #000; box-shadow: 0 10px 28px var(--gold-glow); }
-    /* reveal animations */
-    .rv, .rv-l, .rv-r, .rv-s { transition: all 0.9s var(--ease-out); opacity: 0; }
-    .rv { transform: translateY(55px); }
-    .rv-l { transform: translateX(-65px); }
-    .rv-r { transform: translateX(65px); }
-    .rv-s { transform: scale(0.88); }
-    .rv.vis, .rv-l.vis, .rv-r.vis, .rv-s.vis { opacity: 1; transform: translate(0) scale(1); }
-    .stg > * { opacity: 0; transform: translateY(40px); transition: all 0.7s var(--ease-out); }
-    .stg.vis > :first-child { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-    .stg.vis > :nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-    .stg.vis > :nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.19s; }
-    .stg.vis > :nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
-    .stg.vis > :nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
-    .stg.vis > :nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
-    /* responsive */
-    @media (max-width: 1100px) {
-      .nav { padding: 1rem 2rem; }
-      .nav.stuck { padding: 0.8rem 2rem; }
-      .about-grid, .exp-row, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .exp-row.reverse { direction: ltr; }
-      .practice-grid, .why-grid, .foot-grid { grid-template-columns: 1fr 1fr; }
-      .stats-row { grid-template-columns: repeat(2,1fr); }
-    }
-    @media (max-width: 768px) {
-      .nav-center, .nav-btn { display: none; }
-      .ham { display: flex; }
-      .sec-padded { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .practice-grid, .why-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-      .stat-box { padding: 1.5rem 1rem; }
-      .foot-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .foot-bottom { flex-direction: column; text-align: center; }
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn-gold, .btn-ghost { width: 100%; max-width: 300px; justify-content: center; }
-      .about-img-main img, .exp-img-wrap img { height: 300px; }
-      .philosophy, .caveat { padding: 4rem 1.5rem; }
-      .stats-sec, .cta-sec { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .contact-grid { padding: 0; }
-    }
-    @media (max-width: 480px) {
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .stat-num { font-size: 1.6rem; }
-      .practice-card-img { height: 180px; }
-      .hero-title { letter-spacing: 1px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajvardhan & Associates | Premium Legal Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@100;200;300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F5D56E;
+            --gold-dark: #A8860C;
+            --platinum: #E8E8E8;
+            --deep-black: #020408;
+            --rich-black: #050A0F;
+            --card-bg: #0A0F1A;
+            --card-border: rgba(212, 175, 55, 0.3);
+            --text-primary: #F0EDE8;
+            --text-secondary: #B8A99A;
+            --accent-blue: #1a3a5c;
+            --glow-gold: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ===== CUSTOM CURSOR ===== */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.1s;
+            box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid rgba(212, 175, 55, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.15s ease;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--rich-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--gold), var(--gold-dark));
+            border-radius: 10px;
+        }
+
+        /* ===== PARTICLES CANVAS ===== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-black);
+            z-index: 99997;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            letter-spacing: 4px;
+            animation: pulse-glow 2s infinite;
+            text-align: center;
+        }
+
+        .preloader-line {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin-top: 20px;
+            animation: line-expand 2.5s ease forwards;
+        }
+
+        .preloader-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            text-transform: uppercase;
+            animation: fade-in-up 1s ease 0.5s both;
+        }
+
+        @keyframes line-expand {
+            to { width: 200px; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(212,175,55,0.5), 0 0 40px rgba(212,175,55,0.3); }
+            50% { text-shadow: 0 0 40px rgba(212,175,55,0.8), 0 0 80px rgba(212,175,55,0.5); }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(2, 4, 8, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 5%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+
+        .nav-logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--gold);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--deep-black) !important;
+            padding: 10px 22px;
+            font-weight: 700 !important;
+            font-size: 0.7rem !important;
+            letter-spacing: 2px;
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+            transition: all 0.3s ease !important;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta:hover {
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 20% 50%, rgba(26, 58, 92, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                        var(--deep-black);
+        }
+
+        .hero-3d-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-scale {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scale-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: float-scale 6s ease-in-out infinite;
+        }
+
+        @keyframes float-scale {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-0.5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            padding: 0 5%;
+            max-width: 60%;
+            padding-top: 100px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 8px 20px;
+            margin-bottom: 30px;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+            animation: fade-in-up 1s ease 0.3s both;
+        }
+
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fade-in-up 1s ease 0.5s both;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-title .line1 {
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        .hero-title .line2 {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(212,175,55,0.3));
+        }
+
+        .hero-title .line3 {
+            color: var(--platinum);
+            font-size: 0.5em;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-style: normal;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 10px;
+        }
+
+        .hero-description {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 580px;
+            animation: fade-in-up 1s ease 0.7s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fade-in-up 1s ease 0.9s both;
+        }
+
+        .btn-primary {
+            position: relative;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--deep-black);
+            padding: 16px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.35);
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 60px rgba(212, 175, 55, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            position: relative;
+            background: transparent;
+            color: var(--gold);
+            padding: 15px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(212, 175, 55, 0.1);
+            transition: width 0.4s ease;
+        }
+
+        .btn-secondary:hover::before {
+            width: 100%;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            animation: fade-in-up 1s ease 1.1s both;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(212,175,55,0.4);
+        }
+
+        .stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 5;
+            animation: fade-in-up 1s ease 1.5s both;
+        }
+
+        .scroll-text {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(var(--gold), transparent);
+            animation: scroll-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-pulse {
+            0% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform: scaleY(1); transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+
+        /* ===== 3D FLOATING ELEMENTS ===== */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            animation: orb-float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            top: 10%;
+            right: 15%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(26, 58, 92, 0.2) 0%, transparent 70%);
+            bottom: 20%;
+            left: 5%;
+            animation-delay: -3s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            top: 50%;
+            left: 40%;
+            animation-delay: -5s;
+        }
+
+        @keyframes orb-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.1); }
+            66% { transform: translate(-20px, 15px) scale(0.95); }
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-title .highlight {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===== MARQUEE ===== */
+        .marquee-section {
+            padding: 20px 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.03));
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            overflow: hidden;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 60px;
+            animation: marquee 20s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .marquee-item i {
+            color: var(--gold);
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            padding: 120px 5%;
+            background: radial-gradient(ellipse at 70% 50%, rgba(26, 58, 92, 0.1) 0%, transparent 60%),
+                        var(--rich-black);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-card-3d {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: card-3d-float 6s ease-in-out infinite;
+        }
+
+        @keyframes card-3d-float {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(5deg) rotateX(-3deg) translateY(-20px); }
+        }
+
+        .about-main-card {
+            background: linear-gradient(135deg, #0D1421, #0A1020);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 4px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .about-main-card::after {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 15rem;
+            color: rgba(212, 175, 55, 0.04);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .about-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-quote-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-line {
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .author-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .about-floating-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+            z-index: 2;
+        }
+
+        .badge-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-black);
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.45rem;
+            letter-spacing: 2px;
+            color: var(--deep-black);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .about-text-content .section-header {
+            text-align: left;
+        }
+
+        .about-text-content .section-eyebrow {
+            justify-content: flex-start;
+        }
+
+        .about-text-content .section-eyebrow::before {
+            display: none;
+        }
+
+        .about-paragraph {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 12px 16px;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .feature-pill:hover {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: rgba(212, 175, 55, 0.4);
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .feature-pill i {
+            color: var(--gold);
+            font-size: 0.75rem;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section {
+            padding: 120px 5%;
+            background: var(--deep-black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            padding: 45px 35px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px) perspective(1000px) rotateX(5deg);
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5),
+                        0 0 40px rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover::after {
+            width: 200px;
+            height: 200px;
+        }
+
+        .service-icon-wrap {
+            position: relative;
+            width: 65px;
+            height: 65px;
+            margin-bottom: 25px;
+        }
+
+        .service-icon-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon-bg {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .service-icon-wrap i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.4rem;
+            color: var(--gold);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon-wrap i {
+            transform: translate(-50%, -50%) scale(1.2);
+            text-shadow: 0 0 15px var(--gold);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(212, 175, 55, 0.04);
+            line-height: 1;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-number {
+            color: rgba(212, 175, 55, 0.08);
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .service-card:hover .service-title {
+            color: var(--gold);
+        }
+
+        .service-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 15px;
+        }
+
+        .service-link i {
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-section {
+            padding: 120px 5%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 60%),
+                        var(--rich-black);
+        }
+
+        .why-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .why-features {
+            display: grid;
+            gap: 20px;
+        }
+
+        .why-feature-card {
+            display: flex;
+            gap: 20px;
+            background: rgba(10, 15, 26, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 25px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-feature-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(var(--gold), var(--gold-dark));
+            transform: scaleY(0);
+            transition: transform 0.4s;
+            transform-origin: bottom;
+        }
+
+        .why-feature-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateX(8px);
+            background: rgba(15, 22, 38, 0.9);
+        }
+
+        .why-feature-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .why-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .why-feature-card:hover .why-icon {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.1));
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .why-icon i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .why-feature-text h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .why-feature-card:hover .why-feature-text h4 {
+            color: var(--gold);
+        }
+
+        .why-feature-text p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .why-visual {
+            position: relative;
+        }
+
+        .achievement-tower {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .achievement-card:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 30px rgba(212,175,55,0.1);
+            transform: scale(1.02);
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .achievement-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .achievement-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            padding: 120px 5%;
+            background: var(--deep-black);
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 30px;
+            animation: testimonial-scroll 25s linear infinite;
+            width: max-content;
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes testimonial-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .testimonial-card {
+            width: 380px;
+            min-width: 380px;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .stars i {
+            color: var(--gold);
+            font-size: 0.75rem;
+            filter: drop-shadow(0 0 5px rgba(212,175,55,0.5));
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-black);
+        }
+
+        .author-info h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+        }
+
+        .author-info p {
+            font-size: 0.65rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            padding: 120px 5%;
+            background: var(--rich-black);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.1);
+        }
+
+        .team-photo {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(135deg, #0D1421, #1a2540);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .team-photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, var(--card-bg));
+        }
+
+        .team-avatar-large {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+            border: 2px solid rgba(212,175,55,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s;
+        }
+
+        .team-card:hover .team-avatar-large {
+            box-shadow: 0 0 40px rgba(212,175,55,0.4);
+            transform: scale(1.1);
+        }
+
+        .team-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .team-card:hover .team-glow {
+            opacity: 1;
+        }
+
+        .team-info {
+            padding: 25px;
+            position: relative;
+        }
+
+        .team-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .team-card:hover .team-name {
+            color: var(--gold);
+        }
+
+        .team-designation {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin: 5px 0 12px;
+        }
+
+        .team-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .team-social a {
+            width: 32px;
+            height: 32px;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .team-social a:hover {
+            background: rgba(212,175,55,0.2);
+            color: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212,175,55,0.3);
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process-section {
+            padding: 120px 5%;
+            background: var(--deep-black);
+        }
+
+        .process-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+            transform: translateX(-50%);
+        }
+
+        .process-step {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-step-content {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid rgba(212,175,55,0.12);
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .process-step:nth-child(odd) .process-step-content {
+            text-align: right;
+        }
+
+        .process-step-content:hover {
+            border-color: rgba(212,175,55,0.3);
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .process-step-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .process-number-center {
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-black);
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(212,175,55,0.4);
+            position: relative;
+        }
+
+        .process-step-empty {
+            flex: 1;
+        }
+
+        .process-step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .process-step-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ===== AWARDS SECTION ===== */
+        .awards-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02), rgba(212,175,55,0.06));
+            border-top: 1px solid rgba(212,175,55,0.12);
+            border-bottom: 1px solid rgba(212,175,55,0.12);
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+            align-items: center;
+        }
+
+        .award-item {
+            text-align: center;
+            padding: 25px 20px;
+            border: 1px solid rgba(212,175,55,0.1);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .award-item:hover {
+            border-color: rgba(212,175,55,0.3);
+            background: rgba(212,175,55,0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));
+        }
+
+        .award-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            line-height: 1.5;
+        }
+
+        .award-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 120px 5%;
+            background: var(--rich-black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 60%);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: rgba(10, 15, 26, 0.6);
+            border: 1px solid rgba(212,175,55,0.1);
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .contact-info-card:hover {
+            border-color: rgba(212,175,55,0.3);
+            transform: translateX(8px);
+        }
+
+        .contact-icon-wrap {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        }
+
+        .contact-icon-wrap i {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .contact-detail h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-form-wrap {
+            background: var(--card-bg);
+            border: 1px solid rgba(212,175,55,0.15);
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.15);
+            color: var(--text-primary);
+            padding: 14px 18px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: rgba(212,175,55,0.5);
+            background: rgba(212,175,55,0.03);
+            box-shadow: 0 0 20px rgba(212,175,55,0.08);
+        }
+
+        .form-control::placeholder {
+            color: rgba(184, 169, 154, 0.4);
+        }
+
+        select.form-control option {
+            background: var(--card-bg);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--deep-black);
+            border: none;
+            padding: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 10px 40px rgba(212,175,55,0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ===== BLOG SECTION ===== */
+        .blog-section {
+            padding: 120px 5%;
+            background: var(--deep-black);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(212,175,55,0.1);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212,175,55,0.3);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+
+        .blog-image {
+            height: 180px;
+            background: linear-gradient(135deg, #0D1421, #1a2540);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image i {
+            font-size: 3rem;
+            color: rgba(212,175,55,0.25);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--deep-black);
+            padding: 5px 12px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .blog-meta i {
+            color: var(--gold);
+            margin-right: 4px;
+        }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--gold);
+        }
+
+        .blog-excerpt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .blog-read-more {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .blog-read-more:hover {
+            gap: 15px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 120px 5%;
+            background: var(--rich-black);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+            animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-title .gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #020306;
+            border-top: 1px solid rgba(212,175,55,0.15);
+            padding: 80px 5% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(212,175,55,0.1);
+        }
+
+        .footer-brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212,175,55,0.3);
+            margin-bottom: 5px;
+        }
+
+        .footer-brand-sub {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer-about {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .footer-social a:hover {
+            background: rgba(212,175,55,0.2);
+            color: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212,175,55,0.3);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a::before {
+            content: '';
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-links a:hover::before {
+            width: 15px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-copyright {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-copyright span {
+            color: var(--gold);
+        }
+
+        .footer-bar-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-bar-links a {
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-bar-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== REVEAL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== GOLDEN DIVIDER ===== */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 0 auto 20px;
+            max-width: 200px;
+            justify-content: center;
+        }
+
+        .gold-divider span {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(var(--gold), transparent);
+        }
+
+        .gold-divider span:last-child {
+            background: linear-gradient(transparent, var(--gold));
+        }
+
+        .gold-divider i {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background: rgba(5, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(212,175,55,0.2);
+            z-index: 9999;
+            padding: 80px 40px 40px;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu.open {
+            display: flex;
+            flex-direction: column;
+            transform: translateX(0);
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .mobile-menu-links a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .mobile-close:hover {
+            background: rgba(212,175,55,0.1);
+        }
+
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 9998;
+        }
+
+        .menu-overlay.open {
+            display: block;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: float-whatsapp 3s ease-in-out infinite;
+        }
+
+        @keyframes float-whatsapp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float a:hover {
+            box-shadow: 0 15px 60px rgba(37, 211, 102, 0.6);
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float i {
+            font-size: 1.2rem;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 45px;
+            height: 45px;
+            background: rgba(212,175,55,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            background: rgba(212,175,55,0.2);
+            box-shadow: 0 5px 25px rgba(212,175,55,0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .awards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero-content { max-width: 100%; }
+            .floating-scale { display: none; }
+
+            .about-grid,
+            .why-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid,
+            .team-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .process-timeline::before { display: none; }
+            .process-step { flex-direction: column !important; gap: 20px; }
+            .process-step-content { text-align: left !important; }
+
+            .hero-stats { gap: 25px; }
+            .hero-title { font-size: 2.2rem; }
+
+            .form-row { grid-template-columns: 1fr; }
+
+            .about-features { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .awards-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-buttons { flex-direction: column; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        /* ===== HEXAGON 3D DECORATION ===== */
+        .hex-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hex-decoration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ===== LUXURY RIBBON ===== */
+        .luxury-ribbon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .luxury-ribbon::before {
+            content: 'PREMIUM';
+            position: absolute;
+            top: 35px;
+            right: -40px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--deep-black);
+            padding: 6px 50px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+        }
+
+        /* ===== COUNTER ANIMATION ===== */
+        .counter {
+            display: inline-block;
+        }
+
+    </style>
 </head>
 <body>
 
-<div class="preloader" id="preloader">
-  <div class="pre-scale">⚖️</div>
-  <div class="pre-name">Rajvardhan & Associates</div>
-  <div class="pre-bar"><div class="pre-fill" id="preFill"></div></div>
-  <div class="pre-pct" id="prePct">0%</div>
-</div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-<div class="scroll-bar" id="scrollBar"></div>
-<div class="noise"></div>
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
 
-<nav class="nav" id="nav">
-  <a href="#hero" class="nav-logo">⚖️ Rajvardhan</a>
-  <ul class="nav-center">
-    <li><a href="#hero" class="on">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#practice">Practice</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:+917466806524" class="nav-btn">Free Consultation</a>
-  <button class="ham" id="hamBtn"><span></span><span></span><span></span></button>
-</nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="#hero">Home</a>
-  <a href="#about">About</a>
-  <a href="#expertise">Expertise</a>
-  <a href="#practice">Practice Areas</a>
-  <a href="#why">Why Us</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<div class="content">
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="images/hero-bg.jpg" alt="Supreme Court at Twilight">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-orb hero-orb-3"></div>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-logo">R&A</div>
+        <div class="preloader-line"></div>
+        <div class="preloader-text">Rajvardhan & Associates</div>
     </div>
-    <div class="hero-content">
-      <div class="hero-badge"><span class="badge-dot"></span>Est. 2014 - एक दशक की विधिक सर्वोच्चता</div>
-      <h1 class="hero-title"><span class="gold-text">Rajvardhan</span><br>& Associates</h1>
-      <p class="hero-latin">Vincit Omnia Veritas</p>
-      <p class="hero-hindi">- सत्य सर्वदा विजयी होता है -</p>
-      <p class="hero-desc">हम विधि की प्रत्येक धारा को अपना अस्त्र बनाते हैं, जिससे तर्कों की अग्नि में असत्य भस्म होता है, यही कारण है कि न्यायालय के प्रांगण में हमारा नाम विजय की गारंटी है。<br><span style="color: var(--accent-copper); font-family: var(--ff-tech); font-size: 0.7rem; letter-spacing: 2px;">NEW DELHI  •  JANSATH  •  MUZAFFARNAGAR  •  HARIDWAR  •  DEHRADUN</span></p>
-      <div class="hero-btns">
-        <a href="tel:+917466806524" class="btn-gold">निःशुल्क परामर्श प्राप्त करें <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#expertise" class="btn-ghost"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg> Explore Expertise</a>
-      </div>
+
+    <!-- Floating WhatsApp -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919876543210" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Free Consultation
+        </a>
     </div>
-    <div class="hero-scroll-ind"><span>Scroll</span><div class="scroll-ln"></div></div>
-  </section>
 
-  <!-- Marquee -->
-  <div class="marquee-sec"><div class="marquee-track" id="marqueeTrack"></div></div>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
-  <!-- Stats -->
-  <section class="stats-sec"><div class="stats-row stg" id="statsRow">
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="11">0</span>+</div><div class="stat-txt">Years of Dominance</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="500">0</span>+</div><div class="stat-txt">Cases Conquered</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="95">0</span>%</div><div class="stat-txt">Victory Rate</div></div>
-    <div class="stat-box"><div class="stat-num"><span class="gold-text counter" data-target="5">0</span></div><div class="stat-txt">Court Jurisdictions</div></div>
-  </div></section>
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMobileMenu()"></div>
 
-  <div class="divider"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-links">
+            <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+            <li><a href="#team" onclick="closeMobileMenu()">Team</a></li>
+            <li><a href="#blog" onclick="closeMobileMenu()">Insights</a></li>
+            <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
 
-  <!-- About -->
-  <section class="sec sec-padded" id="about"><div class="about-grid">
-    <div class="about-img-col rv-l"><div class="about-img-frame"></div><div class="about-img-main"><img src="images/about-lawyer.jpeg" alt="Rajvardhan - Advocate" loading="lazy"><div class="about-img-badge"><div class="about-badge-num">11+</div><div class="about-badge-txt">वर्षों की<br>विधिक विजय</div></div></div></div>
-    <div class="about-text-col rv-r"><div class="sec-label">About the Firm</div><h2 class="sec-title">जहाँ विधि बोलती है,<br><span class="gold-text">वहाँ हम राज करते हैं</span></h2><p class="sec-desc">राजवर्धन एंड एसोसिएट्स केवल विधि फर्म ही नहीं - बल्कि एक <strong>विधिक साम्राज्य</strong> है जो 2014 से न्यायालयों में अपनी अमिट छाप छोड़ रहा है। हम कानून की धाराओं के <em>मर्म को भेदकर </em> आरोपों के पीछे छिपे सच को उजागर करते हैं।</p><p class="sec-desc">हमारा दर्शन स्पष्ट है - <strong>"Pre-emptive Annihilation"</strong>। विपक्ष का तर्क जन्म लेने से पहले ही हमारी रणनीति उसे नष्ट कर चुकी होती है। <em>हम प्रतिक्रिया नहीं करते, हम आक्रमण करते हैं।</em></p><p class="sec-desc">जब आप राजवर्धन को चुनते हैं, तो आप केवल एक वकील नहीं चुनते - आप एक <strong>अजेय विधिक शक्ति</strong> का चयन करते हैं जो हार का नाम नहीं जानती।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>Civil, Criminal & Revenue में <strong style="color:var(--gold)">अपराजित उत्कृष्टता</strong></span></li><li><span class="feat-check">✦</span><span>Delhi से Dehradun तक - <strong style="color:var(--accent-copper)">5 शहरों में विधिक वर्चस्व</strong></span></li><li><span class="feat-check">✦</span><span>प्रत्येक केस में <strong style="color:var(--gold)">Surgical Precision</strong> के साथ Forensic Research</span></li><li><span class="feat-check">✦</span><span>High Court & Sessions Court में <strong style="color:var(--accent-copper)">विजयी Track Record</strong></span></li></ul></div>
-  </div></section>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            <div class="nav-logo-main">Rajvardhan & Associates</div>
+            <div class="nav-logo-sub">Premium Legal Advocates</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Practice Areas</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#blog">Insights</a></li>
+            <li><a href="#contact" class="nav-cta">Consult Now</a></li>
+        </ul>
+        <div class="hamburger" onclick="openMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-  <div class="divider"></div>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
 
-  <!-- Philosophy -->
-  <section class="philosophy rv-s"><div class="philosophy-bg"><img src="images/philosophy-court.jpg" alt="Court Interior" loading="lazy"></div><div class="philosophy-content"><div class="philosophy-ornament"><span></span>⚖️<span></span></div><div class="sec-label sec-label-center">Our Philosophy</div><div class="philosophy-quote">"न्याय याचना से या मांगने से नहीं मिलता - वह विधि की तलवार से छीना जाता है जो अधिवक्ता  कानून के अक्षर-अक्षर को जानता है, कानून केवल उसी के पक्ष में बोलता है।"</div><div class="philosophy-source">- Rajvardhan & Associates, Since 2014</div></div></section>
+        <div class="hero-3d-bg">
+            <div class="floating-scale">
+                <div class="scale-3d">
+                    <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:0.6"/>
+                                <stop offset="100%" style="stop-color:#A8860C;stop-opacity:0.2"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Base -->
+                        <rect x="200" y="540" width="100" height="15" rx="2" fill="url(#goldGrad)" filter="url(#glow)"/>
+                        <rect x="210" y="520" width="80" height="25" rx="1" fill="url(#goldGrad)"/>
+                        <!-- Pillar -->
+                        <rect x="247" y="150" width="6" height="370" fill="url(#goldGrad)" filter="url(#glow)"/>
+                        <!-- Cross Beam -->
+                        <rect x="100" y="148" width="300" height="6" rx="3" fill="url(#goldGrad)" filter="url(#glow)"/>
+                        <!-- Top ornament -->
+                        <circle cx="250" cy="120" r="25" fill="none" stroke="url(#goldGrad)" stroke-width="2" filter="url(#glow)"/>
+                        <circle cx="250" cy="120" r="10" fill="url(#goldGrad)"/>
+                        <!-- Left chain -->
+                        <line x1="150" y1="154" x2="130" y2="300" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="5,3"/>
+                        <!-- Right chain -->
+                        <line x1="350" y1="154" x2="370" y2="300" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="5,3"/>
+                        <!-- Left pan -->
+                        <ellipse cx="110" cy="310" rx="70" ry="15" fill="url(#goldGrad)" filter="url(#glow)"/>
+                        <rect x="60" y="295" width="100" height="5" rx="2" fill="url(#goldGrad)"/>
+                        <!-- Right pan -->
+                        <ellipse cx="390" cy="330" rx="70" ry="15" fill="url(#goldGrad)" filter="url(#glow)"/>
+                        <rect x="340" y="315" width="100" height="5" rx="2" fill="url(#goldGrad)"/>
+                        <!-- Decorative stars -->
+                        <circle cx="110" cy="290" r="3" fill="#D4AF37" opacity="0.8"/>
+                        <circle cx="390" cy="310" r="3" fill="#D4AF37" opacity="0.8"/>
+                        <!-- Glow effects -->
+                        <circle cx="250" cy="120" r="40" fill="rgba(212,175,55,0.05)"/>
+                        <ellipse cx="110" cy="310" rx="80" ry="20" fill="rgba(212,175,55,0.05)"/>
+                        <ellipse cx="390" cy="330" rx="80" ry="20" fill="rgba(212,175,55,0.05)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
 
-  <!-- Expertise -->
-  <section class="sec sec-padded" id="expertise"><div class="text-center rv"><div class="sec-label sec-label-center">Legal Expertise</div><h2 class="sec-title sec-title-lg">विशेषज्ञता के <span class="gold-text">चार स्तंभ</span></h2><p class="sec-desc sec-desc-center">विधि के प्रत्येक क्षेत्र में गहराई से किया गया कार्य, जो विपक्ष की धज्जियां उडा दे - Unmatched Depth, Unshakeable Resolve.</p></div>
-    <div class="exp-row rv"><div class="exp-text"><div class="card-badge">'Justitia Non Novit Patrem'</div><h3><span class="gold-text">01.</span> दहेज एवं वैवाहिक रक्षा</h3><p>मिथ्या आरोपों का जाल कितना भी सघन हो, हमारे तर्कों की धार उसे <strong style="color:var(--gold)">चीर देती है</strong>। IPC 498A, दहेज प्रतिषेध अधिनियम, और घरेलू हिंसा अधिनियम - हर धारा पर हमारी पकड अकाट्य है।</p><p>जहाँ परिवार का सम्मान दांव पर हो, जहाँ झूठे केस में फँसाने का षड्यंत्र रचा गया हो - वहाँ हमारी <strong style="color:var(--accent-copper)">Cross-examination की आंधी</strong> विपक्ष के हर गवाह को उडा कर ले जाती है।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IPC 498A / Dowry Prohibition Act - Complete Defence</span></li><li><span class="feat-check">✦</span><span>Domestic Violence Act - Strategic Counter</span></li><li><span class="feat-check">✦</span><span>Mutual Consent Divorce & Child Custody</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">01</div><img src="images/expertise-matrimonial.jpg" alt="Matrimonial Law" loading="lazy"></div></div>
-    <div class="exp-row reverse rv"><div class="exp-text"><div class="card-badge">'Actus Reus & Mens Rea'</div><h3><span class="gold-text">02.</span> हत्या एवं जघन्य अपराध</h3><p>IPC 302/307 - जहाँ फाँसी का फंदा लटकता हो, जहाँ आजीवन कारावास की छाया हो - वहाँ अभियोजन की कहानी के <strong style="color:var(--gold)">हर सूत्र को तोड़ना</strong> हमारी विशेषता है।</p><p>Post-mortem Report का सूक्ष्म विश्लेषण, Eye-witness की credibility को ध्वस्त करना, और <strong style="color:var(--accent-copper)">Supreme Court के Landmark Judgements</strong> का ऐसा प्रयोग कि न्यायाधीश भी सहमत होने को विवश हो जाएँ।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IPC 302 (Murder) & 307 (Attempt) - Razor-sharp Defence</span></li><li><span class="feat-check">✦</span><span>Sessions Court & High Court - Commanding Presence</span></li><li><span class="feat-check">✦</span><span>Bail in Non-bailable Offences - Proven Success</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">02</div><img src="images/expertise-criminal.jpg" alt="Criminal Defence" loading="lazy"></div></div>
-    <div class="exp-row rv"><div class="exp-text"><div class="card-badge">'Strictissimi Juris'</div><h3><span class="gold-text">03.</span> NDPS - मादक द्रव्य रक्षा</h3><p>NDPS Act - जहाँ 10 साल की सजा न्यूनतम हो, जहाँ जमानत भी एक युद्ध हो - वहाँ प्रक्रियात्मक खामियों का <strong style="color:var(--gold)">शल्य-चिकित्सक की भांति विच्छेदन</strong> करना हमारी विशेषज्ञता है।</p><p>Section 50 की Mandatory Compliance का उल्लंघन, FSL Report में Technical Discrepancies, Chain of Custody में <strong style="color:var(--accent-copper)">हर कड़ी का परीक्षण</strong> - ये वो हथियार हैं जिनसे हम निर्दोष को मुक्त कराते हैं।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>NDPS Act - Complete Procedural Challenge</span></li><li><span class="feat-check">✦</span><span>Section 50, 52A, 67 - Compliance Scrutiny</span></li><li><span class="feat-check">✦</span><span>Commercial Quantity Bail - Strategic Approach</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">03</div><img src="images/expertise-ndps.jpg" alt="NDPS Defence" loading="lazy"></div></div>
-    <div class="exp-row reverse rv"><div class="exp-text"><div class="card-badge">'Digital Juris Prudentia'</div><h3><span class="gold-text">04.</span> साइबर अपराध विधि</h3><p>डिजिटल दुनिया के अदृश्य अपराधियों को <strong style="color:var(--gold)">कोड के पीछे से खींचकर न्यायालय के प्रकाश में</strong> लाना - IT Act 2000 में यही हमारा मिशन है।</p><p>Digital Forensics, IP Tracking, Email Trail Analysis, Social Media Evidence Preservation - <strong style="color:var(--accent-copper)">Technology और Law का वो संगम</strong> जहाँ पीड़ित को न्याय मिलता है और अभियुक्त को सटीक बचाव।</p><ul class="feat-list"><li><span class="feat-check">✦</span><span>IT Act 2000 - Sections 43, 66, 66A, 67</span></li><li><span class="feat-check">✦</span><span>Digital Evidence & Forensic Decryption</span></li><li><span class="feat-check">✦</span><span>Online Fraud, Hacking & Identity Theft</span></li></ul></div><div class="exp-img-wrap"><div class="exp-img-num">04</div><img src="images/expertise-cyber.jpg" alt="Cyber Crime Law" loading="lazy"></div></div>
-  </section>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                Est. 2005 &bull; India's Premier Legal Firm
+            </div>
 
-  <!-- Image Band -->
-  <div class="img-band rv-s"><img src="images/legal-library.jpg" alt="Grand Legal Library" loading="lazy"><div class="img-band-text"><h3>Where Knowledge Meets Justice</h3></div></div>
+            <h1 class="hero-title">
+                <span class="line1">Where Justice</span>
+                <span class="line2">Meets Excellence</span>
+                <span class="line3">Rajvardhan & Associates</span>
+            </h1>
 
-  <!-- Practice Areas -->
-  <section class="sec sec-padded" id="practice"><div class="text-center rv"><div class="sec-label sec-label-center">Practice Areas</div><h2 class="sec-title sec-title-lg">न्यायालय <span class="gold-text">क्षेत्राधिकार</span></h2><p class="sec-desc sec-desc-center">ट्रायल कोर्ट से लेकर अपीलीय न्यायालय तक - हर मंच पर हमारी उपस्थिति ही विजय की भूमिका रचती है।</p></div><div class="practice-grid stg">
-    <div class="practice-card"><div class="practice-card-img"><img src="images/philosophy-court.jpg" alt="Civil Court" loading="lazy"><div class="practice-card-icon">🏛️</div></div><div class="practice-card-body"><h4>⚖️ सिविल विधि</h4><span class="court">CJ (J.D.) Jansath • CJ (S.D.) Muzaffarnagar</span><p>भूमि अधिग्रहण, संपत्ति विभाजन, अनुबंध विवाद, उत्तराधिकार, स्थायी निषेधाज्ञा, Specific Performance - हर सिविल मामले में न्यायालय के समक्ष ऐसा तर्क जो विपक्ष को निरुत्तर कर दे।</p></div></div>
-    <div class="practice-card"><div class="practice-card-img"><img src="images/expertise-criminal.jpg" alt="Criminal Court" loading="lazy"><div class="practice-card-icon">⚔️</div></div><div class="practice-card-body"><h4>⚔️ आपराधिक विधि</h4><span class="court">CJM First Class Jansath • Sessions Court MZN</span><p>हत्या, दहेज, NDPS, लूट, अपहरण, साइबर अपराध - हर गंभीर आरोप में वो बचाव जो अभियोजन के पूरे केस को उलट कर रख दे। FIR से Acquittal तक - सम्पूर्ण रक्षा कवच।</p></div></div>
-    <div class="practice-card"><div class="practice-card-img"><img src="images/expertise-ndps.jpg" alt="Revenue Court" loading="lazy"><div class="practice-card-icon">📜</div></div><div class="practice-card-body"><h4>📜 राजस्व विधि</h4><span class="court">S.D.M. Jansath • Nayab Tehsildars MZN</span><p>खतौनी, नामांतरण, बंदोबस्त, भू-राजस्व विवाद, सीलिंग, चकबंदी - भूमि से जुड़े हर विवाद में दशकों का अनुभव और अचूक रणनीति।</p></div></div>
-  </div></section>
+            <p class="hero-description">
+                Hum sirf vakeel nahi hain — hum aapke saath khade hote hain, 
+                har mushkil ghadi mein, har adalat ke darwaze par. Aapki awaaz, 
+                hamari zimmedari. Aapka insaf, hamara mission.
+            </p>
 
-  <div class="divider"></div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Book Free Consultation</a>
+                <a href="#services" class="btn-secondary">Explore Services</a>
+            </div>
 
-  <!-- Why Us -->
-  <section class="sec sec-padded" id="why"><div class="text-center rv"><div class="sec-label sec-label-center">Why Choose Us</div><h2 class="sec-title">हमें क्यों चुनें - <span class="gold-text">6 अकाट्य कारण</span></h2><p class="sec-desc sec-desc-center">जब दांव ऊंचा हो, जब केस कठिन हो, जब हर कोई हार मान ले - तब राजवर्धन एंड एसोसिएट्स वो नाम है जो जीत लिख देता है।</p></div><div class="why-grid stg">
-    <div class="why-card"><div class="why-icon">⚡</div><h4>Pre-emptive Strike</h4><p>विपक्ष का तर्क मुँह खोलने से पहले ही तार-तार। हम इंतज़ार नहीं करते - हम पहले वार करते हैं।</p></div>
-    <div class="why-card"><div class="why-icon">🔬</div><h4>Forensic Precision</h4><p>साक्ष्यों का वो सूक्ष्म विच्छेदन जो अभियोजन की नींव हिला दे। हर दस्तावेज़, हर गवाही - कुछ नहीं बचता।</p></div>
-    <div class="why-card"><div class="why-icon">🛡️</div><h4>Impregnable Shield</h4><p>ऐसी अभेद्य रक्षा दीवार कि अन्याय का हर प्रयास उससे टकराकर चूर-चूर हो जाए।</p></div>
-    <div class="why-card"><div class="why-icon">📖</div><h4>Precedent Arsenal</h4><p>Supreme Court और High Court के हज़ारों निर्णयों का गहन अध्ययन - हर तर्क के पीछे एक Landmark Judgement।</p></div>
-    <div class="why-card"><div class="why-icon">⏱️</div><h4>Lightning Response</h4><p>Anticipatory Bail हो या Emergency Stay - संकट की घड़ी में बिजली की गति से विधिक हस्तक्षेप।</p></div>
-    <div class="why-card"><div class="why-icon">🤝</div><h4>Sacred Trust</h4><p>आपका राज़ हमारा राज़ है। गोपनीयता हमारा धर्म है, विश्वासघात शब्द हमारे शब्दकोश में नहीं।</p></div>
-  </div></section>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="5000">0</span>+</div>
+                    <div class="stat-label">Cases Won</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="18">0</span>+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><span class="counter" data-target="25">0</span>+</div>
+                    <div class="stat-label">Expert Advocates</div>
+                </div>
+            </div>
+        </div>
 
-  <!-- Caveat -->
-  <section class="caveat rv"><h3>⚠️ Caveat Opponens - विपक्ष सावधान!</h3><p>यदि आपने अन्याय का मार्ग चुना है, तो जान लीजिए - राजवर्धन एंड एसोसिएट्स आपके विरुद्ध <strong> एक ऐसी अभेद्य प्राचीर</strong> है जिसे भेदना असंभव है। न्यायालय के सम्मुख हमारी तैयारी इतनी सम्पूर्ण होती है कि आपकी प्रत्येक दलील <strong>'Null and Void'</strong> सिद्ध होगी।</p><p>हम वो तूफ़ान हैं जो <strong>अन्याय की जड़ें उखाड़ फेंकता है</strong>। हम वो प्रलय हैं जो झूठ के महलों को क्षण भर में ध्वस्त कर देती है।<strong> न्याय हमारा अस्त्र है, विधि हमारा कवच - और विजय हमारी नियति।</strong></p></section>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll Down</div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section class="sec sec-padded" id="contact"><div class="rv"><div class="sec-label">Contact Us</div><h2 class="sec-title">अपनी <span class="gold-text">विधिक यात्रा</span> आरम्भ करें</h2><p class="sec-desc">पहला कदम उठाइए - प्रथम परामर्श सदैव निःशुल्क। आपकी समस्या कितनी भी जटिल हो, समाधान हमारे पास है।</p></div><div class="contact-grid"><div class="contact-cards stg">
-      <div class="c-card"><div class="c-icon">📞</div><div><h4>Phone - तुरंत सम्पर्क</h4><a href="tel:+917466806524">+91 74668 06524</a></div></div>
-      <div class="c-card"><div class="c-icon">✉️</div><div><h4>Email - विस्तृत परामर्श</h4><a href="mailto:legaleaglemzn@gmail.com">legaleaglemzn@gmail.com</a></div></div>
-      <div class="c-card"><div class="c-icon">📍</div><div><h4>Head Office</h4><span class="c-val">Jansath, District Muzaffarnagar, Uttar Pradesh</span></div></div>
-      <div class="c-card"><div class="c-icon">🏛️</div><div><h4>Active Jurisdictions</h4><span class="c-val">New Delhi • Jansath • Muzaffarnagar • Haridwar • Dehradun</span></div></div>
-      <div class="c-card"><div class="c-icon">🕐</div><div><h4>Working Hours</h4><span class="c-val">Mon – Sat: 9:00 AM – 7:00 PM | Emergency: 24×7</span></div></div>
-    </div><div class="contact-img rv-r"><img src="images/contact-office.jpg" alt="Law Office" loading="lazy"></div></div></section>
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-item"><i class="fas fa-gavel"></i> Civil Litigation</div>
+            <div class="marquee-item"><i class="fas fa-landmark"></i> Constitutional Law</div>
+            <div class="marquee-item"><i class="fas fa-building"></i> Corporate Law</div>
+            <div class="marquee-item"><i class="fas fa-home"></i> Property Disputes</div>
+            <div class="marquee-item"><i class="fas fa-users"></i> Family Law</div>
+            <div class="marquee-item"><i class="fas fa-shield-alt"></i> Criminal Defense</div>
+            <div class="marquee-item"><i class="fas fa-handshake"></i> Arbitration</div>
+            <div class="marquee-item"><i class="fas fa-file-contract"></i> Contract Law</div>
+            <div class="marquee-item"><i class="fas fa-balance-scale"></i> High Court Cases</div>
+            <div class="marquee-item"><i class="fas fa-gavel"></i> Civil Litigation</div>
+            <div class="marquee-item"><i class="fas fa-landmark"></i> Constitutional Law</div>
+            <div class="marquee-item"><i class="fas fa-building"></i> Corporate Law</div>
+            <div class="marquee-item"><i class="fas fa-home"></i> Property Disputes</div>
+            <div class="marquee-item"><i class="fas fa-users"></i> Family Law</div>
+            <div class="marquee-item"><i class="fas fa-shield-alt"></i> Criminal Defense</div>
+            <div class="marquee-item"><i class="fas fa-handshake"></i> Arbitration</div>
+            <div class="marquee-item"><i class="fas fa-file-contract"></i> Contract Law</div>
+            <div class="marquee-item"><i class="fas fa-balance-scale"></i> High Court Cases</div>
+        </div>
+    </div>
 
-  <!-- CTA -->
-  <section class="cta-sec rv-s"><div class="cta-bg"><img src="images/cta-justice.jpg" alt="Lady Justice" loading="lazy"></div><div class="cta-content"><div class="sec-label sec-label-center">Take Action Now</div><h2 class="sec-title sec-title-lg text-center">न्याय का समय<br><span class="gold-text">अभी है।</span></h2><p class="sec-desc sec-desc-center text-center">देरी अन्याय को बल देती है। हर बीता पल आपके विपक्ष को मज़बूत करता है। आज ही सम्पर्क करें - कल बहुत देर हो सकती है।</p><div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;"><a href="tel:+917466806524" class="btn-gold">अभी Call करें - निःशुल्क <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="mailto:legaleaglemzn@gmail.com" class="btn-ghost">✉️ Email भेजें</a></div></div></section>
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+        <div class="about-grid">
+            <div class="about-visual reveal-left">
+                <div class="about-card-3d">
+                    <div class="about-main-card">
+                        <p class="about-quote">
+                            "Hum mante hain ki har insaan ko insaf milna chahiye — 
+                            chahe wo kitna bhi kamzor kyun na ho. Yeh sirf hamara 
+                            kaam nahi, yeh hamara dharm hai."
+                        </p>
+                        <div class="about-quote-author">
+                            <div class="author-line"></div>
+                            <div class="author-name">Adv. Rajvardhan, Founder</div>
+                        </div>
+                    </div>
+                    <div class="about-floating-badge">
+                        <div class="badge-number">18+</div>
+                        <div class="badge-text">Years of Trust</div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer class="footer"><div class="foot-grid"><div class="foot-brand"><span class="foot-logo">⚖️ Rajvardhan & Associates</span><p>न्याय याचना से नहीं मिलता - वह विधि के ज्ञान, तर्कों की शक्ति, और अदम्य साहस से प्राप्त होता है। 2014 से अविरत विधिक सेवा - सत्यमेव जयते।</p></div><div class="foot-col"><h5>Expertise</h5><a href="#expertise">Criminal Defence</a><a href="#expertise">Civil Litigation</a><a href="#expertise">Revenue Law</a><a href="#expertise">Cyber Crime</a><a href="#expertise">NDPS Defence</a><a href="#expertise">Dowry Cases</a></div><div class="foot-col"><h5>Courts</h5><a href="#practice">District Court MZN</a><a href="#practice">Sessions Court</a><a href="#practice">CJM Jansath</a><a href="#practice">SDM Revenue Court</a><a href="#practice">Allahabad High Court</a></div><div class="foot-col"><h5>Connect</h5><a href="tel:+917466806524">📞 Call Now</a><a href="mailto:legaleaglemzn@gmail.com">✉️ Email</a><a href="#contact">📍 Visit Office</a><a href="#about">📖 About Us</a></div></div><div class="foot-bottom"><p>© 2014–2026 <span class="ft-gold">Rajvardhan & Associates</span>. All Rights Reserved.</p><p>सत्यमेव जयते - <span class="ft-gold">Vincit Omnia Veritas</span></p></div></footer>
-</div>
+            <div class="about-text-content reveal-right">
+                <div class="section-header">
+                    <div class="section-eyebrow">Our Legacy</div>
+                    <h2 class="section-title">
+                        Har Case Mein <span class="highlight">Dil</span> Lagate Hain
+                    </h2>
+                </div>
 
-<button class="btt" id="backToTop" title="Back to Top">↑</button>
+                <p class="about-paragraph">
+                    2005 mein ek chote se sapne ke saath shuru hua Rajvardhan & Associates 
+                    aaj India ke sabse bharosemand legal firms mein se ek hai. Humne sirf 
+                    cases nahi jeete — humne logon ki zindagiyan badali hain.
+                </p>
 
-<script>
-  (function(){
-    // Preloader
-    let progress = 0;
-    const preFill = document.getElementById('preFill');
-    const prePct = document.getElementById('prePct');
-    const preloader = document.getElementById('preloader');
-    const interval = setInterval(() => {
-      progress += Math.random() * 4.5 + 1.5;
-      if(progress >= 100) {
-        progress = 100;
-        clearInterval(interval);
-        preloader.classList.add('done');
-      }
-      if(preFill) preFill.style.width = progress + '%';
-      if(prePct) prePct.innerText = Math.floor(progress) + '%';
-    }, 40);
+                <p class="about-paragraph">
+                    Hamare pass High Court aur Supreme Court mein decades ka experience hai. 
+                    Hum corporate giants se lekar aam aadmi tak — sabke liye samaan josh ke 
+                    saath ladte hain. Kyunki insaf sab ka haq hai.
+                </p>
 
-    // Mobile menu
-    const ham = document.getElementById('hamBtn');
-    const mobMenu = document.getElementById('mobMenu');
-    if(ham && mobMenu) {
-      ham.addEventListener('click', () => {
-        ham.classList.toggle('open');
-        mobMenu.classList.toggle('open');
-      });
-      mobMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          ham.classList.remove('open');
-          mobMenu.classList.remove('open');
+                <div class="about-features">
+                    <div class="feature-pill"><i class="fas fa-check"></i> Supreme Court Practice</div>
+                    <div class="feature-pill"><i class="fas fa-check"></i> High Court Experts</div>
+                    <div class="feature-pill"><i class="fas fa-check"></i> 24/7 Legal Support</div>
+                    <div class="feature-pill"><i class="fas fa-check"></i> Free First Consultation</div>
+                    <div class="feature-pill"><i class="fas fa-check"></i> Confidential & Trusted</div>
+                    <div class="feature-pill"><i class="fas fa-check"></i> Result-Oriented Approach</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Practice Areas</div>
+            <h2 class="section-title">Hamari <span class="highlight">Expertise</span></h2>
+            <div class="gold-divider">
+                <span></span>
+                <i class="fas fa-balance-scale"></i>
+                <span></span>
+            </div>
+            <p class="section-subtitle">
+                Har qanooni mushkil ka hal yahan hai. Hum woh kaam karte hain 
+                jo dusre sochte bhi nahi.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-number">01</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3 class="service-title">Civil Litigation</h3>
+                <p class="service-desc">
+                    Civil disputes mein hum aapki taraf se pooree taakat se ladte hain. 
+                    Property se lekar contract breach tak — koi bhi civil matter ho, 
+                    hum isko systematic aur strategic tarike se handle karte hain.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">02</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">Criminal Defense</h3>
+                <p class="service-desc">
+                    Jab aap par galat ilzam lagta hai, toh hum aapke saath khade hote hain — 
+                    bina darey, bina rukey. Hamari criminal defense team ne hazaron 
+                    clients ko nyay dilaya hai.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">03</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="service-title">Corporate Law</h3>
+                <p class="service-desc">
+                    Business ko legally strong banana hamare through easy ho jata hai. 
+                    Company registration se mergers tak, IPO se compliance tak — 
+                    hum aapke business ke silent guardian hain.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">04</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3 class="service-title">Property & Real Estate</h3>
+                <p class="service-desc">
+                    Zameen ka jhagda ho, registry mein problem ho, ya property par 
+                    koi galat dawa kare — hum aapki property ki suraksha karte hain 
+                    puri determinaton ke saath.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">05</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="service-title">Family & Matrimonial</h3>
+                <p class="service-desc">
+                    Divorce, child custody, maintenance, alimony — yeh sensitive matters 
+                    hain aur hum inhe utni hi sensitivity ke saath handle karte hain. 
+                    Aapki dignity hamare liye sabse pehle hai.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">06</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3 class="service-title">Constitutional Matters</h3>
+                <p class="service-desc">
+                    Fundamental rights ki baat ho ya constitutional challenges — 
+                    hum Supreme Court aur High Courts mein aapke liye ladne mein 
+                    poori tarah capable aur committed hain.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">07</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="service-title">Arbitration & Mediation</h3>
+                <p class="service-desc">
+                    Court ke bahar bhi solutions hote hain. Hum alternative dispute 
+                    resolution mein expert hain — faster, cheaper, aur less stressful 
+                    tarike se aapka matter resolve karte hain.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">08</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h3 class="service-title">Contract Drafting & Review</h3>
+                <p class="service-desc">
+                    Ek galat contract aapko bahut bhari padh sakta hai. Hum aapke 
+                    contracts ko airtight banate hain — kyunki prevention is always 
+                    better than cure, especially in law.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-number">09</div>
+                <div class="service-icon-wrap">
+                    <div class="service-icon-bg"></div>
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="service-title">Labour & Employment Law</h3>
+                <p class="service-desc">
+                    Employee wrongfully terminated? Employer facing HR disputes? 
+                    Hum dono taraf ke liye practical aur legally sound solutions 
+                    provide karte hain. Workplace justice humara specialty hai.
+                </p>
+                <a href="#contact" class="service-link">Know More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-section">
+        <div class="why-container">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Why Choose Us</div>
+                <h2 class="section-title">Hum <span class="highlight">Alag</span> Kyun Hain?</h2>
+                <p class="section-subtitle">
+                    Sirf results nahi, relationships build karte hain hum. 
+                    Aapka trust hamari sabse badi achievement hai.
+                </p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-features">
+                    <div class="why-feature-card reveal">
+                        <div class="why-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="why-feature-text">
+                            <h4>Proven Track Record</h4>
+                            <p>5000 se zyada cases successfully resolve kiye hain. Har case mein hum jaan lagaate hain.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature-card reveal">
+                        <div class="why-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="why-feature-text">
+                            <h4>Senior Advocates at Work</h4>
+                            <p>Aapke case par junior nahi, senior experienced advocates personally dhyan dete hain.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature-card reveal">
+                        <div class="why-icon"><i class="fas fa-clock"></i></div>
+                        <div class="why-feature-text">
+                            <h4>Timely Updates</h4>
+                            <p>Aapko kabhi andheron mein nahi rakhenge. Har development ki real-time information milegi.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature-card reveal">
+                        <div class="why-icon"><i class="fas fa-lock"></i></div>
+                        <div class="why-feature-text">
+                            <h4>100% Confidential</h4>
+                            <p>Aapki baat sirf hamare aur aapke beech rahegi. Attorney-client privilege ka poora palan.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature-card reveal">
+                        <div class="why-icon"><i class="fas fa-rupee-sign"></i></div>
+                        <div class="why-feature-text">
+                            <h4>Transparent Pricing</h4>
+                            <p>Koi hidden fees nahi. Shuru mein hi poori fee structure clear kar dete hain hum aapko.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-visual">
+                    <div class="achievement-tower">
+                        <div class="achievement-card reveal">
+                            <div class="achievement-number"><span class="counter" data-target="5000">0</span>+</div>
+                            <div class="achievement-label">Cases Successfully Handled</div>
+                        </div>
+                        <div class="achievement-card reveal">
+                            <div class="achievement-number"><span class="counter" data-target="98">0</span>%</div>
+                            <div class="achievement-label">Client Satisfaction Rate</div>
+                        </div>
+                        <div class="achievement-card reveal">
+                            <div class="achievement-number"><span class="counter" data-target="18">0</span>+</div>
+                            <div class="achievement-label">Years of Legal Excellence</div>
+                        </div>
+                        <div class="achievement-card reveal">
+                            <div class="achievement-number"><span class="counter" data-target="25">0</span>+</div>
+                            <div class="achievement-label">Expert Advocates on Team</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Client Stories</div>
+            <h2 class="section-title">Unki <span class="highlight">Zubaan</span>, Hamari Pehchaan</h2>
+            <p class="section-subtitle">
+                Woh log jo hamare paas ek ummeed lekar aaye the — 
+                aaj unke chehere par muskaan hai.
+            </p>
+        </div>
+
+        <div style="overflow:hidden; margin-top:50px;">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Meri property ka 12 saal purana jhagda tha. Sab ne keh diya tha 
+                        ab kuch nahi hoga. Rajvardhan sahab ne 8 mahine mein wo kar dikhaya 
+                        jo main saalon se chahta tha. Allah inhe salamat rakhe."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h5>Akbar Mirza</h5>
+                            <p>Property Case — Won 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Divorce ka case tha. Bacchon ki custody ke liye dar gayi thi main. 
+                        Is firm ne mujhe sirf legal help nahi, emotional support bhi diya. 
+                        Aaj meri zindagi phir se khushhaal hai."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h5>Priya Sharma</h5>
+                            <p>Family Law — Custody Won 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Hamare startup ka ek bada partner fraudulent nikla. Humne sab 
+                        kuch khone ki kaagaar par tha. Rajvardhan & Associates ne hamare 
+                        business ko bachaya — literally."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h5>Rahul Khanna</h5>
+                            <p>Corporate Fraud Case — Settled 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mujh par galat FIR darj hui thi. Main toot gaya tha andar se. 
+                        Lekin is team ne mujhe sachchi taaqat di — legal bhi, emotional bhi. 
+                        Court ne bari kar diya mujhe."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">VT</div>
+                        <div class="author-info">
+                            <h5>Vikram Thakur</h5>
+                            <p>Criminal Case — Acquitted 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Labour dispute mein company ne 3 saal ki salary rok li. Main akela 
+                        tha unke khilaf. Rajvardhan sahab ke saath ladkar poori amount wapas 
+                        mili aur compensation bhi. Zindagi badal gayi."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h5>Mohsin Javed</h5>
+                            <p>Labour Law — Full Recovery 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for infinite scroll -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Meri property ka 12 saal purana jhagda tha. Sab ne keh diya tha 
+                        ab kuch nahi hoga. Rajvardhan sahab ne 8 mahine mein wo kar dikhaya 
+                        jo main saalon se chahta tha. Allah inhe salamat rakhe."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h5>Akbar Mirza</h5>
+                            <p>Property Case — Won 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Divorce ka case tha. Bacchon ki custody ke liye dar gayi thi main. 
+                        Is firm ne mujhe sirf legal help nahi, emotional support bhi diya. 
+                        Aaj meri zindagi phir se khushhaal hai."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h5>Priya Sharma</h5>
+                            <p>Family Law — Custody Won 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Hamare startup ka ek bada partner fraudulent nikla. Humne sab 
+                        kuch khone ki kaagaar par tha. Rajvardhan & Associates ne hamare 
+                        business ko bachaya — literally."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h5>Rahul Khanna</h5>
+                            <p>Corporate Fraud Case — Settled 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Mujh par galat FIR darj hui thi. Main toot gaya tha andar se. 
+                        Lekin is team ne mujhe sachchi taaqat di — legal bhi, emotional bhi. 
+                        Court ne bari kar diya mujhe."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">VT</div>
+                        <div class="author-info">
+                            <h5>Vikram Thakur</h5>
+                            <p>Criminal Case — Acquitted 2022</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Labour dispute mein company ne 3 saal ki salary rok li. Main akela 
+                        tha unke khilaf. Rajvardhan sahab ke saath ladkar poori amount wapas 
+                        mili aur compensation bhi. Zindagi badal gayi."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h5>Mohsin Javed</h5>
+                            <p>Labour Law — Full Recovery 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section" id="team">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Our Champions</div>
+            <h2 class="section-title">Jinke Haath Mein <span class="highlight">Aapka Kal</span> Hai</h2>
+            <p class="section-subtitle">
+                Experience, integrity aur passion — yahi teen cheezein hamare 
+                team ko alag banati hain sabse.
+            </p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <div class="team-glow"></div>
+                    <div class="team-avatar-large">R</div>
+                    <div class="team-photo-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Adv. Rajvardhan</div>
+                    <div class="team-designation">Founder & Senior Partner</div>
+                    <p class="team-desc">18+ saal ka experience, Supreme Court practitioner. Hazaron cases mein insaf ka jhanda lekar aage badhey hain.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <div class="team-glow"></div>
+                    <div class="team-avatar-large">S</div>
+                    <div class="team-photo-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Adv. Savitri Devi</div>
+                    <div class="team-designation">Senior Associate — Family Law</div>
+                    <p class="team-desc">Family aur matrimonial matters mein unka naam hi kaafi hai. Sensitivity aur strength ka behatreen combination.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card reveal">
+                <div class="team-photo">
+                    <div class="team-glow"></div>
+                    <div class="team-avatar-large">A</div>
+                    <div class="team-photo-overlay"></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Adv. Arjun Mehta</div>
+                    <div class="team-designation">Corporate Law Head</div>
+                    <p class="team-desc">Corporate world ka har pech jaante hain. Company law, mergers aur commercial disputes unki specialty hai.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="process-section" id="process">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">How We Work</div>
+            <h2 class="section-title">Hamare Saath <span class="highlight">Safar</span> Kuch Aise Hota Hai</h2>
+            <p class="section-subtitle">
+                Transparent, systematic aur aapke saath har kadam par. 
+                Yeh hai hamara promise.
+            </p>
+        </div>
+
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="process-step-content reveal-left">
+                    <h3 class="process-step-title">Free Initial Consultation</h3>
+                    <p class="process-step-desc">Pehli mulaqat bilkul free hai. Aap apni poori baat khulkar bataiye — hum sunenge, samjhenge, aur honest advice denge. Koi commitment nahi, koi pressure nahi.</p>
+                </div>
+                <div class="process-number-center">1</div>
+                <div class="process-step-empty"></div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-empty"></div>
+                <div class="process-number-center">2</div>
+                <div class="process-step-content reveal-right">
+                    <h3 class="process-step-title">Case Analysis & Strategy</h3>
+                    <p class="process-step-desc">Hamari team aapke case ki gehrai se jaanch karti hai. Legal research, evidence analysis, aur best possible strategy tayaar ki jaati hai aapke liye specifically.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-content reveal-left">
+                    <h3 class="process-step-title">Documentation & Filing</h3>
+                    <p class="process-step-desc">Saari paperwork hum karte hain — perfectly aur on time. Ek bhi deadline miss nahi hogi, ek bhi document incomplete nahi hoga. Yeh humari guarantee hai.</p>
+                </div>
+                <div class="process-number-center">3</div>
+                <div class="process-step-empty"></div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-empty"></div>
+                <div class="process-number-center">4</div>
+                <div class="process-step-content reveal-right">
+                    <h3 class="process-step-title">Court Representation</h3>
+                    <p class="process-step-desc">Adalat mein hum aapki taraf se bolte hain — full force ke saath, full preparation ke saath. Har argument solid, har evidence properly presented. Aapka case best hands mein hai.</p>
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="process-step-content reveal-left">
+                    <h3 class="process-step-title">Resolution & Follow-up</h3>
+                    <p class="process-step-desc">Case khatam hone ke baad bhi hum aapke saath hain. Judgment enforce karwana ho, decree execute karna ho — hum tab tak nahi rukenge jab tak aapko poora insaf na mil jaaye.</p>
+                </div>
+                <div class="process-number-center">5</div>
+                <div class="process-step-empty"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWARDS & RECOGNITION -->
+    <section class="awards-section">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Recognition</div>
+            <h2 class="section-title">Har Award <span class="highlight">Ek Kahani</span> Kehta Hai</h2>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-item reveal">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <div class="award-name">Best Legal Firm Award</div>
+                <div class="award-year">2023</div>
+            </div>
+            <div class="award-item reveal">
+                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <div class="award-name">Excellence in Advocacy</div>
+                <div class="award-year">2022</div>
+            </div>
+            <div class="award-item reveal">
+                <div class="award-icon"><i class="fas fa-star"></i></div>
+                <div class="award-name">Top Rated Firm</div>
+                <div class="award-year">2021</div>
+            </div>
+            <div class="award-item reveal">
+                <div class="award-icon"><i class="fas fa-award"></i></div>
+                <div class="award-name">Client Choice Award</div>
+                <div class="award-year">2020</div>
+            </div>
+            <div class="award-item reveal">
+                <div class="award-icon"><i class="fas fa-crown"></i></div>
+                <div class="award-name">Legal Luminary Award</div>
+                <div class="award-year">2019</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG / INSIGHTS -->
+    <section class="blog-section" id="blog">
+        <div class="section-header reveal">
+            <div class="section-eyebrow">Legal Insights</div>
+            <h2 class="section-title">Jante Rahein, <span class="highlight">Saafe Rahein</span></h2>
+            <p class="section-subtitle">
+                Legal knowledge hi aapka sabse bada hathiyar hai. 
+                Humare articles padhen aur apne rights samjhein.
+            </p>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fas fa-home"></i>
+                    <div class="blog-category">Property Law</div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 15, 2024</span>
+                        <span><i class="fas fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3 class="blog-title">Property Registry Ke Baad Bhi Jhagda Ho Sakta Hai — Jane Kaise Bachein</h3>
+                    <p class="blog-excerpt">Registry ho gayi iska matlab yeh nahi ki property aapki ho gayi legally. Kaafi loophole hote hain jo baad mein musibat bante hain...</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fas fa-users"></i>
+                    <div class="blog-category">Family Law</div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar"></i> Jan 08, 2024</span>
+                        <span><i class="fas fa-clock"></i> 7 min read</span>
+                    </div>
+                    <h3 class="blog-title">Divorce Ke Dauran Bacchon Ke Rights — Ek Zaruri Guide</h3>
+                    <p class="blog-excerpt">Separation ke waqt sabse zyada affect hote hain bacche. Indian law mein unke kya rights hain aur court kaise decide karta hai custody...</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card reveal">
+                <div class="blog-image">
+                    <i class="fas fa-building"></i>
+                    <div class="blog-category">Corporate Law</div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar"></i> Dec 28, 2023</span>
+                        <span><i class="fas fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3 class="blog-title">Startup Shuru Karne Se Pehle Yeh 7 Legal Cheezein Zaroor Karen</h3>
+                    <p class="blog-excerpt">Bahut se startups sirf isliye fail hote hain kyunki unka legal foundation kamzor hota hai. Pehle se hi sahi foundation rakhein...</p>
+                    <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <div class="section-eyebrow" style="justify-content:center; display:flex; align-items:center;">Your Justice Awaits</div>
+            <h2 class="cta-title">
+                Ab Aur Mat Ruko —<br>
+                <span class="gold">Pehla Qadam Aaj Uthaiye</span>
+            </h2>
+            <p class="cta-subtitle">
+                Pehli consultation bilkul FREE hai. Humse baat karein, 
+                apna case share karein, aur dekhein kaise hum aapke liye 
+                insaf ki raah kholte hain.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-phone" style="margin-right:8px;"></i> Book Free Consultation
+                </a>
+                <a href="https://wa.me/919876543210" target="_blank" class="btn-secondary">
+                    <i class="fab fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="section-header reveal" style="position:relative;z-index:1;">
+            <div class="section-eyebrow">Get In Touch</div>
+            <h2 class="section-title">Humse <span class="highlight">Baat Karein</span></h2>
+            <p class="section-subtitle">
+                Aapki har baat sunne ke liye hum taiyaar hain. 
+                Apna matter share karein — bina kisi hesitation ke.
+            </p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info reveal-left">
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Our Office</h4>
+                        <p>123, Legal Avenue, Court Road,<br>New Delhi — 110001, India</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Call Us Anytime</h4>
+                        <p>+91 98765 43210<br>+91 98765 43211</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Email Us</h4>
+                        <p>legal@rajvardhanassociates.com<br>info@rajvardhanassociates.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Office Hours</h4>
+                        <p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Emergency: 24/7 Available</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-icon-wrap">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>WhatsApp</h4>
+                        <p>Turant response ke liye WhatsApp par message karein. Hum 30 min mein reply karte hain.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrap reveal-right">
+                <h3 class="form-title">Apna Case Share Karein</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Aapka Naam</label>
+                            <input type="text" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Legal Matter</label>
+                        <select class="form-control">
+                            <option value="">Apna case type chunein...</option>
+                            <option>Civil Litigation</option>
+                            <option>Criminal Defense</option>
+                            <option>Corporate Law</option>
+                            <option>Property Dispute</option>
+                            <option>Family & Matrimonial</option>
+                            <option>Constitutional Matter</option>
+                            <option>Arbitration</option>
+                            <option>Labour Dispute</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Apna Matter Briefly Batayein</label>
+                        <textarea class="form-control" rows="4" placeholder="Jo bhi hua hai woh briefly likhein — poori baat consultation mein karein..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Send Message &nbsp; <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand-name">Rajvardhan & Associates</div>
+                <div class="footer-brand-sub">Premium Legal Advocates Since 2005</div>
+                <p class="footer-about">
+                    Hum sirf vakeel nahi hain — hum aapke saathi hain. 18 saalon se 
+                    hazaron logon ko insaf dilane ka ka kaam kiya hai humne. Aur yeh 
+                    safar abhi khatam nahi hua.
+                </p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Practice Areas</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Civil Litigation</a></li>
+                    <li><a href="#services">Criminal Defense</a></li>
+                    <li><a href="#services">Corporate Law</a></li>
+                    <li><a href="#services">Property Disputes</a></li>
+                    <li><a href="#services">Family Law</a></li>
+                    <li><a href="#services">Arbitration</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#blog">Legal Insights</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:+919876543210"><i class="fas fa-phone" style="color:var(--gold);margin-right:8px;"></i>+91 98765 43210</a></li>
+                    <li><a href="mailto:legal@rajvardhanassociates.com"><i class="fas fa-envelope" style="color:var(--gold);margin-right:8px;"></i>Email Us</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:8px;"></i>New Delhi, India</a></li>
+                    <li><a href="https://wa.me/919876543210"><i class="fab fa-whatsapp" style="color:var(--gold);margin-right:8px;"></i>WhatsApp Now</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                &copy; 2024 <span>Rajvardhan & Associates</span>. All Rights Reserved. 
+                Crafted with <span style="color:#e74c3c;">♥</span> for Justice.
+            </div>
+            <div class="footer-bar-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== PRELOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 2500);
         });
-      });
-    }
 
-    // Navbar background on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) nav.classList.add('stuck');
-      else nav.classList.remove('stuck');
-    });
+        // ===== CUSTOM CURSOR =====
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
 
-    // Scroll progress bar
-    const scrollBar = document.getElementById('scrollBar');
-    window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (winScroll / height) * 100;
-      if(scrollBar) scrollBar.style.width = scrolled + '%';
-    });
-
-    // Back to top
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 500) btt.classList.add('show');
-      else btt.classList.remove('show');
-    });
-    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if(href === "#" || href === "") return;
-        const target = document.querySelector(href);
-        if(target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Scroll reveal
-    const revealElements = document.querySelectorAll('.rv, .rv-l, .rv-r, .rv-s, .stg');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('vis');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Counter animation (stats)
-    const statsRow = document.getElementById('statsRow');
-    let counted = false;
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting && !counted) {
-          counted = true;
-          document.querySelectorAll('.counter').forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target') || '0');
-            let current = 0;
-            const increment = target / 60;
-            const updateCounter = () => {
-              current += increment;
-              if(current < target) {
-                counter.innerText = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-              } else {
-                counter.innerText = target;
-              }
-            };
-            updateCounter();
-          });
-        }
-      });
-    }, { threshold: 0.4 });
-    if(statsRow) counterObserver.observe(statsRow);
-
-    // Marquee dynamic
-    const marqueeTrack = document.getElementById('marqueeTrack');
-    if(marqueeTrack) {
-      const items = ['दहेज रक्षा', 'हत्या बचाव', 'NDPS Defence', 'Cyber Crime', 'भूमि विवाद', 'Bail Applications', 'High Court Appeals', 'Revenue Law', 'Civil Litigation', 'Criminal Defence'];
-      let html = '';
-      for(let i=0; i<2; i++) {
-        items.forEach(item => {
-          html += `<span class="marquee-item">${item}<span class="marquee-dot">◆</span></span>`;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
         });
-      }
-      marqueeTrack.innerHTML = html;
-    }
 
-    // Active nav highlight on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollPos = window.scrollY + 200;
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            cursorRing.style.left = (ringX - 20) + 'px';
+            cursorRing.style.top = (ringY - 20) + 'px';
+            requestAnimationFrame(animateRing);
         }
-      });
-      document.querySelectorAll('.nav-center a, .mob-menu a').forEach(link => {
-        link.classList.remove('on');
-        const href = link.getAttribute('href');
-        if(href === `#${current}`) link.classList.add('on');
-      });
-    });
-  })();
-</script>
+        animateRing();
+
+        document.querySelectorAll('a, button, .service-card, .team-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorRing.style.transform = 'scale(2)';
+                cursorRing.style.borderColor = 'rgba(212,175,55,0.8)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorRing.style.transform = 'scale(1)';
+                cursorRing.style.borderColor = 'rgba(212,175,55,0.6)';
+            });
+        });
+
+        // ===== PARTICLES =====
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const numParticles = 80;
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5 + 0.3,
+                dx: (Math.random() - 0.5) * 0.3,
+                dy: (Math.random() - 0.5) * 0.3,
+                alpha: Math.random() * 0.5 + 0.1
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(212, 175, 55, ${0.05 * (1 - dist/120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // ===== REVEAL ON SCROLL =====
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // ===== COUNTER ANIMATION =====
+        const counters = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = true;
+                    const target = parseInt(entry.target.dataset.target);
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        entry.target.textContent = Math.floor(current);
+                    }, 16);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ===== MOBILE MENU =====
+        function openMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('open');
+            document.getElementById('menuOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.getElementById('menuOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // ===== 3D CARD TILT =====
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== FORM SUBMIT =====
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = document.querySelector('.btn-submit');
+            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent Successfully!';
+            btn.style.background = 'linear-gradient(135deg, #27ae60, #1e8449)';
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message &nbsp; <i class="fas fa-paper-plane"></i>';
+                btn.style.background = '';
+            }, 3000);
+        });
+
+        // ===== PARALLAX ON HERO =====
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrollY < window.innerHeight) {
+                hero.style.transform = `translateY(${scrollY * 0.3}px)`;
+                hero.style.opacity = 1 - (scrollY / window.innerHeight) * 1.5;
+            }
+        });
+    </script>
 </body>
 </html>
