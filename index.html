@@ -1296,12 +1296,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:76px 5% 3
     <!-- ASSOCIATE PARTNER -->
     <div class="team-card rv-r d2">
       <div class="team-deco">02</div>
-      <div class="team-ph" style="display:flex;">
-        <div style="text-align:center;">
-          <div style="font-size:72px;opacity:.12;margin-bottom:10px;">👨‍⚖️</div>
-          <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(232,232,240,.15);">ASSOCIATE PARTNER</div>
-        </div>
-      </div>
+      <div class="team-img-wrap">
+  <img
+    src="sanjeev.jpg"
+    alt="संजीव कुमार — Associate Partner"
+    class="team-img"
+    style="object-position:center 10%;"
+    onerror="this.parentElement.innerHTML=
+    '<div class=\'team-ph\'>👨‍⚖️</div>';"
+  >
+  <div class="team-overlay"></div>
+</div>
       <div class="team-info">
         <div class="team-role-badge">
           <span style="width:5px;height:5px;background:var(--cr3);border-radius:50%;display:inline-block;animation:pulseGlow 2s infinite;"></span>
