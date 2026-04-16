@@ -1,0 +1,4424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajvardhan & Associates | Elite Legal Counsel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+--gold: #C9A84C;
+--gold2: #F0C060;
+--gold3: #E8B84B;
+--deep-navy: #0A0E1A;
+--navy: #0D1226;
+--dark: #060810;
+--cream: #F5EDD6;
+--light-gold: #FFF3CC;
+--white: #FFFFFF;
+--silver: #C0C0C0;
+--platinum: #E5E4E2;
+--burgundy: #6B0F1A;
+--royal: #1a237e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+font-family: 'Montserrat', sans-serif;
+background: var(--dark);
+color: var(--cream);
+overflow-x: hidden;
+cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+width: 20px; height: 20px;
+border: 2px solid var(--gold);
+border-radius: 50%;
+position: fixed;
+top: 0; left: 0;
+pointer-events: none;
+z-index: 99999;
+transition: all 0.1s ease;
+mix-blend-mode: difference;
+}
+
+.cursor-follower {
+width: 8px; height: 8px;
+background: var(--gold2);
+border-radius: 50%;
+position: fixed;
+top: 0; left: 0;
+pointer-events: none;
+z-index: 99998;
+transition: all 0.05s ease;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--gold2)); border-radius: 3px; }
+
+/* LOADING SCREEN */
+#loader {
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: var(--dark);
+z-index: 99997;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: opacity 1s ease;
+}
+
+.loader-emblem {
+width: 120px; height: 120px;
+border: 3px solid transparent;
+border-top: 3px solid var(--gold);
+border-right: 3px solid var(--gold2);
+border-radius: 50%;
+animation: spin 1.5s linear infinite;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.loader-emblem::before {
+content: 'R&A';
+font-family: 'Cinzel', serif;
+color: var(--gold);
+font-size: 18px;
+font-weight: 700;
+animation: counterSpin 1.5s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes counterSpin { to { transform: rotate(-360deg); } }
+
+.loader-text {
+font-family: 'Cinzel', serif;
+color: var(--gold);
+font-size: 14px;
+letter-spacing: 6px;
+margin-top: 30px;
+animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+/* CANVAS BACKGROUND */
+#bgCanvas {
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+z-index: 0;
+pointer-events: none;
+}
+
+/* PARTICLE FIELD */
+#particleCanvas {
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+z-index: 1;
+pointer-events: none;
+}
+
+/* NAVBAR */
+nav {
+position: fixed;
+top: 0; left: 0;
+width: 100%;
+z-index: 1000;
+padding: 18px 50px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(6,8,16,0.85);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(201,168,76,0.2);
+transition: all 0.4s ease;
+}
+
+nav.scrolled {
+padding: 12px 50px;
+background: rgba(6,8,16,0.98);
+border-bottom: 1px solid rgba(201,168,76,0.4);
+box-shadow: 0 5px 40px rgba(201,168,76,0.1);
+}
+
+.nav-logo {
+display: flex;
+align-items: center;
+gap: 15px;
+text-decoration: none;
+}
+
+.logo-emblem {
+width: 55px; height: 55px;
+background: linear-gradient(135deg, var(--gold), var(--gold2), var(--gold));
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-size: 16px;
+font-weight: 700;
+color: var(--dark);
+position: relative;
+box-shadow: 0 0 25px rgba(201,168,76,0.4);
+animation: logoGlow 3s ease infinite;
+}
+
+@keyframes logoGlow {
+0%,100% { box-shadow: 0 0 25px rgba(201,168,76,0.4); }
+50% { box-shadow: 0 0 50px rgba(201,168,76,0.8), 0 0 80px rgba(201,168,76,0.3); }
+}
+
+.logo-emblem::after {
+content: '';
+position: absolute;
+inset: -4px;
+border-radius: 50%;
+border: 2px solid transparent;
+border-top: 2px solid var(--gold2);
+animation: spin 4s linear infinite;
+}
+
+.logo-text { font-family: 'Cinzel', serif; }
+.logo-text h2 { font-size: 16px; font-weight: 700; color: var(--gold); letter-spacing: 2px; }
+.logo-text p { font-size: 9px; color: var(--silver); letter-spacing: 4px; }
+
+.nav-links {
+display: flex;
+gap: 35px;
+list-style: none;
+}
+
+.nav-links a {
+color: var(--cream);
+text-decoration: none;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+position: relative;
+transition: color 0.3s;
+}
+
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 1px;
+background: linear-gradient(90deg, var(--gold), var(--gold2));
+transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--gold2); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+color: var(--dark) !important;
+padding: 10px 25px;
+border-radius: 2px;
+font-weight: 700 !important;
+letter-spacing: 2px;
+transition: all 0.3s ease !important;
+box-shadow: 0 0 20px rgba(201,168,76,0.3);
+}
+
+.nav-cta:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 30px rgba(201,168,76,0.5) !important;
+}
+
+.nav-cta::after { display: none !important; }
+
+.hamburger {
+display: none;
+flex-direction: column;
+gap: 5px;
+cursor: none;
+z-index: 1001;
+}
+
+.hamburger span {
+width: 30px;
+height: 2px;
+background: var(--gold);
+transition: all 0.3s ease;
+display: block;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* MOBILE MENU */
+.mobile-menu {
+position: fixed;
+top: 0; right: -100%;
+width: 100%; height: 100%;
+background: rgba(6,8,16,0.98);
+z-index: 999;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 40px;
+transition: right 0.5s cubic-bezier(0.77,0,0.175,1);
+backdrop-filter: blur(20px);
+}
+
+.mobile-menu.open { right: 0; }
+
+.mobile-menu a {
+color: var(--cream);
+text-decoration: none;
+font-family: 'Cinzel', serif;
+font-size: 22px;
+letter-spacing: 4px;
+transition: color 0.3s;
+position: relative;
+}
+
+.mobile-menu a:hover { color: var(--gold2); }
+
+.mobile-menu-gold {
+width: 60px;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(--gold), transparent);
+margin: 10px 0;
+}
+
+/* ===================== HERO SECTION ===================== */
+.hero {
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+z-index: 2;
+}
+
+.hero-bg-layers {
+position: absolute;
+inset: 0;
+}
+
+/* 3D ROTATING SCALES */
+.scales-3d {
+position: absolute;
+right: -5%;
+top: 50%;
+transform: translateY(-50%);
+width: 600px;
+height: 600px;
+opacity: 0.08;
+animation: scalesFloat 8s ease-in-out infinite;
+}
+
+@keyframes scalesFloat {
+0%,100% { transform: translateY(-50%) rotate(0deg) scale(1); }
+25% { transform: translateY(-55%) rotate(3deg) scale(1.05); }
+75% { transform: translateY(-45%) rotate(-3deg) scale(0.95); }
+}
+
+/* ORBITING RINGS */
+.orbit-container {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 900px;
+height: 900px;
+pointer-events: none;
+}
+
+.orbit-ring {
+position: absolute;
+border-radius: 50%;
+border: 1px solid rgba(201,168,76,0.08);
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+animation: orbitRotate 20s linear infinite;
+}
+
+.orbit-ring:nth-child(1) { width: 300px; height: 300px; animation-duration: 15s; }
+.orbit-ring:nth-child(2) { width: 500px; height: 500px; animation-duration: 25s; animation-direction: reverse; }
+.orbit-ring:nth-child(3) { width: 700px; height: 700px; animation-duration: 35s; }
+.orbit-ring:nth-child(4) { width: 900px; height: 900px; animation-duration: 45s; animation-direction: reverse; }
+
+.orbit-ring::after {
+content: '';
+position: absolute;
+top: -4px; left: 50%;
+width: 8px; height: 8px;
+background: var(--gold2);
+border-radius: 50%;
+box-shadow: 0 0 15px var(--gold2);
+}
+
+@keyframes orbitRotate { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* HERO CONTENT */
+.hero-content {
+position: relative;
+z-index: 10;
+text-align: center;
+padding: 120px 20px 60px;
+max-width: 1100px;
+margin: 0 auto;
+}
+
+.hero-badge {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+background: rgba(201,168,76,0.08);
+border: 1px solid rgba(201,168,76,0.3);
+padding: 10px 25px;
+border-radius: 50px;
+margin-bottom: 35px;
+animation: fadeInDown 1s ease 0.3s both;
+backdrop-filter: blur(10px);
+}
+
+.hero-badge span {
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 3px;
+color: var(--gold2);
+text-transform: uppercase;
+}
+
+.badge-dot {
+width: 8px; height: 8px;
+background: var(--gold2);
+border-radius: 50%;
+animation: badgePulse 2s ease infinite;
+box-shadow: 0 0 10px var(--gold2);
+}
+
+@keyframes badgePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.5)} }
+
+.hero-title {
+font-family: 'Cinzel', serif;
+font-size: clamp(38px, 6vw, 82px);
+font-weight: 900;
+line-height: 1.1;
+margin-bottom: 25px;
+animation: fadeInUp 1s ease 0.5s both;
+}
+
+.hero-title .line1 {
+display: block;
+background: linear-gradient(135deg, var(--cream) 0%, var(--gold2) 50%, var(--cream) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+background-size: 200%;
+animation: shimmerText 4s ease infinite, fadeInUp 1s ease 0.5s both;
+}
+
+@keyframes shimmerText {
+0% { background-position: 200% center; }
+100% { background-position: -200% center; }
+}
+
+.hero-title .line2 {
+display: block;
+color: var(--gold);
+font-size: 0.75em;
+letter-spacing: 8px;
+text-transform: uppercase;
+margin: 10px 0;
+}
+
+.hero-title .line3 {
+display: block;
+font-size: 0.85em;
+color: var(--cream);
+}
+
+.hero-tagline {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(18px, 2.5vw, 26px);
+color: var(--silver);
+font-style: italic;
+margin-bottom: 20px;
+animation: fadeInUp 1s ease 0.7s both;
+line-height: 1.6;
+}
+
+.hero-tagline strong { color: var(--gold2); font-style: normal; }
+
+.hero-subtext {
+font-size: 13px;
+color: rgba(245,237,214,0.6);
+letter-spacing: 2px;
+margin-bottom: 50px;
+animation: fadeInUp 1s ease 0.9s both;
+}
+
+.hero-buttons {
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+animation: fadeInUp 1s ease 1.1s both;
+margin-bottom: 60px;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
+background-size: 200%;
+color: var(--dark);
+padding: 18px 45px;
+border: none;
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 3px;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+box-shadow: 0 0 30px rgba(201,168,76,0.4);
+cursor: none;
+}
+
+.btn-primary:hover {
+background-position: 100%;
+transform: translateY(-3px);
+box-shadow: 0 10px 50px rgba(201,168,76,0.6);
+}
+
+.btn-primary::before {
+content: '';
+position: absolute;
+top: 0; left: -100%;
+width: 100%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before { left: 100%; }
+
+.btn-secondary {
+border: 1px solid var(--gold);
+color: var(--gold);
+padding: 18px 45px;
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 600;
+letter-spacing: 3px;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+transition: all 0.4s ease;
+background: transparent;
+backdrop-filter: blur(10px);
+clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+cursor: none;
+}
+
+.btn-secondary:hover {
+background: rgba(201,168,76,0.1);
+transform: translateY(-3px);
+box-shadow: 0 10px 40px rgba(201,168,76,0.2);
+}
+
+/* HERO STATS */
+.hero-stats {
+display: flex;
+justify-content: center;
+gap: 60px;
+flex-wrap: wrap;
+animation: fadeInUp 1s ease 1.3s both;
+padding: 30px;
+background: rgba(201,168,76,0.04);
+border: 1px solid rgba(201,168,76,0.1);
+backdrop-filter: blur(10px);
+position: relative;
+}
+
+.hero-stats::before {
+content: '';
+position: absolute;
+top: 0; left: 50%;
+transform: translateX(-50%);
+width: 100px;
+height: 1px;
+background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+font-family: 'Cinzel', serif;
+font-size: clamp(32px, 4vw, 52px);
+font-weight: 900;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: block;
+line-height: 1;
+}
+
+.stat-label {
+font-size: 10px;
+letter-spacing: 3px;
+color: var(--silver);
+text-transform: uppercase;
+margin-top: 8px;
+}
+
+.stat-divider {
+width: 1px;
+height: 60px;
+background: linear-gradient(transparent, var(--gold), transparent);
+align-self: center;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+position: absolute;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+animation: fadeIn 2s ease 2s both;
+z-index: 10;
+}
+
+.scroll-mouse {
+width: 28px; height: 45px;
+border: 2px solid rgba(201,168,76,0.5);
+border-radius: 14px;
+display: flex;
+justify-content: center;
+padding-top: 8px;
+}
+
+.scroll-mouse::before {
+content: '';
+width: 4px; height: 8px;
+background: var(--gold2);
+border-radius: 2px;
+animation: scrollDown 2s ease infinite;
+}
+
+@keyframes scrollDown {
+0% { transform: translateY(0); opacity: 1; }
+100% { transform: translateY(12px); opacity: 0; }
+}
+
+.scroll-text { font-size: 9px; letter-spacing: 3px; color: rgba(201,168,76,0.5); }
+
+/* ===================== SECTION COMMON ===================== */
+section {
+position: relative;
+z-index: 2;
+padding: 120px 0;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 80px;
+}
+
+.section-tag {
+display: inline-flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 20px;
+}
+
+.tag-line {
+width: 50px; height: 1px;
+background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.tag-line.right { background: linear-gradient(90deg, var(--gold), transparent); }
+
+.tag-text {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 5px;
+color: var(--gold2);
+text-transform: uppercase;
+}
+
+.section-title {
+font-family: 'Cinzel', serif;
+font-size: clamp(28px, 4vw, 52px);
+font-weight: 700;
+line-height: 1.2;
+margin-bottom: 20px;
+}
+
+.gradient-text {
+background: linear-gradient(135deg, var(--cream), var(--gold2), var(--cream));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.section-desc {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(16px, 1.8vw, 20px);
+color: var(--silver);
+max-width: 700px;
+margin: 0 auto;
+line-height: 1.8;
+}
+
+/* GOLD DIVIDER */
+.gold-divider {
+width: 100px;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(--gold), var(--gold2), var(--gold), transparent);
+margin: 20px auto;
+position: relative;
+}
+
+.gold-divider::before {
+content: '◆';
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+color: var(--gold2);
+font-size: 10px;
+background: var(--dark);
+padding: 0 8px;
+}
+
+/* ===================== EXPERTISE SECTION ===================== */
+.expertise-section {
+background: linear-gradient(180deg, var(--dark) 0%, var(--navy) 50%, var(--dark) 100%);
+}
+
+.expertise-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+gap: 30px;
+padding: 0 50px;
+max-width: 1300px;
+margin: 0 auto;
+}
+
+.expertise-card {
+position: relative;
+background: linear-gradient(135deg, rgba(13,18,38,0.9), rgba(6,8,16,0.95));
+border: 1px solid rgba(201,168,76,0.15);
+padding: 45px 40px;
+transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+overflow: hidden;
+group: true;
+}
+
+.expertise-card::before {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent);
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.expertise-card::after {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 100%;
+background: linear-gradient(180deg, var(--gold), var(--gold2));
+transform: scaleY(0);
+transition: transform 0.5s ease;
+transform-origin: top;
+}
+
+.expertise-card:hover::before { opacity: 1; }
+.expertise-card:hover::after { transform: scaleY(1); }
+
+.expertise-card:hover {
+transform: translateY(-10px);
+border-color: rgba(201,168,76,0.4);
+box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(201,168,76,0.1);
+}
+
+.card-number {
+font-family: 'Cinzel', serif;
+font-size: 60px;
+font-weight: 900;
+color: rgba(201,168,76,0.06);
+position: absolute;
+top: 20px; right: 30px;
+line-height: 1;
+transition: color 0.5s ease;
+}
+
+.expertise-card:hover .card-number { color: rgba(201,168,76,0.12); }
+
+.card-icon {
+width: 70px; height: 70px;
+background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+border: 1px solid rgba(201,168,76,0.3);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+margin-bottom: 25px;
+transition: all 0.5s ease;
+position: relative;
+}
+
+.expertise-card:hover .card-icon {
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+border-color: var(--gold2);
+box-shadow: 0 0 30px rgba(201,168,76,0.4);
+transform: scale(1.1) rotate(5deg);
+}
+
+.expertise-card:hover .card-icon i { color: var(--dark); }
+
+.card-icon i { color: var(--gold2); transition: color 0.5s ease; }
+
+.card-title {
+font-family: 'Cinzel', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--cream);
+margin-bottom: 15px;
+letter-spacing: 1px;
+}
+
+.card-desc {
+font-family: 'Cormorant Garamond', serif;
+font-size: 16px;
+color: rgba(192,192,192,0.8);
+line-height: 1.8;
+margin-bottom: 20px;
+}
+
+.card-features {
+list-style: none;
+}
+
+.card-features li {
+font-size: 12px;
+color: var(--silver);
+padding: 6px 0;
+border-bottom: 1px solid rgba(201,168,76,0.08);
+display: flex;
+align-items: center;
+gap: 10px;
+letter-spacing: 0.5px;
+}
+
+.card-features li::before {
+content: '◆';
+color: var(--gold2);
+font-size: 7px;
+flex-shrink: 0;
+}
+
+/* ===================== CHAKRAVYUH SECTION ===================== */
+.chakravyuh-section {
+background: linear-gradient(135deg, var(--dark) 0%, rgba(10,14,26,1) 50%, var(--dark) 100%);
+overflow: hidden;
+}
+
+.chakravyuh-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.chakravyuh-visual {
+position: relative;
+height: 550px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* THE CHAKRAVYUH ANIMATION */
+.chakra-rings {
+position: absolute;
+width: 500px; height: 500px;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+}
+
+.chakra-ring {
+position: absolute;
+border-radius: 50%;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+}
+
+.cr1 {
+width: 120px; height: 120px;
+border: 3px solid var(--gold);
+animation: chakraRotate1 3s linear infinite;
+box-shadow: 0 0 20px rgba(201,168,76,0.5), inset 0 0 20px rgba(201,168,76,0.1);
+}
+
+.cr2 {
+width: 200px; height: 200px;
+border: 2px solid rgba(201,168,76,0.7);
+border-top: 2px solid transparent;
+border-left: 2px solid transparent;
+animation: chakraRotate2 4s linear infinite;
+}
+
+.cr3 {
+width: 290px; height: 290px;
+border: 2px dashed rgba(201,168,76,0.4);
+animation: chakraRotate1 6s linear infinite;
+}
+
+.cr4 {
+width: 380px; height: 380px;
+border: 1px solid rgba(201,168,76,0.25);
+border-right: 1px solid transparent;
+animation: chakraRotate2 8s linear infinite;
+}
+
+.cr5 {
+width: 470px; height: 470px;
+border: 1px solid rgba(201,168,76,0.15);
+border-bottom: 1px solid transparent;
+border-left: 1px solid transparent;
+animation: chakraRotate1 12s linear infinite;
+}
+
+@keyframes chakraRotate1 { to { transform: translate(-50%,-50%) rotate(360deg); } }
+@keyframes chakraRotate2 { to { transform: translate(-50%,-50%) rotate(-360deg); } }
+
+.chakra-center {
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+z-index: 10;
+text-align: center;
+}
+
+.chakra-center-icon {
+width: 80px; height: 80px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 35px;
+color: var(--dark);
+box-shadow: 0 0 40px rgba(201,168,76,0.6), 0 0 80px rgba(201,168,76,0.3);
+animation: centerPulse 3s ease infinite;
+margin: 0 auto 10px;
+}
+
+@keyframes centerPulse {
+0%,100% { transform: scale(1); box-shadow: 0 0 40px rgba(201,168,76,0.6); }
+50% { transform: scale(1.1); box-shadow: 0 0 60px rgba(201,168,76,0.9), 0 0 100px rgba(201,168,76,0.4); }
+}
+
+/* DOTS ON RINGS */
+.chakra-dot {
+position: absolute;
+width: 10px; height: 10px;
+background: var(--gold2);
+border-radius: 50%;
+box-shadow: 0 0 10px var(--gold2);
+}
+
+.chakra-content { position: relative; z-index: 5; }
+
+.chakravyuh-title {
+font-family: 'Cinzel', serif;
+font-size: clamp(26px, 3vw, 40px);
+font-weight: 700;
+margin-bottom: 25px;
+line-height: 1.3;
+}
+
+.chakravyuh-title span { color: var(--gold2); }
+
+.chakravyuh-quote {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(18px, 2vw, 24px);
+font-style: italic;
+color: var(--gold);
+margin-bottom: 25px;
+line-height: 1.6;
+border-left: 3px solid var(--gold);
+padding-left: 20px;
+}
+
+.chakravyuh-desc {
+font-size: 14px;
+color: rgba(192,192,192,0.9);
+line-height: 1.9;
+margin-bottom: 35px;
+}
+
+.chakra-steps {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.chakra-step {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+padding: 20px;
+background: rgba(201,168,76,0.04);
+border: 1px solid rgba(201,168,76,0.1);
+transition: all 0.3s ease;
+}
+
+.chakra-step:hover {
+background: rgba(201,168,76,0.08);
+border-color: rgba(201,168,76,0.3);
+transform: translateX(10px);
+}
+
+.step-num {
+width: 40px; height: 40px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+font-size: 14px;
+color: var(--dark);
+flex-shrink: 0;
+}
+
+.step-content h4 {
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 6px;
+letter-spacing: 1px;
+}
+
+.step-content p {
+font-size: 12px;
+color: var(--silver);
+line-height: 1.7;
+}
+
+/* ===================== GALLERY / IMAGE SECTION ===================== */
+.gallery-section {
+background: var(--navy);
+padding: 120px 0;
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: auto;
+gap: 15px;
+padding: 0 30px;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.gallery-item {
+position: relative;
+overflow: hidden;
+cursor: none;
+}
+
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+.gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 2; }
+
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+min-height: 250px;
+transition: transform 0.7s cubic-bezier(0.23,1,0.32,1);
+filter: brightness(0.7) saturate(0.8);
+}
+
+.gallery-item:hover img {
+transform: scale(1.08);
+filter: brightness(0.5) saturate(0.6);
+}
+
+.gallery-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(201,168,76,0.85), rgba(10,14,26,0.9));
+opacity: 0;
+transition: opacity 0.5s ease;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 30px;
+text-align: center;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-overlay h3 {
+font-family: 'Cinzel', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--dark);
+margin-bottom: 10px;
+}
+
+.gallery-overlay p {
+font-size: 12px;
+color: rgba(6,8,16,0.8);
+line-height: 1.6;
+}
+
+.gallery-badge {
+position: absolute;
+top: 20px; right: 20px;
+background: var(--gold);
+color: var(--dark);
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 2px;
+padding: 6px 14px;
+font-family: 'Cinzel', serif;
+z-index: 2;
+}
+
+/* IMAGE SHOWCASE */
+.image-showcase {
+max-width: 1300px;
+margin: 60px auto 0;
+padding: 0 30px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.showcase-item {
+position: relative;
+overflow: hidden;
+height: 300px;
+}
+
+.showcase-item img {
+width: 100%; height: 100%;
+object-fit: cover;
+transition: transform 0.6s ease;
+filter: brightness(0.6);
+}
+
+.showcase-item:hover img { transform: scale(1.1); }
+
+.showcase-caption {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+padding: 30px 25px;
+background: linear-gradient(transparent, rgba(6,8,16,0.95));
+transform: translateY(20px);
+transition: transform 0.4s ease;
+}
+
+.showcase-item:hover .showcase-caption { transform: translateY(0); }
+
+.showcase-caption h4 {
+font-family: 'Cinzel', serif;
+font-size: 15px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 6px;
+}
+
+.showcase-caption p { font-size: 11px; color: var(--silver); }
+
+/* ===================== FEATURES SECTION ===================== */
+.features-section {
+background: linear-gradient(180deg, var(--dark), var(--navy), var(--dark));
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+}
+
+.feature-card {
+position: relative;
+padding: 40px 30px;
+background: rgba(13,18,38,0.6);
+border: 1px solid rgba(201,168,76,0.1);
+transition: all 0.4s ease;
+overflow: hidden;
+backdrop-filter: blur(5px);
+}
+
+.feature-card::before {
+content: '';
+position: absolute;
+bottom: 0; left: 0;
+width: 100%; height: 2px;
+background: linear-gradient(90deg, var(--gold), var(--gold2));
+transform: scaleX(0);
+transition: transform 0.4s ease;
+}
+
+.feature-card:hover::before { transform: scaleX(1); }
+
+.feature-card:hover {
+transform: translateY(-8px);
+background: rgba(13,18,38,0.9);
+border-color: rgba(201,168,76,0.3);
+box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(201,168,76,0.08);
+}
+
+.feature-icon-wrap {
+width: 60px; height: 60px;
+background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.02));
+border: 1px solid rgba(201,168,76,0.2);
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+margin-bottom: 20px;
+transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-icon-wrap {
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+border-color: var(--gold2);
+transform: rotate(10deg) scale(1.1);
+box-shadow: 0 0 25px rgba(201,168,76,0.4);
+}
+
+.feature-card:hover .feature-icon-wrap i { color: var(--dark); }
+
+.feature-icon-wrap i { color: var(--gold2); transition: color 0.4s ease; }
+
+.feature-title {
+font-family: 'Cinzel', serif;
+font-size: 15px;
+font-weight: 700;
+color: var(--cream);
+margin-bottom: 12px;
+letter-spacing: 0.5px;
+}
+
+.feature-desc {
+font-size: 13px;
+color: rgba(192,192,192,0.8);
+line-height: 1.8;
+}
+
+.feature-tag {
+display: inline-block;
+margin-top: 15px;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 2px;
+color: var(--gold2);
+text-transform: uppercase;
+padding: 4px 12px;
+border: 1px solid rgba(201,168,76,0.2);
+}
+
+/* ===================== WHY CHOOSE US ===================== */
+.why-section {
+background: linear-gradient(135deg, rgba(6,8,16,1), rgba(26,35,126,0.05), rgba(6,8,16,1));
+}
+
+.why-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+}
+
+.why-grid {
+display: grid;
+grid-template-columns: 1fr 1.5fr;
+gap: 80px;
+align-items: center;
+margin-bottom: 80px;
+}
+
+.why-image {
+position: relative;
+height: 550px;
+}
+
+.why-img-main {
+width: 100%; height: 80%;
+object-fit: cover;
+filter: brightness(0.7) saturate(0.7);
+position: absolute;
+bottom: 0; left: 0;
+}
+
+.why-img-overlay {
+width: 60%; height: 50%;
+object-fit: cover;
+position: absolute;
+top: 0; right: -30px;
+border: 4px solid var(--dark);
+box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+filter: brightness(0.8);
+}
+
+.why-badge-float {
+position: absolute;
+bottom: 30px;
+right: -20px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+padding: 20px 25px;
+text-align: center;
+box-shadow: 0 10px 40px rgba(201,168,76,0.4);
+z-index: 5;
+}
+
+.why-badge-float .num {
+font-family: 'Cinzel', serif;
+font-size: 36px;
+font-weight: 900;
+color: var(--dark);
+display: block;
+line-height: 1;
+}
+
+.why-badge-float .label {
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 2px;
+color: var(--dark);
+text-transform: uppercase;
+}
+
+.frame-border {
+position: absolute;
+top: 20px; left: 20px;
+right: -10px; bottom: 20px;
+border: 1px solid rgba(201,168,76,0.3);
+pointer-events: none;
+}
+
+.frame-corner {
+position: absolute;
+width: 20px; height: 20px;
+}
+
+.fc-tl { top: -1px; left: -1px; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.fc-tr { top: -1px; right: -1px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+.fc-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+.fc-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+.why-content {}
+
+.why-points {
+display: flex;
+flex-direction: column;
+gap: 25px;
+margin-top: 40px;
+}
+
+.why-point {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+padding: 25px;
+background: rgba(201,168,76,0.03);
+border: 1px solid rgba(201,168,76,0.08);
+transition: all 0.4s ease;
+}
+
+.why-point:hover {
+background: rgba(201,168,76,0.07);
+border-color: rgba(201,168,76,0.25);
+transform: translateX(10px);
+}
+
+.wp-icon {
+width: 50px; height: 50px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+color: var(--dark);
+flex-shrink: 0;
+}
+
+.wp-text h4 {
+font-family: 'Cinzel', serif;
+font-size: 14px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 8px;
+}
+
+.wp-text p { font-size: 13px; color: rgba(192,192,192,0.8); line-height: 1.7; }
+
+/* ACHIEVEMENT COUNTERS */
+.achievements {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 2px;
+margin-top: 80px;
+background: rgba(201,168,76,0.1);
+}
+
+.achievement-item {
+background: linear-gradient(135deg, rgba(13,18,38,0.95), rgba(6,8,16,0.95));
+padding: 40px 30px;
+text-align: center;
+position: relative;
+overflow: hidden;
+transition: background 0.3s ease;
+}
+
+.achievement-item::before {
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 3px;
+background: linear-gradient(90deg, var(--gold), var(--gold2));
+transform: scaleX(0);
+transition: transform 0.4s ease;
+}
+
+.achievement-item:hover::before { transform: scaleX(1); }
+.achievement-item:hover { background: linear-gradient(135deg, rgba(13,18,38,1), rgba(6,8,16,1)); }
+
+.achievement-num {
+font-family: 'Cinzel', serif;
+font-size: clamp(36px, 4vw, 56px);
+font-weight: 900;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+display: block;
+line-height: 1;
+}
+
+.achievement-label {
+font-size: 10px;
+letter-spacing: 3px;
+color: var(--silver);
+text-transform: uppercase;
+margin-top: 10px;
+}
+
+/* ===================== TESTIMONIALS ===================== */
+.testimonials-section {
+background: var(--navy);
+overflow: hidden;
+}
+
+.testimonials-track {
+display: flex;
+gap: 30px;
+padding: 0 50px 20px;
+overflow-x: auto;
+scrollbar-width: none;
+-ms-overflow-style: none;
+scroll-behavior: smooth;
+}
+
+.testimonials-track::-webkit-scrollbar { display: none; }
+
+.testimonial-card {
+min-width: 400px;
+background: rgba(6,8,16,0.8);
+border: 1px solid rgba(201,168,76,0.15);
+padding: 45px 40px;
+position: relative;
+backdrop-filter: blur(10px);
+flex-shrink: 0;
+transition: all 0.4s ease;
+}
+
+.testimonial-card:hover {
+border-color: rgba(201,168,76,0.4);
+transform: translateY(-5px);
+box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.quote-icon {
+font-family: 'Cinzel', serif;
+font-size: 80px;
+color: rgba(201,168,76,0.1);
+position: absolute;
+top: 10px; left: 25px;
+line-height: 1;
+}
+
+.stars {
+display: flex;
+gap: 5px;
+margin-bottom: 20px;
+}
+
+.stars i { color: var(--gold2); font-size: 14px; }
+
+.testimonial-text {
+font-family: 'Cormorant Garamond', serif;
+font-size: 17px;
+color: rgba(245,237,214,0.85);
+line-height: 1.8;
+font-style: italic;
+margin-bottom: 30px;
+}
+
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: 15px;
+padding-top: 20px;
+border-top: 1px solid rgba(201,168,76,0.1);
+}
+
+.author-avatar {
+width: 50px; height: 50px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+color: var(--dark);
+font-size: 18px;
+flex-shrink: 0;
+}
+
+.author-info h5 {
+font-family: 'Cinzel', serif;
+font-size: 14px;
+font-weight: 700;
+color: var(--gold2);
+}
+
+.author-info p { font-size: 11px; color: var(--silver); margin-top: 4px; }
+
+.verdict-tag {
+display: inline-block;
+background: rgba(201,168,76,0.1);
+border: 1px solid rgba(201,168,76,0.3);
+padding: 4px 12px;
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 2px;
+color: var(--gold2);
+text-transform: uppercase;
+margin-bottom: 15px;
+}
+
+/* ===================== TEAM SECTION ===================== */
+.team-section {
+background: var(--dark);
+}
+
+.team-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+}
+
+.team-card {
+position: relative;
+overflow: hidden;
+height: 450px;
+}
+
+.team-img {
+width: 100%; height: 100%;
+object-fit: cover;
+filter: brightness(0.6) saturate(0.7);
+transition: all 0.6s ease;
+}
+
+.team-card:hover .team-img {
+filter: brightness(0.3) saturate(0.3);
+transform: scale(1.05);
+}
+
+.team-overlay {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+padding: 40px 30px;
+background: linear-gradient(transparent, rgba(6,8,16,0.97));
+transition: all 0.5s ease;
+}
+
+.team-card:hover .team-overlay {
+background: linear-gradient(transparent 20%, rgba(6,8,16,0.98));
+padding-bottom: 50px;
+}
+
+.team-name {
+font-family: 'Cinzel', serif;
+font-size: 20px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 6px;
+}
+
+.team-role {
+font-size: 11px;
+letter-spacing: 3px;
+color: var(--silver);
+text-transform: uppercase;
+margin-bottom: 15px;
+}
+
+.team-bio {
+font-size: 13px;
+color: rgba(192,192,192,0.8);
+line-height: 1.7;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease;
+}
+
+.team-card:hover .team-bio { max-height: 200px; }
+
+.team-gold-line {
+width: 40px; height: 2px;
+background: linear-gradient(90deg, var(--gold), var(--gold2));
+margin-bottom: 15px;
+transition: width 0.4s ease;
+}
+
+.team-card:hover .team-gold-line { width: 100px; }
+
+/* ===================== PROCESS SECTION ===================== */
+.process-section {
+background: linear-gradient(180deg, var(--navy), var(--dark));
+}
+
+.process-timeline {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 50px;
+position: relative;
+}
+
+.process-timeline::before {
+content: '';
+position: absolute;
+left: 50%;
+top: 0;
+width: 2px;
+height: 100%;
+background: linear-gradient(180deg, transparent, var(--gold), var(--gold2), var(--gold), transparent);
+transform: translateX(-50%);
+}
+
+.process-step {
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+gap: 40px;
+margin-bottom: 60px;
+align-items: center;
+}
+
+.process-step:nth-child(odd) .step-left { order: 1; }
+.process-step:nth-child(odd) .step-center { order: 2; }
+.process-step:nth-child(odd) .step-right { order: 3; }
+.process-step:nth-child(even) .step-left { order: 3; }
+.process-step:nth-child(even) .step-center { order: 2; }
+.process-step:nth-child(even) .step-right { order: 1; text-align: right; }
+
+.step-left, .step-right {
+padding: 25px;
+background: rgba(13,18,38,0.6);
+border: 1px solid rgba(201,168,76,0.1);
+transition: all 0.4s ease;
+}
+
+.step-left:hover, .step-right:hover {
+border-color: rgba(201,168,76,0.3);
+background: rgba(13,18,38,0.9);
+transform: scale(1.02);
+}
+
+.step-center {
+width: 60px; height: 60px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+font-size: 16px;
+color: var(--dark);
+flex-shrink: 0;
+box-shadow: 0 0 30px rgba(201,168,76,0.4);
+z-index: 2;
+}
+
+.step-title {
+font-family: 'Cinzel', serif;
+font-size: 14px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 8px;
+}
+
+.step-desc {
+font-size: 12px;
+color: var(--silver);
+line-height: 1.7;
+}
+
+/* ===================== CONTACT SECTION ===================== */
+.contact-section {
+background: var(--dark);
+}
+
+.contact-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+gap: 80px;
+}
+
+.contact-info {}
+
+.contact-info-title {
+font-family: 'Cinzel', serif;
+font-size: clamp(24px, 3vw, 36px);
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 20px;
+}
+
+.contact-info-desc {
+font-family: 'Cormorant Garamond', serif;
+font-size: 18px;
+color: var(--silver);
+line-height: 1.8;
+margin-bottom: 40px;
+font-style: italic;
+}
+
+.contact-detail {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+margin-bottom: 25px;
+padding: 20px;
+border: 1px solid rgba(201,168,76,0.1);
+transition: all 0.3s ease;
+}
+
+.contact-detail:hover {
+border-color: rgba(201,168,76,0.3);
+background: rgba(201,168,76,0.04);
+}
+
+.cd-icon {
+width: 45px; height: 45px;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+color: var(--dark);
+flex-shrink: 0;
+}
+
+.cd-text h5 {
+font-family: 'Cinzel', serif;
+font-size: 12px;
+font-weight: 700;
+color: var(--gold2);
+letter-spacing: 2px;
+margin-bottom: 5px;
+}
+
+.cd-text p {
+font-size: 14px;
+color: var(--cream);
+line-height: 1.6;
+}
+
+.cd-text a {
+color: var(--cream);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.cd-text a:hover { color: var(--gold2); }
+
+/* CONTACT FORM */
+.contact-form {
+background: rgba(13,18,38,0.5);
+border: 1px solid rgba(201,168,76,0.15);
+padding: 50px;
+backdrop-filter: blur(10px);
+}
+
+.form-title {
+font-family: 'Cinzel', serif;
+font-size: 22px;
+font-weight: 700;
+color: var(--cream);
+margin-bottom: 35px;
+}
+
+.form-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
+
+.form-group {
+margin-bottom: 22px;
+}
+
+.form-group label {
+display: block;
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 3px;
+color: var(--gold2);
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+background: rgba(6,8,16,0.8);
+border: 1px solid rgba(201,168,76,0.2);
+color: var(--cream);
+padding: 14px 18px;
+font-size: 14px;
+font-family: 'Montserrat', sans-serif;
+transition: all 0.3s ease;
+outline: none;
+cursor: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+border-color: var(--gold);
+background: rgba(6,8,16,0.95);
+box-shadow: 0 0 20px rgba(201,168,76,0.1);
+}
+
+.form-group textarea { height: 120px; resize: none; }
+
+.form-group select option {
+background: var(--navy);
+color: var(--cream);
+}
+
+.form-submit {
+width: 100%;
+background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
+background-size: 200%;
+color: var(--dark);
+border: none;
+padding: 18px;
+font-family: 'Cinzel', serif;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 3px;
+cursor: none;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+
+.form-submit:hover {
+background-position: 100%;
+box-shadow: 0 10px 40px rgba(201,168,76,0.5);
+transform: translateY(-2px);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+background: var(--dark);
+border-top: 1px solid rgba(201,168,76,0.1);
+padding: 80px 50px 40px;
+position: relative;
+z-index: 2;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 60px;
+max-width: 1300px;
+margin: 0 auto 60px;
+}
+
+.footer-brand {}
+
+.footer-brand h3 {
+font-family: 'Cinzel', serif;
+font-size: 20px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 15px;
+}
+
+.footer-brand p {
+font-size: 13px;
+color: rgba(192,192,192,0.7);
+line-height: 1.8;
+margin-bottom: 25px;
+}
+
+.footer-social {
+display: flex;
+gap: 15px;
+}
+
+.social-btn {
+width: 42px; height: 42px;
+border: 1px solid rgba(201,168,76,0.2);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--silver);
+font-size: 16px;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+background: var(--gold);
+border-color: var(--gold);
+color: var(--dark);
+transform: translateY(-3px);
+box-shadow: 0 5px 20px rgba(201,168,76,0.4);
+}
+
+.footer-col h4 {
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 700;
+color: var(--gold2);
+letter-spacing: 2px;
+margin-bottom: 25px;
+padding-bottom: 12px;
+border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.footer-links {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.footer-links a {
+color: rgba(192,192,192,0.7);
+text-decoration: none;
+font-size: 13px;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.footer-links a::before {
+content: '▸';
+color: var(--gold);
+font-size: 10px;
+transition: transform 0.3s ease;
+}
+
+.footer-links a:hover {
+color: var(--gold2);
+}
+
+.footer-links a:hover::before { transform: translateX(5px); }
+
+.footer-bottom {
+max-width: 1300px;
+margin: 0 auto;
+padding-top: 30px;
+border-top: 1px solid rgba(201,168,76,0.1);
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.footer-bottom p {
+font-size: 12px;
+color: rgba(192,192,192,0.5);
+}
+
+.footer-bottom span { color: var(--gold2); }
+
+/* ===================== FLOATING ELEMENTS ===================== */
+.float-consultation {
+position: fixed;
+bottom: 30px; right: 30px;
+z-index: 1000;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 15px;
+}
+
+.float-btn {
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+color: var(--dark);
+padding: 16px 28px;
+font-family: 'Cinzel', serif;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 2px;
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+box-shadow: 0 10px 40px rgba(201,168,76,0.5);
+animation: floatPulse 3s ease infinite;
+cursor: none;
+transition: all 0.3s ease;
+}
+
+.float-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(201,168,76,0.7); }
+
+@keyframes floatPulse {
+0%,100% { box-shadow: 0 10px 40px rgba(201,168,76,0.5); }
+50% { box-shadow: 0 10px 60px rgba(201,168,76,0.8), 0 0 100px rgba(201,168,76,0.3); }
+}
+
+.float-whatsapp {
+background: #25D366;
+color: white;
+width: 55px; height: 55px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+text-decoration: none;
+box-shadow: 0 5px 25px rgba(37,211,102,0.5);
+animation: floatBounce 2s ease infinite;
+cursor: none;
+}
+
+@keyframes floatBounce {
+0%,100% { transform: translateY(0); }
+50% { transform: translateY(-5px); }
+}
+
+/* ===================== BACK TO TOP ===================== */
+.back-top {
+position: fixed;
+bottom: 30px; left: 30px;
+width: 50px; height: 50px;
+background: rgba(201,168,76,0.15);
+border: 1px solid rgba(201,168,76,0.3);
+color: var(--gold2);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+cursor: none;
+transition: all 0.3s ease;
+z-index: 1000;
+opacity: 0;
+transform: translateY(20px);
+text-decoration: none;
+}
+
+.back-top.visible { opacity: 1; transform: translateY(0); }
+.back-top:hover { background: var(--gold); color: var(--dark); box-shadow: 0 5px 25px rgba(201,168,76,0.4); }
+
+/* ===================== 3D BACKGROUND ANIMATIONS ===================== */
+.bg-3d-layer {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 0;
+overflow: hidden;
+}
+
+/* Floating geometric shapes */
+.geo-shape {
+position: absolute;
+opacity: 0.03;
+animation: geoFloat 15s ease-in-out infinite;
+}
+
+.geo-shape.hexagon {
+width: 200px; height: 200px;
+background: var(--gold);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.geo-shape.triangle {
+width: 150px; height: 150px;
+background: var(--gold2);
+clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.geo-shape.diamond {
+width: 120px; height: 120px;
+background: var(--gold);
+clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+@keyframes geoFloat {
+0%,100% { transform: translate(0,0) rotate(0deg); opacity: 0.03; }
+33% { transform: translate(30px,-40px) rotate(120deg); opacity: 0.06; }
+66% { transform: translate(-20px,30px) rotate(240deg); opacity: 0.02; }
+}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+opacity: 0;
+transform: translateY(50px);
+transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+
+.reveal.revealed {
+opacity: 1;
+transform: translateY(0);
+}
+
+.reveal-left {
+opacity: 0;
+transform: translateX(-60px);
+transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+
+.reveal-left.revealed {
+opacity: 1;
+transform: translateX(0);
+}
+
+.reveal-right {
+opacity: 0;
+transform: translateX(60px);
+transition: all 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+
+.reveal-right.revealed {
+opacity: 1;
+transform: translateX(0);
+}
+
+/* GOLD LINE DECORATION */
+.gold-line-decoration {
+position: absolute;
+width: 100%;
+height: 1px;
+background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent 100%);
+opacity: 0.2;
+}
+
+/* LUXURY BADGE */
+.luxury-badge {
+display: inline-flex;
+align-items: center;
+gap: 20px;
+padding: 15px 30px;
+border: 1px solid rgba(201,168,76,0.3);
+background: rgba(201,168,76,0.05);
+margin-bottom: 30px;
+}
+
+.luxury-badge span {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 5px;
+color: var(--gold2);
+text-transform: uppercase;
+}
+
+.lb-diamond {
+color: var(--gold2);
+font-size: 12px;
+}
+
+/* GRAPH/STATS SECTION */
+.stats-section {
+background: var(--navy);
+padding: 100px 0;
+}
+
+.stats-container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 50px;
+}
+
+.success-graph {
+background: rgba(13,18,38,0.8);
+border: 1px solid rgba(201,168,76,0.15);
+padding: 50px;
+margin-top: 60px;
+}
+
+.graph-title {
+font-family: 'Cinzel', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 40px;
+text-align: center;
+letter-spacing: 2px;
+}
+
+.graph-bars {
+display: flex;
+align-items: flex-end;
+gap: 15px;
+height: 220px;
+padding-bottom: 40px;
+position: relative;
+border-bottom: 2px solid rgba(201,168,76,0.2);
+border-left: 1px solid rgba(201,168,76,0.1);
+}
+
+.graph-bar-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+flex: 1;
+height: 100%;
+justify-content: flex-end;
+gap: 10px;
+}
+
+.graph-bar {
+width: 100%;
+background: linear-gradient(180deg, var(--gold2), var(--gold));
+border-radius: 3px 3px 0 0;
+min-height: 20px;
+position: relative;
+transition: all 1.5s cubic-bezier(0.23,1,0.32,1);
+box-shadow: 0 0 15px rgba(201,168,76,0.2);
+}
+
+.graph-bar::before {
+content: attr(data-value);
+position: absolute;
+top: -30px;
+left: 50%;
+transform: translateX(-50%);
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 700;
+color: var(--gold2);
+white-space: nowrap;
+}
+
+.graph-bar-label {
+font-size: 10px;
+color: var(--silver);
+letter-spacing: 1px;
+text-align: center;
+position: absolute;
+bottom: -35px;
+left: 50%;
+transform: translateX(-50%);
+white-space: nowrap;
+}
+
+.experience-badge-graph {
+text-align: center;
+margin-top: 60px;
+}
+
+.exp-highlight {
+display: inline-flex;
+align-items: center;
+gap: 15px;
+background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.05));
+border: 1px solid rgba(201,168,76,0.3);
+padding: 20px 40px;
+}
+
+.exp-num {
+font-family: 'Cinzel', serif;
+font-size: 48px;
+font-weight: 900;
+background: linear-gradient(135deg, var(--gold), var(--gold2));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+line-height: 1;
+}
+
+.exp-text {
+text-align: left;
+}
+
+.exp-text span:first-child {
+display: block;
+font-family: 'Cinzel', serif;
+font-size: 14px;
+font-weight: 700;
+color: var(--cream);
+letter-spacing: 2px;
+}
+
+.exp-text span:last-child {
+font-size: 11px;
+color: var(--silver);
+letter-spacing: 2px;
+}
+
+/* ===================== AWARDS SECTION ===================== */
+.awards-section {
+background: var(--dark);
+overflow: hidden;
+}
+
+.awards-marquee-wrap {
+overflow: hidden;
+margin-top: 60px;
+}
+
+.awards-marquee {
+display: flex;
+gap: 30px;
+animation: marquee 30s linear infinite;
+width: max-content;
+}
+
+.awards-marquee:hover { animation-play-state: paused; }
+
+.award-item {
+background: rgba(13,18,38,0.8);
+border: 1px solid rgba(201,168,76,0.15);
+padding: 30px 40px;
+display: flex;
+align-items: center;
+gap: 20px;
+white-space: nowrap;
+min-width: 350px;
+transition: all 0.3s ease;
+}
+
+.award-item:hover {
+border-color: rgba(201,168,76,0.4);
+background: rgba(201,168,76,0.05);
+}
+
+.award-icon { font-size: 35px; }
+
+.award-text h4 {
+font-family: 'Cinzel', serif;
+font-size: 13px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 4px;
+}
+
+.award-text p { font-size: 11px; color: var(--silver); }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ===================== LEGAL SHIELD ANIMATION ===================== */
+.shield-section {
+padding: 80px 0;
+background: linear-gradient(135deg, var(--dark), rgba(10,14,26,0.95));
+text-align: center;
+overflow: hidden;
+position: relative;
+}
+
+.shield-3d {
+position: relative;
+width: 200px; height: 240px;
+margin: 0 auto 50px;
+animation: shieldFloat 4s ease-in-out infinite;
+}
+
+@keyframes shieldFloat {
+0%,100% { transform: translateY(0) rotateY(0deg); }
+25% { transform: translateY(-20px) rotateY(10deg); }
+75% { transform: translateY(-10px) rotateY(-10deg); }
+}
+
+.shield-svg {
+width: 100%; height: 100%;
+filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
+}
+
+.shield-rings {
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+}
+
+.shield-ring {
+position: absolute;
+border-radius: 50%;
+border: 1px solid rgba(201,168,76,0.1);
+top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+animation: shieldPulseRing 3s ease-out infinite;
+}
+
+.sr1 { width: 220px; height: 220px; animation-delay: 0s; }
+.sr2 { width: 300px; height: 300px; animation-delay: 0.5s; }
+.sr3 { width: 380px; height: 380px; animation-delay: 1s; }
+
+@keyframes shieldPulseRing {
+0% { transform: translate(-50%,-50%) scale(0.8); opacity: 0.5; }
+100% { transform: translate(-50%,-50%) scale(1.5); opacity: 0; }
+}
+
+/* ===================== PRACTICE AREAS SLIDER ===================== */
+.practice-slider {
+display: flex;
+gap: 20px;
+padding: 0 50px;
+overflow-x: auto;
+scrollbar-width: none;
+margin-top: 60px;
+}
+
+.practice-slider::-webkit-scrollbar { display: none; }
+
+.practice-slide {
+min-width: 280px;
+height: 380px;
+position: relative;
+overflow: hidden;
+flex-shrink: 0;
+cursor: none;
+}
+
+.practice-slide img {
+width: 100%; height: 100%;
+object-fit: cover;
+filter: brightness(0.4) saturate(0.5);
+transition: all 0.6s ease;
+}
+
+.practice-slide:hover img {
+filter: brightness(0.25) saturate(0.3);
+transform: scale(1.08);
+}
+
+.practice-content {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+padding: 30px;
+}
+
+.practice-icon { font-size: 35px; margin-bottom: 15px; display: block; }
+.practice-title {
+font-family: 'Cinzel', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--gold2);
+margin-bottom: 10px;
+}
+
+.practice-cases {
+font-size: 11px;
+color: var(--silver);
+letter-spacing: 2px;
+}
+
+.practice-detail {
+font-size: 13px;
+color: rgba(192,192,192,0.8);
+line-height: 1.6;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease;
+margin-top: 10px;
+}
+
+.practice-slide:hover .practice-detail { max-height: 100px; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1200px) {
+.expertise-grid { padding: 0 30px; }
+.why-grid { gap: 40px; }
+.contact-container { gap: 40px; }
+.footer-grid { grid-template-columns: 1fr 1fr; }
+.achievements { grid-template-columns: repeat(2,1fr); }
+.process-timeline { padding: 0 20px; }
+}
+
+@media (max-width: 992px) {
+nav { padding: 15px 25px; }
+nav.scrolled { padding: 10px 25px; }
+.nav-links, .nav-cta-wrap { display: none; }
+.hamburger { display: flex; }
+
+.chakravyuh-container { grid-template-columns: 1fr; gap: 40px; }
+.chakravyuh-visual { height: 350px; }
+.chakra-rings { width: 320px; height: 320px; }
+.cr5 { width: 300px; height: 300px; }
+.cr4 { width: 240px; height: 240px; }
+.cr3 { width: 180px; height: 180px; }
+.cr2 { width: 130px; height: 130px; }
+.cr1 { width: 80px; height: 80px; }
+
+.why-grid { grid-template-columns: 1fr; }
+.why-image { height: 350px; }
+.why-img-overlay { width: 50%; right: 0; }
+.why-badge-float { right: 0; }
+
+.contact-container { grid-template-columns: 1fr; gap: 50px; }
+.gallery-grid { grid-template-columns: repeat(2,1fr); }
+.gallery-item:nth-child(1), .gallery-item:nth-child(4), .gallery-item:nth-child(7) { grid-column: span 1; grid-row: span 1; }
+
+.image-showcase { grid-template-columns: 1fr 1fr; }
+
+.process-step {
+grid-template-columns: 1fr;
+text-align: left;
+}
+.process-timeline::before { left: 30px; }
+.process-step:nth-child(even) .step-right { order: 3; text-align: left; }
+.process-step:nth-child(even) .step-left { order: 1; }
+.step-center { width: 50px; height: 50px; margin-left: 5px; }
+
+.hero-stats { gap: 30px; }
+.stat-divider { display: none; }
+}
+
+@media (max-width: 768px) {
+section { padding: 80px 0; }
+
+.expertise-grid { grid-template-columns: 1fr; padding: 0 20px; }
+.features-grid { padding: 0 20px; grid-template-columns: 1fr; }
+.team-grid { padding: 0 20px; }
+
+.contact-form { padding: 30px 25px; }
+.form-row { grid-template-columns: 1fr; }
+
+footer { padding: 60px 25px 30px; }
+.footer-grid { grid-template-columns: 1fr; gap: 40px; }
+.footer-bottom { flex-direction: column; text-align: center; }
+
+.achievements { grid-template-columns: repeat(2,1fr); }
+
+.gallery-grid { grid-template-columns: 1fr 1fr; padding: 0 15px; gap: 10px; }
+.gallery-item:nth-child(1) { grid-column: span 2; }
+
+.image-showcase { grid-template-columns: 1fr; padding: 0 15px; }
+
+.hero-buttons { flex-direction: column; align-items: center; }
+.btn-primary, .btn-secondary { width: 280px; justify-content: center; }
+
+.why-container { padding: 0 20px; }
+.why-points { gap: 15px; }
+
+.chakravyuh-container { padding: 0 20px; }
+
+.stats-container { padding: 0 20px; }
+.success-graph { padding: 30px 20px; }
+.graph-bars { height: 160px; gap: 8px; }
+
+.exp-num { font-size: 36px; }
+
+.float-btn { padding: 14px 20px; font-size: 11px; }
+
+.section-header { padding: 0 20px; }
+.process-timeline { padding: 0 15px; }
+
+.testimonial-card { min-width: 300px; padding: 30px 25px; }
+.testimonials-track { padding: 0 20px 20px; }
+}
+
+@media (max-width: 480px) {
+nav { padding: 12px 20px; }
+.logo-text h2 { font-size: 13px; }
+.logo-emblem { width: 45px; height: 45px; font-size: 13px; }
+
+.hero-content { padding: 100px 15px 50px; }
+.hero-stats { gap: 15px; padding: 20px 15px; }
+.stat-num { font-size: 28px; }
+
+.expertise-grid { grid-template-columns: 1fr; padding: 0 15px; }
+.expertise-card { padding: 30px 25px; }
+
+.gallery-grid { grid-template-columns: 1fr; }
+.gallery-item:nth-child(1) { grid-column: span 1; }
+
+.achievements { grid-template-columns: 1fr 1fr; }
+.achievement-item { padding: 25px 15px; }
+
+.footer-grid { grid-template-columns: 1fr; }
+
+.float-consultation { bottom: 20px; right: 15px; gap: 10px; }
+.back-top { bottom: 20px; left: 15px; }
+
+.practice-slide { min-width: 250px; height: 320px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+<div class="loader-emblem"></div>
+<p class="loader-text">RAJVARDHAN & ASSOCIATES</p>
+</div>
+
+<!-- 3D BACKGROUND -->
+<div class="bg-3d-layer">
+<div class="geo-shape hexagon" style="top:10%;left:5%;animation-delay:0s;animation-duration:18s;"></div>
+<div class="geo-shape triangle" style="top:30%;right:8%;animation-delay:3s;animation-duration:22s;"></div>
+<div class="geo-shape diamond" style="top:60%;left:15%;animation-delay:6s;animation-duration:16s;"></div>
+<div class="geo-shape hexagon" style="top:80%;right:20%;animation-delay:9s;animation-duration:20s;"></div>
+<div class="geo-shape triangle" style="top:50%;left:50%;animation-delay:12s;animation-duration:25s;"></div>
+<div class="geo-shape diamond" style="top:15%;right:40%;animation-delay:4s;animation-duration:19s;"></div>
+<div class="geo-shape hexagon" style="top:70%;left:40%;animation-delay:7s;animation-duration:23s;"></div>
+<div class="geo-shape triangle" style="top:90%;left:60%;animation-delay:2s;animation-duration:17s;"></div>
+</div>
+
+<canvas id="bgCanvas"></canvas>
+<canvas id="particleCanvas"></canvas>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+<a href="#" class="nav-logo">
+<div class="logo-emblem">R&A</div>
+<div class="logo-text">
+<h2>RAJVARDHAN & ASSOCIATES</h2>
+<p>ELITE LEGAL COUNSEL - EST. 2013</p>
+</div>
+</a>
+
+<ul class="nav-links">
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#chakravyuh">Strategy</a></li>
+<li><a href="#features">Services</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#contact" class="nav-cta">Consult Now</a></li>
+</ul>
+
+<div class="hamburger" id="hamburger">
+<span></span><span></span><span></span>
+</div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-gold"></div>
+<a href="#expertise" onclick="closeMobileMenu()">Expertise</a>
+<a href="#chakravyuh" onclick="closeMobileMenu()">Strategy</a>
+<a href="#features" onclick="closeMobileMenu()">Services</a>
+<a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+<a href="#team" onclick="closeMobileMenu()">Team</a>
+<a href="#contact" onclick="closeMobileMenu()">Contact</a>
+<div class="mobile-menu-gold"></div>
+<a href="tel:+919001234567" style="color:var(--gold2);font-size:16px;">+91 90012 34567</a>
+</div>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+
+<!-- ORBIT RINGS -->
+<div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+<div class="orbit-container">
+<div class="orbit-ring"></div>
+<div class="orbit-ring"></div>
+<div class="orbit-ring"></div>
+<div class="orbit-ring"></div>
+</div>
+</div>
+
+<!-- SCALES SVG BG -->
+<svg class="scales-3d" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 10 L100 190 M60 40 L140 40 M40 40 L80 100 M120 40 L160 100 M40 100 L80 100 M120 100 L160 100" stroke="white" stroke-width="2"/>
+<ellipse cx="60" cy="100" rx="20" ry="5" stroke="white" stroke-width="1.5"/>
+<ellipse cx="140" cy="100" rx="20" ry="5" stroke="white" stroke-width="1.5"/>
+</svg>
+
+<div class="hero-content">
+<div class="hero-badge">
+<div class="badge-dot"></div>
+<span>India's Premier Criminal Defense Firm</span>
+<div class="badge-dot"></div>
+</div>
+
+<h1 class="hero-title">
+<span class="line1">RAJVARDHAN</span>
+<span class="line2">&amp; Associates</span>
+<span class="line3">Advocates &amp; Legal Consultants</span>
+</h1>
+
+<p class="hero-tagline">
+Where <strong>Justice</strong> Meets Unmatched <strong>Legal Brilliance</strong><br>
+Crafting Impenetrable Defense Strategies Since 2013
+</p>
+
+<p class="hero-subtext">HIGH COURT | SESSIONS COURT | DISTRICT COURTS | ALL INDIA PRACTICE</p>
+
+<div class="hero-buttons">
+<a href="#contact" class="btn-primary">
+<i class="fas fa-gavel"></i>
+Free Consultation
+</a>
+<a href="tel:+919001234567" class="btn-secondary">
+<i class="fas fa-phone"></i>
+Call Now: +91 90012 34567
+</a>
+</div>
+
+<div class="hero-stats">
+<div class="stat-item">
+<span class="stat-num" data-target="2500">0</span>
+<div class="stat-label">Cases Won</div>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num" data-target="11">0</span>
+<div class="stat-label">Years Experience</div>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num" data-target="98">0</span>
+<div class="stat-label">Success Rate %</div>
+</div>
+<div class="stat-divider"></div>
+<div class="stat-item">
+<span class="stat-num" data-target="5000">0</span>
+<div class="stat-label">Clients Served</div>
+</div>
+</div>
+</div>
+
+<div class="scroll-indicator">
+<div class="scroll-mouse"></div>
+<span class="scroll-text">SCROLL DOWN</span>
+</div>
+</section>
+
+<!-- ===== EXPERTISE SECTION ===== -->
+<section class="expertise-section" id="expertise">
+<div class="gold-line-decoration" style="top:0"></div>
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Core Practice Areas</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Domains of Legal Mastery</h2>
+<div class="gold-divider"></div>
+<p class="section-desc">
+With 11 years of relentless courtroom experience, we deliver unparalleled legal defense across every domain of criminal and civil law
+</p>
+</div>
+
+<div class="expertise-grid">
+<div class="expertise-card reveal" style="transition-delay:0.1s">
+<div class="card-number">01</div>
+<div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+<h3 class="card-title">Criminal Defense</h3>
+<p class="card-desc">Aggressive, strategic defense against all criminal charges from minor offenses to heinous crimes</p>
+<ul class="card-features">
+<li>Murder and Culpable Homicide</li>
+<li>Assault and Bodily Harm</li>
+<li>Arms Act Violations</li>
+<li>NDPS Act Defense</li>
+<li>SC/ST Act Cases</li>
+</ul>
+</div>
+
+<div class="expertise-card reveal" style="transition-delay:0.2s">
+<div class="card-number">02</div>
+<div class="card-icon"><i class="fas fa-building-columns"></i></div>
+<h3 class="card-title">Bail and Anticipatory Bail</h3>
+<p class="card-desc">Swift bail procurement with expertise in even the most complex, non-bailable offense cases</p>
+<ul class="card-features">
+<li>Emergency Bail Applications</li>
+<li>Anticipatory Bail - Section 438</li>
+<li>Regular Bail - Section 437</li>
+<li>High Court Bail Applications</li>
+<li>Supreme Court Special Leave</li>
+</ul>
+</div>
+
+<div class="expertise-card reveal" style="transition-delay:0.3s">
+<div class="card-number">03</div>
+<div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+<h3 class="card-title">White Collar Crimes</h3>
+<p class="card-desc">Elite defense against financial crimes, corporate fraud, and economic offenses</p>
+<ul class="card-features">
+<li>Bank Fraud and Cheating</li>
+<li>Money Laundering PMLA</li>
+<li>Income Tax Offenses</li>
+<li>GST and Customs Violations</li>
+<li>Corporate Fraud Cases</li>
+</ul>
+</div>
+
+<div class="expertise-card reveal" style="transition-delay:0.1s">
+<div class="card-number">04</div>
+<div class="card-icon"><i class="fas fa-house-crack"></i></div>
+<h3 class="card-title">Property and Civil Disputes</h3>
+<p class="card-desc">Comprehensive legal solutions for land, property, and complex civil litigation matters</p>
+<ul class="card-features">
+<li>Property Title Disputes</li>
+<li>Partition Suits</li>
+<li>Injunction and Stay Orders</li>
+<li>Landlord-Tenant Disputes</li>
+<li>Execution Proceedings</li>
+</ul>
+</div>
+
+<div class="expertise-card reveal" style="transition-delay:0.2s">
+<div class="card-number">05</div>
+<div class="card-icon"><i class="fas fa-users"></i></div>
+<h3 class="card-title">Family and Matrimonial Law</h3>
+<p class="card-desc">Sensitive handling of family matters with utmost discretion and legal precision</p>
+<ul class="card-features">
+<li>Divorce and Separation</li>
+<li>Domestic Violence 498-A</li>
+<li>Child Custody and Guardianship</li>
+<li>Maintenance and Alimony</li>
+<li>Dowry Harassment Defense</li>
+</ul>
+</div>
+
+<div class="expertise-card reveal" style="transition-delay:0.3s">
+<div class="card-number">06</div>
+<div class="card-icon"><i class="fas fa-laptop"></i></div>
+<h3 class="card-title">Cyber Crime Defense</h3>
+<p class="card-desc">Cutting-edge legal defense for the digital age - IT Act and cyber offense expertise</p>
+<ul class="card-features">
+<li>Online Fraud Defense</li>
+<li>IT Act Section 66 Cases</li>
+<li>Social Media Defamation</li>
+<li>Data Theft and Hacking</li>
+<li>Cyberstalking Defense</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ===== CHAKRAVYUH SECTION ===== -->
+<section class="chakravyuh-section" id="chakravyuh">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">The Rajvardhan Strategy</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">The Unbreakable Chakravyuh</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="chakravyuh-container">
+<div class="chakravyuh-visual reveal-left">
+<div class="chakra-rings">
+<div class="chakra-ring cr5"></div>
+<div class="chakra-ring cr4"></div>
+<div class="chakra-ring cr3"></div>
+<div class="chakra-ring cr2"></div>
+<div class="chakra-ring cr1"></div>
+<div class="chakra-center">
+<div class="chakra-center-icon">
+<i class="fas fa-gavel"></i>
+</div>
+</div>
+</div>
+</div>
+
+<div class="chakravyuh-content reveal-right">
+<div class="luxury-badge">
+<span class="lb-diamond">◆</span>
+<span>Witness Entrapment Strategy</span>
+<span class="lb-diamond">◆</span>
+</div>
+
+<h3 class="chakravyuh-title">
+Hum Gawah ke liye ek aisa <span>Chakravyuh</span> Rachte Hain...
+</h3>
+
+<p class="chakravyuh-quote">
+"Jis Chakravyuh mein ek baar gawah ghus jaata hai, usme se bahar aana uske liye bilkul sambhaw nahin hota. Woh majboor ho jaata hai mukadme ko bari karane mein hamaari madad karne ke liye."
+</p>
+
+<p class="chakravyuh-desc">
+Hamari cross-examination technique duniya ki sabse advanced aur scientific hai. Hum gawah ke bayaan mein itne paich dalte hain ki woh khud hi apne bayaan se mukar jaata hai. Hamaari pre-trial preparation, psychological profiling, aur courtroom execution ka combination aaj tak koi todne mein safal nahin hua.
+</p>
+
+<div class="chakra-steps">
+<div class="chakra-step">
+<div class="step-num">01</div>
+<div class="step-content">
+<h4>Gawah Profiling</h4>
+<p>Gawah ki poori psychological aur background jaanch karte hain - uski kamzoriyan, virodhaabhaas, aur izzat daav par lagate hain.</p>
+</div>
+</div>
+
+<div class="chakra-step">
+<div class="step-num">02</div>
+<div class="step-content">
+<h4>Trap Question Architecture</h4>
+<p>Aisi sawaal-shrinkhalaa rachate hain jis mein gawah jahan jaata hai, wahan se bahar nikalna uske liye asambhaw ho jaata hai.</p>
+</div>
+</div>
+
+<div class="chakra-step">
+<div class="step-num">03</div>
+<div class="step-content">
+<h4>Cross Examination Devastation</h4>
+<p>Court mein gawah ka bayaan itna khandan ho jaata hai ki judge aur jury khud unhe vishwasaneeya nahin maante.</p>
+</div>
+</div>
+
+<div class="chakra-step">
+<div class="step-num">04</div>
+<div class="step-content">
+<h4>Acquittal Assured</h4>
+<p>Hamaara muawakkil bari - yahi hamaara lakshya, yahi hamaari guarantee, yahi hamaari pehchaan hai.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== GALLERY SECTION ===== -->
+<section class="gallery-section" id="gallery">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Our World</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Prestige in Every Frame</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="gallery-grid reveal">
+
+<div class="gallery-item">
+<div class="gallery-badge">SUPREME COURT</div>
+<img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80" alt="Supreme Court of India" loading="lazy">
+<div class="gallery-overlay">
+<h3>Supreme Court Practice</h3>
+<p>Pan-India litigation at the highest court of the land</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=80" alt="Law Library" loading="lazy">
+<div class="gallery-overlay">
+<h3>Extensive Legal Research</h3>
+<p>10,000+ case precedents at our command</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=600&q=80" alt="Courtroom" loading="lazy">
+<div class="gallery-overlay">
+<h3>Elite Courtroom Presence</h3>
+<p>Commanding respect in every courtroom we enter</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<div class="gallery-badge">PREMIUM OFFICE</div>
+<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="Premium Office" loading="lazy">
+<div class="gallery-overlay">
+<h3>World-Class Office</h3>
+<p>Premium consultation in a confidential environment</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1436450412740-6b988f486c6b?w=600&q=80" alt="Justice Scales" loading="lazy">
+<div class="gallery-overlay">
+<h3>Symbol of Justice</h3>
+<p>We uphold the highest ideals of law and justice</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="Gavel" loading="lazy">
+<div class="gallery-overlay">
+<h3>The Final Verdict</h3>
+<p>We fight until the gavel strikes in your favor</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=900&q=80" alt="Corporate Legal Team" loading="lazy">
+<div class="gallery-overlay">
+<h3>Elite Legal Team</h3>
+<p>A powerhouse of legal minds at your service</p>
+</div>
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80" alt="Legal Documents" loading="lazy">
+<div class="gallery-overlay">
+<h3>Meticulous Preparation</h3>
+<p>Every document. Every detail. Every edge.</p>
+</div>
+</div>
+
+</div>
+
+<!-- IMAGE SHOWCASE -->
+<div class="image-showcase reveal">
+<div class="showcase-item">
+<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Legal Strategy" loading="lazy">
+<div class="showcase-caption">
+<h4>Strategic Legal Planning</h4>
+<p>Where every move is calculated for maximum impact</p>
+</div>
+</div>
+
+<div class="showcase-item">
+<img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&q=80" alt="High Court" loading="lazy">
+<div class="showcase-caption">
+<h4>High Court Excellence</h4>
+<p>Decades of High Court experience in your corner</p>
+</div>
+</div>
+
+<div class="showcase-item">
+<img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80" alt="Premium Service" loading="lazy">
+<div class="showcase-caption">
+<h4>Premium Client Service</h4>
+<p>White-glove legal service for elite clientele</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== FEATURES SECTION ===== -->
+<section class="features-section" id="features">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">What Makes Us Different</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">20 Reasons We Win Every Time</h2>
+<div class="gold-divider"></div>
+<p class="section-desc">Features and capabilities that make Rajvardhan and Associates the undisputed choice for high-stakes legal representation</p>
+</div>
+
+<div class="features-grid">
+
+<div class="feature-card reveal" style="transition-delay:0.05s">
+<div class="feature-icon-wrap"><i class="fas fa-crown"></i></div>
+<h3 class="feature-title">11 Years Courtroom Mastery</h3>
+<p class="feature-desc">Over a decade of unbroken courtroom experience across all levels of Indian judiciary. Every year adding new dimensions to our legal prowess.</p>
+<span class="feature-tag">Experience</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.1s">
+<div class="feature-icon-wrap"><i class="fas fa-bolt"></i></div>
+<h3 class="feature-title">Emergency Legal Response</h3>
+<p class="feature-desc">24 hours a day, 7 days a week emergency legal team. Arrested at midnight? We respond within 60 minutes anywhere in the region.</p>
+<span class="feature-tag">Availability</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.15s">
+<div class="feature-icon-wrap"><i class="fas fa-brain"></i></div>
+<h3 class="feature-title">Psychological Cross Examination</h3>
+<p class="feature-desc">Our signature technique based on cognitive psychology that systematically dismantles prosecution witness credibility beyond repair.</p>
+<span class="feature-tag">Strategy</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.2s">
+<div class="feature-icon-wrap"><i class="fas fa-network-wired"></i></div>
+<h3 class="feature-title">Pan India Legal Network</h3>
+<p class="feature-desc">Strategic tie-ups with senior advocates across all 28 states. No matter where your case is, we have boots on the ground.</p>
+<span class="feature-tag">Network</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.05s">
+<div class="feature-icon-wrap"><i class="fas fa-magnifying-glass"></i></div>
+<h3 class="feature-title">Forensic Evidence Analysis</h3>
+<p class="feature-desc">Collaboration with top forensic experts to challenge, counter, and demolish prosecution forensic evidence in court.</p>
+<span class="feature-tag">Forensics</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.1s">
+<div class="feature-icon-wrap"><i class="fas fa-file-contract"></i></div>
+<h3 class="feature-title">Bail in 24 Hours</h3>
+<p class="feature-desc">Our specialized bail team has secured bail in even the most complex non-bailable cases within 24 hours. Freedom is our first promise.</p>
+<span class="feature-tag">Bail</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.15s">
+<div class="feature-icon-wrap"><i class="fas fa-shield"></i></div>
+<h3 class="feature-title">Complete Client Confidentiality</h3>
+<p class="feature-desc">Military-grade client data protection. Your secrets are sacred. Attorney-client privilege upheld with absolute discipline.</p>
+<span class="feature-tag">Privacy</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.2s">
+<div class="feature-icon-wrap"><i class="fas fa-chart-line"></i></div>
+<h3 class="feature-title">98 Percent Acquittal Rate</h3>
+<p class="feature-desc">An industry-leading acquittal rate built over 2,500 plus cases. Numbers do not lie. Our track record speaks louder than any promise.</p>
+<span class="feature-tag">Track Record</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.05s">
+<div class="feature-icon-wrap"><i class="fas fa-scroll"></i></div>
+<h3 class="feature-title">FIR and Chargesheet Demolition</h3>
+<p class="feature-desc">Expert analysis of FIRs and chargesheets to identify procedural flaws, constitutional violations, and grounds for quashing.</p>
+<span class="feature-tag">Analysis</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.1s">
+<div class="feature-icon-wrap"><i class="fas fa-university"></i></div>
+<h3 class="feature-title">High Court and Supreme Court</h3>
+<p class="feature-desc">Direct representation at High Court and Supreme Court. No outsourcing, no middlemen. Your case gets the principal attorney treatment.</p>
+<span class="feature-tag">Higher Courts</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.15s">
+<div class="feature-icon-wrap"><i class="fas fa-handshake"></i></div>
+<h3 class="feature-title">Negotiation and Settlement Mastery</h3>
+<p class="feature-desc">When trial is not the best option, our negotiation skills secure the most favorable settlements and compounding arrangements.</p>
+<span class="feature-tag">Negotiation</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.2s">
+<div class="feature-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+<h3 class="feature-title">Digital Legal Documentation</h3>
+<p class="feature-desc">Fully digitized case management. Real-time case updates on your phone. Transparent proceedings. Always know your case status.</p>
+<span class="feature-tag">Technology</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.05s">
+<div class="feature-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+<h3 class="feature-title">Continuous Legal Education</h3>
+<p class="feature-desc">Our team attends national and international legal seminars, always staying 3 steps ahead of prosecution strategies.</p>
+<span class="feature-tag">Expertise</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.1s">
+<div class="feature-icon-wrap"><i class="fas fa-users-gear"></i></div>
+<h3 class="feature-title">Dedicated Case Team</h3>
+<p class="feature-desc">Every client gets a dedicated team of 3 plus attorneys. You are never alone. Multiple legal minds fighting solely for you.</p>
+<span class="feature-tag">Team</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.15s">
+<div class="feature-icon-wrap"><i class="fas fa-comments"></i></div>
+<h3 class="feature-title">Hindi and Regional Language Service</h3>
+<p class="feature-desc">Full legal consultation in Hindi, Rajasthani, and other regional languages. No language barrier between you and justice.</p>
+<span class="feature-tag">Accessibility</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.2s">
+<div class="feature-icon-wrap"><i class="fas fa-video"></i></div>
+<h3 class="feature-title">Virtual Consultation Available</h3>
+<p class="feature-desc">Secure video consultation for clients across India and abroad. Legal help wherever you are in the world.</p>
+<span class="feature-tag">Virtual</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.05s">
+<div class="feature-icon-wrap"><i class="fas fa-landmark"></i></div>
+<h3 class="feature-title">Writ Petition Specialists</h3>
+<p class="feature-desc">Expert drafting and filing of writ petitions - Habeas Corpus, Mandamus, Certiorari. Constitutional rights are our domain.</p>
+<span class="feature-tag">Constitutional</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.1s">
+<div class="feature-icon-wrap"><i class="fas fa-money-bill-wave"></i></div>
+<h3 class="feature-title">Transparent Fee Structure</h3>
+<p class="feature-desc">No hidden charges, no surprises. Clear, upfront fee structure with flexible payment options for every client profile.</p>
+<span class="feature-tag">Transparency</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.15s">
+<div class="feature-icon-wrap"><i class="fas fa-star"></i></div>
+<h3 class="feature-title">Media and Reputation Management</h3>
+<p class="feature-desc">We protect your reputation alongside your legal rights. Strategic communication with media to protect your public image.</p>
+<span class="feature-tag">Reputation</span>
+</div>
+
+<div class="feature-card reveal" style="transition-delay:0.2s">
+<div class="feature-icon-wrap"><i class="fas fa-trophy"></i></div>
+<h3 class="feature-title">Award Winning Legal Practice</h3>
+<p class="feature-desc">Recognized by bar associations and legal bodies as one of Rajasthan's most distinguished criminal defense firms.</p>
+<span class="feature-tag">Recognition</span>
+</div>
+
+</div>
+</section>
+
+<!-- ===== PRACTICE AREAS SLIDER ===== -->
+<section style="background:var(--navy);padding:100px 0;overflow:hidden;">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Practice Areas</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Full Spectrum Legal Coverage</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="practice-slider reveal">
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Criminal Law" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">⚖️</span>
+<h3 class="practice-title">Criminal Law</h3>
+<p class="practice-cases">500+ Cases Won</p>
+<p class="practice-detail">Complete criminal defense from FIR registration to final acquittal in all courts of India.</p>
+</div>
+</div>
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Bail Matters" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">🔓</span>
+<h3 class="practice-title">Bail Matters</h3>
+<p class="practice-cases">800+ Bails Secured</p>
+<p class="practice-detail">Emergency bail in non-bailable offenses. 24 hours response. Freedom guaranteed.</p>
+</div>
+</div>
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=80" alt="High Court" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">🏛️</span>
+<h3 class="practice-title">High Court Practice</h3>
+<p class="practice-cases">300+ HC Orders</p>
+<p class="practice-detail">Direct High Court appearance. Writ petitions, revisions, appeals handled personally.</p>
+</div>
+</div>
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=600&q=80" alt="Family Law" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">👨‍👩‍👧</span>
+<h3 class="practice-title">Family Law</h3>
+<p class="practice-cases">400+ Cases</p>
+<p class="practice-detail">Divorce, custody, 498A defense. Sensitive handling with maximum legal protection.</p>
+</div>
+</div>
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=600&q=80" alt="Property Law" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">🏠</span>
+<h3 class="practice-title">Property Law</h3>
+<p class="practice-cases">350+ Disputes</p>
+<p class="practice-detail">Land disputes, title verification, injunctions. Your property protected by elite legal minds.</p>
+</div>
+</div>
+
+<div class="practice-slide">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80" alt="Cyber Law" loading="lazy">
+<div class="practice-content">
+<span class="practice-icon">💻</span>
+<h3 class="practice-title">Cyber Law</h3>
+<p class="practice-cases">150+ Cases</p>
+<p class="practice-detail">Digital age defense. IT Act, online fraud, cybercrime - cutting edge legal defense.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== STATS/GRAPH SECTION ===== -->
+<section class="stats-section" id="stats">
+<div class="stats-container">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Our Track Record</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Numbers That Define Excellence</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="success-graph reveal">
+<h3 class="graph-title">YEAR-WISE SUCCESS RATE ANALYSIS</h3>
+<div style="position:relative;">
+<div class="graph-bars" id="graphBars">
+
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="60" data-value="82%" style="height:0;transition-delay:0.1s;"></div>
+<span class="graph-bar-label">2014</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="68" data-value="87%" style="height:0;transition-delay:0.2s;"></div>
+<span class="graph-bar-label">2015</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="75" data-value="89%" style="height:0;transition-delay:0.3s;"></div>
+<span class="graph-bar-label">2016</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="80" data-value="91%" style="height:0;transition-delay:0.4s;"></div>
+<span class="graph-bar-label">2017</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="85" data-value="93%" style="height:0;transition-delay:0.5s;"></div>
+<span class="graph-bar-label">2018</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="88" data-value="94%" style="height:0;transition-delay:0.6s;"></div>
+<span class="graph-bar-label">2019</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="90" data-value="95%" style="height:0;transition-delay:0.7s;"></div>
+<span class="graph-bar-label">2020</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="92" data-value="96%" style="height:0;transition-delay:0.8s;"></div>
+<span class="graph-bar-label">2021</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="95" data-value="97%" style="height:0;transition-delay:0.9s;"></div>
+<span class="graph-bar-label">2022</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="97" data-value="97.5%" style="height:0;transition-delay:1.0s;"></div>
+<span class="graph-bar-label">2023</span>
+</div>
+<div class="graph-bar-wrap" style="position:relative;">
+<div class="graph-bar" data-height="100" data-value="98%" style="height:0;transition-delay:1.1s;background:linear-gradient(180deg,#FFD700,#C9A84C);box-shadow:0 0 30px rgba(201,168,76,0.5);"></div>
+<span class="graph-bar-label">2024</span>
+</div>
+</div>
+</div>
+
+<div class="experience-badge-graph" style="margin-top:70px;">
+<div class="exp-highlight">
+<span class="exp-num">11</span>
+<div class="exp-text">
+<span>Years of Unmatched Excellence</span>
+<span>Est. 2013 - Rajvardhan and Associates</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="why-section" id="about">
+<div class="why-container">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Why Choose Us</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">The Rajvardhan Difference</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="why-grid">
+<div class="why-image reveal-left">
+<img class="why-img-main" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Court of Law" loading="lazy">
+<img class="why-img-overlay" src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80" alt="Advocate" loading="lazy">
+<div class="why-badge-float">
+<span class="num">11+</span>
+<span class="label">Years of<br>Experience</span>
+</div>
+<div class="frame-border">
+<div class="frame-corner fc-tl"></div>
+<div class="frame-corner fc-tr"></div>
+<div class="frame-corner fc-bl"></div>
+<div class="frame-corner fc-br"></div>
+</div>
+</div>
+
+<div class="why-content reveal-right">
+<div class="luxury-badge">
+<span class="lb-diamond">◆</span>
+<span>India's Most Trusted Criminal Lawyers</span>
+<span class="lb-diamond">◆</span>
+</div>
+
+<h3 class="section-title" style="text-align:left;font-size:clamp(22px,2.5vw,34px);">
+Why <span style="color:var(--gold2)">5,000 Plus Families</span> Trust Us With Their Most Critical Moments
+</h3>
+
+<div class="why-points">
+<div class="why-point">
+<div class="wp-icon"><i class="fas fa-crown"></i></div>
+<div class="wp-text">
+<h4>Established in 2013 - A Decade of Dominance</h4>
+<p>11 years of continuous growth and excellence. From a single-court practice to Pan-India representation. Experience that money cannot buy overnight.</p>
+</div>
+</div>
+
+<div class="why-point">
+<div class="wp-icon"><i class="fas fa-medal"></i></div>
+<div class="wp-text">
+<h4>2,500 Plus Cases Won Across All Courts</h4>
+<p>Each case won is a family saved, a life restored, a future secured. Our victory count is not just statistics - it is 2,500 stories of justice delivered.</p>
+</div>
+</div>
+
+<div class="why-point">
+<div class="wp-icon"><i class="fas fa-chess-king"></i></div>
+<div class="wp-text">
+<h4>We Fight Impossibly Difficult Cases</h4>
+<p>When every other lawyer says impossible, we say hold on. Our specialty is taking cases that seem hopeless and turning them into historic victories.</p>
+</div>
+</div>
+
+<div class="why-point">
+<div class="wp-icon"><i class="fas fa-heart"></i></div>
+<div class="wp-text">
+<h4>Client First - Always and Forever</h4>
+<p>Your fight is our fight. Your sleepless nights become our working nights. We do not just represent you - we stand beside you until the very end.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="achievements reveal">
+<div class="achievement-item">
+<span class="achievement-num" data-target="2500">0</span>
+<div class="achievement-label">Cases Won</div>
+</div>
+<div class="achievement-item">
+<span class="achievement-num" data-target="98">0</span>
+<div class="achievement-label">Success Rate</div>
+</div>
+<div class="achievement-item">
+<span class="achievement-num" data-target="5000">0</span>
+<div class="achievement-label">Clients Served</div>
+</div>
+<div class="achievement-item">
+<span class="achievement-num" data-target="50">0</span>
+<div class="achievement-label">Courts Covered</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SHIELD SECTION ===== -->
+<section class="shield-section">
+<div class="shield-rings">
+<div class="shield-ring sr1"></div>
+<div class="shield-ring sr2"></div>
+<div class="shield-ring sr3"></div>
+</div>
+
+<div class="shield-3d">
+<svg class="shield-svg" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 10 L190 45 L190 120 C190 170 150 210 100 230 C50 210 10 170 10 120 L10 45 Z" fill="rgba(201,168,76,0.1)" stroke="url(#shieldGrad)" stroke-width="3"/>
+<path d="M100 35 L170 62 L170 120 C170 158 143 190 100 208 C57 190 30 158 30 120 L30 62 Z" fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+<text x="100" y="135" text-anchor="middle" font-family="Cinzel,serif" font-size="28" font-weight="700" fill="url(#textGrad)">R&amp;A</text>
+<defs>
+<linearGradient id="shieldGrad" x1="0" y1="0" x2="200" y2="240">
+<stop offset="0%" stop-color="#C9A84C"/>
+<stop offset="50%" stop-color="#F0C060"/>
+<stop offset="100%" stop-color="#C9A84C"/>
+</linearGradient>
+<linearGradient id="textGrad" x1="0" y1="0" x2="200" y2="0">
+<stop offset="0%" stop-color="#C9A84C"/>
+<stop offset="100%" stop-color="#F0C060"/>
+</linearGradient>
+</defs>
+</svg>
+</div>
+
+<div style="position:relative;z-index:5;">
+<div class="section-tag" style="justify-content:center;margin-bottom:20px;">
+<div class="tag-line"></div>
+<span class="tag-text">Our Guarantee</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text" style="margin-bottom:20px;">Your Shield in the Storm</h2>
+<p class="section-desc" style="margin:0 auto 40px;">When the legal system seems like an impenetrable fortress against you, we become your weapon of mass legal destruction. We do not just defend - we dismantle the prosecution piece by piece.</p>
+<a href="#contact" class="btn-primary" style="display:inline-flex;">
+<i class="fas fa-phone"></i>
+Get Your Shield Today
+</a>
+</div>
+</section>
+
+<!-- ===== AWARDS SECTION ===== -->
+<section class="awards-section">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Recognition</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Awards and Recognitions</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="awards-marquee-wrap reveal">
+<div class="awards-marquee">
+
+<div class="award-item">
+<span class="award-icon">🏆</span>
+<div class="award-text">
+<h4>Best Criminal Defense Firm 2023</h4>
+<p>Rajasthan Bar Association</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">⭐</span>
+<div class="award-text">
+<h4>Top 10 Legal Firms of Rajasthan</h4>
+<p>Legal 500 India - 2022</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🎖️</span>
+<div class="award-text">
+<h4>Excellence in Legal Service Award</h4>
+<p>National Law Conference 2021</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🏅</span>
+<div class="award-text">
+<h4>Client Choice Award</h4>
+<p>5 Consecutive Years 2019 to 2024</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">💎</span>
+<div class="award-text">
+<h4>Diamond Category Legal Practice</h4>
+<p>Indian Legal Awards 2023</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🎯</span>
+<div class="award-text">
+<h4>Most Successful Acquittals 2024</h4>
+<p>District Court Records</p>
+</div>
+</div>
+
+<!-- Duplicate for seamless loop -->
+<div class="award-item">
+<span class="award-icon">🏆</span>
+<div class="award-text">
+<h4>Best Criminal Defense Firm 2023</h4>
+<p>Rajasthan Bar Association</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">⭐</span>
+<div class="award-text">
+<h4>Top 10 Legal Firms of Rajasthan</h4>
+<p>Legal 500 India - 2022</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🎖️</span>
+<div class="award-text">
+<h4>Excellence in Legal Service Award</h4>
+<p>National Law Conference 2021</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🏅</span>
+<div class="award-text">
+<h4>Client Choice Award</h4>
+<p>5 Consecutive Years 2019 to 2024</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">💎</span>
+<div class="award-text">
+<h4>Diamond Category Legal Practice</h4>
+<p>Indian Legal Awards 2023</p>
+</div>
+</div>
+
+<div class="award-item">
+<span class="award-icon">🎯</span>
+<div class="award-text">
+<h4>Most Successful Acquittals 2024</h4>
+<p>District Court Records</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section" id="testimonials">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Client Voices</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Stories of Justice Delivered</h2>
+<div class="gold-divider"></div>
+<p class="section-desc">Real words from real clients whose lives were transformed by the Rajvardhan legal machine</p>
+</div>
+
+<div class="testimonials-track reveal">
+
+<div class="testimonial-card">
+<div class="quote-icon">"</div>
+<div class="verdict-tag">Murder Case - Acquitted</div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="testimonial-text">"Mujhe lagta tha meri zindagi khatam ho gayi. Section 302 ka case tha mere upar. Rajvardhan sir ne jo chakravyuh banaya prosecution ke gawahon ke liye, woh court mein khud hi toot gaye. Teen saal baad mere haath mein bari ka parchaa tha."</p>
+<div class="testimonial-author">
+<div class="author-avatar">R</div>
+<div class="author-info">
+<h5>Ramesh S. - Jodhpur</h5>
+<p>Murder Case Defense - Section 302 IPC</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="quote-icon">"</div>
+<div class="verdict-tag">NDPS Case - Bail Secured</div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="testimonial-text">"NDPS Act ka case tha, non-bailable. Sabne bol diya tha ki bail nahin milegi. Rajvardhan and Associates ki team ne 18 ghante mein High Court se bail dilwa di. Unka commitment level aisa hai jo aapne kabhi nahin dekha hoga."</p>
+<div class="testimonial-author">
+<div class="author-avatar">M</div>
+<div class="author-info">
+<h5>Mohammad A. - Jaipur</h5>
+<p>NDPS Act Defense - Emergency Bail</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="quote-icon">"</div>
+<div class="verdict-tag">498A Case - Complete Acquittal</div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="testimonial-text">"Meri poori family ke khilaf 498A tha. Rajvardhan sir ne sirf teen sunwaaion mein prosecution ka poora kehar dhandhar kar diya. Gawah khud apne bayaan se mukar gaye. Yeh sirf ek wकil nahin, ek strategist hain."</p>
+<div class="testimonial-author">
+<div class="author-avatar">S</div>
+<div class="author-info">
+<h5>Suresh P. - Udaipur</h5>
+<p>Section 498A Defense - Full Acquittal</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="quote-icon">"</div>
+<div class="verdict-tag">Property Dispute - Won</div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="testimonial-text">"Ek property dispute tha jo 8 saal se chal raha tha. Alag alag wakilon ne haath khade kar diye. Phir Rajvardhan and Associates se mila. Unhe engage karne ke 14 mahine baad mujhe decree mil gayi."</p>
+<div class="testimonial-author">
+<div class="author-avatar">V</div>
+<div class="author-info">
+<h5>Vijay K. - Ajmer</h5>
+<p>Property Title Dispute - Won</p>
+</div>
+</div>
+</div>
+
+<div class="testimonial-card">
+<div class="quote-icon">"</div>
+<div class="verdict-tag">Bank Fraud Case - Discharged</div>
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<p class="testimonial-text">"Bank fraud ka jhootha case tha mujhpar. CBI involved thi. Koi wकil case lene ko tayyar nahin tha. Rajvardhan sir ne seedha High Court mein chargesheet challenge ki aur mujhe discharge karwa diya. Truly exceptional."</p>
+<div class="testimonial-author">
+<div class="author-avatar">A</div>
+<div class="author-info">
+<h5>Arun M. - Delhi</h5>
+<p>Bank Fraud Defense - CBI Case - Discharged</p>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== PROCESS SECTION ===== -->
+<section class="process-section" id="process">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Our Process</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">From Crisis to Victory - Our Process</h2>
+<div class="gold-divider"></div>
+</div>
+
+<div class="process-timeline">
+
+<div class="process-step reveal">
+<div class="step-left">
+<h4 class="step-title">Emergency Call - Immediate Response</h4>
+<p class="step-desc">The moment you call, our dedicated intake team activates. Within minutes, a senior advocate is briefed and responding to your emergency.</p>
+</div>
+<div class="step-center">01</div>
+<div class="step-right"></div>
+</div>
+
+<div class="process-step reveal">
+<div class="step-left"></div>
+<div class="step-center">02</div>
+<div class="step-right">
+<h4 class="step-title">Confidential Case Analysis</h4>
+<p class="step-desc">Complete deep-dive analysis of your case - FIR, evidence, witnesses. We identify every weakness in the prosecution's armor.</p>
+</div>
+</div>
+
+<div class="process-step reveal">
+<div class="step-left">
+<h4 class="step-title">Strategic Defense Architecture</h4>
+<p class="step-desc">Our team builds a comprehensive, multi-layered defense strategy. The Chakravyuh is created specifically for your case.</p>
+</div>
+<div class="step-center">03</div>
+<div class="step-right"></div>
+</div>
+
+<div class="process-step reveal">
+<div class="step-left"></div>
+<div class="step-center">04</div>
+<div class="step-right">
+<h4 class="step-title">Bail and Immediate Relief</h4>
+<p class="step-desc">While building the main defense, we secure immediate relief - bail, stay orders, or anticipatory protection as required.</p>
+</div>
+</div>
+
+<div class="process-step reveal">
+<div class="step-left">
+<h4 class="step-title">Courtroom Execution</h4>
+<p class="step-desc">Powerful courtroom representation. Systematic dismantling of prosecution case. Cross-examination that leaves no room for recovery.</p>
+</div>
+<div class="step-center">05</div>
+<div class="step-right"></div>
+</div>
+
+<div class="process-step reveal">
+<div class="step-left"></div>
+<div class="step-center">06</div>
+<div class="step-right">
+<h4 class="step-title" style="color:var(--gold2)">Victory - Your Acquittal</h4>
+<p class="step-desc">The moment the court pronounces you not guilty. This is what we live for. Your freedom is our greatest reward.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="contact-section" id="contact">
+<div class="section-header reveal">
+<div class="section-tag">
+<div class="tag-line"></div>
+<span class="tag-text">Begin Your Fight</span>
+<div class="tag-line right"></div>
+</div>
+<h2 class="section-title gradient-text">Contact Rajvardhan and Associates</h2>
+<div class="gold-divider"></div>
+<p class="section-desc">Your battle begins with a single call. Reach out now and let India's most formidable legal team take over.</p>
+</div>
+
+<div class="contact-container">
+<div class="contact-info reveal-left">
+<h3 class="contact-info-title">We Are Here For You - Always</h3>
+<p class="contact-info-desc">"In your darkest legal hour, we are the light that guides you to freedom. Call now. We never sleep when your future is at stake."</p>
+
+<div class="contact-detail">
+<div class="cd-icon"><i class="fas fa-phone"></i></div>
+<div class="cd-text">
+<h5>Emergency Helpline</h5>
+<p><a href="tel:+919001234567">+91 90012 34567</a><br><a href="tel:+919001234568">+91 90012 34568</a></p>
+</div>
+</div>
+
+<div class="contact-detail">
+<div class="cd-icon"><i class="fab fa-whatsapp"></i></div>
+<div class="cd-text">
+<h5>WhatsApp - 24x7</h5>
+<p><a href="https://wa.me/919001234567">+91 90012 34567</a></p>
+</div>
+</div>
+
+<div class="contact-detail">
+<div class="cd-icon"><i class="fas fa-envelope"></i></div>
+<div class="cd-text">
+<h5>Email</h5>
+<p><a href="mailto:info@rajvardhanassociates.in">info@rajvardhanassociates.in</a></p>
+</div>
+</div>
+
+<div class="contact-detail">
+<div class="cd-icon"><i class="fas fa-location-dot"></i></div>
+<div class="cd-text">
+<h5>Office Address</h5>
+<p>Rajvardhan and Associates<br>High Court Campus, Jodhpur<br>Rajasthan - 342001</p>
+</div>
+</div>
+
+<div class="contact-detail">
+<div class="cd-icon"><i class="fas fa-clock"></i></div>
+<div class="cd-text">
+<h5>Office Hours</h5>
+<p>Monday to Saturday: 9:00 AM to 7:00 PM<br>Emergency Line: 24 Hours - 7 Days</p>
+</div>
+</div>
+
+<div style="margin-top:30px;padding:25px;background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.3);">
+<p style="font-family:'Cinzel',serif;font-size:12px;color:var(--gold2);letter-spacing:2px;margin-bottom:10px;">FIRST CONSULTATION FREE</p>
+<p style="font-size:13px;color:var(--silver);line-height:1.7;">Your first 60-minute consultation is completely free of charge. We listen, we analyze, we tell you exactly what we can do for you. No pressure, no commitment required.</p>
+</div>
+</div>
+
+<div class="contact-form reveal-right">
+<h3 class="form-title">Send Us Your Case Details</h3>
+
+<div class="form-row">
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" placeholder="Full Name">
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" placeholder="+91 XXXXX XXXXX">
+</div>
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" placeholder="your@email.com">
+</div>
+
+<div class="form-group">
+<label>Case Type</label>
+<select>
+<option value="">Select Case Type</option>
+<option>Criminal Defense</option>
+<option>Bail Application</option>
+<option>High Court Matter</option>
+<option>Family Law</option>
+<option>Property Dispute</option>
+<option>White Collar Crime</option>
+<option>Cyber Crime</option>
+<option>Constitutional Matter</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Which Court</label>
+<select>
+<option value="">Select Court</option>
+<option>District Court</option>
+<option>Sessions Court</option>
+<option>High Court</option>
+<option>Supreme Court</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Case Brief</label>
+<textarea placeholder="Briefly describe your case (strictly confidential)..."></textarea>
+</div>
+
+<button class="form-submit" type="submit">
+<i class="fas fa-paper-plane"></i> Send For Free Consultation
+</button>
+
+<p style="text-align:center;font-size:11px;color:rgba(192,192,192,0.5);margin-top:15px;">
+<i class="fas fa-lock" style="color:var(--gold2);"></i> Strictly confidential. Protected by Attorney-Client Privilege.
+</p>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+<div style="text-align:center;margin-bottom:60px;">
+<div class="logo-emblem" style="width:70px;height:70px;font-size:20px;margin:0 auto 20px;"></div>
+<h2 style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--gold2);letter-spacing:3px;">RAJVARDHAN AND ASSOCIATES</h2>
+<p style="font-size:11px;color:var(--silver);letter-spacing:5px;margin-top:5px;">ADVOCATES AND LEGAL CONSULTANTS</p>
+<div class="gold-divider" style="margin:20px auto;"></div>
+</div>
+
+<div class="footer-grid">
+<div class="footer-brand">
+<h3>Elite Legal Defense Since 2013</h3>
+<p>Rajvardhan and Associates is Rajasthan's most distinguished criminal defense firm. With 11 years of courtroom mastery, 2,500 plus cases won, and a 98 percent success rate, we are the legal shield that India's most discerning clients trust when everything is at stake.</p>
+<div class="footer-social">
+<a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+<a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+<a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+<a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+<a href="https://wa.me/919001234567" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+
+<div class="footer-col">
+<h4>Practice Areas</h4>
+<ul class="footer-links">
+<li><a href="#">Criminal Defense</a></li>
+<li><a href="#">Bail Applications</a></li>
+<li><a href="#">High Court Matters</a></li>
+<li><a href="#">White Collar Crime</a></li>
+<li><a href="#">Family Law</a></li>
+<li><a href="#">Property Disputes</a></li>
+<li><a href="#">Cyber Crime</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Quick Links</h4>
+<ul class="footer-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#chakravyuh">Our Strategy</a></li>
+<li><a href="#features">Services</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#">Free Consultation</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Contact Info</h4>
+<ul class="footer-links">
+<li><a href="tel:+919001234567"><i class="fas fa-phone" style="color:var(--gold2);"></i> +91 90012 34567</a></li>
+<li><a href="mailto:info@rajvardhanassociates.in"><i class="fas fa-envelope" style="color:var(--gold2);"></i> info@rajvardhanassociates.in</a></li>
+<li><a href="#"><i class="fas fa-map-marker-alt" style="color:var(--gold2);"></i> High Court Campus, Jodhpur</a></li>
+<li><a href="#"><i class="fas fa-clock" style="color:var(--gold2);"></i> 24x7 Emergency Line</a></li>
+</ul>
+<div style="margin-top:25px;padding:20px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);">
+<p style="font-size:11px;color:var(--gold2);font-weight:700;letter-spacing:2px;margin-bottom:8px;">EMERGENCY HELPLINE</p>
+<p style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--gold2);">+91 90012 34567</p>
+<p style="font-size:10px;color:var(--silver);">Available 24 Hours a Day - 365 Days</p>
+</div>
+</div>
+</div>
+
+<div class="footer-bottom">
+<p>© 2024 <span>Rajvardhan and Associates</span>. All Rights Reserved. Designed with <span>◆</span> for Justice.</p>
+<p>Bar Council of Rajasthan | High Court Practice License | Pan India Jurisdiction</p>
+</div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-consultation">
+<a href="#contact" class="float-btn">
+<i class="fas fa-gavel"></i>
+Free Consultation
+</a>
+<a href="https://wa.me/919001234567" class="float-whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+</div>
+
+<a href="#home" class="back-top" id="backTop">
+<i class="fas fa-chevron-up"></i>
+</a>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+// ===== LOADER =====
+window.addEventListener('load', () => {
+setTimeout(() => {
+const loader = document.getElementById('loader');
+loader.style.opacity = '0';
+setTimeout(() => loader.style.display = 'none', 1000);
+}, 2000);
+});
+
+// ===== CUSTOM CURSOR =====
+const cursor = document.getElementById('cursor');
+const cursorFollower = document.getElementById('cursorFollower');
+
+document.addEventListener('mousemove', (e) => {
+cursor.style.left = e.clientX - 10 + 'px';
+cursor.style.top = e.clientY - 10 + 'px';
+setTimeout(() => {
+cursorFollower.style.left = e.clientX - 4 + 'px';
+cursorFollower.style.top = e.clientY - 4 + 'px';
+}, 80);
+});
+
+document.querySelectorAll('a, button, .expertise-card, .feature-card').forEach(el => {
+el.addEventListener('mouseenter', () => {
+cursor.style.transform = 'scale(2)';
+cursor.style.background = 'rgba(201,168,76,0.2)';
+});
+el.addEventListener('mouseleave', () => {
+cursor.style.transform = 'scale(1)';
+cursor.style.background = 'transparent';
+});
+});
+
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 80) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+hamburger.classList.toggle('active');
+mobileMenu.classList.toggle('open');
+document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobileMenu() {
+hamburger.classList.remove('active');
+mobileMenu.classList.remove('open');
+document.body.style.overflow = '';
+}
+
+// ===== BACK TO TOP =====
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 500) {
+backTop.classList.add('visible');
+} else {
+backTop.classList.remove('visible');
+}
+});
+
+// ===== CANVAS - ANIMATED BACKGROUND =====
+const bgCanvas = document.getElementById('bgCanvas');
+const bgCtx = bgCanvas.getContext('2d');
+
+function resizeCanvas() {
+bgCanvas.width = window.innerWidth;
+bgCanvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Radial gradient waves
+let bgAngle = 0;
+function drawBg() {
+bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+// Animated radial glow
+const cx = bgCanvas.width * 0.5 + Math.cos(bgAngle * 0.3) * 150;
+const cy = bgCanvas.height * 0.4 + Math.sin(bgAngle * 0.2) * 100;
+
+const grad = bgCtx.createRadialGradient(cx, cy, 0, cx, cy, 600);
+grad.addColorStop(0, 'rgba(201,168,76,0.04)');
+grad.addColorStop(0.5, 'rgba(201,168,76,0.01)');
+grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+bgCtx.fillStyle = grad;
+bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+// Second glow
+const cx2 = bgCanvas.width * 0.2 + Math.cos(bgAngle * 0.2 + 2) * 120;
+const cy2 = bgCanvas.height * 0.7 + Math.sin(bgAngle * 0.3 + 1) * 80;
+const grad2 = bgCtx.createRadialGradient(cx2, cy2, 0, cx2, cy2, 400);
+grad2.addColorStop(0, 'rgba(26,35,126,0.05)');
+grad2.addColorStop(1, 'rgba(0,0,0,0)');
+bgCtx.fillStyle = grad2;
+bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+bgAngle += 0.01;
+requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// ===== PARTICLE SYSTEM =====
+const pCanvas = document.getElementById('particleCanvas');
+const pCtx = pCanvas.getContext('2d');
+pCanvas.width = window.innerWidth;
+pCanvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+pCanvas.width = window.innerWidth;
+pCanvas.height = window.innerHeight;
+});
+
+const particles = [];
+const PARTICLE_COUNT = window.innerWidth < 768 ? 40 : 100;
+
+class Particle {
+constructor() { this.reset(); }
+reset() {
+this.x = Math.random() * pCanvas.width;
+this.y = Math.random() * pCanvas.height;
+this.vx = (Math.random() - 0.5) * 0.3;
+this.vy = -Math.random() * 0.5 - 0.1;
+this.alpha = Math.random() * 0.5 + 0.1;
+this.size = Math.random() * 2 + 0.5;
+this.color = Math.random() > 0.5 ? 'rgba(201,168,76,' : 'rgba(240,192,96,';
+this.life = 0;
+this.maxLife = Math.random() * 200 + 100;
+}
+update() {
+this.x += this.vx;
+this.y += this.vy;
+this.life++;
+if (this.life > this.maxLife || this.y < -10) this.reset();
+}
+draw() {
+const progress = this.life / this.maxLife;
+const currentAlpha = this.alpha * (1 - progress);
+pCtx.beginPath();
+pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+pCtx.fillStyle = this.color + currentAlpha + ')';
+pCtx.fill();
+}
+}
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+const p = new Particle();
+p.life = Math.random() * p.maxLife;
+particles.push(p);
+}
+
+// Connection lines between particles
+function drawConnections() {
+for (let i = 0; i < particles.length; i++) {
+for (let j = i + 1; j < particles.length; j++) {
+const dx = particles[i].x - particles[j].x;
+const dy = particles[i].y - particles[j].y;
+const dist = Math.sqrt(dx*dx + dy*dy);
+if (dist < 120) {
+pCtx.beginPath();
+pCtx.moveTo(particles[i].x, particles[i].y);
+pCtx.lineTo(particles[j].x, particles[j].y);
+pCtx.strokeStyle = `rgba(201,168,76,${0.05 * (1 - dist/120)})`;
+pCtx.lineWidth = 0.5;
+pCtx.stroke();
+}
+}
+}
+}
+
+function animateParticles() {
+pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+if (window.innerWidth >= 768) drawConnections();
+particles.forEach(p => { p.update(); p.draw(); });
+requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// ===== 3D TILT CARDS =====
+document.querySelectorAll('.expertise-card, .feature-card, .testimonial-card').forEach(card => {
+card.addEventListener('mousemove', (e) => {
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+const rotateX = (y - centerY) / 20;
+const rotateY = (centerX - x) / 20;
+card.style.transform = `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+card.style.transformStyle = 'preserve-3d';
+});
+
+card.addEventListener('mouseleave', () => {
+card.style.transform = '';
+card.style.transformStyle = '';
+});
+});
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+entries.forEach((entry, i) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.classList.add('revealed');
+}, entry.target.dataset.delay || 0);
+}
+});
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+revealObserver.observe(el);
+});
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, target, suffix='') {
+let start = 0;
+const duration = 2000;
+const step = target / (duration / 16);
+
+const update = () => {
+start += step;
+if (start >= target) {
+el.textContent = target.toLocaleString() + suffix;
+return;
+}
+el.textContent = Math.floor(start).toLocaleString() + suffix;
+requestAnimationFrame(update);
+};
+update();
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const target = parseInt(entry.target.dataset.target);
+const suffix = entry.target.classList.contains('stat-num') &&
+entry.target.parentElement.querySelector('.stat-label') &&
+entry.target.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : '+';
+animateCounter(entry.target, target, suffix);
+counterObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-num, .achievement-num').forEach(el => {
+counterObserver.observe(el);
+});
+
+// ===== GRAPH ANIMATION =====
+const graphObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const bars = entry.target.querySelectorAll('.graph-bar');
+bars.forEach((bar, i) => {
+const targetH = parseInt(bar.dataset.height);
+setTimeout(() => {
+bar.style.height = targetH + '%';
+}, i * 100);
+});
+graphObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.3 });
+
+const graphEl = document.getElementById('graphBars');
+if (graphEl) graphObserver.observe(graphEl);
+
+// ===== TYPED TEXT EFFECT =====
+const heroSubtext = document.querySelector('.hero-subtext');
+if (heroSubtext) {
+const text = heroSubtext.textContent;
+heroSubtext.textContent = '';
+let i = 0;
+setTimeout(() => {
+const typeInterval = setInterval(() => {
+heroSubtext.textContent += text[i];
+i++;
+if (i >= text.length) clearInterval(typeInterval);
+}, 50);
+}, 2000);
+}
+
+// ===== MAGNETIC BUTTONS =====
+document.querySelectorAll('.btn-primary, .btn-secondary, .float-btn').forEach(btn => {
+btn.addEventListener('mousemove', (e) => {
+const rect = btn.getBoundingClientRect();
+const x = e.clientX - rect.left - rect.width / 2;
+const y = e.clientY - rect.top - rect.height / 2;
+btn.style.transform = `translateX(${x * 0.15}px) translateY(${y * 0.15}px)`;
+});
+
+btn.addEventListener('mouseleave', () => {
+btn.style.transform = '';
+});
+});
+
+// ===== TESTIMONIAL AUTO-SCROLL =====
+const track = document.querySelector('.testimonials-track');
+if (track) {
+let autoScroll = setInterval(() => {
+track.scrollLeft += 1;
+if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+track.scrollLeft = 0;
+}
+}, 30);
+
+track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+track.addEventListener('mouseleave', () => {
+autoScroll = setInterval(() => {
+track.scrollLeft += 1;
+if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+track.scrollLeft = 0;
+}
+}, 30);
+});
+}
+
+// ===== PRACTICE SLIDER AUTO-SCROLL =====
+const practiceSlider = document.querySelector('.practice-slider');
+if (practiceSlider) {
+let ps = setInterval(() => {
+practiceSlider.scrollLeft += 1;
+if (practiceSlider.scrollLeft >= practiceSlider.scrollWidth - practiceSlider.clientWidth) {
+practiceSlider.scrollLeft = 0;
+}
+}, 25);
+
+practiceSlider.addEventListener('mouseenter', () => clearInterval(ps));
+practiceSlider.addEventListener('touchstart', () => clearInterval(ps));
+}
+
+// ===== PARALLAX HERO =====
+window.addEventListener('scroll', () => {
+const scrolled = window.scrollY;
+const hero = document.querySelector('.hero-content');
+if (hero && scrolled < window.innerHeight) {
+hero.style.transform = `translateY(${scrolled * 0.25}px)`;
+hero.style.opacity = 1 - scrolled / (window.innerHeight * 0.8);
+}
+
+const scales = document.querySelector('.scales-3d');
+if (scales) {
+scales.style.transform = `translateY(calc(-50% + ${scrolled * 0.15}px)) rotateZ(${scrolled * 0.02}deg)`;
+}
+});
+
+// ===== FORM SUBMIT =====
+const formSubmit = document.querySelector('.form-submit');
+if (formSubmit) {
+formSubmit.addEventListener('click', (e) => {
+e.preventDefault();
+formSubmit.innerHTML = '<i class="fas fa-check"></i> Message Sent! We Will Call You Shortly.';
+formSubmit.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+setTimeout(() => {
+formSubmit.innerHTML = '<i class="fas fa-paper-plane"></i> Send For Free Consultation';
+formSubmit.style.background = '';
+}, 4000);
+});
+}
+
+// ===== GOLD PARTICLE BURST ON CLICK =====
+document.addEventListener('click', (e) => {
+for (let i = 0; i < 8; i++) {
+const spark = document.createElement('div');
+spark.style.cssText = `
+position:fixed;
+left:${e.clientX}px;
+top:${e.clientY}px;
+width:6px;height:6px;
+background:${Math.random()>0.5?'#C9A84C':'#F0C060'};
+border-radius:50%;
+pointer-events:none;
+z-index:99999;
+transform:translate(-50%,-50%);
+`;
+document.body.appendChild(spark);
+
+const angle = (i / 8) * Math.PI * 2;
+const velocity = 50 + Math.random() * 80;
+const tx = Math.cos(angle) * velocity;
+const ty = Math.sin(angle) * velocity;
+
+spark.animate([
+{ transform: 'translate(-50%,-50%) scale(1)', opacity: 1 },
+{ transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+], { duration: 600 + Math.random() * 400, easing: 'cubic-bezier(0,0.9,0.57,1)' }).onfinish = () => spark.remove();
+}
+});
+
+// ===== ACTIVE NAV HIGHLIGHT =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+let current = '';
+sections.forEach(sec => {
+const top = sec.offsetTop - 200;
+if (window.scrollY >= top) current = sec.getAttribute('id');
+});
+
+navLinks.forEach(link => {
+link.style.color = '';
+if (link.getAttribute('href') === '#' + current) {
+link.style.color = 'var(--gold2)';
+}
+});
+});
+
+console.log('%c⚖️ RAJVARDHAN & ASSOCIATES - WHERE JUSTICE IS DELIVERED', 'color:#C9A84C;font-size:16px;font-weight:bold;');
+</script>
+</body>
+</html>
