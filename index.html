@@ -4,806 +4,704 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>राजवर्धन एंड एसोसिएट्स | प्रख्यात विधि सलाहकार · 2014 से</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Devanagari:wght@100;200;300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Devanagari:wght@300;400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
---gold:#C8A951;--gold-l:#E4D08E;--gold-p:#F2E9C8;--gold-d:#8A6D1B;
---bg1:#04060C;--bg2:#080B14;--bg3:#0C1018;--bg4:#10141F;--bg5:#161B2A;
---txt:#F0ECE0;--txt2:#C4BDA8;--txt3:#8E8878;
---accent:#2A4A3E;--accent2:#1E3A30;
---sapphire:#0F1B35;--teal:#1A3D3D;
---fd:'Cinzel',serif;--fdd:'Cinzel Decorative',serif;
---fb:'Noto Serif Devanagari',serif;--fe:'Cormorant Garamond',serif;
---fl:'EB Garamond',serif;--fa:'DM Serif Display',serif;
+--g:#C8A951;--gl:#E4D08E;--gp:#F2E9C8;--gd:#8A6D1B;
+--b1:#04060C;--b2:#080B14;--b3:#0C1018;--b4:#10141F;
+--t:#F0ECE0;--t2:#C4BDA8;--t3:#8E8878;
+--ac:#2A4A3E;--ac2:#1E3A30;--sap:#0F1B35;--tl:#1A3D3D;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--gold-d) var(--bg1)}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold),var(--gold-d));border-radius:4px}
-body{font-family:var(--fb);background:var(--bg1);color:var(--txt);overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Serif Devanagari',serif;background:var(--b1);color:var(--t);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--g),var(--gd));border-radius:4px}
 
 /* PRELOADER */
-#preloader{position:fixed;inset:0;z-index:100000;background:var(--bg1);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s,visibility 1s}
+#preloader{position:fixed;inset:0;z-index:100000;background:var(--b1);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s,visibility 1s}
 #preloader.done{opacity:0;visibility:hidden;pointer-events:none}
-.pl-i{font-size:72px;margin-bottom:30px;animation:plf 2.5s ease-in-out infinite;filter:drop-shadow(0 0 40px rgba(200,169,81,0.5))}
-@keyframes plf{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-18px) rotate(8deg)}}
-.pl-n{font-family:var(--fd);font-size:13px;letter-spacing:8px;color:var(--gold);margin-bottom:35px}
-.pl-bw{width:260px;height:1px;background:rgba(200,169,81,0.12);overflow:hidden}
-.pl-b{height:100%;width:0%;background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-l));box-shadow:0 0 12px rgba(200,169,81,0.5)}
-.pl-p{font-family:var(--fd);font-size:11px;letter-spacing:5px;color:var(--gold);margin-top:18px}
-.pl-t{font-family:var(--fe);font-size:15px;font-style:italic;color:var(--gold-l);margin-top:12px;opacity:0.6}
-
-/* CURSOR */
-.cur{width:22px;height:22px;border:1.5px solid var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transition:transform 0.15s;mix-blend-mode:difference}
-.cur-d{width:4px;height:4px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:99999}
-@media(max-width:768px){.cur,.cur-d{display:none}body{cursor:auto}}
+#preloaderCanvas{position:absolute;inset:0}
+.pl-txt{position:relative;z-index:2;text-align:center}
+.pl-n{font-family:'Cinzel',serif;font-size:14px;letter-spacing:8px;color:var(--g);margin-bottom:30px}
+.pl-bw{width:240px;height:1px;background:rgba(200,169,81,0.12);overflow:hidden;margin:0 auto}
+.pl-b{height:100%;width:0%;background:linear-gradient(90deg,var(--gd),var(--g),var(--gl));box-shadow:0 0 12px rgba(200,169,81,0.5)}
+.pl-p{font-family:'Cinzel',serif;font-size:11px;letter-spacing:5px;color:var(--g);margin-top:15px}
+.pl-t{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--gl);margin-top:10px;opacity:0.6}
 
 /* PROGRESS */
-.sp{position:fixed;top:0;left:0;right:0;height:2px;z-index:10000;background:rgba(200,169,81,0.06)}
-.sp-b{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold),var(--gold-l));box-shadow:0 0 6px rgba(200,169,81,0.4)}
-
-/* SECTION CANVAS - Each section gets its own canvas */
-.sec-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
-
-/* GLOBAL FLOATING PARTICLES */
-.g-parts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-.gp{position:absolute;border-radius:50%;animation:gpf linear infinite;opacity:0}
-@keyframes gpf{0%{transform:translateY(105vh) scale(0);opacity:0}12%{opacity:1}88%{opacity:0.5}100%{transform:translateY(-5vh) scale(1);opacity:0}}
+.sp{position:fixed;top:0;left:0;right:0;height:2px;z-index:10000}
+.sp-b{height:100%;width:0%;background:linear-gradient(90deg,var(--ac),var(--g),var(--gl))}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:22px 5%;display:flex;align-items:center;justify-content:space-between;transition:all 0.5s}
-nav.sc{background:rgba(4,6,12,0.94);backdrop-filter:blur(25px);border-bottom:1px solid rgba(200,169,81,0.08);padding:13px 5%}
-.nl{display:flex;align-items:center;gap:14px;text-decoration:none}
-.nl-i{font-size:28px;animation:nlr 4s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(200,169,81,0.4))}
-@keyframes nlr{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-.nl-t{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--gold);letter-spacing:3px;line-height:1.3}
-.nl-t small{font-family:var(--fe);font-size:10px;letter-spacing:4px;color:var(--gold-l);display:block;font-style:italic;font-weight:400}
-.nm{display:flex;align-items:center;gap:30px;list-style:none}
-.nm a{font-family:var(--fd);font-size:9.5px;font-weight:500;letter-spacing:2.5px;color:var(--txt2);text-decoration:none;transition:color 0.3s;position:relative;padding:4px 0}
-.nm a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;transform-origin:right}
-.nm a:hover{color:var(--gold)}.nm a:hover::after{transform:scaleX(1);transform-origin:left}
-.nm-cta{background:linear-gradient(135deg,var(--gold),var(--gold-d))!important;color:var(--bg1)!important;padding:9px 22px!important;font-weight:700!important;box-shadow:0 3px 12px rgba(200,169,81,0.25)}
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;transition:all 0.5s}
+nav.sc{background:rgba(4,6,12,0.94);backdrop-filter:blur(25px);border-bottom:1px solid rgba(200,169,81,0.08);padding:12px 5%}
+.nl{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nl-i{font-size:26px;filter:drop-shadow(0 0 8px rgba(200,169,81,0.4))}
+.nl-t{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--g);letter-spacing:3px;line-height:1.3}
+.nl-t small{font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:4px;color:var(--gl);display:block;font-style:italic;font-weight:400}
+.nm{display:flex;align-items:center;gap:28px;list-style:none}
+.nm a{font-family:'Cinzel',serif;font-size:9px;font-weight:500;letter-spacing:2.5px;color:var(--t2);text-decoration:none;transition:color 0.3s;position:relative;padding:4px 0}
+.nm a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--g);transform:scaleX(0);transition:transform 0.3s;transform-origin:right}
+.nm a:hover{color:var(--g)}.nm a:hover::after{transform:scaleX(1);transform-origin:left}
+.nm-cta{background:linear-gradient(135deg,var(--g),var(--gd))!important;color:var(--b1)!important;padding:9px 20px!important;font-weight:700!important;box-shadow:0 3px 12px rgba(200,169,81,0.25)}
 .nm-cta::after{display:none!important}
 .hb{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
-.hb span{width:22px;height:1.5px;background:var(--gold)}
-.mm{display:none;position:fixed;inset:0;z-index:8999;background:rgba(4,6,12,0.98);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.hb span{width:22px;height:1.5px;background:var(--g)}
+.mm{display:none;position:fixed;inset:0;z-index:8999;background:rgba(4,6,12,0.98);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:24px}
 .mm.act{display:flex}
-.mm a{font-family:var(--fd);font-size:15px;letter-spacing:4px;color:var(--gold);text-decoration:none}
-.mm-x{position:absolute;top:22px;right:25px;font-size:26px;color:var(--gold);cursor:pointer}
-
-/* HERO */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;z-index:2;overflow:hidden}
-#heroCanvas{position:absolute;inset:0;z-index:0}
-.h-ov{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 40%,rgba(26,61,61,0.2) 0%,transparent 55%),radial-gradient(ellipse at 75% 70%,rgba(15,27,53,0.15) 0%,transparent 50%),linear-gradient(180deg,transparent 65%,var(--bg1) 100%);z-index:1;pointer-events:none}
-.h-con{position:relative;z-index:10;text-align:center;padding:120px 20px 80px;max-width:920px}
-.h-est{display:inline-flex;align-items:center;gap:14px;font-family:var(--fd);font-size:9.5px;letter-spacing:6px;color:var(--gold);margin-bottom:32px;padding:9px 26px;border:1px solid rgba(200,169,81,0.18);background:rgba(200,169,81,0.02)}
-.h-sym{font-size:62px;display:block;margin-bottom:22px;filter:drop-shadow(0 0 40px rgba(200,169,81,0.4));animation:hsg 4s ease-in-out infinite}
-@keyframes hsg{0%,100%{filter:drop-shadow(0 0 30px rgba(200,169,81,0.3));transform:scale(1)}50%{filter:drop-shadow(0 0 55px rgba(200,169,81,0.7));transform:scale(1.04)}}
-.h-t{font-family:var(--fdd);font-size:clamp(40px,8vw,82px);font-weight:900;line-height:0.95;margin-bottom:6px;background:linear-gradient(135deg,var(--gold-p) 0%,var(--gold) 30%,var(--gold-l) 50%,var(--gold) 70%,var(--gold-p) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gsh 6s ease-in-out infinite}
-@keyframes gsh{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.h-amp{font-family:var(--fd);font-size:clamp(16px,3vw,28px);font-weight:400;color:var(--gold-l);letter-spacing:10px;margin-bottom:28px;display:block}
-.h-tag{font-family:var(--fe);font-size:clamp(20px,3.5vw,36px);font-weight:300;font-style:italic;color:var(--txt);margin-bottom:10px;line-height:1.5;min-height:50px}
-.h-lat{font-family:var(--fl);font-size:14px;font-style:italic;color:var(--gold);letter-spacing:5px;margin-bottom:38px}
-.h-desc{font-size:clamp(14px,1.8vw,17px);color:var(--txt2);line-height:2.1;max-width:660px;margin:0 auto 45px;font-weight:300}
-.h-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.bg{font-family:var(--fd);font-size:10.5px;letter-spacing:3px;font-weight:700;color:var(--bg1);background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));padding:15px 38px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.4s;position:relative;overflow:hidden;box-shadow:0 4px 18px rgba(200,169,81,0.25)}
-.bg::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left 0.6s}
-.bg:hover::before{left:100%}.bg:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(200,169,81,0.4)}
-.bo{font-family:var(--fd);font-size:10.5px;letter-spacing:3px;font-weight:500;color:var(--gold);background:transparent;padding:14px 38px;border:1px solid rgba(200,169,81,0.28);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.4s}
-.bo:hover{background:rgba(200,169,81,0.06);border-color:var(--gold);transform:translateY(-3px)}
-.h-met{display:flex;justify-content:center;gap:45px;margin-top:65px;padding-top:35px;border-top:1px solid rgba(200,169,81,0.08);flex-wrap:wrap}
-.met{text-align:center}.met-v{font-family:var(--fdd);font-size:clamp(34px,5vw,52px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.met-l{font-size:12px;color:var(--txt3);margin-top:5px}.met-s{font-family:var(--fd);font-size:8px;letter-spacing:2px;color:var(--gold);margin-top:2px}
-
-/* TICKER */
-.tick{position:relative;z-index:5;background:linear-gradient(90deg,var(--accent2),var(--teal),var(--accent2));padding:14px 0;overflow:hidden;border-top:1px solid rgba(200,169,81,0.1);border-bottom:1px solid rgba(200,169,81,0.1)}
-.tick-t{display:flex;animation:ts 38s linear infinite;white-space:nowrap}
-.tick-i{font-family:var(--fd);font-size:10px;letter-spacing:4px;color:var(--gold-l);padding:0 30px}
-@keyframes ts{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mm a{font-family:'Cinzel',serif;font-size:14px;letter-spacing:4px;color:var(--g);text-decoration:none}
+.mm-x{position:absolute;top:20px;right:22px;font-size:24px;color:var(--g);cursor:pointer}
 
 /* SECTIONS */
 .sec{position:relative;z-index:5;padding:110px 5%;overflow:hidden}
-.sh{text-align:center;margin-bottom:65px;position:relative;z-index:2}
-.st{font-family:var(--fd);font-size:9.5px;letter-spacing:7px;color:var(--gold);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:16px}
-.st::before,.st::after{content:'';width:25px;height:1px;background:var(--gold)}
-.stl{font-family:var(--fe);font-size:clamp(28px,4.5vw,54px);font-weight:300;color:var(--txt);line-height:1.25;margin-bottom:16px}
-.stl em{font-style:normal;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
-.sl{width:50px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.sd{font-size:15px;color:var(--txt2);max-width:560px;margin:18px auto 0;line-height:2}
+.sec canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sec>*:not(canvas){position:relative;z-index:2}
+.sh{text-align:center;margin-bottom:60px}
+.st-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:7px;color:var(--g);display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px}
+.st-tag::before,.st-tag::after{content:'';width:22px;height:1px;background:var(--g)}
+.st-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.5vw,52px);font-weight:300;color:var(--t);line-height:1.25;margin-bottom:14px}
+.st-title em{font-style:normal;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
+.st-line{width:45px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--g),transparent)}
 
-/* CHAKRAVYUH - THE STAR SECTION */
-#chakravyuh{position:relative;z-index:5;padding:130px 5% 120px;overflow:hidden;background:#020308}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.h-c{text-align:center;padding:110px 20px 70px;max-width:900px}
+.h-est{display:inline-flex;align-items:center;gap:12px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:6px;color:var(--g);margin-bottom:28px;padding:8px 24px;border:1px solid rgba(200,169,81,0.18);background:rgba(200,169,81,0.02)}
+.h-t{font-family:'Cinzel Decorative',serif;font-size:clamp(38px,8vw,78px);font-weight:900;line-height:0.95;margin-bottom:6px;background:linear-gradient(135deg,var(--gp),var(--g) 30%,var(--gl) 50%,var(--g) 70%,var(--gp));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gsh 6s ease-in-out infinite}
+@keyframes gsh{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.h-amp{font-family:'Cinzel',serif;font-size:clamp(14px,2.5vw,26px);font-weight:400;color:var(--gl);letter-spacing:10px;margin-bottom:25px;display:block}
+.h-tag{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,34px);font-weight:300;font-style:italic;color:var(--t);margin-bottom:8px;line-height:1.5;min-height:45px}
+.h-lat{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--g);letter-spacing:5px;margin-bottom:35px}
+.h-desc{font-size:clamp(13px,1.6vw,16px);color:var(--t2);line-height:2.1;max-width:640px;margin:0 auto 40px;font-weight:300}
+.h-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-g{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;font-weight:700;color:var(--b1);background:linear-gradient(135deg,var(--gl),var(--g),var(--gd));padding:14px 35px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.4s;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(200,169,81,0.25)}
+.btn-g::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.6s}
+.btn-g:hover::before{left:100%}.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(200,169,81,0.4)}
+.btn-o{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;font-weight:500;color:var(--g);background:transparent;padding:13px 35px;border:1px solid rgba(200,169,81,0.28);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.4s}
+.btn-o:hover{background:rgba(200,169,81,0.06);border-color:var(--g);transform:translateY(-2px)}
+.h-met{display:flex;justify-content:center;gap:40px;margin-top:55px;padding-top:30px;border-top:1px solid rgba(200,169,81,0.08);flex-wrap:wrap}
+.met-v{font-family:'Cinzel Decorative',serif;font-size:clamp(30px,4.5vw,48px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.met-l{font-size:11px;color:var(--t3);margin-top:4px}.met-s{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--g);margin-top:2px}
+
+/* TICKER */
+.tick{position:relative;z-index:5;background:linear-gradient(90deg,var(--ac2),var(--tl),var(--ac2));padding:13px 0;overflow:hidden;border-top:1px solid rgba(200,169,81,0.1);border-bottom:1px solid rgba(200,169,81,0.1)}
+.tick-t{display:flex;animation:ts 38s linear infinite;white-space:nowrap}
+.tick-i{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--gl);padding:0 28px}
+@keyframes ts{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ====== CHAKRAVYUH - THE MASTERPIECE ====== */
+#chakravyuh{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#020308;padding:100px 5%}
 #ckCanvas{position:absolute;inset:0;z-index:1}
-.ck-content{position:relative;z-index:10}
-.ck-badge{display:inline-block;font-family:var(--fd);font-size:9px;letter-spacing:6px;color:var(--gold);border:1px solid rgba(200,169,81,0.2);padding:8px 24px;margin-bottom:25px;background:rgba(200,169,81,0.03);text-align:center}
-.ck-icon{font-size:65px;display:block;margin-bottom:18px;text-align:center;animation:ckf 3s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(200,169,81,0.5))}
-@keyframes ckf{0%,100%{transform:scale(1) rotate(-8deg)}50%{transform:scale(1.06) rotate(8deg)}}
-.ck-title{font-family:var(--fdd);font-size:clamp(26px,5vw,52px);font-weight:900;background:linear-gradient(135deg,var(--gold-p),var(--gold),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;text-align:center}
-.ck-sub{font-family:var(--fe);font-size:clamp(16px,2.5vw,24px);font-style:italic;color:var(--gold-l);margin-bottom:28px;font-weight:300;line-height:1.6;text-align:center}
-.ck-txt{font-size:16px;color:var(--txt2);line-height:2.2;max-width:720px;margin:0 auto 25px}
-.ck-hl{background:rgba(200,169,81,0.06);border-left:3px solid var(--gold);padding:20px 25px;margin:30px auto;max-width:720px;font-family:var(--fe);font-size:20px;font-style:italic;color:var(--gold-l);line-height:1.7;text-align:center;font-weight:300}
-.ck-strats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:60px 0 50px;position:relative;z-index:10}
-.ck-card{position:relative;background:rgba(200,169,81,0.03);border:1px solid rgba(200,169,81,0.08);padding:30px 20px;text-align:center;transition:all 0.5s;overflow:hidden;backdrop-filter:blur(5px)}
-.ck-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.5s}
-.ck-card:hover::before{transform:scaleX(1)}
-.ck-card:hover{border-color:rgba(200,169,81,0.2);transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,0.4)}
-.ck-cn{font-family:var(--fd);font-size:38px;font-weight:900;color:rgba(200,169,81,0.06);line-height:1;margin-bottom:10px}
-.ck-ci{font-size:30px;margin-bottom:10px;display:block}
-.ck-ct{font-family:var(--fe);font-size:19px;font-weight:600;color:var(--gold-l);margin-bottom:10px}
-.ck-cx{font-size:13px;color:var(--txt2);line-height:1.9}
-.ck-warn{position:relative;z-index:10;background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.1);border-left:3px solid var(--gold);padding:30px 32px;max-width:760px;margin:0 auto;backdrop-filter:blur(5px)}
-.ck-wt{font-family:var(--fd);font-size:10px;letter-spacing:5px;color:var(--gold);margin-bottom:10px;text-align:center}
-.ck-wq{font-family:var(--fe);font-size:18px;font-style:italic;color:var(--txt);text-align:center;line-height:1.7;margin-bottom:10px;font-weight:300}
-.ck-ws{font-size:14px;color:var(--txt2);text-align:center;line-height:1.9}
+.ck-over{position:relative;z-index:10;max-width:850px;width:100%}
+.ck-top{text-align:center;margin-bottom:40px}
+.ck-badge{display:inline-block;font-family:'Cinzel',serif;font-size:8px;letter-spacing:6px;color:var(--g);border:1px solid rgba(200,169,81,0.2);padding:7px 22px;margin-bottom:20px;background:rgba(200,169,81,0.03)}
+.ck-title{font-family:'Cinzel Decorative',serif;font-size:clamp(24px,4.5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--gp),var(--g),var(--gl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+.ck-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2.2vw,22px);font-style:italic;color:var(--gl);font-weight:300;line-height:1.6}
+.ck-txt{font-size:15px;color:var(--t2);line-height:2.2;margin:30px 0}
+.ck-hl{background:rgba(200,169,81,0.05);border-left:3px solid var(--g);padding:18px 22px;margin:25px 0;font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:var(--gl);line-height:1.7;font-weight:300}
+.ck-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:50px 0 40px}
+.ck-card{background:rgba(200,169,81,0.025);border:1px solid rgba(200,169,81,0.07);padding:28px 18px;text-align:center;transition:all 0.5s;backdrop-filter:blur(5px)}
+.ck-card:hover{border-color:rgba(200,169,81,0.2);transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
+.ck-cn{font-family:'Cinzel',serif;font-size:34px;font-weight:900;color:rgba(200,169,81,0.05);margin-bottom:8px}
+.ck-ci{font-size:28px;margin-bottom:8px;display:block}
+.ck-ct{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gl);margin-bottom:8px}
+.ck-cx{font-size:12px;color:var(--t2);line-height:1.9}
+.ck-warn{background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.08);border-left:3px solid var(--g);padding:25px 28px;text-align:center}
+.ck-wt{font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;color:var(--g);margin-bottom:8px}
+.ck-wq{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--t);line-height:1.7;margin-bottom:8px;font-weight:300}
+.ck-ws{font-size:13px;color:var(--t2);line-height:1.9}
 
-/* OTHER SECTIONS - keeping concise */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:2}
-.a-img{width:100%;height:520px;object-fit:cover;object-position:top;filter:brightness(0.8) saturate(0.85)}
-.a-ib{position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1.5px solid rgba(200,169,81,0.18);z-index:-1}
-.a-ibg{position:absolute;bottom:25px;right:-12px;background:linear-gradient(135deg,var(--gold),var(--gold-d));padding:16px 20px;text-align:center}
-.a-ibg-n{font-family:var(--fdd);font-size:34px;font-weight:900;color:var(--bg1);display:block;line-height:1}
-.a-ibg-t{font-size:9px;letter-spacing:2px;color:var(--bg1);font-weight:600}
-.a-tag{font-family:var(--fd);font-size:9.5px;letter-spacing:6px;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.a-tag::before{content:'';width:25px;height:1px;background:var(--gold)}
-.a-ttl{font-family:var(--fe);font-size:clamp(26px,3.8vw,44px);font-weight:300;color:var(--txt);line-height:1.3;margin-bottom:22px}
-.a-ttl strong{font-weight:600;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.a-q{font-family:var(--fe);font-size:18px;font-style:italic;color:var(--gold-l);border-left:2px solid var(--gold);padding-left:18px;margin-bottom:25px;line-height:1.7;font-weight:300}
-.a-txt{font-size:14.5px;color:var(--txt2);line-height:2.1;margin-bottom:30px}
-.a-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:30px;position:relative;z-index:2}
-.a-feat{display:flex;align-items:flex-start;gap:10px;padding:12px;background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.06);transition:all 0.3s}
-.a-feat:hover{background:rgba(200,169,81,0.04);border-color:rgba(200,169,81,0.15);transform:translateY(-2px)}
-.a-fi{font-size:20px;flex-shrink:0}.a-ft{font-family:var(--fd);font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:2px}.a-fd-t{font-size:11px;color:var(--txt3);line-height:1.5}
+/* ABOUT */
+.a-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.a-img{width:100%;height:500px;object-fit:cover;object-position:top;filter:brightness(0.8) saturate(0.85)}
+.a-ib{position:absolute;top:-10px;left:-10px;right:10px;bottom:10px;border:1.5px solid rgba(200,169,81,0.15);z-index:-1}
+.a-ibg{position:absolute;bottom:20px;right:-10px;background:linear-gradient(135deg,var(--g),var(--gd));padding:14px 18px;text-align:center}
+.a-ibg-n{font-family:'Cinzel Decorative',serif;font-size:32px;font-weight:900;color:var(--b1);display:block;line-height:1}
+.a-ibg-t{font-size:8px;letter-spacing:2px;color:var(--b1);font-weight:600}
+.a-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:6px;color:var(--g);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.a-tag::before{content:'';width:22px;height:1px;background:var(--g)}
+.a-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,42px);font-weight:300;color:var(--t);line-height:1.3;margin-bottom:20px}
+.a-ttl strong{font-weight:600;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.a-q{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--gl);border-left:2px solid var(--g);padding-left:16px;margin-bottom:22px;line-height:1.7;font-weight:300}
+.a-txt{font-size:14px;color:var(--t2);line-height:2.1;margin-bottom:25px}
+.a-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:25px}
+.a-feat{display:flex;align-items:flex-start;gap:8px;padding:10px;background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.05);transition:all 0.3s}
+.a-feat:hover{background:rgba(200,169,81,0.04);transform:translateY(-2px)}
+.a-fi{font-size:18px}.a-ft{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--g)}.a-fd{font-size:10px;color:var(--t3)}
 
 /* EXPERTISE */
-.ec{display:grid;grid-template-columns:repeat(2,1fr);gap:25px;position:relative;z-index:2}
-.ecard{position:relative;background:linear-gradient(135deg,rgba(200,169,81,0.015),var(--bg3));border:1px solid rgba(200,169,81,0.06);padding:45px 35px;overflow:hidden;transition:all 0.5s}
-.ecard:hover{border-color:rgba(200,169,81,0.18);transform:translateY(-4px);box-shadow:0 18px 45px rgba(0,0,0,0.25)}
-.ec-n{position:absolute;top:22px;right:22px;font-family:var(--fd);font-size:65px;font-weight:900;color:rgba(200,169,81,0.03)}
-.ec-i{font-size:38px;margin-bottom:15px;display:block}.ec-lat{font-family:var(--fl);font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:6px;font-style:italic}
-.ec-t{font-family:var(--fe);font-size:26px;font-weight:600;color:var(--txt);margin-bottom:15px;line-height:1.3}
-.ec-d{font-size:14px;color:var(--txt2);line-height:2;margin-bottom:20px}
-.ec-ul{list-style:none}.ec-ul li{font-size:13px;color:var(--txt2);padding:6px 0;border-bottom:1px solid rgba(200,169,81,0.04);display:flex;align-items:center;gap:8px}
-.ec-ul li::before{content:'◈';color:var(--gold);font-size:8px}
+.ec{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.ecard{background:linear-gradient(135deg,rgba(200,169,81,0.01),var(--b3));border:1px solid rgba(200,169,81,0.05);padding:40px 30px;transition:all 0.5s}
+.ecard:hover{border-color:rgba(200,169,81,0.15);transform:translateY(-3px)}
+.ec-n{position:absolute;top:20px;right:20px;font-family:'Cinzel',serif;font-size:60px;font-weight:900;color:rgba(200,169,81,0.025)}
+.ec-i{font-size:35px;margin-bottom:12px;display:block}
+.ec-lat{font-family:'EB Garamond',serif;font-size:10px;letter-spacing:3px;color:var(--g);font-style:italic;margin-bottom:5px}
+.ec-t{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--t);margin-bottom:12px;line-height:1.3}
+.ec-d{font-size:13px;color:var(--t2);line-height:2;margin-bottom:18px}
+.ec-ul{list-style:none}.ec-ul li{font-size:12px;color:var(--t2);padding:5px 0;border-bottom:1px solid rgba(200,169,81,0.03);display:flex;align-items:center;gap:7px}
+.ec-ul li::before{content:'◈';color:var(--g);font-size:7px}
 
 /* TEAM */
-.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;max-width:1020px;margin:0 auto;position:relative;z-index:2}
-.tc{background:linear-gradient(180deg,rgba(200,169,81,0.02),var(--bg3));border:1px solid rgba(200,169,81,0.06);overflow:hidden;transition:all 0.5s}
-.tc:hover{border-color:rgba(200,169,81,0.18);transform:translateY(-5px)}
-.tc-ph{position:relative;height:340px;overflow:hidden}
+.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1000px;margin:0 auto}
+.tc{background:linear-gradient(180deg,rgba(200,169,81,0.015),var(--b3));border:1px solid rgba(200,169,81,0.05);overflow:hidden;transition:all 0.5s}
+.tc:hover{border-color:rgba(200,169,81,0.15);transform:translateY(-4px)}
+.tc-ph{height:320px;overflow:hidden;position:relative}
 .tc-ph img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:brightness(0.7) saturate(0.85)}
-.tc-fade{position:absolute;inset:0;background:linear-gradient(0deg,var(--bg3) 0%,transparent 45%)}
-.tc-label{position:absolute;top:16px;left:16px;background:linear-gradient(135deg,var(--gold),var(--gold-d));padding:4px 10px;font-family:var(--fd);font-size:7.5px;letter-spacing:3px;color:var(--bg1);font-weight:700}
-.tc-info{padding:25px 28px}
-.tc-num{font-family:var(--fd);font-size:9px;letter-spacing:4px;color:var(--gold);margin-bottom:5px}
-.tc-name{font-family:var(--fe);font-size:28px;font-weight:600;color:var(--txt);margin-bottom:3px}
-.tc-role{font-family:var(--fd);font-size:8.5px;letter-spacing:3px;color:var(--gold-l);margin-bottom:15px}
-.tc-bio{font-size:13.5px;color:var(--txt2);line-height:2;margin-bottom:15px}
-.tc-skills{display:flex;flex-wrap:wrap;gap:5px}
-.tc-sk{font-family:var(--fd);font-size:7.5px;letter-spacing:2px;color:var(--gold);border:1px solid rgba(200,169,81,0.15);padding:4px 10px}
+.tc-fade{position:absolute;inset:0;background:linear-gradient(0deg,var(--b3) 0%,transparent 40%)}
+.tc-lb{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--g),var(--gd));padding:3px 8px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--b1);font-weight:700}
+.tc-info{padding:22px 25px}
+.tc-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--t)}
+.tc-role{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gl);margin-bottom:12px}
+.tc-bio{font-size:13px;color:var(--t2);line-height:2;margin-bottom:12px}
+.tc-sk{display:flex;flex-wrap:wrap;gap:4px}
+.tc-sk span{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--g);border:1px solid rgba(200,169,81,0.12);padding:3px 8px}
 
 /* STATS */
-.stats-sec{background:linear-gradient(135deg,var(--accent2),var(--sapphire));padding:75px 5%;z-index:5;position:relative;overflow:hidden}
-.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center;position:relative;z-index:2}
-.si-n{font-family:var(--fdd);font-size:clamp(34px,4.5vw,54px);font-weight:900;background:linear-gradient(135deg,var(--gold-p),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:6px}
-.si-l{font-size:14px;color:rgba(240,236,224,0.85)}.si-s{font-family:var(--fd);font-size:8px;letter-spacing:3px;color:var(--gold-l);margin-top:3px}
-.si-i{font-size:30px;margin-bottom:10px;display:block}
+.stats-s{background:linear-gradient(135deg,var(--ac2),var(--sap));padding:70px 5%;z-index:5;position:relative;overflow:hidden}
+.stats-s canvas{position:absolute;inset:0;pointer-events:none}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:25px;text-align:center;position:relative;z-index:2}
+.si-n{font-family:'Cinzel Decorative',serif;font-size:clamp(32px,4vw,50px);font-weight:900;background:linear-gradient(135deg,var(--gp),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:5px}
+.si-l{font-size:13px;color:rgba(240,236,224,0.85)}.si-s{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--gl);margin-top:2px}
+.si-i{font-size:28px;margin-bottom:8px;display:block}
 
-/* COURTS */
-.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px;position:relative;z-index:2}
-.cc{background:linear-gradient(135deg,rgba(200,169,81,0.015),var(--bg3));border:1px solid rgba(200,169,81,0.06);padding:32px 22px;transition:all 0.4s;position:relative;overflow:hidden}
-.cc:hover{border-color:rgba(200,169,81,0.18);transform:translateY(-3px)}
-.cc-i{font-size:32px;margin-bottom:14px;display:block}
-.cc-type{font-family:var(--fd);font-size:8px;letter-spacing:4px;color:var(--gold);margin-bottom:6px}
-.cc-name{font-family:var(--fe);font-size:20px;font-weight:600;color:var(--txt);margin-bottom:10px}
-.cc-ul{list-style:none}.cc-ul li{font-size:12px;color:var(--txt2);padding:4px 0;border-bottom:1px solid rgba(200,169,81,0.04);display:flex;align-items:center;gap:7px}
-.cc-ul li::before{content:'◈';color:var(--gold);font-size:6px}
-.cc-badge{display:inline-block;font-family:var(--fd);font-size:7px;letter-spacing:2px;padding:3px 8px;margin-top:10px;color:var(--gold);border:1px solid rgba(200,169,81,0.18)}
-
-/* WHY */
-.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:55px;position:relative;z-index:2}
-.wc{padding:30px 22px;text-align:center;background:linear-gradient(135deg,rgba(200,169,81,0.015),var(--bg3));border:1px solid rgba(200,169,81,0.06);transition:all 0.4s;cursor:pointer}
-.wc:hover{border-color:rgba(200,169,81,0.22);transform:translateY(-4px)}
-.wc-i{font-size:40px;margin-bottom:15px;display:block;transition:transform 0.4s}
-.wc:hover .wc-i{transform:scale(1.12) rotate(5deg)}
-.wc-t{font-family:var(--fe);font-size:20px;font-weight:600;color:var(--txt);margin-bottom:10px}
-.wc-d{font-size:13px;color:var(--txt2);line-height:1.9}
-
-/* FEATURES */
-.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:55px;position:relative;z-index:2}
-.fi{padding:22px 15px;text-align:center;background:rgba(200,169,81,0.015);border:1px solid rgba(200,169,81,0.04);transition:all 0.4s}
-.fi:hover{border-color:rgba(200,169,81,0.18);transform:translateY(-3px)}
-.fi-i{font-size:28px;margin-bottom:8px;display:block}
-.fi-t{font-family:var(--fe);font-size:15px;font-weight:600;color:var(--gold-l);margin-bottom:6px}
-.fi-d{font-size:11.5px;color:var(--txt2);line-height:1.7}
-
-/* TESTIMONIALS */
-.tst-o{overflow:hidden;position:relative;margin-top:55px}
-.tst-o::before,.tst-o::after{content:'';position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
-.tst-o::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
-.tst-o::after{right:0;background:linear-gradient(-90deg,var(--bg2),transparent)}
-.tst-tr{display:flex;gap:18px;animation:tss 48s linear infinite;width:max-content}
-@keyframes tss{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.tst-c{width:360px;flex-shrink:0;background:linear-gradient(135deg,rgba(200,169,81,0.02),var(--bg3));border:1px solid rgba(200,169,81,0.06);padding:28px;position:relative}
-.tst-qm{position:absolute;top:12px;right:15px;font-size:45px;color:rgba(200,169,81,0.06);font-family:Georgia}
-.tst-s{color:var(--gold);font-size:14px;margin-bottom:10px;letter-spacing:2px}
-.tst-m{font-family:var(--fe);font-size:16px;font-style:italic;color:var(--txt);line-height:1.7;margin-bottom:18px;font-weight:300}
-.tst-a{display:flex;align-items:center;gap:10px}
-.tst-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:14px;font-weight:700;color:var(--bg1)}
-.tst-n{font-family:var(--fd);font-size:10px;letter-spacing:2px;color:var(--gold-l)}.tst-cs{font-size:11px;color:var(--txt3)}
+/* WHY,COURTS,FEATURES - compact */
+.wg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.wc{padding:28px 20px;text-align:center;background:rgba(200,169,81,0.01);border:1px solid rgba(200,169,81,0.05);transition:all 0.4s;cursor:pointer}
+.wc:hover{border-color:rgba(200,169,81,0.2);transform:translateY(-3px)}
+.wc-i{font-size:36px;margin-bottom:12px;display:block;transition:transform 0.4s}
+.wc:hover .wc-i{transform:scale(1.1)}
+.wc-t{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--t);margin-bottom:8px}
+.wc-d{font-size:12px;color:var(--t2);line-height:1.9}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.cc{background:rgba(200,169,81,0.01);border:1px solid rgba(200,169,81,0.05);padding:28px 20px;transition:all 0.4s}
+.cc:hover{border-color:rgba(200,169,81,0.15);transform:translateY(-3px)}
+.cc-i{font-size:30px;margin-bottom:12px;display:block}
+.cc-type{font-family:'Cinzel',serif;font-size:7px;letter-spacing:4px;color:var(--g);margin-bottom:5px}
+.cc-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--t);margin-bottom:8px}
+.cc-ul{list-style:none}.cc-ul li{font-size:11px;color:var(--t2);padding:3px 0;display:flex;align-items:center;gap:6px}.cc-ul li::before{content:'◈';color:var(--g);font-size:5px}
+.fg{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:50px}
+.fi{padding:20px 12px;text-align:center;background:rgba(200,169,81,0.01);border:1px solid rgba(200,169,81,0.03);transition:all 0.4s}
+.fi:hover{border-color:rgba(200,169,81,0.15);transform:translateY(-2px)}
+.fi-i{font-size:24px;margin-bottom:6px;display:block}
+.fi-t{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:var(--gl);margin-bottom:4px}
+.fi-d{font-size:10px;color:var(--t2);line-height:1.6}
 
 /* CONTACT */
-.co-g{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;position:relative;z-index:2}
-.co-ttl{font-family:var(--fe);font-size:clamp(24px,3.5vw,42px);font-weight:300;color:var(--txt);line-height:1.25;margin-bottom:16px}
-.co-ttl strong{font-weight:600;background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.co-urg{font-size:14px;color:var(--txt2);line-height:2;margin-bottom:30px}
-.cm{display:flex;align-items:center;gap:16px;padding:16px 20px;background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.06);transition:all 0.3s;text-decoration:none;margin-bottom:14px}
-.cm:hover{border-color:rgba(200,169,81,0.18);transform:translateX(4px)}
-.cm-ic{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.cm-lb{font-family:var(--fd);font-size:7.5px;letter-spacing:3px;color:var(--gold)}.cm-vl{font-family:var(--fa);font-size:16px;color:var(--txt)}.cm-sb{font-size:10px;color:var(--txt3)}
-.cf{background:linear-gradient(135deg,rgba(200,169,81,0.015),var(--bg3));border:1px solid rgba(200,169,81,0.06);padding:40px 32px}
-.cf-t{font-family:var(--fe);font-size:24px;font-weight:600;color:var(--gold);margin-bottom:4px}
-.cf-sub{font-family:var(--fd);font-size:8px;letter-spacing:3px;color:var(--txt3);margin-bottom:28px}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-.fgrp{margin-bottom:14px}
-.flb{font-family:var(--fd);font-size:8px;letter-spacing:2px;color:var(--gold-l);display:block;margin-bottom:5px}
-.finp,.fsel,.ftxt{width:100%;background:rgba(4,6,12,0.5);border:1px solid rgba(200,169,81,0.1);color:var(--txt);padding:12px 14px;font-family:var(--fb);font-size:14px;outline:none;transition:border-color 0.3s}
-.finp:focus,.fsel:focus,.ftxt:focus{border-color:var(--gold)}
-.fsel option{background:var(--bg3);color:var(--txt)}.ftxt{min-height:85px;resize:vertical}
-.fbtn{width:100%;padding:15px;font-family:var(--fd);font-size:11px;letter-spacing:4px;font-weight:700;color:var(--bg1);background:linear-gradient(135deg,var(--gold-l),var(--gold),var(--gold-d));border:none;cursor:pointer;transition:all 0.3s}
-.fbtn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(200,169,81,0.4)}
-.fprv{font-size:11px;color:var(--txt3);text-align:center;margin-top:10px}
+.co-g{display:grid;grid-template-columns:1fr 1.3fr;gap:45px}
+.co-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,40px);font-weight:300;color:var(--t);line-height:1.25;margin-bottom:14px}
+.co-ttl strong{font-weight:600;background:linear-gradient(135deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cm{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(200,169,81,0.02);border:1px solid rgba(200,169,81,0.05);transition:all 0.3s;text-decoration:none;margin-bottom:12px}
+.cm:hover{border-color:rgba(200,169,81,0.15);transform:translateX(3px)}
+.cm-ic{width:38px;height:38px;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.cm-lb{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--g)}.cm-vl{font-family:'DM Serif Display',serif;font-size:15px;color:var(--t)}.cm-sb{font-size:9px;color:var(--t3)}
+.cf{background:rgba(200,169,81,0.01);border:1px solid rgba(200,169,81,0.05);padding:35px 28px}
+.cf-t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--g);margin-bottom:3px}
+.cf-sub{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--t3);margin-bottom:24px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.flb{font-family:'Cinzel',serif;font-size:7px;letter-spacing:2px;color:var(--gl);display:block;margin-bottom:4px}
+.finp,.fsel,.ftxt{width:100%;background:rgba(4,6,12,0.5);border:1px solid rgba(200,169,81,0.08);color:var(--t);padding:11px 13px;font-family:'Noto Serif Devanagari',serif;font-size:13px;outline:none;transition:border-color 0.3s}
+.finp:focus,.fsel:focus,.ftxt:focus{border-color:var(--g)}
+.fsel option{background:var(--b3);color:var(--t)}.ftxt{min-height:80px;resize:vertical}
+.fbtn{width:100%;padding:14px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;font-weight:700;color:var(--b1);background:linear-gradient(135deg,var(--gl),var(--g),var(--gd));border:none;cursor:pointer;transition:all 0.3s}
+.fbtn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(200,169,81,0.4)}
 
-/* LOCATIONS */
-.lg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:55px;position:relative;z-index:2}
-.lc{background:linear-gradient(180deg,rgba(200,169,81,0.02),var(--bg3));border:1px solid rgba(200,169,81,0.06);padding:28px 15px;text-align:center;transition:all 0.4s}
-.lc.lhq{border-color:rgba(200,169,81,0.18)}
-.lc:hover{transform:translateY(-4px);border-color:rgba(200,169,81,0.22)}
-.lc-i{font-size:28px;margin-bottom:10px;display:block}
-.lc-n{font-family:var(--fd);font-size:11px;letter-spacing:3px;font-weight:700;color:var(--gold);margin-bottom:3px}
-.lc-st{font-size:11px;color:var(--txt3);margin-bottom:10px}
-.lc-ct{font-size:10px;color:var(--txt2);line-height:1.7}
-.lc-status{display:inline-block;font-family:var(--fd);font-size:7px;letter-spacing:2px;padding:3px 8px;margin-top:8px;color:var(--gold);border:1px solid rgba(200,169,81,0.2)}
-.lc-main{color:var(--gold-l);border:1px solid rgba(200,169,81,0.3);background:rgba(200,169,81,0.06)}
+/* TESTI */
+.tst-o{overflow:hidden;margin-top:50px;position:relative}
+.tst-o::before,.tst-o::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
+.tst-o::before{left:0;background:linear-gradient(90deg,var(--b2),transparent)}.tst-o::after{right:0;background:linear-gradient(-90deg,var(--b2),transparent)}
+.tst-tr{display:flex;gap:16px;animation:tss 48s linear infinite;width:max-content}
+@keyframes tss{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tst-c{width:340px;flex-shrink:0;background:rgba(200,169,81,0.015);border:1px solid rgba(200,169,81,0.05);padding:24px}
+.tst-s{color:var(--g);font-size:13px;margin-bottom:8px;letter-spacing:2px}
+.tst-m{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--t);line-height:1.7;margin-bottom:15px;font-weight:300}
+.tst-a{display:flex;align-items:center;gap:8px}
+.tst-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--b1)}
+.tst-n{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:var(--gl)}.tst-cs{font-size:10px;color:var(--t3)}
+
+/* LOC */
+.lg{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:50px}
+.lc{background:rgba(200,169,81,0.01);border:1px solid rgba(200,169,81,0.05);padding:25px 12px;text-align:center;transition:all 0.4s}
+.lc.lhq{border-color:rgba(200,169,81,0.15)}
+.lc:hover{transform:translateY(-3px);border-color:rgba(200,169,81,0.2)}
+.lc-i{font-size:24px;margin-bottom:8px;display:block}
+.lc-n{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;font-weight:700;color:var(--g)}
+.lc-st{font-size:10px;color:var(--t3);margin:3px 0 8px}
+.lc-ct{font-size:9px;color:var(--t2);line-height:1.6}
 
 /* FOOTER */
-footer{z-index:5;position:relative;background:var(--bg1);border-top:1px solid rgba(200,169,81,0.06);padding:65px 5% 22px}
-.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:45px}
-.f-lw{display:flex;align-items:center;gap:10px;margin-bottom:14px}.f-li{font-size:30px;filter:drop-shadow(0 0 8px var(--gold))}
-.f-ln{font-family:var(--fdd);font-size:16px;font-weight:700;color:var(--gold);letter-spacing:2px}
-.f-tag{font-family:var(--fe);font-size:12px;font-style:italic;color:var(--gold-l);margin-bottom:10px}
-.f-desc{font-size:12px;color:var(--txt2);line-height:1.9;margin-bottom:15px}
-.f-est{font-family:var(--fd);font-size:8px;letter-spacing:4px;color:var(--gold);border:1px solid rgba(200,169,81,0.15);padding:5px 14px;display:inline-block}
-.f-ct{font-family:var(--fd);font-size:9px;letter-spacing:3px;color:var(--gold);margin-bottom:18px;padding-bottom:8px;border-bottom:1px solid rgba(200,169,81,0.08)}
-.f-ul{list-style:none}.f-ul li{margin-bottom:8px}.f-ul a{font-size:12px;color:var(--txt2);text-decoration:none;display:flex;align-items:center;gap:7px}.f-ul a::before{content:'◈';color:var(--gold);font-size:5px}.f-ul a:hover{color:var(--gold)}
-.f-ci{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px}.f-cic{font-size:14px;color:var(--gold)}.f-cit{font-size:12px;color:var(--txt2);line-height:1.5}
-.f-cit strong{color:var(--gold-l);font-family:var(--fd);font-size:8px;letter-spacing:2px;display:block;margin-bottom:1px}
-.f-bot{border-top:1px solid rgba(200,169,81,0.06);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.f-copy{font-family:var(--fd);font-size:9px;letter-spacing:2px;color:var(--txt3)}
-.f-motto{font-family:var(--fe);font-size:12px;font-style:italic;color:var(--gold)}
+footer{z-index:5;position:relative;background:var(--b1);border-top:1px solid rgba(200,169,81,0.05);padding:60px 5% 20px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px;margin-bottom:40px}
+.f-ln{font-family:'Cinzel Decorative',serif;font-size:15px;font-weight:700;color:var(--g);letter-spacing:2px;margin-bottom:12px}
+.f-desc{font-size:11px;color:var(--t2);line-height:1.9;margin-bottom:12px}
+.f-ct{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--g);margin-bottom:15px;padding-bottom:6px;border-bottom:1px solid rgba(200,169,81,0.06)}
+.f-ul{list-style:none}.f-ul li{margin-bottom:7px}.f-ul a{font-size:11px;color:var(--t2);text-decoration:none;display:flex;align-items:center;gap:6px}.f-ul a::before{content:'◈';color:var(--g);font-size:4px}.f-ul a:hover{color:var(--g)}
+.f-bot{border-top:1px solid rgba(200,169,81,0.05);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.f-copy{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--t3)}
+.f-motto{font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--g)}
 
-.bt{position:fixed;bottom:25px;right:25px;width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:var(--bg1);border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;z-index:500;opacity:0;transform:translateY(12px);transition:all 0.3s;box-shadow:0 4px 15px rgba(200,169,81,0.3)}
+.bt{position:fixed;bottom:22px;right:22px;width:40px;height:40px;background:linear-gradient(135deg,var(--g),var(--gd));color:var(--b1);border:none;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;z-index:500;opacity:0;transform:translateY(10px);transition:all 0.3s;box-shadow:0 4px 12px rgba(200,169,81,0.3)}
 .bt.show{opacity:1;transform:translateY(0)}
 
-.rv{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s}.rv.v{opacity:1;transform:translateY(0)}
-.rvl{opacity:0;transform:translateX(-35px);transition:opacity 0.7s,transform 0.7s}.rvl.v{opacity:1;transform:translateX(0)}
-.rvr{opacity:0;transform:translateX(35px);transition:opacity 0.7s,transform 0.7s}.rvr.v{opacity:1;transform:translateX(0)}
+.rv{opacity:0;transform:translateY(25px);transition:opacity 0.7s,transform 0.7s}.rv.v{opacity:1;transform:translateY(0)}
+.rvl{opacity:0;transform:translateX(-30px);transition:opacity 0.7s,transform 0.7s}.rvl.v{opacity:1;transform:translateX(0)}
+.rvr{opacity:0;transform:translateX(30px);transition:opacity 0.7s,transform 0.7s}.rvr.v{opacity:1;transform:translateX(0)}
 
-@media(max-width:1024px){.ec{grid-template-columns:1fr}.cg{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:repeat(2,1fr)}.lg{grid-template-columns:repeat(3,1fr)}.f-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nm{display:none}.hb{display:flex}.h-con{padding:95px 15px 55px}.about-grid{grid-template-columns:1fr}.ck-strats{grid-template-columns:1fr}.tg{grid-template-columns:1fr}.sg{grid-template-columns:repeat(2,1fr)}.cg,.wg{grid-template-columns:1fr}.lg{grid-template-columns:repeat(2,1fr)}.co-g{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr}.f-bot{flex-direction:column;text-align:center}.fr,.a-feats{grid-template-columns:1fr}}
-@media(max-width:480px){.fg{grid-template-columns:1fr}.lg{grid-template-columns:1fr 1fr}.h-t{font-size:32px}.sec{padding:75px 5%}}
+@media(max-width:1024px){.ec,.cg{grid-template-columns:1fr}.fg{grid-template-columns:repeat(3,1fr)}.lg{grid-template-columns:repeat(3,1fr)}.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nm{display:none}.hb{display:flex}.a-grid,.co-g{grid-template-columns:1fr}.ck-grid,.tg,.wg{grid-template-columns:1fr}.sg{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:repeat(2,1fr)}.lg{grid-template-columns:repeat(2,1fr)}.f-grid{grid-template-columns:1fr}.f-bot{flex-direction:column;text-align:center}.fr,.a-feats{grid-template-columns:1fr}.h-c{padding:90px 15px 50px}}
+@media(max-width:480px){.fg{grid-template-columns:1fr}.h-t{font-size:30px}}
 </style>
 </head>
 <body>
 
-<div id="preloader"><div class="pl-i">⚖</div><div class="pl-n">RAJVARDHAN & ASSOCIATES</div><div class="pl-bw"><div class="pl-b" id="plB"></div></div><div class="pl-p" id="plP">0%</div><div class="pl-t">Vincit Omnia Veritas</div></div>
-<div class="cur" id="cur"></div><div class="cur-d" id="curD"></div>
+<!-- PRELOADER with animated scales -->
+<div id="preloader">
+<canvas id="preloaderCanvas"></canvas>
+<div class="pl-txt">
+<div class="pl-n">RAJVARDHAN & ASSOCIATES</div>
+<div class="pl-bw"><div class="pl-b" id="plB"></div></div>
+<div class="pl-p" id="plP">0%</div>
+<div class="pl-t">Vincit Omnia Veritas</div>
+</div>
+</div>
+
 <div class="sp"><div class="sp-b" id="spB"></div></div>
 <button class="bt" id="bt" onclick="scrollTo({top:0,behavior:'smooth'})">▲</button>
-<div class="g-parts" id="gParts"></div>
 
-<div class="mm" id="mm"><span class="mm-x" onclick="this.parentElement.classList.remove('act')">✕</span><a href="#hero" onclick="this.parentElement.classList.remove('act')">⚖ होम</a><a href="#about" onclick="this.parentElement.classList.remove('act')">परिचय</a><a href="#team" onclick="this.parentElement.classList.remove('act')">हमारी टीम</a><a href="#expertise" onclick="this.parentElement.classList.remove('act')">विशेषज्ञता</a><a href="#chakravyuh" onclick="this.parentElement.classList.remove('act')">चक्रव्यूह</a><a href="#courts" onclick="this.parentElement.classList.remove('act')">न्याय क्षेत्र</a><a href="#contact" onclick="this.parentElement.classList.remove('act')">सम्पर्क</a><a href="tel:+917466806524" style="border:1px solid rgba(200,169,81,0.3);padding:10px 24px;margin-top:8px">📞 निःशुल्क परामर्श</a></div>
+<div class="mm" id="mm"><span class="mm-x" onclick="this.parentElement.classList.remove('act')">✕</span>
+<a href="#hero" onclick="this.parentElement.classList.remove('act')">होम</a><a href="#about" onclick="this.parentElement.classList.remove('act')">परिचय</a><a href="#chakravyuh" onclick="this.parentElement.classList.remove('act')">चक्रव्यूह</a><a href="#expertise" onclick="this.parentElement.classList.remove('act')">विशेषज्ञता</a><a href="#courts" onclick="this.parentElement.classList.remove('act')">न्याय क्षेत्र</a><a href="#contact" onclick="this.parentElement.classList.remove('act')">सम्पर्क</a>
+<a href="tel:+917466806524" style="border:1px solid rgba(200,169,81,0.3);padding:10px 22px;margin-top:6px">📞 निःशुल्क परामर्श</a></div>
 
-<nav id="nav"><a href="#hero" class="nl"><span class="nl-i">⚖</span><div class="nl-t">RAJVARDHAN<small>& Associates · Since 2014</small></div></a><ul class="nm"><li><a href="#about">परिचय</a></li><li><a href="#expertise">विशेषज्ञता</a></li><li><a href="#chakravyuh">चक्रव्यूह</a></li><li><a href="#courts">न्याय क्षेत्र</a></li><li><a href="#why">हमें क्यों?</a></li><li><a href="#contact" class="nm-cta">निःशुल्क परामर्श</a></li></ul><div class="hb" onclick="document.getElementById('mm').classList.add('act')"><span></span><span></span><span></span></div></nav>
+<nav id="nav"><a href="#hero" class="nl"><span class="nl-i">⚖</span><div class="nl-t">RAJVARDHAN<small>& Associates · Since 2014</small></div></a>
+<ul class="nm"><li><a href="#about">परिचय</a></li><li><a href="#expertise">विशेषज्ञता</a></li><li><a href="#chakravyuh">चक्रव्यूह</a></li><li><a href="#courts">न्याय क्षेत्र</a></li><li><a href="#why">हमें क्यों?</a></li><li><a href="#contact" class="nm-cta">निःशुल्क परामर्श</a></li></ul>
+<div class="hb" onclick="document.getElementById('mm').classList.add('act')"><span></span><span></span><span></span></div></nav>
 
 <!-- HERO -->
-<section id="hero"><canvas id="heroCanvas"></canvas><div class="h-ov"></div>
-<div class="h-con">
+<section id="hero" class="sec" style="min-height:100vh;display:flex;align-items:center;justify-content:center"><canvas id="heroCanvas"></canvas>
+<div class="h-c">
 <div class="h-est">EST. 2014 · ग्यारह वर्षों की विधिक सेवा</div>
-<span class="h-sym">⚖</span>
 <h1 class="h-t">Rajvardhan</h1>
 <span class="h-amp">& ASSOCIATES</span>
 <p class="h-tag"></p>
 <p class="h-lat">Vincit Omnia Veritas</p>
 <p class="h-desc">ग्यारह वर्षों से हम उन लोगों की आवाज बने हैं जिन्हें न्याय की सबसे अधिक आवश्यकता होती है। आपराधिक बचाव हो या सिविल विवाद, राजस्व मामले हों या साइबर अपराध - प्रत्येक क्षेत्र में हमारी गहन विधिक समझ और व्यावहारिक अनुभव आपके पक्ष में निर्णायक भूमिका निभाता है।</p>
-<div class="h-btns"><a href="tel:+917466806524" class="bg">📞 अभी बात करें - निःशुल्क</a><a href="#expertise" class="bo">हमारी विशेषज्ञता →</a></div>
+<div class="h-btns"><a href="tel:+917466806524" class="btn-g">📞 अभी बात करें - निःशुल्क</a><a href="#expertise" class="btn-o">हमारी विशेषज्ञता →</a></div>
 <div class="h-met">
-<div class="met"><div class="met-v" data-count="11">0</div><div class="met-l">वर्षों का अनुभव</div><div class="met-s">SINCE 2014</div></div>
-<div class="met"><div class="met-v" data-count="500">0</div><div class="met-l">सफल मामले</div></div>
-<div class="met"><div class="met-v" data-count="98">0</div><div class="met-l">मुवक्किल संतुष्टि %</div></div>
-<div class="met"><div class="met-v" data-count="5">0</div><div class="met-l">शहरों में उपस्थिति</div></div>
-</div>
-</div>
-</section>
+<div style="text-align:center"><div class="met-v" data-count="11">0</div><div class="met-l">वर्षों का अनुभव</div><div class="met-s">SINCE 2014</div></div>
+<div style="text-align:center"><div class="met-v" data-count="500">0</div><div class="met-l">सफल मामले</div></div>
+<div style="text-align:center"><div class="met-v" data-count="98">0</div><div class="met-l">मुवक्किल संतुष्टि %</div></div>
+<div style="text-align:center"><div class="met-v" data-count="5">0</div><div class="met-l">शहरों में उपस्थिति</div></div>
+</div></div></section>
 
-<div class="tick"><div class="tick-t"><span class="tick-i">⚖ आपराधिक बचाव ◆</span><span class="tick-i">दहेज प्रकरण ◆</span><span class="tick-i">NDPS रक्षा ◆</span><span class="tick-i">साइबर अपराध ◆</span><span class="tick-i">भूमि विवाद ◆</span><span class="tick-i">जमानत आवेदन ◆</span><span class="tick-i">उच्च न्यायालय ◆</span><span class="tick-i">राजस्व विधि ◆</span><span class="tick-i">सिविल वाद ◆</span><span class="tick-i">हत्या बचाव ◆</span><span class="tick-i">⚖ आपराधिक बचाव ◆</span><span class="tick-i">दहेज प्रकरण ◆</span><span class="tick-i">NDPS रक्षा ◆</span><span class="tick-i">साइबर अपराध ◆</span><span class="tick-i">भूमि विवाद ◆</span><span class="tick-i">जमानत आवेदन ◆</span><span class="tick-i">उच्च न्यायालय ◆</span><span class="tick-i">राजस्व विधि ◆</span><span class="tick-i">सिविल वाद ◆</span><span class="tick-i">हत्या बचाव ◆</span></div></div>
+<div class="tick"><div class="tick-t"><span class="tick-i">⚖ आपराधिक बचाव ◆</span><span class="tick-i">दहेज प्रकरण ◆</span><span class="tick-i">NDPS रक्षा ◆</span><span class="tick-i">साइबर अपराध ◆</span><span class="tick-i">भूमि विवाद ◆</span><span class="tick-i">जमानत ◆</span><span class="tick-i">उच्च न्यायालय ◆</span><span class="tick-i">राजस्व विधि ◆</span><span class="tick-i">सिविल वाद ◆</span><span class="tick-i">हत्या बचाव ◆</span><span class="tick-i">⚖ आपराधिक बचाव ◆</span><span class="tick-i">दहेज प्रकरण ◆</span><span class="tick-i">NDPS रक्षा ◆</span><span class="tick-i">साइबर अपराध ◆</span><span class="tick-i">भूमि विवाद ◆</span><span class="tick-i">जमानत ◆</span><span class="tick-i">उच्च न्यायालय ◆</span><span class="tick-i">राजस्व विधि ◆</span><span class="tick-i">सिविल वाद ◆</span><span class="tick-i">हत्या बचाव ◆</span></div></div>
 
 <!-- ABOUT -->
-<section id="about" class="sec" style="background:var(--bg2)"><canvas class="sec-canvas" data-anim="nebula"></canvas>
-<div class="about-grid">
+<section id="about" class="sec" style="background:var(--b2)"><canvas id="aboutCanvas"></canvas>
+<div class="a-grid">
 <div class="rvl" style="position:relative"><img src="founder.jpg" alt="राजवर्धन" class="a-img"><div class="a-ib"></div><div class="a-ibg"><span class="a-ibg-n">11</span><span class="a-ibg-t">वर्षों का अनुभव</span></div></div>
 <div class="rvr">
 <div class="a-tag">हमारे बारे में</div>
-<h2 class="a-ttl">एक ऐसी फर्म जो<br><strong>आपकी लड़ाई</strong><br>अपनी मानती है</h2>
+<h2 class="a-ttl">एक ऐसी फर्म जो<br><strong>आपकी लड़ाई</strong> अपनी मानती है</h2>
 <blockquote class="a-q">"न्याय किसी को मिलता नहीं - उसे हासिल करना पड़ता है।"</blockquote>
-<p class="a-txt">राजवर्धन एंड एसोसिएट्स की स्थापना 2014 में एक स्पष्ट उद्देश्य के साथ हुई - कि कानून केवल किताबों की भाषा नहीं, बल्कि आम इंसान की जिंदगी बदलने का माध्यम है। ग्यारह वर्षों में हमने सैकड़ों परिवारों के लिए न्याय का मार्ग प्रशस्त किया है।</p>
+<p class="a-txt">राजवर्धन एंड एसोसिएट्स की स्थापना 2014 में हुई। ग्यारह वर्षों में हमने सैकड़ों परिवारों के लिए न्याय का मार्ग प्रशस्त किया है। जिला न्यायालय से उच्च न्यायालय तक - हर मंच पर हमारी तैयारी, निष्ठा और ज्ञान आपके पक्ष में बोलता है।</p>
 <div class="a-feats">
-<div class="a-feat"><span class="a-fi">⚖️</span><div><div class="a-ft">5 शहरों में उपस्थिति</div><div class="a-fd-t">दिल्ली से देहरादून तक</div></div></div>
-<div class="a-feat"><span class="a-fi">🔍</span><div><div class="a-ft">गहन केस अनुसंधान</div><div class="a-fd-t">हर विवरण पर ध्यान</div></div></div>
-<div class="a-feat"><span class="a-fi">🛡️</span><div><div class="a-ft">पूर्ण गोपनीयता</div><div class="a-fd-t">आपका राज, हमारा दायित्व</div></div></div>
-<div class="a-feat"><span class="a-fi">📞</span><div><div class="a-ft">24x7 उपलब्ध</div><div class="a-fd-t">आपात स्थिति में तत्पर</div></div></div>
+<div class="a-feat"><span class="a-fi">⚖️</span><div><div class="a-ft">5 शहरों में</div><div class="a-fd">दिल्ली से देहरादून</div></div></div>
+<div class="a-feat"><span class="a-fi">🔍</span><div><div class="a-ft">गहन अनुसंधान</div><div class="a-fd">हर विवरण पर ध्यान</div></div></div>
+<div class="a-feat"><span class="a-fi">🛡️</span><div><div class="a-ft">पूर्ण गोपनीयता</div><div class="a-fd">आपका राज, हमारा दायित्व</div></div></div>
+<div class="a-feat"><span class="a-fi">📞</span><div><div class="a-ft">24x7 उपलब्ध</div><div class="a-fd">आपात स्थिति में तत्पर</div></div></div>
 </div>
-<a href="#contact" class="bg">निःशुल्क परामर्श लें</a>
-</div>
-</div>
-</section>
+<a href="#contact" class="btn-g">निःशुल्क परामर्श लें</a>
+</div></div></section>
 
-<!-- CHAKRAVYUH - THE MASTERPIECE -->
+<!-- CHAKRAVYUH -->
 <section id="chakravyuh"><canvas id="ckCanvas"></canvas>
-<div class="ck-content">
-<div class="rv" style="text-align:center"><div class="ck-badge">विधिक युद्धनीति · LEGAL WARFARE</div><span class="ck-icon">⚔️</span>
-<h2 class="ck-title">चक्रव्यूह रणनीति</h2>
-<p class="ck-sub">जहाँ से प्रवेश है, वहाँ से निकास नहीं - यही हमारी प्रतिपरीक्षण की कला है</p></div>
-<p class="ck-txt rv">महाभारत के चक्रव्यूह में प्रवेश तो सरल था, परंतु बाहर निकलने का मार्ग केवल कुछ ही योद्धा जानते थे। ठीक इसी सिद्धांत पर हमारी विधिक रणनीति आधारित है। जब हम प्रतिपरीक्षण करते हैं, तो हम गवाह के लिए प्रश्नों का ऐसा जाल रचते हैं कि वह एक बार उसमें प्रवेश करने के बाद सत्य स्वीकार किये बिना बाहर नहीं आ सकता।</p>
+<div class="ck-over">
+<div class="ck-top rv"><div class="ck-badge">विधिक युद्धनीति · LEGAL WARFARE</div><h2 class="ck-title">चक्रव्यूह रणनीति</h2><p class="ck-sub">जहाँ से प्रवेश है, वहाँ से निकास नहीं</p></div>
+<p class="ck-txt rv">महाभारत के चक्रव्यूह में प्रवेश तो सरल था, परंतु बाहर निकलना असम्भव। ठीक इसी सिद्धांत पर हमारी रणनीति आधारित है। हम गवाह के लिए प्रश्नों का ऐसा जाल रचते हैं कि वह सत्य स्वीकार किये बिना बाहर नहीं आ सकता।</p>
 <div class="ck-hl rv">"हम गवाह के लिए ऐसा चक्रव्यूह रचते हैं जिससे बाहर निकलना उसके लिए असम्भव हो जाता है। वह उसमें फँसकर मुकदमे को बरी करने के लिए मजबूर हो जाता है।"</div>
-<p class="ck-txt rv">यह कोई दावा नहीं - यह ग्यारह वर्षों के न्यायालय अनुभव का सार है। हमारी टीम प्रत्येक गवाह के पूर्व बयानों का गहन अध्ययन करती है, उनकी असंगतियाँ चिन्हित करती है, और फिर ऐसे प्रश्न तैयार करती है जो एक-दूसरे से जुड़े होते हैं - जैसे चक्रव्यूह की परतें। पहला प्रश्न सरल लगता है, दूसरा उसका विस्तार, तीसरा विरोधाभास प्रकट करता है, और चौथे तक गवाह अपने ही बयानों में उलझ जाता है।</p>
-<div class="ck-strats">
-<div class="ck-card rv"><div class="ck-cn">01</div><span class="ck-ci">🔍</span><div class="ck-ct">गवाह का सूक्ष्म विश्लेषण</div><p class="ck-cx">FIR, 161 CrPC के बयान और न्यायालय बयानों का तुलनात्मक अध्ययन। प्रत्येक विरोधाभास चिन्हित कर प्रश्नों की श्रृंखला तैयार की जाती है।</p></div>
-<div class="ck-card rv"><div class="ck-cn">02</div><span class="ck-ci">🌀</span><div class="ck-ct">प्रश्नों का चक्रव्यूह निर्माण</div><p class="ck-cx">प्रत्येक प्रश्न अगले का आधार बनता है। गवाह को ऐसे मार्ग पर ले जाया जाता है जहाँ से लौटना सम्भव नहीं।</p></div>
-<div class="ck-card rv"><div class="ck-cn">03</div><span class="ck-ci">⚖️</span><div class="ck-ct">साक्ष्य का विधि-सम्मत खंडन</div><p class="ck-cx">FSL रिपोर्ट, पंचनामा, FIR की विसंगतियों से ऐसे तर्क जो न्यायालय को स्वीकार करने होते हैं।</p></div>
-<div class="ck-card rv"><div class="ck-cn">04</div><span class="ck-ci">🏛️</span><div class="ck-ct">न्यायिक दृष्टांतों का शस्त्र</div><p class="ck-cx">Supreme Court और High Court के निर्णयों को ऐसे प्रस्तुत किया जाता है कि विपक्षी का तर्क स्वतः खंडित हो।</p></div>
-<div class="ck-card rv"><div class="ck-cn">05</div><span class="ck-ci">🎯</span><div class="ck-ct">मनोवैज्ञानिक रणनीति</div><p class="ck-cx">गवाह के मनोविज्ञान को पढ़कर ऐसे प्रश्न जो उसकी विश्वसनीयता न्यायाधीश के समक्ष संदिग्ध बना दें।</p></div>
-<div class="ck-card rv"><div class="ck-cn">06</div><span class="ck-ci">🔐</span><div class="ck-ct">बचाव का अभेद्य दुर्ग</div><p class="ck-cx">तैयारी इतनी सुदृढ़ कि विपक्षी अभियोजन के तर्क स्वयं निराधार सिद्ध हो जाते हैं।</p></div>
+<p class="ck-txt rv">हमारी टीम प्रत्येक गवाह के पूर्व बयानों का गहन अध्ययन करती है। पहला प्रश्न सरल, दूसरा विस्तार, तीसरा विरोधाभास, चौथे तक गवाह अपने ही बयानों में उलझ जाता है। Section 145 IEA का सटीक उपयोग।</p>
+<div class="ck-grid">
+<div class="ck-card rv"><div class="ck-cn">01</div><span class="ck-ci">🔍</span><div class="ck-ct">गवाह का विश्लेषण</div><p class="ck-cx">FIR, 161 CrPC बयान, न्यायालय बयान - तुलनात्मक अध्ययन। विरोधाभास चिन्हित।</p></div>
+<div class="ck-card rv"><div class="ck-cn">02</div><span class="ck-ci">🌀</span><div class="ck-ct">प्रश्नों का चक्रव्यूह</div><p class="ck-cx">प्रत्येक प्रश्न अगले का आधार। गवाह जहाँ से लौट नहीं सकता।</p></div>
+<div class="ck-card rv"><div class="ck-cn">03</div><span class="ck-ci">⚖️</span><div class="ck-ct">साक्ष्य खंडन</div><p class="ck-cx">FSL, पंचनामा, FIR विसंगतियों से अखंडनीय तर्क।</p></div>
+<div class="ck-card rv"><div class="ck-cn">04</div><span class="ck-ci">🏛️</span><div class="ck-ct">न्यायिक दृष्टांत</div><p class="ck-cx">Supreme Court निर्णयों का सटीक शस्त्र प्रयोग।</p></div>
+<div class="ck-card rv"><div class="ck-cn">05</div><span class="ck-ci">🎯</span><div class="ck-ct">मनोवैज्ञानिक रणनीति</div><p class="ck-cx">गवाह का मनोविज्ञान पढ़कर विश्वसनीयता संदिग्ध।</p></div>
+<div class="ck-card rv"><div class="ck-cn">06</div><span class="ck-ci">🔐</span><div class="ck-ct">अभेद्य दुर्ग</div><p class="ck-cx">विपक्षी के तर्क स्वयं निराधार सिद्ध।</p></div>
 </div>
-<div class="ck-warn rv"><div class="ck-wt">⚠ CAVEAT OPPONENS</div><p class="ck-wq">"यदि अन्याय का मार्ग चुना गया है, तो जान लें - कानून की किताब में हर गलती का जवाब लिखा है।"</p><p class="ck-ws">राजवर्धन एंड एसोसिएट्स की तैयारी का स्तर यह है कि विपक्षी पक्ष के तर्क प्रस्तुत होने से पहले ही हमारे पास उनके खंडन तैयार होते हैं।</p></div>
-</div>
-</section>
+<div class="ck-warn rv"><div class="ck-wt">⚠ CAVEAT OPPONENS</div><p class="ck-wq">"कानून की किताब में हर गलती का जवाब लिखा है, और हम वह जवाब पढ़ना जानते हैं।"</p><p class="ck-ws">विपक्षी के तर्क प्रस्तुत होने से पहले ही हमारे पास खंडन तैयार होते हैं।</p></div>
+</div></section>
 
 <!-- EXPERTISE -->
-<section id="expertise" class="sec" style="background:var(--bg3)"><canvas class="sec-canvas" data-anim="matrix"></canvas>
-<div class="sh rv"><div class="st">AREAS OF PRACTICE</div><h2 class="stl">विधि के चार <em>प्रमुख स्तंभ</em></h2><div class="sl"></div></div>
+<section id="expertise" class="sec" style="background:var(--b3)"><canvas id="expCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">AREAS OF PRACTICE</div><h2 class="st-title">विधि के चार <em>प्रमुख स्तंभ</em></h2><div class="st-line"></div></div>
 <div class="ec">
-<div class="ecard rvl"><div class="ec-n">01</div><span class="ec-i">💍</span><div class="ec-lat">Matrimonium et Iustitia</div><h3 class="ec-t">दहेज एवं वैवाहिक प्रकरण</h3><p class="ec-d">IPC 498A, दहेज निषेध अधिनियम और घरेलू हिंसा अधिनियम की बारीकियों में गहरी पकड़।</p><ul class="ec-ul"><li>IPC 498A - झूठे मामलों में तत्काल बचाव</li><li>दहेज निषेध अधिनियम - सम्पूर्ण सहायता</li><li>घरेलू हिंसा - दोनों पक्षों के लिए</li><li>तलाक एवं बच्चों की अभिरक्षा</li></ul></div>
-<div class="ecard rvr"><div class="ec-n">02</div><span class="ec-i">⚔️</span><div class="ec-lat">Actus Reus et Mens Rea</div><h3 class="ec-t">हत्या एवं गंभीर आपराधिक बचाव</h3><p class="ec-d">IPC 302/307 में पोस्टमॉर्टम, गवाहों की विश्वसनीयता और साक्ष्यों का गहन विश्लेषण।</p><ul class="ec-ul"><li>सत्र एवं उच्च न्यायालय में बचाव</li><li>साक्ष्यों का विधि-सम्मत विश्लेषण</li><li>गैर-जमानती अपराधों में जमानत</li><li>Supreme Court निर्णयों का उपयोग</li></ul></div>
-<div class="ecard rvl"><div class="ec-n">03</div><span class="ec-i">🔒</span><div class="ec-lat">Strictissimi Juris</div><h3 class="ec-t">NDPS - मादक द्रव्य रक्षा</h3><p class="ec-d">NDPS में न्यूनतम सजा दस वर्ष। Section 50 से FSL रिपोर्ट तक - हर खामी ढूँढते हैं।</p><ul class="ec-ul"><li>सम्पूर्ण प्रक्रियागत चुनौती</li><li>Section 50, 52A, 67 का परीक्षण</li><li>व्यावसायिक मात्रा में भी जमानत</li><li>Chain of Custody का परीक्षण</li></ul></div>
-<div class="ecard rvr"><div class="ec-n">04</div><span class="ec-i">💻</span><div class="ec-lat">Digital Juris Prudentia</div><h3 class="ec-t">साइबर अपराध एवं डिजिटल विधि</h3><p class="ec-d">IT Act 2000 - तकनीकी और कानूनी दोनों दृष्टिकोणों से कार्य।</p><ul class="ec-ul"><li>IT Act Sections 43, 66, 66C, 67</li><li>डिजिटल साक्ष्य संरक्षण</li><li>ऑनलाइन धोखाधड़ी, हैकिंग</li><li>सोशल मीडिया मामले</li></ul></div>
-</div>
-</section>
+<div class="ecard rvl" style="position:relative"><div class="ec-n">01</div><span class="ec-i">💍</span><div class="ec-lat">Matrimonium et Iustitia</div><h3 class="ec-t">दहेज एवं वैवाहिक प्रकरण</h3><p class="ec-d">IPC 498A, दहेज निषेध अधिनियम और घरेलू हिंसा अधिनियम की बारीकियों में गहरी पकड़।</p><ul class="ec-ul"><li>IPC 498A - तत्काल बचाव</li><li>दहेज निषेध - सम्पूर्ण सहायता</li><li>घरेलू हिंसा</li><li>तलाक एवं अभिरक्षा</li></ul></div>
+<div class="ecard rvr" style="position:relative"><div class="ec-n">02</div><span class="ec-i">⚔️</span><div class="ec-lat">Actus Reus et Mens Rea</div><h3 class="ec-t">हत्या एवं गंभीर बचाव</h3><p class="ec-d">IPC 302/307 में साक्ष्यों का गहन विश्लेषण।</p><ul class="ec-ul"><li>सत्र व उच्च न्यायालय</li><li>विधि-सम्मत विश्लेषण</li><li>गैर-जमानती में जमानत</li><li>SC निर्णयों का उपयोग</li></ul></div>
+<div class="ecard rvl" style="position:relative"><div class="ec-n">03</div><span class="ec-i">🔒</span><div class="ec-lat">Strictissimi Juris</div><h3 class="ec-t">NDPS - मादक द्रव्य रक्षा</h3><p class="ec-d">Section 50 से FSL रिपोर्ट तक - हर खामी ढूँढते हैं।</p><ul class="ec-ul"><li>प्रक्रियागत चुनौती</li><li>Sec 50, 52A, 67 परीक्षण</li><li>व्यावसायिक मात्रा में जमानत</li><li>Chain of Custody परीक्षण</li></ul></div>
+<div class="ecard rvr" style="position:relative"><div class="ec-n">04</div><span class="ec-i">💻</span><div class="ec-lat">Digital Juris Prudentia</div><h3 class="ec-t">साइबर अपराध</h3><p class="ec-d">IT Act 2000 - तकनीकी और कानूनी दोनों दृष्टिकोण।</p><ul class="ec-ul"><li>Sec 43, 66, 66C, 67</li><li>डिजिटल साक्ष्य</li><li>ऑनलाइन धोखाधड़ी</li><li>सोशल मीडिया मामले</li></ul></div>
+</div></section>
 
 <!-- TEAM -->
-<section id="team" class="sec" style="background:var(--bg1)"><canvas class="sec-canvas" data-anim="dna"></canvas>
-<div class="sh rv"><div class="st">OUR LEGAL CHAMPIONS</div><h2 class="stl">वे लोग जो आपके लिए <em>लड़ते हैं</em></h2><div class="sl"></div></div>
+<section id="team" class="sec" style="background:var(--b1)"><canvas id="teamCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">OUR TEAM</div><h2 class="st-title">वे लोग जो <em>लड़ते हैं</em></h2><div class="st-line"></div></div>
 <div class="tg">
-<div class="tc rvl"><div class="tc-ph"><img src="founder.jpg" alt="राजवर्धन"><div class="tc-fade"></div><div class="tc-label">FOUNDER & SENIOR ADVOCATE</div></div><div class="tc-info"><div class="tc-num">01</div><h3 class="tc-name">राजवर्धन</h3><div class="tc-role">RAJVARDHAN - SENIOR ADVOCATE · SINCE 2014</div><p class="tc-bio">आपराधिक विधि, सिविल वाद और राजस्व मामलों में अतुलनीय पकड़। ग्यारह वर्षों में सैकड़ों जटिल मामलों में सफलता।</p><div class="tc-skills"><span class="tc-sk">आपराधिक विधि</span><span class="tc-sk">दहेज प्रकरण</span><span class="tc-sk">NDPS</span><span class="tc-sk">साइबर विधि</span><span class="tc-sk">सिविल वाद</span></div></div></div>
-<div class="tc rvr"><div class="tc-ph"><img src="sanjeev.jpg" alt="संजीव कुमार"><div class="tc-fade"></div><div class="tc-label">ASSOCIATE PARTNER</div></div><div class="tc-info"><div class="tc-num">02</div><h3 class="tc-name">संजीव कुमार</h3><div class="tc-role">SANJEEV KUMAR - REVENUE LAW EXPERT</div><p class="tc-bio">राजस्व विधि के विशेषज्ञ। भूमि विवाद, नामांतरण, खतौनी, चकबंदी में अद्वितीय महारत।</p><div class="tc-skills"><span class="tc-sk">राजस्व विधि</span><span class="tc-sk">भूमि विवाद</span><span class="tc-sk">नामांतरण</span><span class="tc-sk">चकबंदी</span><span class="tc-sk">खतौनी</span></div></div></div>
-</div>
-</section>
+<div class="tc rvl"><div class="tc-ph"><img src="founder.jpg" alt="राजवर्धन"><div class="tc-fade"></div><div class="tc-lb">FOUNDER</div></div><div class="tc-info"><h3 class="tc-name">राजवर्धन</h3><div class="tc-role">SENIOR ADVOCATE · SINCE 2014</div><p class="tc-bio">आपराधिक विधि, सिविल वाद, राजस्व मामलों में अतुलनीय। ग्यारह वर्षों में सैकड़ों जटिल मामलों में सफलता।</p><div class="tc-sk"><span>आपराधिक</span><span>दहेज</span><span>NDPS</span><span>साइबर</span><span>सिविल</span></div></div></div>
+<div class="tc rvr"><div class="tc-ph"><img src="sanjeev.jpg" alt="संजीव कुमार"><div class="tc-fade"></div><div class="tc-lb">PARTNER</div></div><div class="tc-info"><h3 class="tc-name">संजीव कुमार</h3><div class="tc-role">REVENUE LAW EXPERT</div><p class="tc-bio">राजस्व विधि विशेषज्ञ। भूमि विवाद, नामांतरण, खतौनी, चकबंदी में अद्वितीय।</p><div class="tc-sk"><span>राजस्व</span><span>भूमि</span><span>नामांतरण</span><span>चकबंदी</span><span>खतौनी</span></div></div></div>
+</div></section>
 
 <!-- STATS -->
-<section class="stats-sec"><canvas class="sec-canvas" data-anim="wave"></canvas>
+<section class="stats-s"><canvas id="statsCanvas"></canvas>
 <div class="sg rv">
-<div class="si"><span class="si-i">📅</span><div class="si-n" data-count="11">0</div><div class="si-l">वर्षों का अनुभव</div><div class="si-s">SINCE 2014</div></div>
-<div class="si"><span class="si-i">⚖️</span><div class="si-n" data-count="500">0</div><div class="si-l">केस सफलतापूर्वक सम्पन्न</div></div>
-<div class="si"><span class="si-i">🏛️</span><div class="si-n" data-count="5">0</div><div class="si-l">शहरों में उपस्थिति</div></div>
-<div class="si"><span class="si-i">🤝</span><div class="si-n" data-count="98">0</div><div class="si-l">मुवक्किल संतुष्टि %</div></div>
-</div>
-</section>
+<div><span class="si-i">📅</span><div class="si-n" data-count="11">0</div><div class="si-l">वर्षों का अनुभव</div><div class="si-s">SINCE 2014</div></div>
+<div><span class="si-i">⚖️</span><div class="si-n" data-count="500">0</div><div class="si-l">सफल मामले</div></div>
+<div><span class="si-i">🏛️</span><div class="si-n" data-count="5">0</div><div class="si-l">शहरों में उपस्थिति</div></div>
+<div><span class="si-i">🤝</span><div class="si-n" data-count="98">0</div><div class="si-l">मुवक्किल संतुष्टि %</div></div>
+</div></section>
 
 <!-- COURTS -->
-<section id="courts" class="sec" style="background:var(--bg1)"><canvas class="sec-canvas" data-anim="constellation"></canvas>
-<div class="sh rv"><div class="st">JURISDICTION</div><h2 class="stl">जहाँ हम <em>आपके लिए लड़ते हैं</em></h2><div class="sl"></div></div>
+<section id="courts" class="sec" style="background:var(--b1)"><canvas id="courtsCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">JURISDICTION</div><h2 class="st-title">जहाँ हम <em>लड़ते हैं</em></h2><div class="st-line"></div></div>
 <div class="cg">
-<div class="cc rv"><span class="cc-i">🏛️</span><div class="cc-type">CIVIL</div><h3 class="cc-name">सिविल न्यायालय</h3><ul class="cc-ul"><li>CJ (J.D.) Jansath</li><li>CJ (S.D.) Muzaffarnagar</li><li>भूमि अधिग्रहण</li><li>अनुबंध विवाद</li></ul><span class="cc-badge">ACTIVE</span></div>
-<div class="cc rv"><span class="cc-i">⚔️</span><div class="cc-type">CRIMINAL</div><h3 class="cc-name">आपराधिक न्यायालय</h3><ul class="cc-ul"><li>CJM First Class, Jansath</li><li>Sessions Court, MZN</li><li>हत्या, दहेज, NDPS</li><li>FIR से Acquittal</li></ul><span class="cc-badge">HEAD COURT</span></div>
-<div class="cc rv"><span class="cc-i">📜</span><div class="cc-type">REVENUE</div><h3 class="cc-name">राजस्व न्यायालय</h3><ul class="cc-ul"><li>S.D.M. Jansath</li><li>Nayab Tehsildars</li><li>खतौनी, नामांतरण</li><li>भू-राजस्व विवाद</li></ul><span class="cc-badge">ACTIVE</span></div>
-<div class="cc rv"><span class="cc-i">🏢</span><div class="cc-type">APPELLATE</div><h3 class="cc-name">अपीलीय न्यायालय</h3><ul class="cc-ul"><li>इलाहाबाद उच्च न्यायालय</li><li>उत्तराखंड उच्च न्यायालय</li><li>पुनरीक्षण याचिका</li></ul><span class="cc-badge">ACTIVE</span></div>
-<div class="cc rv"><span class="cc-i">🤝</span><div class="cc-type">FAMILY</div><h3 class="cc-name">पारिवारिक विधि</h3><ul class="cc-ul"><li>तलाक एवं अलगाव</li><li>बच्चों की अभिरक्षा</li><li>भरण-पोषण</li></ul><span class="cc-badge">ACTIVE</span></div>
-<div class="cc rv"><span class="cc-i">🔐</span><div class="cc-type">BAIL</div><h3 class="cc-name">जमानत</h3><ul class="cc-ul"><li>Anticipatory Bail</li><li>Regular Bail</li><li>24x7 आपातकालीन</li></ul><span class="cc-badge">24×7</span></div>
-</div>
-</section>
+<div class="cc rv"><span class="cc-i">🏛️</span><div class="cc-type">CIVIL</div><h3 class="cc-name">सिविल न्यायालय</h3><ul class="cc-ul"><li>CJ Jansath</li><li>CJ MZN</li><li>भूमि अधिग्रहण</li></ul></div>
+<div class="cc rv"><span class="cc-i">⚔️</span><div class="cc-type">CRIMINAL</div><h3 class="cc-name">आपराधिक</h3><ul class="cc-ul"><li>CJM Jansath</li><li>Sessions Court</li><li>FIR से Acquittal</li></ul></div>
+<div class="cc rv"><span class="cc-i">📜</span><div class="cc-type">REVENUE</div><h3 class="cc-name">राजस्व</h3><ul class="cc-ul"><li>SDM Jansath</li><li>नामांतरण, चकबंदी</li></ul></div>
+<div class="cc rv"><span class="cc-i">🏢</span><div class="cc-type">APPELLATE</div><h3 class="cc-name">अपीलीय</h3><ul class="cc-ul"><li>इलाहाबाद HC</li><li>उत्तराखंड HC</li></ul></div>
+<div class="cc rv"><span class="cc-i">🤝</span><div class="cc-type">FAMILY</div><h3 class="cc-name">पारिवारिक</h3><ul class="cc-ul"><li>तलाक, अभिरक्षा</li><li>भरण-पोषण</li></ul></div>
+<div class="cc rv"><span class="cc-i">🔐</span><div class="cc-type">BAIL</div><h3 class="cc-name">जमानत</h3><ul class="cc-ul"><li>Anticipatory/Regular</li><li>24x7 सेवा</li></ul></div>
+</div></section>
 
 <!-- WHY -->
-<section id="why" class="sec" style="background:var(--bg3)"><canvas class="sec-canvas" data-anim="aurora"></canvas>
-<div class="sh rv"><div class="st">WHY CHOOSE US</div><h2 class="stl">छह कारण जो हमें <em>अलग बनाते हैं</em></h2><div class="sl"></div></div>
+<section id="why" class="sec" style="background:var(--b3)"><canvas id="whyCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">WHY US</div><h2 class="st-title">छह कारण <em>जो अलग बनाते हैं</em></h2><div class="st-line"></div></div>
 <div class="wg">
-<div class="wc rv"><span class="wc-i">📖</span><h3 class="wc-t">गहरी कानूनी समझ</h3><p class="wc-d">न्यायाधीश किस तर्क को महत्व देते हैं - यह हम जानते हैं।</p></div>
-<div class="wc rv"><span class="wc-i">⚡</span><h3 class="wc-t">त्वरित कार्रवाई</h3><p class="wc-d">Anticipatory Bail हो या आपात स्थिति - तत्काल उपलब्ध।</p></div>
-<div class="wc rv"><span class="wc-i">🛡️</span><h3 class="wc-t">पूर्ण गोपनीयता</h3><p class="wc-d">वकील-मुवक्किल की गोपनीयता अनुलंघनीय दायित्व है।</p></div>
-<div class="wc rv"><span class="wc-i">🗺️</span><h3 class="wc-t">बहु-क्षेत्र अनुभव</h3><p class="wc-d">पाँच शहरों में स्थानीय न्यायिक परम्पराओं की गहरी समझ।</p></div>
-<div class="wc rv"><span class="wc-i">💬</span><h3 class="wc-t">स्पष्ट संवाद</h3><p class="wc-d">हर बात सरल हिंदी में - आप सदैव जानते हैं केस की दिशा।</p></div>
+<div class="wc rv"><span class="wc-i">📖</span><h3 class="wc-t">गहरी कानूनी समझ</h3><p class="wc-d">न्यायाधीश किस तर्क को महत्व देते हैं, यह हम जानते हैं।</p></div>
+<div class="wc rv"><span class="wc-i">⚡</span><h3 class="wc-t">त्वरित कार्रवाई</h3><p class="wc-d">Anticipatory Bail हो या आपात - तत्काल उपलब्ध।</p></div>
+<div class="wc rv"><span class="wc-i">🛡️</span><h3 class="wc-t">पूर्ण गोपनीयता</h3><p class="wc-d">वकील-मुवक्किल गोपनीयता अनुलंघनीय दायित्व।</p></div>
+<div class="wc rv"><span class="wc-i">🗺️</span><h3 class="wc-t">बहु-क्षेत्र अनुभव</h3><p class="wc-d">पाँच शहरों में स्थानीय न्यायिक परम्पराओं की समझ।</p></div>
+<div class="wc rv"><span class="wc-i">💬</span><h3 class="wc-t">स्पष्ट संवाद</h3><p class="wc-d">सरल हिंदी - आप जानते हैं केस किधर जा रहा है।</p></div>
 <div class="wc rv"><span class="wc-i">❤️</span><h3 class="wc-t">मानवीय दृष्टिकोण</h3><p class="wc-d">संवेदनशीलता और सम्मान कार्य का अभिन्न अंग।</p></div>
-</div>
-</section>
+</div></section>
 
 <!-- FEATURES -->
-<section id="features" class="sec" style="background:var(--bg1)"><canvas class="sec-canvas" data-anim="firefly"></canvas>
-<div class="sh rv"><div class="st">PREMIUM FEATURES</div><h2 class="stl">बीस विशेषताएँ <em>जो विशेष बनाती हैं</em></h2><div class="sl"></div></div>
+<section id="features" class="sec" style="background:var(--b1)"><canvas id="featCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">FEATURES</div><h2 class="st-title">बीस <em>प्रीमियम विशेषताएँ</em></h2><div class="st-line"></div></div>
 <div class="fg">
-<div class="fi rv"><span class="fi-i">⚡</span><div class="fi-t">तत्काल FIR परामर्श</div><p class="fi-d">FIR दर्ज होते ही रणनीति।</p></div>
-<div class="fi rv"><span class="fi-i">🔍</span><div class="fi-t">डिजिटल साक्ष्य</div><p class="fi-d">तकनीकी-कानूनी दृष्टिकोण।</p></div>
-<div class="fi rv"><span class="fi-i">📱</span><div class="fi-t">WhatsApp अपडेट</div><p class="fi-d">हर सुनवाई की जानकारी।</p></div>
-<div class="fi rv"><span class="fi-i">🌙</span><div class="fi-t">रात्रि आपात सेवा</div><p class="fi-d">24 घंटे साथ।</p></div>
-<div class="fi rv"><span class="fi-i">📋</span><div class="fi-t">दस्तावेज तैयारी</div><p class="fi-d">सटीक विधिक दस्तावेज।</p></div>
-<div class="fi rv"><span class="fi-i">🏛️</span><div class="fi-t">बहु-न्यायालय</div><p class="fi-d">पाँच क्षेत्रों में सक्रिय।</p></div>
-<div class="fi rv"><span class="fi-i">🎯</span><div class="fi-t">लक्षित बचाव</div><p class="fi-d">अनूठी रणनीति।</p></div>
-<div class="fi rv"><span class="fi-i">📚</span><div class="fi-t">निरंतर अध्ययन</div><p class="fi-d">नवीनतम निर्णय।</p></div>
-<div class="fi rv"><span class="fi-i">🤝</span><div class="fi-t">व्यक्तिगत देखभाल</div><p class="fi-d">हर मुवक्किल को ध्यान।</p></div>
-<div class="fi rv"><span class="fi-i">💰</span><div class="fi-t">उचित शुल्क</div><p class="fi-d">पारदर्शी संरचना।</p></div>
-<div class="fi rv"><span class="fi-i">🔐</span><div class="fi-t">गोपनीयता गारंटी</div><p class="fi-d">100% वचन।</p></div>
-<div class="fi rv"><span class="fi-i">🌐</span><div class="fi-t">ऑनलाइन परामर्श</div><p class="fi-d">वीडियो कॉल।</p></div>
-<div class="fi rv"><span class="fi-i">⚖️</span><div class="fi-t">जमानत विशेषज्ञता</div><p class="fi-d">कठिन मामलों में।</p></div>
-<div class="fi rv"><span class="fi-i">📊</span><div class="fi-t">केस प्रगति</div><p class="fi-d">नियमित अपडेट।</p></div>
-<div class="fi rv"><span class="fi-i">🏆</span><div class="fi-t">उच्च न्यायालय</div><p class="fi-d">HC विशेषज्ञता।</p></div>
-<div class="fi rv"><span class="fi-i">👨‍👩‍👧</span><div class="fi-t">परिवार केंद्रित</div><p class="fi-d">भावनात्मक सहयोग।</p></div>
-<div class="fi rv"><span class="fi-i">🔬</span><div class="fi-t">फॉरेंसिक</div><p class="fi-d">FSL विश्लेषण।</p></div>
-<div class="fi rv"><span class="fi-i">🎓</span><div class="fi-t">विधिक जागरूकता</div><p class="fi-d">अधिकारों से अवगत।</p></div>
-<div class="fi rv"><span class="fi-i">🚀</span><div class="fi-t">शीघ्र न्याय</div><p class="fi-d">देरी से बचाव।</p></div>
-<div class="fi rv"><span class="fi-i">💎</span><div class="fi-t">प्रीमियम सेवा</div><p class="fi-d">विश्व स्तरीय।</p></div>
-</div>
-</section>
+<div class="fi rv"><span class="fi-i">⚡</span><div class="fi-t">FIR परामर्श</div><p class="fi-d">तत्काल रणनीति</p></div>
+<div class="fi rv"><span class="fi-i">🔍</span><div class="fi-t">डिजिटल साक्ष्य</div><p class="fi-d">तकनीकी विश्लेषण</p></div>
+<div class="fi rv"><span class="fi-i">📱</span><div class="fi-t">WhatsApp अपडेट</div><p class="fi-d">हर सुनवाई</p></div>
+<div class="fi rv"><span class="fi-i">🌙</span><div class="fi-t">रात्रि सेवा</div><p class="fi-d">24x7 साथ</p></div>
+<div class="fi rv"><span class="fi-i">📋</span><div class="fi-t">दस्तावेज</div><p class="fi-d">सटीक तैयारी</p></div>
+<div class="fi rv"><span class="fi-i">🏛️</span><div class="fi-t">बहु-न्यायालय</div><p class="fi-d">5 क्षेत्र</p></div>
+<div class="fi rv"><span class="fi-i">🎯</span><div class="fi-t">लक्षित बचाव</div><p class="fi-d">अनूठी रणनीति</p></div>
+<div class="fi rv"><span class="fi-i">📚</span><div class="fi-t">निरंतर अध्ययन</div><p class="fi-d">नवीन निर्णय</p></div>
+<div class="fi rv"><span class="fi-i">🤝</span><div class="fi-t">व्यक्तिगत</div><p class="fi-d">हर मुवक्किल</p></div>
+<div class="fi rv"><span class="fi-i">💰</span><div class="fi-t">उचित शुल्क</div><p class="fi-d">पारदर्शी</p></div>
+<div class="fi rv"><span class="fi-i">🔐</span><div class="fi-t">गोपनीयता</div><p class="fi-d">100% वचन</p></div>
+<div class="fi rv"><span class="fi-i">🌐</span><div class="fi-t">ऑनलाइन</div><p class="fi-d">वीडियो कॉल</p></div>
+<div class="fi rv"><span class="fi-i">⚖️</span><div class="fi-t">जमानत</div><p class="fi-d">कठिन मामले</p></div>
+<div class="fi rv"><span class="fi-i">📊</span><div class="fi-t">केस प्रगति</div><p class="fi-d">नियमित रिपोर्ट</p></div>
+<div class="fi rv"><span class="fi-i">🏆</span><div class="fi-t">HC विशेषज्ञ</div><p class="fi-d">इलाहाबाद, उत्तराखंड</p></div>
+<div class="fi rv"><span class="fi-i">👨‍👩‍👧</span><div class="fi-t">परिवार केंद्रित</div><p class="fi-d">भावनात्मक सहयोग</p></div>
+<div class="fi rv"><span class="fi-i">🔬</span><div class="fi-t">फॉरेंसिक</div><p class="fi-d">FSL विश्लेषण</p></div>
+<div class="fi rv"><span class="fi-i">🎓</span><div class="fi-t">विधिक जागरूकता</div><p class="fi-d">अधिकार ज्ञान</p></div>
+<div class="fi rv"><span class="fi-i">🚀</span><div class="fi-t">शीघ्र न्याय</div><p class="fi-d">देरी रोकथाम</p></div>
+<div class="fi rv"><span class="fi-i">💎</span><div class="fi-t">प्रीमियम</div><p class="fi-d">विश्व स्तरीय</p></div>
+</div></section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials" class="sec" style="background:var(--bg2)"><canvas class="sec-canvas" data-anim="rain"></canvas>
-<div class="sh rv"><div class="st">TESTIMONIALS</div><h2 class="stl">उन्होंने भरोसा किया, <em>हमने न्याय दिलाया</em></h2><div class="sl"></div></div>
+<section class="sec" style="background:var(--b2)"><canvas id="testiCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">TESTIMONIALS</div><h2 class="st-title">भरोसा किया, <em>न्याय दिलाया</em></h2><div class="st-line"></div></div>
 <div class="tst-o"><div class="tst-tr">
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"IPC 498A मामले में सभी आरोप हट गए।"</p><div class="tst-a"><div class="tst-av">R</div><div><div class="tst-n">रमेश चंद्र शर्मा</div><div class="tst-cs">IPC 498A - मुजफ्फरनगर</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"NDPS में Section 50 की खामी निकाली।"</p><div class="tst-a"><div class="tst-av">S</div><div><div class="tst-n">सुनीता देवी</div><div class="tst-cs">NDPS - जनसठ</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"भूमि विवाद पाँच साल से चला, अब सुलझा।"</p><div class="tst-a"><div class="tst-av">M</div><div><div class="tst-n">मोहम्मद इकबाल</div><div class="tst-cs">भूमि विवाद</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"साइबर धोखाधड़ी में आरोपी पकड़ा गया।"</p><div class="tst-a"><div class="tst-av">P</div><div><div class="tst-n">प्रिया वर्मा</div><div class="tst-cs">देहरादून</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"रात को फोन किया, अगले दिन Bail तैयार।"</p><div class="tst-a"><div class="tst-av">V</div><div><div class="tst-n">विनोद कुमार</div><div class="tst-cs">IPC 302 - हरिद्वार</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"नामांतरण महीनों में सुलझ गया।"</p><div class="tst-a"><div class="tst-av">A</div><div><div class="tst-n">अनिल सिंह</div><div class="tst-cs">SDM Court</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"IPC 498A में सभी आरोप हट गए।"</p><div class="tst-a"><div class="tst-av">R</div><div><div class="tst-n">रमेश शर्मा</div><div class="tst-cs">मुजफ्फरनगर</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"NDPS में जमानत मिल गई।"</p><div class="tst-a"><div class="tst-av">S</div><div><div class="tst-n">सुनीता देवी</div><div class="tst-cs">जनसठ</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"भूमि विवाद में तथ्य निकाले।"</p><div class="tst-a"><div class="tst-av">M</div><div><div class="tst-n">मोहम्मद इकबाल</div><div class="tst-cs">राजस्व न्यायालय</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"IT Act में कार्रवाई करवाई।"</p><div class="tst-a"><div class="tst-av">P</div><div><div class="tst-n">प्रिया वर्मा</div><div class="tst-cs">देहरादून</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"Anticipatory Bail तैयार हो गया।"</p><div class="tst-a"><div class="tst-av">V</div><div><div class="tst-n">विनोद कुमार</div><div class="tst-cs">हरिद्वार</div></div></div></div>
-<div class="tst-c"><div class="tst-qm">"</div><div class="tst-s">★★★★★</div><p class="tst-m">"नामांतरण सुलझ गया।"</p><div class="tst-a"><div class="tst-av">A</div><div><div class="tst-n">अनिल सिंह</div><div class="tst-cs">SDM Court</div></div></div></div>
-</div></div>
-</section>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"IPC 498A मामले में सभी आरोप हट गए।"</p><div class="tst-a"><div class="tst-av">R</div><div><div class="tst-n">रमेश शर्मा</div><div class="tst-cs">IPC 498A</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"NDPS में Section 50 खामी निकाली।"</p><div class="tst-a"><div class="tst-av">S</div><div><div class="tst-n">सुनीता देवी</div><div class="tst-cs">NDPS</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"भूमि विवाद पाँच साल में सुलझा।"</p><div class="tst-a"><div class="tst-av">M</div><div><div class="tst-n">मोहम्मद इकबाल</div><div class="tst-cs">भूमि विवाद</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"साइबर में आरोपी पकड़ा।"</p><div class="tst-a"><div class="tst-av">P</div><div><div class="tst-n">प्रिया वर्मा</div><div class="tst-cs">साइबर</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"रात फोन, अगले दिन Bail।"</p><div class="tst-a"><div class="tst-av">V</div><div><div class="tst-n">विनोद कुमार</div><div class="tst-cs">IPC 302</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"नामांतरण महीनों में सुलझा।"</p><div class="tst-a"><div class="tst-av">A</div><div><div class="tst-n">अनिल सिंह</div><div class="tst-cs">SDM Court</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"498A में आरोप हटे।"</p><div class="tst-a"><div class="tst-av">R</div><div><div class="tst-n">रमेश शर्मा</div><div class="tst-cs">मुजफ्फरनगर</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"NDPS जमानत मिली।"</p><div class="tst-a"><div class="tst-av">S</div><div><div class="tst-n">सुनीता देवी</div><div class="tst-cs">जनसठ</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"भूमि विवाद तथ्य निकाले।"</p><div class="tst-a"><div class="tst-av">M</div><div><div class="tst-n">मोहम्मद इकबाल</div><div class="tst-cs">राजस्व</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"IT Act कार्रवाई।"</p><div class="tst-a"><div class="tst-av">P</div><div><div class="tst-n">प्रिया वर्मा</div><div class="tst-cs">देहरादून</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"Bail तैयार हो गया।"</p><div class="tst-a"><div class="tst-av">V</div><div><div class="tst-n">विनोद कुमार</div><div class="tst-cs">हरिद्वार</div></div></div></div>
+<div class="tst-c"><div class="tst-s">★★★★★</div><p class="tst-m">"नामांतरण सुलझ गया।"</p><div class="tst-a"><div class="tst-av">A</div><div><div class="tst-n">अनिल सिंह</div><div class="tst-cs">SDM</div></div></div></div>
+</div></div></section>
 
 <!-- LOCATIONS -->
-<section id="locations" class="sec" style="background:var(--bg1)"><canvas class="sec-canvas" data-anim="grid3d"></canvas>
-<div class="sh rv"><div class="st">OUR PRESENCE</div><h2 class="stl">पाँच शहर, <em>एक प्रतिबद्धता</em></h2><div class="sl"></div></div>
+<section class="sec" style="background:var(--b1)"><canvas id="locCanvas"></canvas>
+<div class="sh rv"><div class="st-tag">PRESENCE</div><h2 class="st-title">पाँच शहर, <em>एक प्रतिबद्धता</em></h2><div class="st-line"></div></div>
 <div class="lg">
-<div class="lc rv"><span class="lc-i">🏙️</span><div class="lc-n">NEW DELHI</div><div class="lc-st">राजधानी</div><div class="lc-ct">उच्च न्यायालय</div><span class="lc-status">ACTIVE</span></div>
-<div class="lc lhq rv"><span class="lc-i">🌾</span><div class="lc-n">JANSATH</div><div class="lc-st">मुजफ्फरनगर</div><div class="lc-ct">CJM · SDM</div><span class="lc-status lc-main">मुख्यालय</span></div>
-<div class="lc rv"><span class="lc-i">⚖️</span><div class="lc-n">MZN</div><div class="lc-st">उत्तर प्रदेश</div><div class="lc-ct">Sessions Court</div><span class="lc-status">ACTIVE</span></div>
-<div class="lc rv"><span class="lc-i">🕉️</span><div class="lc-n">HARIDWAR</div><div class="lc-st">उत्तराखंड</div><div class="lc-ct">जिला न्यायालय</div><span class="lc-status">ACTIVE</span></div>
-<div class="lc rv"><span class="lc-i">🏔️</span><div class="lc-n">DEHRADUN</div><div class="lc-st">उत्तराखंड</div><div class="lc-ct">उत्तराखंड HC</div><span class="lc-status">ACTIVE</span></div>
-</div>
-</section>
+<div class="lc rv"><span class="lc-i">🏙️</span><div class="lc-n">DELHI</div><div class="lc-st">राजधानी</div><div class="lc-ct">उच्च न्यायालय</div></div>
+<div class="lc lhq rv"><span class="lc-i">🌾</span><div class="lc-n">JANSATH</div><div class="lc-st">मुख्यालय</div><div class="lc-ct">CJM · SDM</div></div>
+<div class="lc rv"><span class="lc-i">⚖️</span><div class="lc-n">MZN</div><div class="lc-st">उ.प्र.</div><div class="lc-ct">Sessions Court</div></div>
+<div class="lc rv"><span class="lc-i">🕉️</span><div class="lc-n">HARIDWAR</div><div class="lc-st">उत्तराखंड</div><div class="lc-ct">जिला न्यायालय</div></div>
+<div class="lc rv"><span class="lc-i">🏔️</span><div class="lc-n">DEHRADUN</div><div class="lc-st">उत्तराखंड</div><div class="lc-ct">उत्तराखंड HC</div></div>
+</div></section>
 
 <!-- CONTACT -->
-<section id="contact" class="sec" style="background:var(--bg4)"><canvas class="sec-canvas" data-anim="vortex"></canvas>
+<section id="contact" class="sec" style="background:var(--b4)"><canvas id="contactCanvas"></canvas>
 <div class="co-g">
 <div class="rvl">
-<div class="st" style="justify-content:flex-start">CONTACT US</div>
-<h2 class="co-ttl">न्याय का समय<br><strong>अभी है।</strong></h2>
-<p class="co-urg">हर देरी आपके विपक्ष को मजबूत बनाती है। पहला परामर्श सदैव निःशुल्क।</p>
-<a href="tel:+917466806524" class="cm"><div class="cm-ic">📞</div><div><div class="cm-lb">PHONE</div><div class="cm-vl">+91 74668 06524</div><div class="cm-sb">24x7 उपलब्ध</div></div></a>
-<a href="mailto:legaleaglemzn@gmail.com" class="cm"><div class="cm-ic">✉️</div><div><div class="cm-lb">EMAIL</div><div class="cm-vl">legaleaglemzn@gmail.com</div><div class="cm-sb">24 घंटे में उत्तर</div></div></a>
-<div class="cm"><div class="cm-ic">📍</div><div><div class="cm-lb">OFFICE</div><div class="cm-vl" style="font-size:14px">जनसठ, मुजफ्फरनगर</div></div></div>
-<div class="cm"><div class="cm-ic">🕐</div><div><div class="cm-lb">HOURS</div><div class="cm-vl" style="font-size:14px">सोम-शनि: 9AM-7PM</div></div></div>
+<div class="st-tag" style="justify-content:flex-start">CONTACT</div>
+<h2 class="co-ttl">न्याय का समय <strong>अभी है।</strong></h2>
+<p style="font-size:13px;color:var(--t2);line-height:2;margin-bottom:25px">हर देरी विपक्ष को मजबूत बनाती है। पहला परामर्श सदैव निःशुल्क।</p>
+<a href="tel:+917466806524" class="cm"><div class="cm-ic">📞</div><div><div class="cm-lb">PHONE</div><div class="cm-vl">+91 74668 06524</div><div class="cm-sb">24x7</div></div></a>
+<a href="mailto:legaleaglemzn@gmail.com" class="cm"><div class="cm-ic">✉️</div><div><div class="cm-lb">EMAIL</div><div class="cm-vl">legaleaglemzn@gmail.com</div></div></a>
+<div class="cm"><div class="cm-ic">📍</div><div><div class="cm-lb">OFFICE</div><div class="cm-vl" style="font-size:13px">जनसठ, मुजफ्फरनगर</div></div></div>
 </div>
 <div class="cf rvr">
-<div class="cf-t">⚖ निःशुल्क परामर्श</div><div class="cf-sub">FIRST CONSULTATION · ALWAYS FREE</div>
+<div class="cf-t">⚖ निःशुल्क परामर्श</div><div class="cf-sub">ALWAYS FREE · CONFIDENTIAL</div>
 <form onsubmit="fS(event)">
-<div class="fr"><div class="fgrp"><label class="flb">नाम *</label><input class="finp" placeholder="पूरा नाम" required></div><div class="fgrp"><label class="flb">मोबाइल *</label><input class="finp" placeholder="+91" required></div></div>
-<div class="fgrp"><label class="flb">ईमेल</label><input class="finp" type="email" placeholder="email@example.com"></div>
-<div class="fr"><div class="fgrp"><label class="flb">प्रकार *</label><select class="fsel" required><option value="">चुनें</option><option>दहेज/498A</option><option>हत्या/302</option><option>NDPS</option><option>साइबर</option><option>भूमि</option><option>जमानत</option><option>सिविल</option><option>राजस्व</option><option>पारिवारिक</option><option>अन्य</option></select></div><div class="fgrp"><label class="flb">शहर</label><select class="fsel"><option value="">चुनें</option><option>Delhi</option><option>Jansath</option><option>MZN</option><option>Haridwar</option><option>Dehradun</option></select></div></div>
-<div class="fgrp"><label class="flb">विवरण</label><textarea class="ftxt" placeholder="गोपनीय..."></textarea></div>
-<button class="fbtn">परामर्श अनुरोध भेजें →</button>
-<div class="fprv">🔒 पूर्णतः गोपनीय</div>
-</form>
-</div>
-</div>
-</section>
+<div class="fr"><div><label class="flb">नाम *</label><input class="finp" required placeholder="पूरा नाम"></div><div><label class="flb">मोबाइल *</label><input class="finp" required placeholder="+91"></div></div>
+<div style="margin-bottom:12px"><label class="flb">ईमेल</label><input class="finp" type="email" placeholder="email@example.com"></div>
+<div class="fr"><div><label class="flb">प्रकार *</label><select class="fsel" required><option value="">चुनें</option><option>498A/दहेज</option><option>302/हत्या</option><option>NDPS</option><option>साइबर</option><option>भूमि</option><option>जमानत</option><option>सिविल</option><option>राजस्व</option><option>पारिवारिक</option><option>अन्य</option></select></div><div><label class="flb">शहर</label><select class="fsel"><option value="">चुनें</option><option>Delhi</option><option>Jansath</option><option>MZN</option><option>Haridwar</option><option>Dehradun</option></select></div></div>
+<div style="margin-bottom:12px"><label class="flb">विवरण</label><textarea class="ftxt" placeholder="गोपनीय..."></textarea></div>
+<button class="fbtn">परामर्श भेजें →</button>
+<div style="font-size:10px;color:var(--t3);text-align:center;margin-top:8px">🔒 पूर्णतः गोपनीय</div>
+</form></div></div></section>
 
-<!-- FOOTER -->
 <footer>
 <div class="f-grid">
-<div><div class="f-lw"><span class="f-li">⚖</span><div><div class="f-ln">RAJVARDHAN</div><div style="font-family:var(--fd);font-size:9px;color:var(--gold-l);letter-spacing:3px">& ASSOCIATES</div></div></div><div class="f-tag">Vincit Omnia Veritas</div><p class="f-desc">2014 से विधिक सेवा में समर्पित।</p><div class="f-est">EST. 2014</div></div>
-<div><div class="f-ct">विशेषज्ञता</div><ul class="f-ul"><li><a href="#">दहेज प्रकरण</a></li><li><a href="#">आपराधिक बचाव</a></li><li><a href="#">NDPS रक्षा</a></li><li><a href="#">साइबर विधि</a></li><li><a href="#">सिविल वाद</a></li><li><a href="#">राजस्व विधि</a></li></ul></div>
-<div><div class="f-ct">न्यायालय</div><ul class="f-ul"><li><a href="#">जिला न्यायालय</a></li><li><a href="#">सत्र न्यायालय</a></li><li><a href="#">CJM Jansath</a></li><li><a href="#">SDM Court</a></li><li><a href="#">इलाहाबाद HC</a></li><li><a href="#">उत्तराखंड HC</a></li></ul></div>
-<div><div class="f-ct">सम्पर्क</div>
-<div class="f-ci"><span class="f-cic">📞</span><div class="f-cit"><strong>PHONE</strong>+91 74668 06524</div></div>
-<div class="f-ci"><span class="f-cic">✉️</span><div class="f-cit"><strong>EMAIL</strong>legaleaglemzn@gmail.com</div></div>
-<div class="f-ci"><span class="f-cic">📍</span><div class="f-cit"><strong>OFFICE</strong>जनसठ, मुजफ्फरनगर</div></div>
-</div>
+<div><div class="f-ln">RAJVARDHAN & ASSOCIATES</div><p class="f-desc">2014 से विधिक सेवा में समर्पित। Vincit Omnia Veritas</p></div>
+<div><div class="f-ct">विशेषज्ञता</div><ul class="f-ul"><li><a href="#">दहेज प्रकरण</a></li><li><a href="#">आपराधिक बचाव</a></li><li><a href="#">NDPS</a></li><li><a href="#">साइबर</a></li><li><a href="#">सिविल</a></li><li><a href="#">राजस्व</a></li></ul></div>
+<div><div class="f-ct">न्यायालय</div><ul class="f-ul"><li><a href="#">जिला न्यायालय</a></li><li><a href="#">सत्र न्यायालय</a></li><li><a href="#">CJM Jansath</a></li><li><a href="#">इलाहाबाद HC</a></li><li><a href="#">उत्तराखंड HC</a></li></ul></div>
+<div><div class="f-ct">सम्पर्क</div><div style="font-size:11px;color:var(--t2);line-height:2">📞 +91 74668 06524<br>✉️ legaleaglemzn@gmail.com<br>📍 जनसठ, मुजफ्फरनगर<br>🕐 सोम-शनि 9AM-7PM</div></div>
 </div>
 <div class="f-bot"><div class="f-copy">© 2014-2026 राजवर्धन एंड एसोसिएट्स</div><div class="f-motto">सत्यमेव जयते · Vincit Omnia Veritas</div></div>
 </footer>
 
 <script>
-// ====== PRELOADER ======
-let lp=0;const li=setInterval(()=>{lp+=Math.random()*6+3;if(lp>=100){lp=100;clearInterval(li);setTimeout(()=>document.getElementById('preloader').classList.add('done'),600)}document.getElementById('plB').style.width=lp+'%';document.getElementById('plP').textContent=Math.floor(lp)+'%'},70);
+// ===== PRELOADER WITH 3D SCALES =====
+const plC=document.getElementById('preloaderCanvas'),plX=plC.getContext('2d');
+plC.width=innerWidth;plC.height=innerHeight;
+let plProgress=0;
+const plI=setInterval(()=>{plProgress+=Math.random()*5+3;if(plProgress>=100){plProgress=100;clearInterval(plI);setTimeout(()=>document.getElementById('preloader').classList.add('done'),800)}
+document.getElementById('plB').style.width=plProgress+'%';document.getElementById('plP').textContent=Math.floor(plProgress)+'%'},80);
 
-// ====== CURSOR ======
-const cur=document.getElementById('cur'),cD=document.getElementById('curD');let mx=0,my=0,dx=0,dy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-11+'px';cur.style.top=my-11+'px'});
-(function aD(){dx+=(mx-dx)*0.12;dy+=(my-dy)*0.12;cD.style.left=dx-2+'px';cD.style.top=dy-2+'px';requestAnimationFrame(aD)})();
+// Premium animated scales for preloader
+(function plDraw(){plX.clearRect(0,0,plC.width,plC.height);const t=Date.now()*0.002;const cx=plC.width/2,cy=plC.height/2-40;
+// Pillar
+plX.fillStyle='rgba(200,169,81,0.15)';plX.fillRect(cx-3,cy,6,80);
+// Base
+plX.beginPath();plX.ellipse(cx,cy+80,40,8,0,0,Math.PI*2);plX.fillStyle='rgba(200,169,81,0.12)';plX.fill();
+// Beam (tilting with progress)
+const tilt=Math.sin(t)*0.15*(1-plProgress/100);
+plX.save();plX.translate(cx,cy);plX.rotate(tilt);
+plX.fillStyle='rgba(200,169,81,0.2)';plX.fillRect(-80,-2,160,4);
+// Left pan
+const ly=-2+Math.sin(tilt)*30;plX.beginPath();plX.moveTo(-70,ly);plX.lineTo(-80,ly);plX.lineTo(-60,ly+35);plX.lineTo(-40,ly+35);plX.lineTo(-20,ly);plX.lineTo(-30,ly);plX.closePath();
+plX.fillStyle='rgba(200,169,81,0.1)';plX.fill();plX.strokeStyle='rgba(200,169,81,0.25)';plX.lineWidth=1;plX.stroke();
+// Chains left
+plX.beginPath();plX.moveTo(-70,0);plX.lineTo(-60,ly);plX.moveTo(-30,0);plX.lineTo(-40,ly);plX.strokeStyle='rgba(200,169,81,0.2)';plX.stroke();
+// Right pan
+const ry=-2-Math.sin(tilt)*30;plX.beginPath();plX.moveTo(20,ry);plX.lineTo(30,ry);plX.lineTo(40,ry+35);plX.lineTo(60,ry+35);plX.lineTo(80,ry);plX.lineTo(70,ry);plX.closePath();
+plX.fillStyle='rgba(200,169,81,0.1)';plX.fill();plX.strokeStyle='rgba(200,169,81,0.25)';plX.stroke();
+// Chains right
+plX.beginPath();plX.moveTo(30,0);plX.lineTo(30,ry);plX.moveTo(70,0);plX.lineTo(60,ry);plX.strokeStyle='rgba(200,169,81,0.2)';plX.stroke();
+// Crown/fulcrum
+plX.beginPath();plX.arc(0,-5,8,0,Math.PI*2);plX.fillStyle='rgba(200,169,81,0.25)';plX.fill();
+plX.restore();
+// Ambient glow
+const glow=plX.createRadialGradient(cx,cy,0,cx,cy,150);glow.addColorStop(0,'rgba(200,169,81,0.06)');glow.addColorStop(1,'transparent');plX.fillStyle=glow;plX.fillRect(0,0,plC.width,plC.height);
+if(!document.getElementById('preloader').classList.contains('done'))requestAnimationFrame(plDraw)})();
 
-// ====== SCROLL ======
-addEventListener('scroll',()=>{const s=scrollY,h=document.documentElement.scrollHeight-innerHeight;
-document.getElementById('spB').style.width=(s/h*100)+'%';
-s>80?document.getElementById('nav').classList.add('sc'):document.getElementById('nav').classList.remove('sc');
-s>500?document.getElementById('bt').classList.add('show'):document.getElementById('bt').classList.remove('show')});
-
-// ====== GLOBAL PARTICLES ======
-const gP=document.getElementById('gParts');
-for(let i=0;i<35;i++){const p=document.createElement('div');p.className='gp';p.style.left=Math.random()*100+'vw';
-p.style.width=p.style.height=(Math.random()*2.5+0.5)+'px';p.style.background=Math.random()>0.5?'rgba(200,169,81,0.4)':'rgba(42,74,62,0.5)';
-p.style.animationDuration=(Math.random()*18+10)+'s';p.style.animationDelay=(Math.random()*10)+'s';gP.appendChild(p)}
-
-// ====== HERO CANVAS - 3D Constellation with Depth ======
+// ===== HERO CANVAS - 3D Constellation =====
 const hC=document.getElementById('heroCanvas'),hX=hC.getContext('2d');
-function hResize(){hC.width=innerWidth;hC.height=innerHeight}hResize();addEventListener('resize',hResize);
-const hNodes=[];for(let i=0;i<120;i++)hNodes.push({x:Math.random()*2000-200,y:Math.random()*1200-100,z:Math.random()*1000,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,vz:(Math.random()-0.5)*2,s:Math.random()*3+0.5,o:Math.random()*0.4+0.1});
-(function hDraw(){hX.clearRect(0,0,hC.width,hC.height);
-// Ambient nebula glow
-const t=Date.now()*0.0003;
-[{x:0.3,y:0.4,c:'26,61,61',r:400},{x:0.7,y:0.6,c:'15,27,53',r:350},{x:0.5,y:0.3,c:'138,109,27',r:250}].forEach(g=>{
-const grd=hX.createRadialGradient(hC.width*g.x+Math.sin(t)*100,hC.height*g.y+Math.cos(t)*80,0,hC.width*g.x,hC.height*g.y,g.r);
-grd.addColorStop(0,`rgba(${g.c},0.04)`);grd.addColorStop(1,'transparent');hX.fillStyle=grd;hX.fillRect(0,0,hC.width,hC.height)});
-// Connections
-for(let i=0;i<hNodes.length;i++)for(let j=i+1;j<hNodes.length;j++){const a=hNodes[i],b=hNodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-if(d<160){hX.beginPath();hX.moveTo(a.x,a.y);hX.lineTo(b.x,b.y);hX.strokeStyle=`rgba(200,169,81,${(1-d/160)*0.08})`;hX.lineWidth=0.4;hX.stroke()}}
-// Nodes with 3D perspective
-hNodes.forEach(n=>{const p=800/(800+n.z);const sx=n.x*p+(hC.width/2)*(1-p),sy=n.y*p+(hC.height/2)*(1-p);
-hX.beginPath();hX.arc(sx,sy,n.s*p,0,Math.PI*2);hX.fillStyle=`rgba(200,169,81,${n.o*p})`;hX.fill();
-// Glow
-hX.beginPath();hX.arc(sx,sy,n.s*p*4,0,Math.PI*2);hX.fillStyle=`rgba(200,169,81,${n.o*p*0.1})`;hX.fill();
-n.x+=n.vx;n.y+=n.vy;n.z+=n.vz;
-if(n.x<-200||n.x>hC.width+200)n.vx*=-1;if(n.y<-100||n.y>hC.height+100)n.vy*=-1;if(n.z<0||n.z>1000)n.vz*=-1});
-// Floating law symbols
-const syms=['⚖','§','⚔','🏛','📜','🔒'];
-syms.forEach((s,i)=>{const x=hC.width*(i+1)/(syms.length+1)+Math.sin(t*2+i)*30;const y=80+Math.cos(t+i*0.7)*25;
-hX.font='18px serif';hX.globalAlpha=0.03;hX.fillStyle='#C8A951';hX.fillText(s,x,y);hX.globalAlpha=1});
-// Geometric rings
-for(let i=0;i<5;i++){const r=150+i*120;const a=t*0.2+i*0.5;hX.beginPath();hX.arc(hC.width/2+Math.cos(a)*20,hC.height/2+Math.sin(a)*15,r,0,Math.PI*2);
-hX.strokeStyle=`rgba(200,169,81,${0.03-i*0.005})`;hX.lineWidth=0.5;hX.stroke()}
-requestAnimationFrame(hDraw)})();
+function hR(){hC.width=hC.parentElement.offsetWidth;hC.height=hC.parentElement.offsetHeight}hR();addEventListener('resize',hR);
+const hN=[];for(let i=0;i<100;i++)hN.push({x:Math.random()*3000-500,y:Math.random()*2000-200,z:Math.random()*1200,vx:(Math.random()-0.5)*0.25,vy:(Math.random()-0.5)*0.25,vz:(Math.random()-0.5)*1.5,s:Math.random()*2.5+0.5,o:Math.random()*0.35+0.08});
+(function hD(){hX.clearRect(0,0,hC.width,hC.height);const t=Date.now()*0.0004;
+// 3D nebula glows
+[{x:0.3,y:0.35,c:[26,61,61],r:350},{x:0.7,y:0.65,c:[15,27,53],r:300},{x:0.5,y:0.5,c:[138,109,27],r:200}].forEach(g=>{
+const gr=hX.createRadialGradient(hC.width*g.x+Math.sin(t*3)*80,hC.height*g.y+Math.cos(t*2)*60,0,hC.width*g.x,hC.height*g.y,g.r);
+gr.addColorStop(0,`rgba(${g.c.join(',')},0.05)`);gr.addColorStop(1,'transparent');hX.fillStyle=gr;hX.fillRect(0,0,hC.width,hC.height)});
+// 3D nodes with perspective
+for(let i=0;i<hN.length;i++)for(let j=i+1;j<hN.length;j++){const d=Math.hypot(hN[i].x-hN[j].x,hN[i].y-hN[j].y);if(d<140){hX.beginPath();hX.moveTo(hN[i].x,hN[i].y);hX.lineTo(hN[j].x,hN[j].y);hX.strokeStyle=`rgba(200,169,81,${(1-d/140)*0.06})`;hX.lineWidth=0.3;hX.stroke()}}
+hN.forEach(n=>{const p=900/(900+n.z);hX.beginPath();hX.arc(n.x*p+hC.width/2*(1-p),n.y*p+hC.height/2*(1-p),n.s*p,0,Math.PI*2);
+hX.fillStyle=`rgba(200,169,81,${n.o*p})`;hX.fill();
+hX.beginPath();hX.arc(n.x*p+hC.width/2*(1-p),n.y*p+hC.height/2*(1-p),n.s*p*4,0,Math.PI*2);
+hX.fillStyle=`rgba(200,169,81,${n.o*p*0.08})`;hX.fill();
+n.x+=n.vx;n.y+=n.vy;n.z+=n.vz;if(n.x<-500||n.x>2500)n.vx*=-1;if(n.y<-200||n.y>1800)n.vy*=-1;if(n.z<0||n.z>1200)n.vz*=-1});
+requestAnimationFrame(hD)})();
 
-// ====== CHAKRAVYUH CANVAS - THE MASTERPIECE ======
+// ===== CHAKRAVYUH CANVAS - THE MASTERPIECE =====
 const ckC=document.getElementById('ckCanvas'),ckX=ckC.getContext('2d');
-function ckR(){const s=document.getElementById('chakravyuh');ckC.width=s.offsetWidth;ckC.height=s.offsetHeight}
-ckR();addEventListener('resize',ckR);
+function ckR(){const s=document.getElementById('chakravyuh');ckC.width=s.offsetWidth;ckC.height=s.offsetHeight}ckR();addEventListener('resize',ckR);
 
-// Witness figure (person trapped in center)
-class Witness{constructor(cx,cy){this.cx=cx;this.cy=cy;this.shake=0;this.panic=0}
-draw(ctx,t){this.shake=Math.sin(t*3)*4;this.panic=Math.sin(t*5)*2;
-const x=this.cx+this.shake,y=this.cy+this.panic;
-// Body
-ctx.save();ctx.globalAlpha=0.6;
+// Witness - a person trapped, struggling
+function drawWitness(ctx,x,y,t){
+const shake=Math.sin(t*4)*5,panic=Math.cos(t*6)*3;
+ctx.save();ctx.globalAlpha=0.7;ctx.translate(x+shake,y+panic);
 // Head
-ctx.beginPath();ctx.arc(x,y-25,10,0,Math.PI*2);ctx.fillStyle='rgba(200,169,81,0.4)';ctx.fill();ctx.strokeStyle='rgba(200,169,81,0.5)';ctx.lineWidth=1;ctx.stroke();
+ctx.beginPath();ctx.arc(0,-30,12,0,Math.PI*2);ctx.strokeStyle='rgba(200,169,81,0.5)';ctx.lineWidth=1.5;ctx.stroke();
+// Eyes (fearful)
+ctx.fillStyle='rgba(200,169,81,0.6)';ctx.fillRect(-4,-33,2,2);ctx.fillRect(2,-33,2,2);
+// Mouth (open in distress)
+ctx.beginPath();ctx.arc(0,-25,3,0,Math.PI);ctx.stroke();
 // Body
-ctx.beginPath();ctx.moveTo(x,y-15);ctx.lineTo(x,y+15);ctx.strokeStyle='rgba(200,169,81,0.4)';ctx.lineWidth=2;ctx.stroke();
-// Arms (raised in distress)
-ctx.beginPath();ctx.moveTo(x,y-5);ctx.lineTo(x-12+Math.sin(t*4)*3,y-20+Math.cos(t*3)*4);ctx.stroke();
-ctx.beginPath();ctx.moveTo(x,y-5);ctx.lineTo(x+12+Math.cos(t*4)*3,y-20+Math.sin(t*3)*4);ctx.stroke();
+ctx.beginPath();ctx.moveTo(0,-18);ctx.lineTo(0,15);ctx.lineWidth=2;ctx.stroke();
+// Arms reaching up (trying to escape)
+ctx.beginPath();ctx.moveTo(0,-8);ctx.quadraticCurveTo(-15+Math.sin(t*5)*5,-25+Math.cos(t*4)*8,-20+Math.sin(t*3)*6,-30);ctx.stroke();
+ctx.beginPath();ctx.moveTo(0,-8);ctx.quadraticCurveTo(15+Math.cos(t*5)*5,-25+Math.sin(t*4)*8,20+Math.cos(t*3)*6,-30);ctx.stroke();
 // Legs
-ctx.beginPath();ctx.moveTo(x,y+15);ctx.lineTo(x-8,y+30);ctx.stroke();
-ctx.beginPath();ctx.moveTo(x,y+15);ctx.lineTo(x+8,y+30);ctx.stroke();
+ctx.beginPath();ctx.moveTo(0,15);ctx.lineTo(-10,35);ctx.moveTo(0,15);ctx.lineTo(10,35);ctx.stroke();
 // Distress waves
-for(let i=0;i<3;i++){const r=20+i*12+Math.sin(t*6+i)*5;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
-ctx.strokeStyle=`rgba(200,169,81,${0.15-i*0.04})`;ctx.lineWidth=0.5;ctx.setLineDash([3,5]);ctx.stroke();ctx.setLineDash([])}
-// "TRAPPED" text effect
-ctx.font='8px Cinzel,serif';ctx.fillStyle=`rgba(200,169,81,${0.2+Math.sin(t*2)*0.1})`;ctx.textAlign='center';
-ctx.fillText('फँसा हुआ गवाह',x,y+50);
-ctx.restore()}}
+for(let i=0;i<4;i++){const r=25+i*15+Math.sin(t*3+i)*5;ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);
+ctx.strokeStyle=`rgba(200,169,81,${0.12-i*0.025})`;ctx.lineWidth=0.5;ctx.setLineDash([4,6]);ctx.stroke()}
+ctx.setLineDash([]);
+// Label
+ctx.font='bold 10px "Noto Serif Devanagari",serif';ctx.textAlign='center';ctx.fillStyle=`rgba(200,169,81,${0.3+Math.sin(t*2)*0.1})`;
+ctx.fillText('गवाह फँसा',0,55);ctx.font='7px "Cinzel",serif';ctx.fillStyle='rgba(200,169,81,0.2)';
+ctx.fillText('WITNESS TRAPPED',0,68);
+ctx.restore();
+}
 
-// Question arrows flying toward center
-class QuestionArrow{constructor(cx,cy){this.angle=Math.random()*Math.PI*2;this.dist=300+Math.random()*200;this.speed=0.3+Math.random()*0.5;this.cx=cx;this.cy=cy;this.text=['प्रश्न','सत्य?','विरोधाभास','झूठ?','बयान','Section 145','कहाँ थे?','कब?','क्यों?','कैसे?'][Math.floor(Math.random()*10)]}
-update(){this.dist-=this.speed;if(this.dist<30)this.dist=300+Math.random()*200}
-draw(ctx){const x=this.cx+Math.cos(this.angle)*this.dist;const y=this.cy+Math.sin(this.angle)*this.dist;
-ctx.save();ctx.globalAlpha=Math.max(0,(300-this.dist)/300)*0.6;
-// Arrow line toward center
-ctx.beginPath();ctx.moveTo(x,y);const tx=this.cx+Math.cos(this.angle)*(this.dist-30);const ty=this.cy+Math.sin(this.angle)*(this.dist-30);
-ctx.lineTo(tx,ty);ctx.strokeStyle='rgba(200,169,81,0.3)';ctx.lineWidth=1;ctx.stroke();
-// Text
-ctx.font='9px "Noto Serif Devanagari",serif';ctx.fillStyle='rgba(200,169,81,0.5)';ctx.textAlign='center';ctx.fillText(this.text,x,y-5);
-ctx.restore()}}
+// Questions flying inward like arrows
+const questions=['कहाँ थे?','कब?','Section 145','विरोधाभास','पहले क्या कहा?','सच बोलो!','FIR में क्या था?','बयान बदला?','गवाह हो या आरोपी?','झूठ पकड़ा!','161 CrPC','असंगत बयान','खंडित','निराधार'];
+const qArrows=[];for(let i=0;i<20;i++)qArrows.push({angle:Math.random()*Math.PI*2,dist:350+Math.random()*200,speed:0.4+Math.random()*0.6,text:questions[i%questions.length],size:8+Math.random()*4});
 
-// Chakravyuh rings with nodes
-const ckRings=[];for(let i=0;i<8;i++){ckRings.push({r:60+i*55,speed:(0.1+i*0.03)*(i%2?-1:1),nodes:Math.floor(3+i*2),style:i%3===0?'dashed':i%3===1?'dotted':'solid'})}
-const witness=new Witness(0,0);
-const arrows=[];for(let i=0;i<20;i++)arrows.push(new QuestionArrow(0,0));
+// Chains tightening animation
+const chains=[];for(let i=0;i<12;i++)chains.push({angle:i*Math.PI/6,len:300,speed:0.02+Math.random()*0.02});
 
-// Trap effect - chains tightening
-let trapPhase=0;
+(function ckDraw(){ckX.clearRect(0,0,ckC.width,ckC.height);const t=Date.now()*0.001;
+const cx=ckC.width/2,cy=Math.min(ckC.height*0.35,350);
+const trapPhase=(Math.sin(t*0.4)+1)/2;
 
-(function ckDraw(){ckX.clearRect(0,0,ckC.width,ckC.height);
-const cx=ckC.width/2,cy=ckC.height*0.4;const t=Date.now()*0.001;
-trapPhase=(Math.sin(t*0.3)+1)/2; // 0 to 1 pulsing
+// Deep vortex background
+const vg=ckX.createRadialGradient(cx,cy,0,cx,cy,500);
+vg.addColorStop(0,'rgba(200,169,81,0.05)');vg.addColorStop(0.4,'rgba(200,169,81,0.015)');vg.addColorStop(1,'transparent');
+ckX.fillStyle=vg;ckX.fillRect(0,0,ckC.width,ckC.height);
 
-// Background dark vortex
-const vGrad=ckX.createRadialGradient(cx,cy,0,cx,cy,450);
-vGrad.addColorStop(0,'rgba(200,169,81,0.04)');vGrad.addColorStop(0.3,'rgba(200,169,81,0.01)');vGrad.addColorStop(1,'transparent');
-ckX.fillStyle=vGrad;ckX.fillRect(0,0,ckC.width,ckC.height);
+// 8 concentric chakravyuh rings with tightening effect
+const ringCount=8;
+for(let i=0;i<ringCount;i++){
+const baseR=50+i*45;const r=baseR*(1-trapPhase*0.12);
+const speed=(0.08+i*0.025)*(i%2?-1:1);
+ckX.save();ckX.translate(cx,cy);ckX.rotate(t*speed);
+// Ring
+ckX.beginPath();ckX.arc(0,0,r,0,Math.PI*2);
+const alpha=0.06+i*0.015+trapPhase*0.04;
+ckX.strokeStyle=`rgba(200,169,81,${alpha})`;ckX.lineWidth=i===0?2.5:i<3?1.5:1;
+if(i%3===1)ckX.setLineDash([10,8]);else if(i%3===2)ckX.setLineDash([3,5]);else ckX.setLineDash([]);
+ckX.stroke();ckX.setLineDash([]);
+// Gate/opening that closes (trap closing!)
+if(i>0&&i<6){const gateAngle=Math.PI*1.5;const gateSize=0.4*(1-trapPhase*0.8); // Gate shrinks
+ckX.beginPath();ckX.arc(0,0,r,gateAngle-gateSize,gateAngle+gateSize);ckX.strokeStyle=`rgba(200,169,81,${0.3})`;ckX.lineWidth=2;ckX.stroke();}
+// Nodes on ring
+const nodeCount=3+i*2;for(let n=0;n<nodeCount;n++){
+const na=(n/nodeCount)*Math.PI*2;const nx=Math.cos(na)*r,ny=Math.sin(na)*r;
+const ns=2.5+Math.sin(t*3+n+i)*1.5;
+ckX.beginPath();ckX.arc(nx,ny,ns,0,Math.PI*2);ckX.fillStyle=`rgba(200,169,81,${0.25+Math.sin(t*2+n)*0.15})`;ckX.fill();
+// Glow
+ckX.beginPath();ckX.arc(nx,ny,ns*3.5,0,Math.PI*2);ckX.fillStyle=`rgba(200,169,81,${0.03})`;ckX.fill();
+}
+ckX.restore();
+}
 
 // Radial danger lines
-for(let i=0;i<16;i++){const a=(i/16)*Math.PI*2+t*0.05;
-ckX.beginPath();ckX.moveTo(cx,cy);ckX.lineTo(cx+Math.cos(a)*450,cy+Math.sin(a)*450);
-ckX.strokeStyle=`rgba(200,169,81,${0.02+trapPhase*0.02})`;ckX.lineWidth=0.5;ckX.stroke()}
+for(let i=0;i<16;i++){const a=(i/16)*Math.PI*2+t*0.03;
+ckX.beginPath();ckX.moveTo(cx+Math.cos(a)*45,cy+Math.sin(a)*45);
+ckX.lineTo(cx+Math.cos(a)*450,cy+Math.sin(a)*450);
+ckX.strokeStyle=`rgba(200,169,81,${0.015+trapPhase*0.015})`;ckX.lineWidth=0.5;ckX.stroke()}
 
-// Rotating chakravyuh rings
-ckRings.forEach((ring,i)=>{const r=ring.r*(1-trapPhase*0.15); // Rings tighten
-ckX.save();ckX.translate(cx,cy);ckX.rotate(t*ring.speed);
-ckX.beginPath();ckX.arc(0,0,r,0,Math.PI*2);
-const alpha=0.08+i*0.02+trapPhase*0.05;
-ckX.strokeStyle=`rgba(200,169,81,${alpha})`;ckX.lineWidth=i===0?2:1;
-if(ring.style==='dashed')ckX.setLineDash([8,6]);
-else if(ring.style==='dotted')ckX.setLineDash([2,4]);
-else ckX.setLineDash([]);
-ckX.stroke();ckX.setLineDash([]);
-// Nodes on rings
-for(let n=0;n<ring.nodes;n++){const na=(n/ring.nodes)*Math.PI*2;const nx=Math.cos(na)*r,ny=Math.sin(na)*r;
-const ns=3+Math.sin(t*3+n)*1.5;
-ckX.beginPath();ckX.arc(nx,ny,ns,0,Math.PI*2);ckX.fillStyle=`rgba(200,169,81,${0.3+Math.sin(t*2+n)*0.2})`;ckX.fill();
-// Node glow
-ckX.beginPath();ckX.arc(nx,ny,ns*3,0,Math.PI*2);ckX.fillStyle=`rgba(200,169,81,${0.05})`;ckX.fill();
-// Connecting lines between adjacent ring nodes
-if(i<ckRings.length-1){const nr=ckRings[i+1].r*(1-trapPhase*0.15);const nna=(n/ring.nodes)*Math.PI*2+t*ckRings[i+1].speed;
-const nnx=Math.cos(nna)*nr,nny=Math.sin(nna)*nr;
-ckX.beginPath();ckX.moveTo(nx,ny);ckX.lineTo(nnx,nny);ckX.strokeStyle='rgba(200,169,81,0.03)';ckX.lineWidth=0.5;ckX.stroke()}}
-ckX.restore()});
+// Spiral closing in (the trap tightening)
+ckX.save();ckX.translate(cx,cy);ckX.beginPath();
+for(let a=0;a<Math.PI*12;a+=0.08){const r=8+a*4.5*(1-trapPhase*0.2);
+const px=Math.cos(a+t*0.3)*r,py=Math.sin(a+t*0.3)*r;
+a===0?ckX.moveTo(px,py):ckX.lineTo(px,py)}
+ckX.strokeStyle=`rgba(200,169,81,${0.04+trapPhase*0.03})`;ckX.lineWidth=0.6;ckX.stroke();ckX.restore();
 
-// Question arrows attacking center
-witness.cx=cx;witness.cy=cy;
-arrows.forEach(a=>{a.cx=cx;a.cy=cy;a.update();a.draw(ckX)});
+// Question arrows attacking toward center
+qArrows.forEach(q=>{q.dist-=q.speed;if(q.dist<40)q.dist=380+Math.random()*150;
+const qx=cx+Math.cos(q.angle)*q.dist,qy=cy+Math.sin(q.angle)*q.dist;
+const alpha=Math.max(0,(350-q.dist)/350)*0.55;
+// Arrow line
+ckX.beginPath();ckX.moveTo(qx,qy);
+const tx=cx+Math.cos(q.angle)*(q.dist-25),ty=cy+Math.sin(q.angle)*(q.dist-25);
+ckX.lineTo(tx,ty);ckX.strokeStyle=`rgba(200,169,81,${alpha*0.4})`;ckX.lineWidth=1;ckX.stroke();
+// Arrowhead
+const headLen=6;ckX.beginPath();ckX.moveTo(tx,ty);
+ckX.lineTo(tx+Math.cos(q.angle+2.7)*headLen,ty+Math.sin(q.angle+2.7)*headLen);
+ckX.lineTo(tx+Math.cos(q.angle-2.7)*headLen,ty+Math.sin(q.angle-2.7)*headLen);ckX.closePath();
+ckX.fillStyle=`rgba(200,169,81,${alpha*0.5})`;ckX.fill();
+// Text
+ckX.save();ckX.globalAlpha=alpha;ckX.font=`${q.size}px "Noto Serif Devanagari",serif`;
+ckX.fillStyle='rgba(200,169,81,0.6)';ckX.textAlign='center';ckX.fillText(q.text,qx,qy-8);ckX.restore()});
 
-// Witness trapped in center
-witness.draw(ckX,t);
+// Chains from edges pulling witness in
+chains.forEach(c=>{c.len=200+Math.sin(t*c.speed*20)*30-trapPhase*60;
+const sx=cx+Math.cos(c.angle)*c.len,sy=cy+Math.sin(c.angle)*c.len;
+ckX.beginPath();
+// Chain links
+const links=Math.floor(c.len/12);for(let l=0;l<links;l++){
+const lx=cx+Math.cos(c.angle)*(l*12+5),ly=cy+Math.sin(c.angle)*(l*12+5);
+ckX.moveTo(lx-2,ly-2);ckX.lineTo(lx+2,ly+2);ckX.moveTo(lx+2,ly-2);ckX.lineTo(lx-2,ly+2)}
+ckX.strokeStyle='rgba(200,169,81,0.08)';ckX.lineWidth=0.5;ckX.stroke()});
 
-// Tightening spiral effect
-ckX.save();ckX.translate(cx,cy);
-ckX.beginPath();for(let a=0;a<Math.PI*10;a+=0.1){const r=5+a*5-trapPhase*a*1.5;const x=Math.cos(a+t*0.5)*r,y=Math.sin(a+t*0.5)*r;
-a===0?ckX.moveTo(x,y):ckX.lineTo(x,y)}
-ckX.strokeStyle=`rgba(200,169,81,${0.06+trapPhase*0.04})`;ckX.lineWidth=0.5;ckX.stroke();ckX.restore();
+// The trapped witness in the center
+drawWitness(ckX,cx,cy,t);
 
-// "झूठा मुकदमा" text fragments flying
-const fragments=['झूठ','विरोधाभास','असंगत','खंडित','निराधार','अमान्य','रद्द','खारिज'];
-fragments.forEach((f,i)=>{const fa=t*0.3+i*Math.PI*2/fragments.length;const fr=200+Math.sin(t+i)*50;
+// Orbiting law text fragments
+const frags=['झूठ उजागर','बयान खंडित','विरोधाभास','मुकदमा बरी','Section 145','गवाह विफल','साक्ष्य रद्द','अमान्य'];
+frags.forEach((f,i)=>{const fa=t*0.25+i*Math.PI*2/frags.length;const fr=180+Math.sin(t*0.5+i)*40;
 const fx=cx+Math.cos(fa)*fr,fy=cy+Math.sin(fa)*fr;
-ckX.save();ckX.globalAlpha=0.15+Math.sin(t*2+i)*0.08;ckX.font='11px "Noto Serif Devanagari",serif';ckX.fillStyle='rgba(200,169,81,0.5)';
+ckX.save();ckX.globalAlpha=0.12+Math.sin(t*1.5+i)*0.06;ckX.font='11px "Noto Serif Devanagari",serif';ckX.fillStyle='rgba(200,169,81,0.5)';
 ckX.textAlign='center';ckX.fillText(f,fx,fy);ckX.restore()});
 
-// Center pulsing crosshair
-ckX.save();ckX.translate(cx,cy);ckX.globalAlpha=0.2+trapPhase*0.2;
-ckX.strokeStyle='rgba(200,169,81,0.3)';ckX.lineWidth=0.5;
-[0,Math.PI/2,Math.PI,Math.PI*1.5].forEach(a=>{ckX.beginPath();ckX.moveTo(Math.cos(a)*15,Math.sin(a)*15);ckX.lineTo(Math.cos(a)*40,Math.sin(a)*40);ckX.stroke()});
-ckX.restore();
+// "बरी / ACQUITTED" flashing at bottom when trap is tight
+if(trapPhase>0.7){ckX.save();ckX.globalAlpha=(trapPhase-0.7)*3*Math.abs(Math.sin(t*3));
+ckX.font='bold 16px "Noto Serif Devanagari",serif';ckX.fillStyle='rgba(200,169,81,0.4)';ckX.textAlign='center';
+ckX.fillText('मुकदमा बरी',cx,cy+120);ckX.font='10px "Cinzel",serif';ckX.fillText('CASE DISMISSED',cx,cy+138);
+ckX.restore()}
 
 requestAnimationFrame(ckDraw)})();
 
-// ====== SECTION CANVASES - Different animations per section ======
-const secCanvases=document.querySelectorAll('.sec-canvas');
-const animations={};
+// ===== SECTION CANVASES =====
+const secIds=['aboutCanvas','expCanvas','teamCanvas','statsCanvas','courtsCanvas','whyCanvas','featCanvas','testiCanvas','locCanvas','contactCanvas'];
+const secAnims={};
+secIds.forEach(id=>{const c=document.getElementById(id);if(!c)return;
+const s=c.parentElement;c.width=s.offsetWidth;c.height=s.offsetHeight;
+secAnims[id]={c,x:c.getContext('2d'),pts:[]};
+for(let i=0;i<60;i++)secAnims[id].pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,s:Math.random()*2+0.3,o:Math.random()*0.2+0.03,ph:Math.random()*6})});
+addEventListener('resize',()=>{secIds.forEach(id=>{const a=secAnims[id];if(!a)return;const s=a.c.parentElement;a.c.width=s.offsetWidth;a.c.height=s.offsetHeight})});
 
-secCanvases.forEach(canvas=>{
-const sec=canvas.parentElement;const type=canvas.dataset.anim;
-canvas.width=sec.offsetWidth;canvas.height=sec.offsetHeight;
-const ctx=canvas.getContext('2d');
-const particles=[];
-
-// Generate particles based on type
-const count=type==='matrix'?80:type==='constellation'?60:type==='aurora'?40:type==='firefly'?50:type==='rain'?70:type==='grid3d'?90:type==='vortex'?65:type==='wave'?55:type==='dna'?45:50;
-for(let i=0;i<count;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.5,vy:(Math.random()-0.5)*0.5,s:Math.random()*2+0.5,o:Math.random()*0.3+0.05,phase:Math.random()*Math.PI*2,life:Math.random()*100})}
-
-animations[type]={canvas,ctx,particles,type};
-});
-
-addEventListener('resize',()=>{secCanvases.forEach(c=>{const s=c.parentElement;c.width=s.offsetWidth;c.height=s.offsetHeight})});
-
-(function drawSections(){
-Object.values(animations).forEach(({canvas:c,ctx:x,particles:pts,type})=>{
-x.clearRect(0,0,c.width,c.height);const t=Date.now()*0.001;const W=c.width,H=c.height;
-
-if(type==='nebula'){
-// Flowing nebula clouds
-for(let i=0;i<3;i++){const gx=W*(0.3+i*0.2)+Math.sin(t+i)*80;const gy=H*0.5+Math.cos(t*0.7+i)*60;
-const g=x.createRadialGradient(gx,gy,0,gx,gy,200+Math.sin(t+i)*50);
-g.addColorStop(0,`rgba(${i===0?'26,61,61':i===1?'200,169,81':'15,27,53'},0.03)`);g.addColorStop(1,'transparent');
+(function drawSecs(){const t=Date.now()*0.001;
+Object.entries(secAnims).forEach(([id,{c,x,pts}])=>{x.clearRect(0,0,c.width,c.height);const W=c.width,H=c.height;
+// Ambient nebula (different for each)
+const hue=id.includes('about')?[26,61,61]:id.includes('exp')?[15,27,53]:id.includes('team')?[42,74,62]:id.includes('stats')?[200,169,81]:id.includes('court')?[26,61,61]:id.includes('why')?[15,27,53]:id.includes('feat')?[42,74,62]:id.includes('testi')?[138,109,27]:id.includes('loc')?[26,61,61]:[15,27,53];
+for(let i=0;i<2;i++){const gx=W*(0.3+i*0.4)+Math.sin(t+i*2)*60;const gy=H*(0.3+i*0.3)+Math.cos(t*0.7+i)*50;
+const g=x.createRadialGradient(gx,gy,0,gx,gy,250+Math.sin(t+i)*50);g.addColorStop(0,`rgba(${hue.join(',')},0.035)`);g.addColorStop(1,'transparent');
 x.fillStyle=g;x.fillRect(0,0,W,H)}
-pts.forEach(p=>{p.x+=Math.sin(t+p.phase)*0.3;p.y+=Math.cos(t*0.7+p.phase)*0.2;
-x.beginPath();x.arc(p.x,p.y,p.s,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o*0.5})`;x.fill();
-if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0})}
-
-else if(type==='matrix'){
-// Matrix rain of law sections
-pts.forEach(p=>{p.y+=0.8+p.s*0.3;if(p.y>H){p.y=-20;p.x=Math.random()*W}
-x.font=`${8+p.s*2}px Cinzel,serif`;x.globalAlpha=p.o*0.4;x.fillStyle='rgba(200,169,81,0.3)';
-const texts=['§','⚖','302','498A','NDPS','50','438','CrPC','IPC','BNS'];
-x.fillText(texts[Math.floor(p.phase/Math.PI*5)%texts.length],p.x,p.y);x.globalAlpha=1})}
-
-else if(type==='constellation'){
-// Connected star constellation
+// Constellation nodes
 pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-x.beginPath();x.arc(p.x,p.y,p.s,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o})`;x.fill()});
+x.beginPath();x.arc(p.x,p.y,p.s,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o})`;x.fill();
+x.beginPath();x.arc(p.x,p.y,p.s*4,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o*0.15})`;x.fill()});
+// Connections
 for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
-if(d<120){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);
-x.strokeStyle=`rgba(200,169,81,${(1-d/120)*0.06})`;x.lineWidth=0.3;x.stroke()}}}
+if(d<120){x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.strokeStyle=`rgba(200,169,81,${(1-d/120)*0.04})`;x.lineWidth=0.3;x.stroke()}}
+});requestAnimationFrame(drawSecs)})();
 
-else if(type==='aurora'){
-// Northern lights aurora
-for(let i=0;i<5;i++){x.beginPath();x.moveTo(0,H*0.3+i*40);
-for(let px=0;px<=W;px+=20){x.lineTo(px,H*0.3+i*40+Math.sin(px*0.005+t+i)*40+Math.cos(px*0.003+t*0.5)*20)}
-x.strokeStyle=`rgba(${i%2?'42,74,62':'200,169,81'},${0.04-i*0.005})`;x.lineWidth=20;x.stroke()}}
+// ===== SCROLL =====
+addEventListener('scroll',()=>{const s=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+document.getElementById('spB').style.width=(s/h*100)+'%';
+s>80?document.getElementById('nav').classList.add('sc'):document.getElementById('nav').classList.remove('sc');
+s>500?document.getElementById('bt').classList.add('show'):document.getElementById('bt').classList.remove('show');
+// Parallax
+const hc=document.querySelector('.h-c');if(hc&&s<innerHeight){hc.style.transform=`translateY(${s*0.2}px)`;hc.style.opacity=1-s/innerHeight*1.2}});
 
-else if(type==='firefly'){
-// Glowing fireflies
-pts.forEach(p=>{p.x+=Math.sin(t*0.5+p.phase)*1;p.y+=Math.cos(t*0.3+p.phase)*0.8;
-const glow=Math.sin(t*2+p.phase)*0.5+0.5;
-x.beginPath();x.arc(p.x%W,p.y%H,p.s*(1+glow),0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o*glow})`;x.fill();
-x.beginPath();x.arc(p.x%W,p.y%H,p.s*6*glow,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${p.o*glow*0.15})`;x.fill()})}
-
-else if(type==='rain'){
-// Light rain streaks
-pts.forEach(p=>{p.y+=2+p.s;p.x+=0.5;if(p.y>H){p.y=-10;p.x=Math.random()*W}
-x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x-3,p.y-15);x.strokeStyle=`rgba(200,169,81,${p.o*0.3})`;x.lineWidth=0.5;x.stroke()})}
-
-else if(type==='grid3d'){
-// 3D perspective grid
-const gridSize=60;const vanX=W/2,vanY=H*0.3;
-for(let i=-10;i<=10;i++){const sx=vanX+i*gridSize*2,sy=vanY;const ex=vanX+i*gridSize*4,ey=H;
-x.beginPath();x.moveTo(sx,sy);x.lineTo(ex,ey);x.strokeStyle='rgba(200,169,81,0.03)';x.lineWidth=0.5;x.stroke()}
-for(let j=0;j<10;j++){const y=vanY+(H-vanY)*j/10;const spread=j/10;
-x.beginPath();x.moveTo(vanX-W*spread,y);x.lineTo(vanX+W*spread,y);x.strokeStyle='rgba(200,169,81,0.02)';x.stroke()}}
-
-else if(type==='vortex'){
-// Spiral vortex
-x.save();x.translate(W/2,H/2);
-for(let a=0;a<Math.PI*8;a+=0.05){const r=a*15;const px=Math.cos(a+t*0.3)*r,py=Math.sin(a+t*0.3)*r;
-x.beginPath();x.arc(px,py,1,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${0.03+Math.sin(a)*0.02})`;x.fill()}
-x.restore()}
-
-else if(type==='wave'){
-// Sound waves
-for(let i=0;i<6;i++){x.beginPath();
-for(let px=0;px<W;px+=5){const py=H/2+Math.sin(px*0.01+t+i)*30*Math.sin(px*0.005+t*0.5)+i*15;
-px===0?x.moveTo(px,py):x.lineTo(px,py)}
-x.strokeStyle=`rgba(200,169,81,${0.04-i*0.005})`;x.lineWidth=1;x.stroke()}}
-
-else if(type==='dna'){
-// DNA double helix
-for(let py=0;py<H;py+=4){const x1=W/2+Math.sin(py*0.02+t)*80,x2=W/2+Math.sin(py*0.02+t+Math.PI)*80;
-x.beginPath();x.arc(x1,py,2,0,Math.PI*2);x.fillStyle=`rgba(200,169,81,${0.08+Math.sin(py*0.01)*0.04})`;x.fill();
-x.beginPath();x.arc(x2,py,2,0,Math.PI*2);x.fillStyle=`rgba(42,74,62,${0.08+Math.cos(py*0.01)*0.04})`;x.fill();
-if(py%20<4){x.beginPath();x.moveTo(x1,py);x.lineTo(x2,py);x.strokeStyle='rgba(200,169,81,0.03)';x.lineWidth=0.5;x.stroke()}}}
-});
-requestAnimationFrame(drawSections)})();
-
-// ====== REVEAL ======
-const obs=new IntersectionObserver(e=>{e.forEach((en,i)=>{if(en.isIntersecting)setTimeout(()=>en.target.classList.add('v'),i*60)})},{threshold:0.06});
+// ===== REVEAL =====
+const obs=new IntersectionObserver(e=>{e.forEach((en,i)=>{if(en.isIntersecting)setTimeout(()=>en.target.classList.add('v'),i*50)})},{threshold:0.05});
 document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
 
-// ====== COUNTER ======
-function cnt(el,tgt){let v=0;const s=tgt/125;const t=setInterval(()=>{v+=s;if(v>=tgt){el.textContent=tgt;clearInterval(t)}else el.textContent=Math.floor(v)},16)}
+// ===== COUNTER =====
+function cnt(el,tgt){let v=0;const s=tgt/120;const t=setInterval(()=>{v+=s;if(v>=tgt){el.textContent=tgt;clearInterval(t)}else el.textContent=Math.floor(v)},16)}
 const cO=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.querySelectorAll('[data-count]').forEach(el=>cnt(el,+el.dataset.count));cO.unobserve(en.target)}})},{threshold:0.2});
-document.querySelectorAll('#hero,.stats-sec').forEach(el=>cO.observe(el));
+document.querySelectorAll('#hero,.stats-s').forEach(el=>cO.observe(el));
 
-// ====== HERO PARALLAX ======
-addEventListener('scroll',()=>{const s=scrollY;const hc=document.querySelector('.h-con');if(hc&&s<innerHeight){hc.style.transform=`translateY(${s*0.2}px)`;hc.style.opacity=1-s/innerHeight*1.2}});
+// ===== TYPING =====
+const tl=document.querySelector('.h-tag'),txt='जहाँ सत्य बोलता है, वहाँ हम खड़े हैं';let ti=0;
+setTimeout(function tp(){if(ti<txt.length){tl.textContent+=txt.charAt(ti);ti++;setTimeout(tp,55)}},1500);
 
-// ====== TYPING ======
-const tl=document.querySelector('.h-tag');
-const txt='जहाँ सत्य बोलता है, वहाँ हम खड़े हैं';let ti=0;
-setTimeout(function tp(){if(ti<txt.length){tl.textContent+=txt.charAt(ti);ti++;setTimeout(tp,55)}},1400);
-
-// ====== FORM ======
-function fS(e){e.preventDefault();const b=e.target.querySelector('.fbtn');b.textContent='✓ सफल!';b.style.background='linear-gradient(135deg,#1E3A30,#2A4A3E)';b.style.color='#F0ECE0';
-setTimeout(()=>{b.textContent='परामर्श अनुरोध भेजें →';b.style.background='';b.style.color='';e.target.reset()},4000)}
+// ===== FORM =====
+function fS(e){e.preventDefault();const b=e.target.querySelector('.fbtn');b.textContent='✓ सफल!';b.style.background='linear-gradient(135deg,#1E3A30,#2A4A3E)';b.style.color='#F0ECE0';setTimeout(()=>{b.textContent='परामर्श भेजें →';b.style.background='';b.style.color='';e.target.reset()},4000)}
 </script>
 </body>
 </html>
