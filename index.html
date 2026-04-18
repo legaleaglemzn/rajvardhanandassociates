@@ -2,1792 +2,569 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>राजवर्धन एंड एसोसिएट्स | विधिक न्याय</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Baloo+2:wght@400;500;600;700;800&family=Rozha+One&family=Yatra+One&family=Cinzel:wght@400;600;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Baloo+2:wght@400;500;600;700;800&family=Rozha+One&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
 <style>
-:root {
---crimson: #8B0000;
---deep-crimson: #5C0000;
---scarlet: #DC143C;
---royal-blue: #1a237e;
---deep-blue: #0d1b6e;
---electric-blue: #1565C0;
---teal: #00695C;
---deep-teal: #004D40;
---purple: #4A148C;
---deep-purple: #2d0b70;
---midnight: #050A18;
---dark-navy: #0a0f2e;
---bg-dark: #06081a;
---bg-card: rgba(10,15,40,0.85);
---accent1: #E53935;
---accent2: #1E88E5;
---accent3: #00ACC1;
---accent4: #7B1FA2;
---accent5: #2E7D32;
---text-primary: #F0F0F0;
---text-secondary: #B0B8D4;
---border-glow: rgba(100,120,255,0.3);
---glow-red: rgba(220,20,60,0.4);
---glow-blue: rgba(21,101,192,0.4);
---glow-teal: rgba(0,172,193,0.4);
+:root{
+--crimson:#8B0000;--scarlet:#DC143C;--deep-red:#a00000;
+--royal-blue:#1a237e;--electric:#1565C0;--accent2:#1E88E5;
+--teal:#00ACC1;--purple:#7B1FA2;--green:#2E7D32;
+--midnight:#050A18;--dark:#06081a;--navy:#0a0f2e;
+--bg-card:rgba(10,15,40,0.85);
+--text1:#F0F0F0;--text2:#B0B8D4;
+--glow-red:rgba(220,20,60,0.4);--glow-blue:rgba(21,101,192,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{
+font-family:'Baloo 2','Tiro Devanagari Hindi',sans-serif;
+background:var(--dark);color:var(--text1);overflow-x:hidden;
+}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--navy);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--scarlet),var(--electric));border-radius:3px;}
+
+/* CURSOR - desktop only */
+@media(min-width:1025px){
+body{cursor:none;}
+.cursor{width:10px;height:10px;background:var(--scarlet);border-radius:50%;position:fixed;pointer-events:none;z-index:99999;transition:transform .1s;mix-blend-mode:difference;}
+.cursor-f{width:32px;height:32px;border:2px solid rgba(220,20,60,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:99998;transition:all .12s ease;}
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+/* COSMOS BG */
+#cosmos{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+/* NAV */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+padding:0 4%;height:65px;
+display:flex;align-items:center;justify-content:space-between;
+background:rgba(5,8,22,.93);backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(220,20,60,.18);transition:all .3s;
+}
+nav.scrolled{height:56px;box-shadow:0 4px 30px rgba(220,20,60,.12);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{
+width:38px;height:38px;
+background:linear-gradient(135deg,var(--scarlet),var(--royal-blue));
+border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-size:1.1rem;box-shadow:0 0 18px var(--glow-red);
+animation:logoG 3s ease-in-out infinite;
+}
+@keyframes logoG{0%,100%{box-shadow:0 0 18px var(--glow-red);}50%{box-shadow:0 0 35px var(--glow-red),0 0 70px rgba(220,20,60,.2);}}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
+.nav-logo-text span:first-child{font-family:'Rozha One',serif;font-size:1rem;color:var(--text1);letter-spacing:1px;}
+.nav-logo-text span:last-child{font-size:.55rem;color:var(--scarlet);letter-spacing:3px;text-transform:uppercase;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;position:relative;transition:color .3s;letter-spacing:.4px;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--scarlet);transition:width .3s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{padding:7px 18px;background:linear-gradient(135deg,var(--scarlet),#a00000);border-radius:22px;color:#fff!important;font-weight:700!important;box-shadow:0 0 18px var(--glow-red);}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{transform:translateY(-2px);}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.nav-ham span{display:block;width:24px;height:2px;background:var(--text1);border-radius:2px;transition:all .3s;}
+.mob-menu{
+display:none;position:fixed;top:65px;left:0;right:0;
+background:rgba(5,8,22,.98);backdrop-filter:blur(20px);
+padding:20px 5%;border-bottom:1px solid rgba(220,20,60,.2);
+z-index:999;flex-direction:column;gap:5px;
+}
+.mob-menu a{color:var(--text2);text-decoration:none;padding:12px 0;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.05);display:block;}
+.mob-menu a:hover{color:var(--scarlet);}
+.mob-menu .mob-cta{margin-top:10px;padding:14px;text-align:center;background:linear-gradient(135deg,var(--scarlet),#a00000);border-radius:10px;color:#fff;font-weight:700;}
 
-body {
-font-family: 'Baloo 2', 'Tiro Devanagari Hindi', sans-serif;
-background: var(--bg-dark);
-color: var(--text-primary);
-overflow-x: hidden;
-cursor: none;
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:1;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(139,0,0,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(21,101,192,.12) 0%,transparent 60%),radial-gradient(ellipse at 50% 80%,rgba(74,20,140,.1) 0%,transparent 60%);}
+#hero3d{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.hero-content{position:relative;z-index:5;text-align:center;padding:100px 20px 60px;max-width:950px;width:100%;}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;padding:7px 20px;
+background:rgba(220,20,60,.1);border:1px solid rgba(220,20,60,.3);
+border-radius:28px;margin-bottom:28px;font-size:.72rem;
+letter-spacing:3px;text-transform:uppercase;color:var(--scarlet);
+animation:fid 1s ease;backdrop-filter:blur(10px);
 }
+.hero-badge::before{content:'';width:5px;height:5px;background:var(--scarlet);border-radius:50%;animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-title{font-family:'Rozha One',serif;font-size:clamp(2.8rem,8vw,6.5rem);line-height:1.05;margin-bottom:8px;background:linear-gradient(135deg,#fff 0%,#E8EAF6 40%,#FFCDD2 70%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fiu 1s .3s ease both;filter:drop-shadow(0 0 28px rgba(220,20,60,.3));}
+.hero-sub-en{font-family:'Cinzel',serif;font-size:clamp(.75rem,2vw,1rem);color:var(--scarlet);letter-spacing:6px;text-transform:uppercase;margin-bottom:22px;animation:fiu 1s .5s ease both;}
+.hero-tag{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,.85);font-style:italic;margin-bottom:18px;animation:fiu 1s .7s ease both;}
+.hero-latin{font-family:'Cinzel',serif;font-size:.85rem;color:var(--teal);letter-spacing:4px;margin-bottom:36px;animation:fiu 1s .8s ease both;}
+.hero-desc{font-size:clamp(.9rem,1.8vw,1.1rem);color:var(--text2);line-height:1.9;max-width:680px;margin:0 auto 44px;animation:fiu 1s .9s ease both;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fiu 1s 1.1s ease both;}
+.btn-p{padding:14px 36px;background:linear-gradient(135deg,var(--scarlet),#a00000);border:none;border-radius:50px;color:#fff;font-family:'Baloo 2',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 28px var(--glow-red);transition:all .3s;position:relative;overflow:hidden;}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 38px var(--glow-red);}
+.btn-s{padding:14px 36px;background:transparent;border:2px solid rgba(21,101,192,.6);border-radius:50px;color:var(--accent2);font-family:'Baloo 2',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(10px);}
+.btn-s:hover{background:rgba(21,101,192,.15);border-color:var(--accent2);transform:translateY(-3px);box-shadow:0 10px 28px var(--glow-blue);}
+.scroll-ind{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;animation:fiu 1s 1.5s ease both;z-index:5;}
+.scroll-ind span{font-size:.65rem;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;}
+.scroll-line{width:1px;height:45px;background:linear-gradient(var(--scarlet),transparent);animation:sl 2s ease-in-out infinite;}
+@keyframes sl{0%{transform:scaleY(0);transform-origin:top;opacity:0;}50%{transform:scaleY(1);opacity:1;}100%{transform:scaleY(0);transform-origin:bottom;opacity:0;}}
+@keyframes fiu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fid{from{opacity:0;transform:translateY(-28px)}to{opacity:1;transform:none}}
 
-/* CUSTOM CURSOR */
-.cursor {
-width: 12px; height: 12px;
-background: var(--scarlet);
-border-radius: 50%;
-position: fixed;
-pointer-events: none;
-z-index: 99999;
-transition: transform 0.1s;
-mix-blend-mode: difference;
-}
-.cursor-follower {
-width: 36px; height: 36px;
-border: 2px solid rgba(220,20,60,0.6);
-border-radius: 50%;
-position: fixed;
-pointer-events: none;
-z-index: 99998;
-transition: all 0.15s ease;
-}
-
-/* CANVAS BACKGROUND */
-#cosmos-canvas {
-position: fixed;
-top: 0; left: 0;
-width: 100%; height: 100%;
-z-index: 0;
-pointer-events: none;
-}
-
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--dark-navy); }
-::-webkit-scrollbar-thumb { background: linear-gradient(var(--scarlet), var(--electric-blue)); border-radius: 3px; }
-
-/* NAVBAR */
-nav {
-position: fixed; top: 0; left: 0; right: 0;
-z-index: 1000;
-padding: 0 5%;
-height: 70px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-background: rgba(5,8,22,0.92);
-backdrop-filter: blur(20px);
-border-bottom: 1px solid rgba(220,20,60,0.2);
-transition: all 0.3s;
-}
-nav.scrolled {
-height: 60px;
-background: rgba(5,8,22,0.98);
-box-shadow: 0 4px 30px rgba(220,20,60,0.15);
-}
-.nav-logo {
-display: flex; align-items: center; gap: 12px;
-text-decoration: none;
-}
-.nav-logo-icon {
-width: 42px; height: 42px;
-background: linear-gradient(135deg, var(--scarlet), var(--royal-blue));
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.2rem;
-box-shadow: 0 0 20px var(--glow-red);
-animation: logoGlow 3s ease-in-out infinite;
-}
-@keyframes logoGlow {
-0%,100% { box-shadow: 0 0 20px var(--glow-red); }
-50% { box-shadow: 0 0 40px var(--glow-red), 0 0 80px rgba(220,20,60,0.2); }
-}
-.nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.nav-logo-text span:first-child {
-font-family: 'Rozha One', serif;
-font-size: 1.1rem;
-color: var(--text-primary);
-letter-spacing: 1px;
-}
-.nav-logo-text span:last-child {
-font-size: 0.6rem;
-color: var(--scarlet);
-letter-spacing: 3px;
-text-transform: uppercase;
-}
-.nav-links {
-display: flex; gap: 30px; align-items: center;
-}
-.nav-links a {
-color: var(--text-secondary);
-text-decoration: none;
-font-size: 0.85rem;
-font-weight: 500;
-position: relative;
-transition: color 0.3s;
-letter-spacing: 0.5px;
-}
-.nav-links a::after {
-content: '';
-position: absolute;
-bottom: -4px; left: 0;
-width: 0; height: 2px;
-background: var(--scarlet);
-transition: width 0.3s;
-}
-.nav-links a:hover { color: #fff; }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta {
-padding: 8px 22px;
-background: linear-gradient(135deg, var(--scarlet), #a00000);
-border-radius: 25px;
-color: #fff !important;
-font-weight: 700 !important;
-box-shadow: 0 0 20px var(--glow-red);
-transition: all 0.3s !important;
-}
-.nav-cta:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 30px var(--glow-red) !important;
-}
-.nav-cta::after { display: none !important; }
-
-/* HERO SECTION */
-.hero {
-position: relative;
-min-height: 100vh;
-display: flex; align-items: center; justify-content: center;
-overflow: hidden;
-z-index: 1;
-}
-.hero-bg {
-position: absolute; inset: 0;
-background: radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.15) 0%, transparent 60%),
-radial-gradient(ellipse at 80% 30%, rgba(21,101,192,0.12) 0%, transparent 60%),
-radial-gradient(ellipse at 50% 80%, rgba(74,20,140,0.1) 0%, transparent 60%);
-}
-
-/* 3D PILLAR SCENE */
-#hero-canvas-3d {
-position: absolute;
-inset: 0;
-width: 100%; height: 100%;
-z-index: 0;
-}
-
-.hero-content {
-position: relative; z-index: 5;
-text-align: center;
-padding: 100px 20px 60px;
-max-width: 1000px;
-}
-.hero-badge {
-display: inline-flex;
-align-items: center; gap: 10px;
-padding: 8px 24px;
-background: rgba(220,20,60,0.1);
-border: 1px solid rgba(220,20,60,0.3);
-border-radius: 30px;
-margin-bottom: 30px;
-font-size: 0.78rem;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(--scarlet);
-animation: fadeInDown 1s ease;
-backdrop-filter: blur(10px);
-}
-.hero-badge::before {
-content: '';
-width: 6px; height: 6px;
-background: var(--scarlet);
-border-radius: 50%;
-animation: blink 1.5s infinite;
-}
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-.hero-title {
-font-family: 'Rozha One', serif;
-font-size: clamp(3rem, 8vw, 7rem);
-line-height: 1.05;
-margin-bottom: 10px;
-background: linear-gradient(135deg, #ffffff 0%, #E8EAF6 40%, #FFCDD2 70%, #ffffff 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-shadow: none;
-animation: fadeInUp 1s 0.3s ease both;
-filter: drop-shadow(0 0 30px rgba(220,20,60,0.3));
-}
-.hero-subtitle-en {
-font-family: 'Cinzel', serif;
-font-size: clamp(0.8rem, 2vw, 1.1rem);
-color: var(--scarlet);
-letter-spacing: 8px;
-text-transform: uppercase;
-margin-bottom: 25px;
-animation: fadeInUp 1s 0.5s ease both;
-}
-.hero-tagline {
-font-family: 'Tiro Devanagari Hindi', serif;
-font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-color: rgba(255,255,255,0.85);
-font-style: italic;
-margin-bottom: 20px;
-animation: fadeInUp 1s 0.7s ease both;
-}
-.hero-latin {
-font-family: 'Cinzel', serif;
-font-size: 0.9rem;
-color: var(--accent3);
-letter-spacing: 4px;
-margin-bottom: 40px;
-animation: fadeInUp 1s 0.8s ease both;
-}
-.hero-desc {
-font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-color: var(--text-secondary);
-line-height: 1.9;
-max-width: 700px;
-margin: 0 auto 50px;
-animation: fadeInUp 1s 0.9s ease both;
-}
-.hero-buttons {
-display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
-animation: fadeInUp 1s 1.1s ease both;
-}
-.btn-primary {
-padding: 16px 40px;
-background: linear-gradient(135deg, var(--scarlet) 0%, #a00000 100%);
-border: none; border-radius: 50px;
-color: #fff;
-font-family: 'Baloo 2', sans-serif;
-font-size: 1rem;
-font-weight: 700;
-cursor: none;
-text-decoration: none;
-display: inline-flex; align-items: center; gap: 10px;
-box-shadow: 0 8px 30px var(--glow-red), inset 0 1px 0 rgba(255,255,255,0.2);
-transition: all 0.3s;
-position: relative; overflow: hidden;
-}
-.btn-primary::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-opacity: 0;
-transition: opacity 0.3s;
-}
-.btn-primary:hover::before { opacity: 1; }
-.btn-primary:hover {
-transform: translateY(-3px);
-box-shadow: 0 15px 40px var(--glow-red);
-}
-.btn-secondary {
-padding: 16px 40px;
-background: transparent;
-border: 2px solid rgba(21,101,192,0.6);
-border-radius: 50px;
-color: var(--accent2);
-font-family: 'Baloo 2', sans-serif;
-font-size: 1rem;
-font-weight: 700;
-cursor: none;
-text-decoration: none;
-display: inline-flex; align-items: center; gap: 10px;
-transition: all 0.3s;
-backdrop-filter: blur(10px);
-}
-.btn-secondary:hover {
-background: rgba(21,101,192,0.15);
-border-color: var(--accent2);
-transform: translateY(-3px);
-box-shadow: 0 10px 30px var(--glow-blue);
-}
-
-/* HERO SCROLL INDICATOR */
-.scroll-indicator {
-position: absolute;
-bottom: 40px; left: 50%;
-transform: translateX(-50%);
-display: flex; flex-direction: column; align-items: center; gap: 8px;
-animation: fadeInUp 1s 1.5s ease both;
-z-index: 5;
-}
-.scroll-indicator span {
-font-size: 0.7rem;
-letter-spacing: 3px;
-color: rgba(255,255,255,0.4);
-text-transform: uppercase;
-}
-.scroll-line {
-width: 1px; height: 50px;
-background: linear-gradient(var(--scarlet), transparent);
-animation: scrollLine 2s ease-in-out infinite;
-}
-@keyframes scrollLine {
-0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-50% { transform: scaleY(1); opacity: 1; }
-100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
-}
-
-/* STATS BAR */
-.stats-bar {
-position: relative; z-index: 2;
-padding: 60px 5%;
-background: linear-gradient(135deg, rgba(139,0,0,0.08), rgba(21,101,192,0.08));
-border-top: 1px solid rgba(220,20,60,0.15);
-border-bottom: 1px solid rgba(21,101,192,0.15);
-backdrop-filter: blur(20px);
-}
-.stats-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 30px;
-max-width: 1100px;
-margin: 0 auto;
-}
-.stat-item {
-text-align: center;
-padding: 30px 20px;
-border-radius: 16px;
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(255,255,255,0.06);
-position: relative;
-overflow: hidden;
-transition: transform 0.3s;
-}
-.stat-item::before {
-content: '';
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 3px;
-border-radius: 16px 16px 0 0;
-}
-.stat-item:nth-child(1)::before { background: linear-gradient(90deg, var(--scarlet), #ff6b6b); }
-.stat-item:nth-child(2)::before { background: linear-gradient(90deg, var(--electric-blue), var(--accent3)); }
-.stat-item:nth-child(3)::before { background: linear-gradient(90deg, var(--purple), #ce93d8); }
-.stat-item:nth-child(4)::before { background: linear-gradient(90deg, var(--teal), #80cbc4); }
-.stat-item:hover { transform: translateY(-5px); }
-.stat-number {
-font-family: 'Cinzel', serif;
-font-size: 3.5rem;
-font-weight: 900;
-line-height: 1;
-margin-bottom: 5px;
-}
-.stat-item:nth-child(1) .stat-number { color: var(--scarlet); }
-.stat-item:nth-child(2) .stat-number { color: var(--accent2); }
-.stat-item:nth-child(3) .stat-number { color: #ce93d8; }
-.stat-item:nth-child(4) .stat-number { color: #80cbc4; }
-.stat-suffix { font-size: 2rem; }
-.stat-label {
-font-family: 'Baloo 2', sans-serif;
-font-size: 0.85rem;
-color: var(--text-secondary);
-letter-spacing: 1px;
-}
-.stat-sub {
-font-size: 0.7rem;
-color: rgba(255,255,255,0.3);
-margin-top: 4px;
-letter-spacing: 2px;
-text-transform: uppercase;
-}
+/* STATS */
+.stats-bar{position:relative;z-index:2;padding:50px 4%;background:linear-gradient(135deg,rgba(139,0,0,.07),rgba(21,101,192,.07));border-top:1px solid rgba(220,20,60,.13);border-bottom:1px solid rgba(21,101,192,.13);backdrop-filter:blur(20px);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1050px;margin:0 auto;}
+.stat-item{text-align:center;padding:26px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;transition:transform .3s;}
+.stat-item:hover{transform:translateY(-4px);}
+.stat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}
+.stat-item:nth-child(1)::before{background:linear-gradient(90deg,var(--scarlet),#ff6b6b);}
+.stat-item:nth-child(2)::before{background:linear-gradient(90deg,var(--electric),var(--teal));}
+.stat-item:nth-child(3)::before{background:linear-gradient(90deg,var(--purple),#ce93d8);}
+.stat-item:nth-child(4)::before{background:linear-gradient(90deg,var(--teal),#80cbc4);}
+.stat-num{font-family:'Cinzel',serif;font-size:3rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.stat-item:nth-child(1) .stat-num{color:var(--scarlet);}
+.stat-item:nth-child(2) .stat-num{color:var(--accent2);}
+.stat-item:nth-child(3) .stat-num{color:#ce93d8;}
+.stat-item:nth-child(4) .stat-num{color:#80cbc4;}
+.stat-suf{font-size:1.8rem;}
+.stat-label{font-size:.8rem;color:var(--text2);letter-spacing:1px;}
+.stat-sub{font-size:.65rem;color:rgba(255,255,255,.28);margin-top:3px;letter-spacing:2px;text-transform:uppercase;}
 
 /* MARQUEE */
-.marquee-section {
-overflow: hidden;
-padding: 20px 0;
-background: linear-gradient(90deg, rgba(139,0,0,0.05), rgba(21,101,192,0.05));
-border-top: 1px solid rgba(220,20,60,0.1);
-border-bottom: 1px solid rgba(220,20,60,0.1);
-position: relative; z-index: 2;
-}
-.marquee-track {
-display: flex;
-animation: marqueeRun 30s linear infinite;
-white-space: nowrap;
-}
-.marquee-track span {
-display: inline-flex;
-align-items: center;
-gap: 15px;
-padding: 0 30px;
-font-size: 0.85rem;
-color: var(--text-secondary);
-letter-spacing: 2px;
-text-transform: uppercase;
-font-weight: 600;
-}
-.marquee-track span .dot {
-width: 6px; height: 6px;
-border-radius: 50%;
-background: var(--scarlet);
-display: inline-block;
-}
-@keyframes marqueeRun {
-0% { transform: translateX(0); }
-100% { transform: translateX(-50%); }
+.marquee-sec{overflow:hidden;padding:16px 0;background:linear-gradient(90deg,rgba(139,0,0,.05),rgba(21,101,192,.05));border-top:1px solid rgba(220,20,60,.1);border-bottom:1px solid rgba(220,20,60,.1);position:relative;z-index:2;}
+.marquee-track{display:flex;animation:mRun 30s linear infinite;white-space:nowrap;}
+.marquee-track span{display:inline-flex;align-items:center;gap:12px;padding:0 24px;font-size:.78rem;color:var(--text2);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+.marquee-track span .dot{width:5px;height:5px;border-radius:50%;background:var(--scarlet);display:inline-block;}
+@keyframes mRun{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTION HEADER */
+.sec-header{text-align:center;margin-bottom:60px;}
+.eyebrow{display:inline-block;font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:5px;text-transform:uppercase;padding:5px 18px;border-radius:18px;margin-bottom:18px;}
+.ey-red{color:var(--scarlet);background:rgba(220,20,60,.1);border:1px solid rgba(220,20,60,.3);}
+.ey-blue{color:var(--accent2);background:rgba(21,101,192,.1);border:1px solid rgba(21,101,192,.3);}
+.ey-teal{color:var(--teal);background:rgba(0,172,193,.1);border:1px solid rgba(0,172,193,.3);}
+.ey-purple{color:#ce93d8;background:rgba(74,20,140,.1);border:1px solid rgba(74,20,140,.3);}
+.ey-green{color:#81c784;background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.3);}
+.sec-title{font-family:'Rozha One',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.2;margin-bottom:18px;}
+.gred{background:linear-gradient(135deg,#fff 0%,#FFCDD2 50%,var(--scarlet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gblue{background:linear-gradient(135deg,#fff 0%,#BBDEFB 50%,var(--electric) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gteal{background:linear-gradient(135deg,#fff 0%,#B2EBF2 50%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gpurple{background:linear-gradient(135deg,#fff 0%,#E1BEE7 50%,#9C27B0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sec-line{width:70px;height:3px;border-radius:2px;margin:16px auto;}
+.sl-red{background:linear-gradient(90deg,var(--scarlet),transparent);}
+.sl-blue{background:linear-gradient(90deg,var(--electric),transparent);}
+.sl-teal{background:linear-gradient(90deg,var(--teal),transparent);}
+.sec-desc{font-size:1rem;color:var(--text2);max-width:580px;margin:0 auto;line-height:1.8;}
+
+/* ABOUT */
+.about-sec{position:relative;z-index:2;padding:100px 4%;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;max-width:1150px;margin:0 auto;}
+.about-visual{position:relative;}
+.about-3d{width:100%;aspect-ratio:1;position:relative;}
+#about-canvas{width:100%;height:100%;border-radius:18px;}
+.about-badges{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;}
+.ab-item{position:absolute;padding:10px 16px;border-radius:10px;backdrop-filter:blur(20px);font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:7px;}
+.ab1{top:8%;right:-10px;background:rgba(220,20,60,.15);border:1px solid rgba(220,20,60,.3);color:#ff8a80;}
+.ab2{bottom:28%;right:-15px;background:rgba(21,101,192,.15);border:1px solid rgba(21,101,192,.3);color:#82b1ff;}
+.ab3{bottom:8%;left:8%;background:rgba(0,172,193,.15);border:1px solid rgba(0,172,193,.3);color:#80deea;}
+.about-quote{font-family:'Tiro Devanagari Hindi',serif;font-size:1.35rem;font-style:italic;color:var(--scarlet);line-height:1.6;margin-bottom:26px;padding-left:18px;border-left:3px solid var(--scarlet);}
+.about-text{font-size:1rem;color:var(--text2);line-height:1.9;margin-bottom:36px;}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+.pillar{padding:18px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .3s;}
+.pillar:hover{background:rgba(255,255,255,.06);transform:translateY(-3px);}
+.pillar-icon{font-size:1.6rem;margin-bottom:7px;}
+.pillar-title{font-weight:700;font-size:.88rem;margin-bottom:3px;}
+.pillar-text{font-size:.77rem;color:var(--text2);}
+
+/* ==============================
+   CHAKRAVYUH - FULLY MOBILE OPTIMIZED
+   ============================== */
+.chak-sec{position:relative;z-index:2;padding:100px 0;overflow:hidden;background:radial-gradient(ellipse at center,rgba(139,0,0,.08) 0%,transparent 70%);}
+#chak-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+.chak-content{position:relative;z-index:5;max-width:1280px;margin:0 auto;padding:0 4%;}
+.chak-header{text-align:center;margin-bottom:60px;}
+.chak-title{font-family:'Rozha One',serif;font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.1;margin-bottom:14px;background:linear-gradient(135deg,#FF6B6B,#fff,#FF8A80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 36px rgba(220,20,60,.5));}
+.chak-sub{font-family:'Cinzel',serif;font-size:clamp(.85rem,2vw,1.2rem);color:rgba(220,20,60,.8);letter-spacing:5px;text-transform:uppercase;margin-bottom:22px;}
+.chak-desc{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:680px;margin:0 auto 18px;line-height:1.9;font-family:'Tiro Devanagari Hindi',serif;}
+.chak-quote{display:inline-block;font-family:'Tiro Devanagari Hindi',serif;font-size:1.1rem;font-style:italic;color:rgba(255,200,200,.9);background:rgba(139,0,0,.15);border:1px solid rgba(220,20,60,.25);border-radius:10px;padding:16px 26px;max-width:720px;margin:0 auto;line-height:1.7;backdrop-filter:blur(10px);}
+
+/* ARENA - responsive grid */
+.chak-arena{
+display:grid;
+grid-template-columns:1fr 460px 1fr;
+grid-template-rows:auto;
+gap:30px;
+align-items:start;
+margin-bottom:70px;
 }
 
-/* SECTION HEADERS */
-.section-header {
-text-align: center;
-margin-bottom: 70px;
+/* WITNESS PANEL */
+.witness-panel{
+background:rgba(8,12,35,.85);
+border:1px solid rgba(220,20,60,.2);
+border-radius:18px;padding:24px;
+backdrop-filter:blur(20px);
 }
-.section-eyebrow {
-display: inline-block;
-font-family: 'Cinzel', serif;
-font-size: 0.7rem;
-letter-spacing: 5px;
-text-transform: uppercase;
-padding: 6px 20px;
-border-radius: 20px;
-margin-bottom: 20px;
-}
-.eyebrow-red { color: var(--scarlet); background: rgba(220,20,60,0.1); border: 1px solid rgba(220,20,60,0.3); }
-.eyebrow-blue { color: var(--accent2); background: rgba(21,101,192,0.1); border: 1px solid rgba(21,101,192,0.3); }
-.eyebrow-teal { color: var(--accent3); background: rgba(0,172,193,0.1); border: 1px solid rgba(0,172,193,0.3); }
-.eyebrow-purple { color: #ce93d8; background: rgba(74,20,140,0.1); border: 1px solid rgba(74,20,140,0.3); }
-.eyebrow-green { color: #81c784; background: rgba(46,125,50,0.1); border: 1px solid rgba(46,125,50,0.3); }
+.panel-label{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:4px;color:var(--scarlet);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.panel-label::after{content:'';flex:1;height:1px;background:rgba(220,20,60,.2);}
 
-.section-title {
-font-family: 'Rozha One', serif;
-font-size: clamp(2rem, 5vw, 3.5rem);
-line-height: 1.2;
-margin-bottom: 20px;
-}
-.gradient-text-red {
-background: linear-gradient(135deg, #fff 0%, #FFCDD2 50%, var(--scarlet) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.gradient-text-blue {
-background: linear-gradient(135deg, #fff 0%, #BBDEFB 50%, var(--electric-blue) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.gradient-text-teal {
-background: linear-gradient(135deg, #fff 0%, #B2EBF2 50%, var(--accent3) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.gradient-text-purple {
-background: linear-gradient(135deg, #fff 0%, #E1BEE7 50%, #9C27B0 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-.section-desc {
-font-size: 1.05rem;
-color: var(--text-secondary);
-max-width: 600px;
-margin: 0 auto;
-line-height: 1.8;
-}
-.section-line {
-width: 80px; height: 3px;
-border-radius: 2px;
-margin: 20px auto;
-}
-.line-red { background: linear-gradient(90deg, var(--scarlet), transparent); }
-.line-blue { background: linear-gradient(90deg, var(--electric-blue), transparent); }
-.line-teal { background: linear-gradient(90deg, var(--accent3), transparent); }
+/* WITNESS FIGURE - SVG based, attractive */
+.witness-figure{text-align:center;margin-bottom:22px;}
+.witness-svg-wrap{width:100px;height:100px;margin:0 auto 10px;position:relative;}
+.witness-svg-wrap svg{width:100%;height:100%;overflow:visible;}
+.witness-name{font-weight:700;font-size:.95rem;margin-bottom:3px;}
+.witness-role{font-size:.68rem;color:var(--text2);letter-spacing:2px;}
 
-/* ABOUT SECTION */
-.about-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-}
-.about-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: center;
-max-width: 1200px;
-margin: 0 auto;
-}
-.about-visual {
-position: relative;
-}
-.about-3d-container {
-width: 100%;
-aspect-ratio: 1;
-position: relative;
-}
-#about-canvas {
-width: 100%; height: 100%;
-border-radius: 20px;
-}
-.about-badges {
-position: absolute;
-}
-.about-badge-item {
-padding: 12px 20px;
-border-radius: 12px;
-backdrop-filter: blur(20px);
-font-size: 0.8rem;
-font-weight: 700;
-display: flex; align-items: center; gap: 8px;
-}
-.ab1 { top: 10%; right: -20px; background: rgba(220,20,60,0.15); border: 1px solid rgba(220,20,60,0.3); color: #ff8a80; }
-.ab2 { bottom: 30%; right: -30px; background: rgba(21,101,192,0.15); border: 1px solid rgba(21,101,192,0.3); color: #82b1ff; }
-.ab3 { bottom: 10%; left: 10%; background: rgba(0,172,193,0.15); border: 1px solid rgba(0,172,193,0.3); color: #80deea; }
-.about-content { }
-.about-quote {
-font-family: 'Tiro Devanagari Hindi', serif;
-font-size: 1.5rem;
-font-style: italic;
-color: var(--scarlet);
-line-height: 1.6;
-margin-bottom: 30px;
-padding-left: 20px;
-border-left: 3px solid var(--scarlet);
-}
-.about-text {
-font-size: 1.05rem;
-color: var(--text-secondary);
-line-height: 1.9;
-margin-bottom: 40px;
-}
-.about-pillars {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 20px;
-margin-bottom: 40px;
-}
-.pillar-card {
-padding: 20px;
-border-radius: 12px;
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(255,255,255,0.06);
-transition: all 0.3s;
-}
-.pillar-card:hover {
-background: rgba(255,255,255,0.06);
-transform: translateY(-3px);
-}
-.pillar-icon { font-size: 1.8rem; margin-bottom: 8px; }
-.pillar-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
-.pillar-text { font-size: 0.8rem; color: var(--text-secondary); }
-
-/* ============================================
-   CHAKRAVYUH - MASTERPIECE SECTION
-   ============================================ */
-.chakravyuh-section {
-position: relative; z-index: 2;
-padding: 120px 0;
-overflow: hidden;
-background: radial-gradient(ellipse at center, rgba(139,0,0,0.08) 0%, transparent 70%);
-}
-
-/* Full viewport canvas for chakravyuh */
-#chakravyuh-canvas {
-position: absolute;
-top: 0; left: 0;
-width: 100%; height: 100%;
-z-index: 0;
-}
-
-.chakravyuh-content {
-position: relative; z-index: 5;
-max-width: 1300px;
-margin: 0 auto;
-padding: 0 5%;
-}
-
-.chakravyuh-header {
-text-align: center;
-margin-bottom: 80px;
-}
-.chakravyuh-title {
-font-family: 'Rozha One', serif;
-font-size: clamp(2.5rem, 6vw, 5rem);
-line-height: 1.1;
-margin-bottom: 15px;
-background: linear-gradient(135deg, #FF6B6B, #ffffff, #FF8A80);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-filter: drop-shadow(0 0 40px rgba(220,20,60,0.5));
-}
-.chakravyuh-subtitle {
-font-family: 'Cinzel', serif;
-font-size: clamp(0.9rem, 2vw, 1.3rem);
-color: rgba(220,20,60,0.8);
-letter-spacing: 5px;
-text-transform: uppercase;
-margin-bottom: 25px;
-}
-.chakravyuh-desc {
-font-size: 1.1rem;
-color: rgba(255,255,255,0.7);
-max-width: 700px;
-margin: 0 auto 20px;
-line-height: 1.9;
-font-family: 'Tiro Devanagari Hindi', serif;
-}
-.chakravyuh-quote {
-display: inline-block;
-font-family: 'Tiro Devanagari Hindi', serif;
-font-size: 1.15rem;
-font-style: italic;
-color: rgba(255,200,200,0.9);
-background: rgba(139,0,0,0.15);
-border: 1px solid rgba(220,20,60,0.25);
-border-radius: 10px;
-padding: 18px 30px;
-max-width: 750px;
-margin: 0 auto;
-line-height: 1.7;
-backdrop-filter: blur(10px);
-}
-
-/* CHAKRAVYUH MAIN ANIMATION AREA */
-.chakravyuh-arena {
-display: grid;
-grid-template-columns: 1fr 500px 1fr;
-gap: 40px;
-align-items: center;
-margin-bottom: 80px;
-min-height: 600px;
-}
-
-/* Left panel - Witness state */
-.witness-panel {
-background: rgba(8,12,35,0.8);
-border: 1px solid rgba(220,20,60,0.2);
-border-radius: 20px;
-padding: 30px;
-backdrop-filter: blur(20px);
-}
-.witness-panel-title {
-font-family: 'Cinzel', serif;
-font-size: 0.75rem;
-letter-spacing: 4px;
-color: var(--scarlet);
-text-transform: uppercase;
-margin-bottom: 25px;
-display: flex; align-items: center; gap: 10px;
-}
-.witness-panel-title::after {
-content: '';
-flex: 1; height: 1px;
-background: rgba(220,20,60,0.2);
-}
-
-/* Witness figure */
-.witness-figure {
-text-align: center;
-margin-bottom: 25px;
-}
-.witness-avatar {
-width: 80px; height: 80px;
-border-radius: 50%;
-background: linear-gradient(135deg, rgba(139,0,0,0.4), rgba(220,20,60,0.2));
-border: 2px solid rgba(220,20,60,0.3);
-margin: 0 auto 12px;
-display: flex; align-items: center; justify-content: center;
-font-size: 2.5rem;
-position: relative;
-animation: witnessShake 0s linear;
-}
-.witness-avatar.shaking {
-animation: witnessShake 0.5s ease-in-out infinite;
-}
-@keyframes witnessShake {
-0%,100% { transform: rotate(0deg); }
-25% { transform: rotate(-3deg); }
-75% { transform: rotate(3deg); }
-}
-.witness-name {
-font-weight: 700;
-font-size: 1rem;
-margin-bottom: 4px;
-}
-.witness-role {
-font-size: 0.75rem;
-color: var(--text-secondary);
-letter-spacing: 2px;
-}
-
-/* Stress meter */
-.stress-meter {
-margin-bottom: 20px;
-}
-.stress-label {
-display: flex;
-justify-content: space-between;
-font-size: 0.75rem;
-color: var(--text-secondary);
-margin-bottom: 6px;
-}
-.stress-bar-bg {
-height: 8px;
-background: rgba(255,255,255,0.05);
-border-radius: 4px;
-overflow: hidden;
-}
-.stress-bar-fill {
-height: 100%;
-border-radius: 4px;
-transition: width 1.5s ease, background 1s ease;
-background: linear-gradient(90deg, #4CAF50, #FF9800, #f44336);
-}
+/* Stress meters */
+.meter-group{margin-bottom:16px;}
+.meter-label{display:flex;justify-content:space-between;font-size:.72rem;color:var(--text2);margin-bottom:5px;}
+.meter-bg{height:7px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden;}
+.meter-fill{height:100%;border-radius:4px;transition:width 1.4s ease,background 1s ease;}
+.m-conf{background:linear-gradient(90deg,#4CAF50,#FF9800,#f44336);}
+.m-contra{background:linear-gradient(90deg,#DC143C,#ff4444);}
 
 /* Contradiction log */
-.contradiction-log {
-max-height: 200px;
-overflow-y: auto;
-}
-.contradiction-item {
-padding: 8px 12px;
-margin-bottom: 6px;
-border-radius: 8px;
-font-size: 0.78rem;
-line-height: 1.4;
-opacity: 0;
-transform: translateX(-10px);
-transition: all 0.5s ease;
-border-left: 3px solid;
-}
-.contradiction-item.show {
-opacity: 1;
-transform: translateX(0);
-}
-.ci-q { background: rgba(21,101,192,0.1); border-color: var(--accent2); color: #82b1ff; }
-.ci-trap { background: rgba(220,20,60,0.1); border-color: var(--scarlet); color: #ff8a80; }
-.ci-win { background: rgba(46,125,50,0.1); border-color: #4CAF50; color: #81c784; }
+.contra-log{max-height:180px;overflow-y:auto;}
+.contra-log::-webkit-scrollbar{width:3px;}
+.contra-log::-webkit-scrollbar-thumb{background:var(--scarlet);}
+.ci{padding:7px 11px;margin-bottom:5px;border-radius:7px;font-size:.74rem;line-height:1.4;opacity:0;transform:translateX(-8px);transition:all .5s ease;border-left:3px solid;}
+.ci.show{opacity:1;transform:translateX(0);}
+.ci-q{background:rgba(21,101,192,.1);border-color:var(--accent2);color:#82b1ff;}
+.ci-trap{background:rgba(220,20,60,.1);border-color:var(--scarlet);color:#ff8a80;}
+.ci-win{background:rgba(46,125,50,.1);border-color:#4CAF50;color:#81c784;}
 
-/* CENTER - Main canvas */
-.chakravyuh-main-canvas-wrapper {
-position: relative;
-}
-#chakravyuh-main {
-width: 500px;
-height: 500px;
-display: block;
-filter: drop-shadow(0 0 40px rgba(220,20,60,0.3));
-}
+/* MAIN CANVAS WRAPPER */
+.chak-canvas-wrap{position:relative;display:flex;justify-content:center;align-items:flex-start;}
+#chak-main{width:460px;height:460px;display:block;filter:drop-shadow(0 0 36px rgba(220,20,60,.3));}
 
-/* Advocate panel */
-.advocate-panel {
-background: rgba(8,12,35,0.8);
-border: 1px solid rgba(21,101,192,0.2);
-border-radius: 20px;
-padding: 30px;
-backdrop-filter: blur(20px);
+/* ADVOCATE PANEL */
+.adv-panel{
+background:rgba(8,12,35,.85);
+border:1px solid rgba(21,101,192,.2);
+border-radius:18px;padding:24px;
+backdrop-filter:blur(20px);
 }
-.advocate-panel-title {
-font-family: 'Cinzel', serif;
-font-size: 0.75rem;
-letter-spacing: 4px;
-color: var(--accent2);
-text-transform: uppercase;
-margin-bottom: 25px;
-display: flex; align-items: center; gap: 10px;
-}
-.advocate-panel-title::after {
-content: '';
-flex: 1; height: 1px;
-background: rgba(21,101,192,0.2);
-}
+.adv-label{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:4px;color:var(--accent2);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.adv-label::after{content:'';flex:1;height:1px;background:rgba(21,101,192,.2);}
+.q-display{min-height:110px;padding:13px;background:rgba(21,101,192,.05);border:1px solid rgba(21,101,192,.15);border-radius:9px;margin-bottom:18px;font-size:.86rem;line-height:1.65;color:rgba(255,255,255,.85);font-family:'Tiro Devanagari Hindi',serif;}
+.q-phase{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;color:var(--accent2);margin-bottom:6px;display:block;}
+.phase-track{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
+.ph-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:7px;font-size:.77rem;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:all .5s;}
+.ph-item.active{background:rgba(21,101,192,.1);border-color:rgba(21,101,192,.3);}
+.ph-item.done{background:rgba(46,125,50,.07);border-color:rgba(46,125,50,.2);}
+.ph-num{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0;transition:all .5s;}
+.ph-item.active .ph-num{background:var(--accent2);color:#fff;box-shadow:0 0 12px var(--glow-blue);}
+.ph-item.done .ph-num{background:#4CAF50;color:#fff;}
+.ph-name{flex:1;color:var(--text2);}
+.ph-item.active .ph-name{color:var(--text1);}
+.ph-st{font-size:.6rem;letter-spacing:1px;}
+.start-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--scarlet),#a00000);border:none;border-radius:10px;color:#fff;font-family:'Baloo 2',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 6px 22px rgba(220,20,60,.3);display:flex;align-items:center;justify-content:center;gap:8px;}
+.start-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(220,20,60,.4);}
 
-/* Question display */
-.question-display {
-min-height: 120px;
-padding: 15px;
-background: rgba(21,101,192,0.05);
-border: 1px solid rgba(21,101,192,0.15);
-border-radius: 10px;
-margin-bottom: 20px;
-font-size: 0.9rem;
-line-height: 1.6;
-color: rgba(255,255,255,0.85);
-font-family: 'Tiro Devanagari Hindi', serif;
-}
-.q-phase-label {
-font-family: 'Cinzel', serif;
-font-size: 0.65rem;
-letter-spacing: 3px;
-color: var(--accent2);
-margin-bottom: 8px;
-display: block;
-}
+/* STEP CARDS */
+.chak-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.step-card{padding:26px 22px;background:rgba(10,15,40,.7);border-radius:14px;border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;transition:all .4s;}
+.step-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.1);}
+.step-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;border-radius:14px;}
+.step-card:nth-child(1)::before{background:radial-gradient(circle at 50% 0%,rgba(220,20,60,.1) 0%,transparent 70%);}
+.step-card:nth-child(2)::before{background:radial-gradient(circle at 50% 0%,rgba(21,101,192,.1) 0%,transparent 70%);}
+.step-card:nth-child(3)::before{background:radial-gradient(circle at 50% 0%,rgba(0,172,193,.1) 0%,transparent 70%);}
+.step-card:nth-child(4)::before{background:radial-gradient(circle at 50% 0%,rgba(74,20,140,.1) 0%,transparent 70%);}
+.step-card:nth-child(5)::before{background:radial-gradient(circle at 50% 0%,rgba(46,125,50,.1) 0%,transparent 70%);}
+.step-card:nth-child(6)::before{background:radial-gradient(circle at 50% 0%,rgba(230,81,0,.1) 0%,transparent 70%);}
+.step-card:hover::before{opacity:1;}
+.step-top{height:3px;border-radius:2px;margin-bottom:18px;}
+.step-card:nth-child(1) .step-top{background:linear-gradient(90deg,var(--scarlet),transparent);}
+.step-card:nth-child(2) .step-top{background:linear-gradient(90deg,var(--accent2),transparent);}
+.step-card:nth-child(3) .step-top{background:linear-gradient(90deg,var(--teal),transparent);}
+.step-card:nth-child(4) .step-top{background:linear-gradient(90deg,#9C27B0,transparent);}
+.step-card:nth-child(5) .step-top{background:linear-gradient(90deg,#4CAF50,transparent);}
+.step-card:nth-child(6) .step-top{background:linear-gradient(90deg,#FF6D00,transparent);}
+.step-snum{font-family:'Cinzel',serif;font-size:2.8rem;font-weight:900;opacity:.07;position:absolute;top:12px;right:16px;line-height:1;}
+.step-icon{font-size:1.8rem;margin-bottom:10px;}
+.step-title{font-size:.95rem;font-weight:700;margin-bottom:8px;color:#fff;}
+.step-text{font-size:.82rem;color:var(--text2);line-height:1.7;}
+.caveat-box{margin-top:55px;padding:36px 44px;background:linear-gradient(135deg,rgba(139,0,0,.1),rgba(21,101,192,.05));border:1px solid rgba(220,20,60,.2);border-radius:18px;text-align:center;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
+.caveat-box::before{content:'⚠';position:absolute;font-size:14rem;opacity:.02;top:50%;left:50%;transform:translate(-50%,-50%);}
+.caveat-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:5px;color:var(--scarlet);text-transform:uppercase;margin-bottom:13px;}
+.caveat-text{font-family:'Tiro Devanagari Hindi',serif;font-size:1.1rem;color:rgba(255,255,255,.85);font-style:italic;line-height:1.8;max-width:760px;margin:0 auto;}
 
-/* Phase tracker */
-.phase-tracker {
-display: flex;
-flex-direction: column;
-gap: 10px;
-margin-bottom: 20px;
-}
-.phase-item {
-display: flex;
-align-items: center;
-gap: 12px;
-padding: 10px 14px;
-border-radius: 8px;
-font-size: 0.8rem;
-background: rgba(255,255,255,0.02);
-border: 1px solid rgba(255,255,255,0.05);
-transition: all 0.5s;
-}
-.phase-item.active {
-background: rgba(21,101,192,0.1);
-border-color: rgba(21,101,192,0.3);
-}
-.phase-item.done {
-background: rgba(46,125,50,0.08);
-border-color: rgba(46,125,50,0.2);
-}
-.phase-num {
-width: 24px; height: 24px;
-border-radius: 50%;
-background: rgba(255,255,255,0.05);
-display: flex; align-items: center; justify-content: center;
-font-size: 0.7rem;
-font-weight: 700;
-flex-shrink: 0;
-transition: all 0.5s;
-}
-.phase-item.active .phase-num {
-background: var(--accent2);
-color: #fff;
-box-shadow: 0 0 15px var(--glow-blue);
-}
-.phase-item.done .phase-num {
-background: #4CAF50;
-color: #fff;
-}
-.phase-name { flex: 1; color: var(--text-secondary); }
-.phase-item.active .phase-name { color: var(--text-primary); }
-.phase-status {
-font-size: 0.65rem;
-letter-spacing: 1px;
-}
+/* PRACTICE */
+.practice-sec{position:relative;z-index:2;padding:100px 4%;}
+.practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:1150px;margin:0 auto;}
+.pc{padding:36px 30px;border-radius:18px;position:relative;overflow:hidden;transition:all .4s;cursor:default;border:1px solid rgba(255,255,255,.05);background:rgba(10,15,40,.6);backdrop-filter:blur(20px);}
+.pc:hover{transform:translateY(-7px);}
+.pc1:hover{border-color:rgba(220,20,60,.3);box-shadow:0 28px 55px rgba(220,20,60,.1);}
+.pc2:hover{border-color:rgba(21,101,192,.3);box-shadow:0 28px 55px rgba(21,101,192,.1);}
+.pc3:hover{border-color:rgba(0,172,193,.3);box-shadow:0 28px 55px rgba(0,172,193,.1);}
+.pc4:hover{border-color:rgba(74,20,140,.3);box-shadow:0 28px 55px rgba(74,20,140,.1);}
+.pc-num{font-family:'Cinzel',serif;font-size:4.5rem;font-weight:900;opacity:.06;position:absolute;top:18px;right:24px;line-height:1;}
+.pc-icon{font-size:2.2rem;margin-bottom:12px;}
+.pc-latin{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:3px;margin-bottom:8px;}
+.pc1 .pc-latin{color:var(--scarlet);}
+.pc2 .pc-latin{color:var(--accent2);}
+.pc3 .pc-latin{color:var(--teal);}
+.pc4 .pc-latin{color:#ce93d8;}
+.pc-title{font-family:'Rozha One',serif;font-size:1.5rem;margin-bottom:12px;color:#fff;}
+.pc-desc{font-size:.92rem;color:var(--text2);line-height:1.8;margin-bottom:22px;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.pc-tag{padding:4px 12px;border-radius:18px;font-size:.72rem;font-weight:600;}
+.pc1 .pc-tag{background:rgba(220,20,60,.1);color:#ff8a80;border:1px solid rgba(220,20,60,.2);}
+.pc2 .pc-tag{background:rgba(21,101,192,.1);color:#82b1ff;border:1px solid rgba(21,101,192,.2);}
+.pc3 .pc-tag{background:rgba(0,172,193,.1);color:#80deea;border:1px solid rgba(0,172,193,.2);}
+.pc4 .pc-tag{background:rgba(74,20,140,.1);color:#e1bee7;border:1px solid rgba(74,20,140,.2);}
 
-/* STEPS GRID */
-.chakravyuh-steps {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 25px;
-}
-.step-card {
-padding: 30px 25px;
-background: rgba(10,15,40,0.7);
-border-radius: 16px;
-border: 1px solid rgba(255,255,255,0.06);
-position: relative;
-overflow: hidden;
-transition: all 0.4s;
-cursor: default;
-}
-.step-card::before {
-content: '';
-position: absolute;
-inset: 0;
-opacity: 0;
-transition: opacity 0.4s;
-border-radius: 16px;
-}
-.step-card:nth-child(1)::before { background: radial-gradient(circle at 50% 0%, rgba(220,20,60,0.12) 0%, transparent 70%); }
-.step-card:nth-child(2)::before { background: radial-gradient(circle at 50% 0%, rgba(21,101,192,0.12) 0%, transparent 70%); }
-.step-card:nth-child(3)::before { background: radial-gradient(circle at 50% 0%, rgba(0,172,193,0.12) 0%, transparent 70%); }
-.step-card:nth-child(4)::before { background: radial-gradient(circle at 50% 0%, rgba(74,20,140,0.12) 0%, transparent 70%); }
-.step-card:nth-child(5)::before { background: radial-gradient(circle at 50% 0%, rgba(46,125,50,0.12) 0%, transparent 70%); }
-.step-card:nth-child(6)::before { background: radial-gradient(circle at 50% 0%, rgba(230,81,0,0.12) 0%, transparent 70%); }
-.step-card:hover::before { opacity: 1; }
-.step-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.12); }
-.step-top-bar {
-height: 3px;
-border-radius: 2px;
-margin-bottom: 20px;
-}
-.step-card:nth-child(1) .step-top-bar { background: linear-gradient(90deg, var(--scarlet), transparent); }
-.step-card:nth-child(2) .step-top-bar { background: linear-gradient(90deg, var(--accent2), transparent); }
-.step-card:nth-child(3) .step-top-bar { background: linear-gradient(90deg, var(--accent3), transparent); }
-.step-card:nth-child(4) .step-top-bar { background: linear-gradient(90deg, #9C27B0, transparent); }
-.step-card:nth-child(5) .step-top-bar { background: linear-gradient(90deg, #4CAF50, transparent); }
-.step-card:nth-child(6) .step-top-bar { background: linear-gradient(90deg, #FF6D00, transparent); }
-.step-num {
-font-family: 'Cinzel', serif;
-font-size: 3rem;
-font-weight: 900;
-opacity: 0.08;
-position: absolute;
-top: 15px; right: 20px;
-line-height: 1;
-}
-.step-icon { font-size: 2rem; margin-bottom: 12px; }
-.step-title {
-font-family: 'Baloo 2', sans-serif;
-font-size: 1rem;
-font-weight: 700;
-margin-bottom: 10px;
-color: #fff;
-}
-.step-text {
-font-size: 0.85rem;
-color: var(--text-secondary);
-line-height: 1.7;
-}
+/* TEAM */
+.team-sec{position:relative;z-index:2;padding:100px 4%;background:linear-gradient(180deg,transparent,rgba(21,101,192,.03),transparent);}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;max-width:880px;margin:0 auto;}
+.tc{padding:36px;border-radius:18px;background:rgba(10,15,40,.7);border:1px solid rgba(255,255,255,.06);text-align:center;position:relative;overflow:hidden;transition:all .4s;}
+.tc::before{content:'';position:absolute;top:0;left:0;right:0;height:180px;border-radius:18px 18px 0 0;}
+.tc1::before{background:linear-gradient(180deg,rgba(220,20,60,.07),transparent);}
+.tc2::before{background:linear-gradient(180deg,rgba(21,101,192,.07),transparent);}
+.tc:hover{transform:translateY(-7px);border-color:rgba(255,255,255,.1);}
 
-/* CAVEAT BOX */
-.caveat-box {
-margin-top: 60px;
-padding: 40px 50px;
-background: linear-gradient(135deg, rgba(139,0,0,0.1), rgba(21,101,192,0.05));
-border: 1px solid rgba(220,20,60,0.2);
-border-radius: 20px;
-text-align: center;
-backdrop-filter: blur(20px);
-position: relative;
-overflow: hidden;
+/* PHOTO FRAME */
+.tc-photo-wrap{width:130px;height:130px;border-radius:50%;margin:0 auto 18px;position:relative;}
+.tc-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.tc-photo-placeholder{
+width:100%;height:100%;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:3.5rem;
 }
-.caveat-box::before {
-content: '⚠';
-position: absolute;
-font-size: 15rem;
-opacity: 0.02;
-top: 50%; left: 50%;
-transform: translate(-50%,-50%);
-}
-.caveat-label {
-font-family: 'Cinzel', serif;
-font-size: 0.7rem;
-letter-spacing: 5px;
-color: var(--scarlet);
-text-transform: uppercase;
-margin-bottom: 15px;
-}
-.caveat-text {
-font-family: 'Tiro Devanagari Hindi', serif;
-font-size: 1.2rem;
-color: rgba(255,255,255,0.85);
-font-style: italic;
-line-height: 1.8;
-max-width: 800px;
-margin: 0 auto;
-}
-
-/* PRACTICE AREAS */
-.practice-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-}
-.practice-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 30px;
-max-width: 1200px;
-margin: 0 auto;
-}
-.practice-card {
-padding: 40px 35px;
-border-radius: 20px;
-position: relative;
-overflow: hidden;
-transition: all 0.4s;
-cursor: default;
-border: 1px solid rgba(255,255,255,0.05);
-background: rgba(10,15,40,0.6);
-backdrop-filter: blur(20px);
-}
-.practice-card::after {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent);
-border-radius: 20px;
-pointer-events: none;
-}
-.practice-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-}
-.pc-1:hover { border-color: rgba(220,20,60,0.3); box-shadow: 0 30px 60px rgba(220,20,60,0.1); }
-.pc-2:hover { border-color: rgba(21,101,192,0.3); box-shadow: 0 30px 60px rgba(21,101,192,0.1); }
-.pc-3:hover { border-color: rgba(0,172,193,0.3); box-shadow: 0 30px 60px rgba(0,172,193,0.1); }
-.pc-4:hover { border-color: rgba(74,20,140,0.3); box-shadow: 0 30px 60px rgba(74,20,140,0.1); }
-
-.pc-number {
-font-family: 'Cinzel', serif;
-font-size: 5rem;
-font-weight: 900;
-opacity: 0.06;
-position: absolute;
-top: 20px; right: 30px;
-line-height: 1;
-}
-.pc-icon { font-size: 2.5rem; margin-bottom: 15px; }
-.pc-latin {
-font-family: 'Cinzel', serif;
-font-size: 0.7rem;
-letter-spacing: 3px;
-margin-bottom: 10px;
-}
-.pc-1 .pc-latin { color: var(--scarlet); }
-.pc-2 .pc-latin { color: var(--accent2); }
-.pc-3 .pc-latin { color: var(--accent3); }
-.pc-4 .pc-latin { color: #ce93d8; }
-.pc-title {
-font-family: 'Rozha One', serif;
-font-size: 1.6rem;
-margin-bottom: 15px;
-color: #fff;
-}
-.pc-desc {
-font-size: 0.95rem;
-color: var(--text-secondary);
-line-height: 1.8;
-margin-bottom: 25px;
-}
-.pc-tags {
-display: flex; flex-wrap: wrap; gap: 8px;
-}
-.pc-tag {
-padding: 5px 14px;
-border-radius: 20px;
-font-size: 0.75rem;
-font-weight: 600;
-}
-.pc-1 .pc-tag { background: rgba(220,20,60,0.1); color: #ff8a80; border: 1px solid rgba(220,20,60,0.2); }
-.pc-2 .pc-tag { background: rgba(21,101,192,0.1); color: #82b1ff; border: 1px solid rgba(21,101,192,0.2); }
-.pc-3 .pc-tag { background: rgba(0,172,193,0.1); color: #80deea; border: 1px solid rgba(0,172,193,0.2); }
-.pc-4 .pc-tag { background: rgba(74,20,140,0.1); color: #e1bee7; border: 1px solid rgba(74,20,140,0.2); }
-
-/* TEAM SECTION */
-.team-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-background: linear-gradient(180deg, transparent, rgba(21,101,192,0.03), transparent);
-}
-.team-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 40px;
-max-width: 900px;
-margin: 0 auto;
-}
-.team-card {
-padding: 40px;
-border-radius: 20px;
-background: rgba(10,15,40,0.7);
-border: 1px solid rgba(255,255,255,0.06);
-text-align: center;
-position: relative;
-overflow: hidden;
-transition: all 0.4s;
-}
-.team-card::before {
-content: '';
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 200px;
-border-radius: 20px 20px 0 0;
-}
-.tc-1::before { background: linear-gradient(180deg, rgba(220,20,60,0.08), transparent); }
-.tc-2::before { background: linear-gradient(180deg, rgba(21,101,192,0.08), transparent); }
-.team-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.1); }
-.tc-avatar {
-width: 120px; height: 120px;
-border-radius: 50%;
-margin: 0 auto 20px;
-display: flex; align-items: center; justify-content: center;
-font-size: 3rem;
-position: relative;
-}
-.tc-1 .tc-avatar {
-background: linear-gradient(135deg, rgba(220,20,60,0.3), rgba(139,0,0,0.3));
-border: 3px solid rgba(220,20,60,0.4);
-box-shadow: 0 0 30px rgba(220,20,60,0.2), inset 0 0 30px rgba(220,20,60,0.1);
-}
-.tc-2 .tc-avatar {
-background: linear-gradient(135deg, rgba(21,101,192,0.3), rgba(13,27,110,0.3));
-border: 3px solid rgba(21,101,192,0.4);
-box-shadow: 0 0 30px rgba(21,101,192,0.2), inset 0 0 30px rgba(21,101,192,0.1);
-}
-.tc-badge {
-position: absolute;
-bottom: 5px; right: 5px;
-padding: 3px 10px;
-border-radius: 10px;
-font-size: 0.6rem;
-font-weight: 700;
-letter-spacing: 2px;
-}
-.tc-1 .tc-badge { background: var(--scarlet); color: #fff; }
-.tc-2 .tc-badge { background: var(--electric-blue); color: #fff; }
-.tc-name {
-font-family: 'Rozha One', serif;
-font-size: 1.8rem;
-margin-bottom: 5px;
-}
-.tc-role {
-font-family: 'Cinzel', serif;
-font-size: 0.7rem;
-letter-spacing: 3px;
-color: var(--text-secondary);
-margin-bottom: 5px;
-}
-.tc-since {
-font-size: 0.75rem;
-color: var(--scarlet);
-margin-bottom: 20px;
-}
-.tc-desc {
-font-size: 0.9rem;
-color: var(--text-secondary);
-line-height: 1.8;
-margin-bottom: 25px;
-}
-.tc-skills {
-display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-}
-.tc-skill {
-padding: 4px 12px;
-border-radius: 20px;
-font-size: 0.72rem;
-}
-.tc-1 .tc-skill { background: rgba(220,20,60,0.1); color: #ff8a80; border: 1px solid rgba(220,20,60,0.2); }
-.tc-2 .tc-skill { background: rgba(21,101,192,0.1); color: #82b1ff; border: 1px solid rgba(21,101,192,0.2); }
-
-/* TEAM STATS */
-.team-stats {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 20px;
-max-width: 900px;
-margin: 50px auto 0;
-}
-.ts-item {
-text-align: center;
-padding: 25px;
-border-radius: 12px;
-background: rgba(255,255,255,0.02);
-border: 1px solid rgba(255,255,255,0.05);
-}
-.ts-num { font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900; }
-.ts-1 .ts-num { color: var(--scarlet); }
-.ts-2 .ts-num { color: var(--accent2); }
-.ts-3 .ts-num { color: var(--accent3); }
-.ts-4 .ts-num { color: #ce93d8; }
-.ts-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px; }
+.tc1 .tc-photo-wrap{border:3px solid rgba(220,20,60,.5);box-shadow:0 0 28px rgba(220,20,60,.2),0 0 60px rgba(220,20,60,.08);}
+.tc2 .tc-photo-wrap{border:3px solid rgba(21,101,192,.5);box-shadow:0 0 28px rgba(21,101,192,.2),0 0 60px rgba(21,101,192,.08);}
+.tc1 .tc-photo-placeholder{background:linear-gradient(135deg,rgba(220,20,60,.25),rgba(139,0,0,.25));}
+.tc2 .tc-photo-placeholder{background:linear-gradient(135deg,rgba(21,101,192,.25),rgba(13,27,110,.25));}
+.tc-badge{position:absolute;bottom:5px;right:5px;padding:2px 9px;border-radius:9px;font-size:.55rem;font-weight:700;letter-spacing:2px;}
+.tc1 .tc-badge{background:var(--scarlet);color:#fff;}
+.tc2 .tc-badge{background:var(--electric);color:#fff;}
+.tc-name{font-family:'Rozha One',serif;font-size:1.7rem;margin-bottom:4px;}
+.tc-role{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:3px;color:var(--text2);margin-bottom:4px;}
+.tc-since{font-size:.72rem;color:var(--scarlet);margin-bottom:18px;}
+.tc-desc{font-size:.87rem;color:var(--text2);line-height:1.8;margin-bottom:22px;}
+.tc-skills{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+.tc-skill{padding:3px 11px;border-radius:18px;font-size:.7rem;}
+.tc1 .tc-skill{background:rgba(220,20,60,.1);color:#ff8a80;border:1px solid rgba(220,20,60,.2);}
+.tc2 .tc-skill{background:rgba(21,101,192,.1);color:#82b1ff;border:1px solid rgba(21,101,192,.2);}
+.team-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:880px;margin:44px auto 0;}
+.ts{text-align:center;padding:22px;border-radius:11px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);}
+.ts-num{font-family:'Cinzel',serif;font-size:2rem;font-weight:900;}
+.ts1 .ts-num{color:var(--scarlet);}
+.ts2 .ts-num{color:var(--accent2);}
+.ts3 .ts-num{color:var(--teal);}
+.ts4 .ts-num{color:#ce93d8;}
+.ts-label{font-size:.77rem;color:var(--text2);margin-top:4px;}
 
 /* JURISDICTION */
-.jurisdiction-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-}
-.jurisdiction-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 25px;
-max-width: 1100px;
-margin: 0 auto;
-}
-.juris-card {
-padding: 35px 25px;
-border-radius: 16px;
-background: rgba(10,15,40,0.6);
-border: 1px solid rgba(255,255,255,0.06);
-text-align: center;
-position: relative;
-overflow: hidden;
-transition: all 0.4s;
-}
-.juris-card:hover { transform: translateY(-6px); }
-.jc-1:hover { border-color: rgba(21,101,192,0.3); box-shadow: 0 20px 50px rgba(21,101,192,0.1); }
-.jc-2:hover { border-color: rgba(220,20,60,0.3); box-shadow: 0 20px 50px rgba(220,20,60,0.1); }
-.jc-3:hover { border-color: rgba(0,172,193,0.3); box-shadow: 0 20px 50px rgba(0,172,193,0.1); }
-.jc-4:hover { border-color: rgba(74,20,140,0.3); box-shadow: 0 20px 50px rgba(74,20,140,0.1); }
-.jc-5:hover { border-color: rgba(46,125,50,0.3); box-shadow: 0 20px 50px rgba(46,125,50,0.1); }
-.jc-6:hover { border-color: rgba(230,81,0,0.3); box-shadow: 0 20px 50px rgba(230,81,0,0.1); }
-.juris-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
-.juris-type {
-font-family: 'Cinzel', serif;
-font-size: 0.65rem;
-letter-spacing: 3px;
-text-transform: uppercase;
-margin-bottom: 8px;
-}
-.jc-1 .juris-type { color: var(--accent2); }
-.jc-2 .juris-type { color: var(--scarlet); }
-.jc-3 .juris-type { color: var(--accent3); }
-.jc-4 .juris-type { color: #ce93d8; }
-.jc-5 .juris-type { color: #81c784; }
-.jc-6 .juris-type { color: #ffcc02; }
-.juris-title {
-font-family: 'Baloo 2', sans-serif;
-font-size: 1.1rem;
-font-weight: 700;
-margin-bottom: 12px;
-color: #fff;
-}
-.juris-items { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.8; }
+.juris-sec{position:relative;z-index:2;padding:100px 4%;}
+.juris-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1050px;margin:0 auto;}
+.jc{padding:30px 22px;border-radius:14px;background:rgba(10,15,40,.6);border:1px solid rgba(255,255,255,.05);text-align:center;transition:all .4s;}
+.jc:hover{transform:translateY(-5px);}
+.jc1:hover{border-color:rgba(21,101,192,.3);box-shadow:0 18px 45px rgba(21,101,192,.1);}
+.jc2:hover{border-color:rgba(220,20,60,.3);box-shadow:0 18px 45px rgba(220,20,60,.1);}
+.jc3:hover{border-color:rgba(0,172,193,.3);box-shadow:0 18px 45px rgba(0,172,193,.1);}
+.jc4:hover{border-color:rgba(74,20,140,.3);box-shadow:0 18px 45px rgba(74,20,140,.1);}
+.jc5:hover{border-color:rgba(46,125,50,.3);box-shadow:0 18px 45px rgba(46,125,50,.1);}
+.jc6:hover{border-color:rgba(230,81,0,.3);box-shadow:0 18px 45px rgba(230,81,0,.1);}
+.jc-icon{font-size:2.2rem;display:block;margin-bottom:12px;}
+.jc-type{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;}
+.jc1 .jc-type{color:var(--accent2);}
+.jc2 .jc-type{color:var(--scarlet);}
+.jc3 .jc-type{color:var(--teal);}
+.jc4 .jc-type{color:#ce93d8;}
+.jc5 .jc-type{color:#81c784;}
+.jc6 .jc-type{color:#ffcc02;}
+.jc-title{font-family:'Baloo 2',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:10px;color:#fff;}
+.jc-items{font-size:.8rem;color:var(--text2);line-height:1.8;}
 
 /* WHY US */
-.whyus-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-background: linear-gradient(180deg, transparent, rgba(139,0,0,0.03), transparent);
-}
-.whyus-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 25px;
-max-width: 1100px;
-margin: 0 auto;
-}
-.why-card {
-padding: 35px 28px;
-border-radius: 16px;
-background: rgba(10,15,40,0.6);
-border: 1px solid rgba(255,255,255,0.05);
-position: relative;
-overflow: hidden;
-transition: all 0.4s;
-}
-.why-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.1); }
-.why-glow {
-position: absolute;
-width: 150px; height: 150px;
-border-radius: 50%;
-filter: blur(60px);
-opacity: 0.08;
-top: -30px; left: -30px;
-transition: opacity 0.4s;
-}
-.why-card:hover .why-glow { opacity: 0.15; }
-.wc-1 .why-glow { background: var(--scarlet); }
-.wc-2 .why-glow { background: var(--accent2); }
-.wc-3 .why-glow { background: var(--accent3); }
-.wc-4 .why-glow { background: #9C27B0; }
-.wc-5 .why-glow { background: #4CAF50; }
-.wc-6 .why-glow { background: #FF6D00; }
-.why-icon {
-width: 56px; height: 56px;
-border-radius: 14px;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.6rem;
-margin-bottom: 20px;
-}
-.wc-1 .why-icon { background: rgba(220,20,60,0.12); border: 1px solid rgba(220,20,60,0.2); }
-.wc-2 .why-icon { background: rgba(21,101,192,0.12); border: 1px solid rgba(21,101,192,0.2); }
-.wc-3 .why-icon { background: rgba(0,172,193,0.12); border: 1px solid rgba(0,172,193,0.2); }
-.wc-4 .why-icon { background: rgba(74,20,140,0.12); border: 1px solid rgba(74,20,140,0.2); }
-.wc-5 .why-icon { background: rgba(46,125,50,0.12); border: 1px solid rgba(46,125,50,0.2); }
-.wc-6 .why-icon { background: rgba(230,81,0,0.12); border: 1px solid rgba(230,81,0,0.2); }
-.why-title { font-family: 'Baloo 2', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-.why-text { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+.why-sec{position:relative;z-index:2;padding:100px 4%;background:linear-gradient(180deg,transparent,rgba(139,0,0,.03),transparent);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1050px;margin:0 auto;}
+.wc{padding:30px 24px;border-radius:14px;background:rgba(10,15,40,.6);border:1px solid rgba(255,255,255,.05);position:relative;overflow:hidden;transition:all .4s;}
+.wc:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.1);}
+.wc-glow{position:absolute;width:130px;height:130px;border-radius:50%;filter:blur(55px);opacity:.07;top:-28px;left:-28px;transition:opacity .4s;}
+.wc:hover .wc-glow{opacity:.14;}
+.wc1 .wc-glow{background:var(--scarlet);}
+.wc2 .wc-glow{background:var(--accent2);}
+.wc3 .wc-glow{background:var(--teal);}
+.wc4 .wc-glow{background:#9C27B0;}
+.wc5 .wc-glow{background:#4CAF50;}
+.wc6 .wc-glow{background:#FF6D00;}
+.wc-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;}
+.wc1 .wc-icon{background:rgba(220,20,60,.12);border:1px solid rgba(220,20,60,.2);}
+.wc2 .wc-icon{background:rgba(21,101,192,.12);border:1px solid rgba(21,101,192,.2);}
+.wc3 .wc-icon{background:rgba(0,172,193,.12);border:1px solid rgba(0,172,193,.2);}
+.wc4 .wc-icon{background:rgba(74,20,140,.12);border:1px solid rgba(74,20,140,.2);}
+.wc5 .wc-icon{background:rgba(46,125,50,.12);border:1px solid rgba(46,125,50,.2);}
+.wc6 .wc-icon{background:rgba(230,81,0,.12);border:1px solid rgba(230,81,0,.2);}
+.wc-title{font-size:1rem;font-weight:700;margin-bottom:9px;}
+.wc-text{font-size:.85rem;color:var(--text2);line-height:1.7;}
 
 /* FEATURES */
-.features-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-}
-.features-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 20px;
-max-width: 1200px;
-margin: 0 auto;
-}
-.feat-card {
-padding: 28px 22px;
-border-radius: 14px;
-background: rgba(10,15,40,0.6);
-border: 1px solid rgba(255,255,255,0.04);
-text-align: center;
-transition: all 0.3s;
-position: relative;
-overflow: hidden;
-}
-.feat-card::before {
-content: '';
-position: absolute;
-inset: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent);
-}
-.feat-card:hover {
-transform: translateY(-5px);
-border-color: rgba(255,255,255,0.1);
-}
-.feat-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
-.feat-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
-.feat-text { font-size: 0.75rem; color: var(--text-secondary); }
+.feat-sec{position:relative;z-index:2;padding:100px 4%;}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1150px;margin:0 auto;}
+.feat{padding:24px 20px;border-radius:12px;background:rgba(10,15,40,.6);border:1px solid rgba(255,255,255,.04);text-align:center;transition:all .3s;position:relative;overflow:hidden;}
+.feat:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.1);}
+.feat-icon{font-size:1.8rem;margin-bottom:10px;display:block;}
+.feat-title{font-size:.84rem;font-weight:700;margin-bottom:5px;color:#fff;}
+.feat-text{font-size:.72rem;color:var(--text2);}
 
 /* CITIES */
-.cities-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-background: linear-gradient(180deg, transparent, rgba(21,101,192,0.04), transparent);
-}
-.cities-grid {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-gap: 20px;
-max-width: 1100px;
-margin: 0 auto;
-}
-.city-card {
-padding: 35px 20px;
-border-radius: 16px;
-background: rgba(10,15,40,0.7);
-border: 1px solid rgba(255,255,255,0.05);
-text-align: center;
-transition: all 0.4s;
-position: relative;
-overflow: hidden;
-cursor: default;
-}
-.city-card::before {
-content: '';
-position: absolute;
-bottom: 0; left: 0; right: 0;
-height: 3px;
-border-radius: 0 0 16px 16px;
-}
-.cc-1::before { background: linear-gradient(90deg, var(--scarlet), transparent); }
-.cc-2::before { background: linear-gradient(90deg, var(--accent2), transparent); }
-.cc-3::before { background: linear-gradient(90deg, var(--accent3), transparent); }
-.cc-4::before { background: linear-gradient(90deg, #9C27B0, transparent); }
-.cc-5::before { background: linear-gradient(90deg, #4CAF50, transparent); }
-.city-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.12); }
-.city-emoji { font-size: 2.5rem; display: block; margin-bottom: 15px; }
-.city-type {
-font-family: 'Cinzel', serif;
-font-size: 0.6rem;
-letter-spacing: 3px;
-margin-bottom: 5px;
-}
-.cc-1 .city-type { color: var(--scarlet); }
-.cc-2 .city-type { color: var(--accent2); }
-.cc-3 .city-type { color: var(--accent3); }
-.cc-4 .city-type { color: #ce93d8; }
-.cc-5 .city-type { color: #81c784; }
-.city-name { font-family: 'Rozha One', serif; font-size: 1.4rem; margin-bottom: 5px; }
-.city-desc { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.5; }
+.cities-sec{position:relative;z-index:2;padding:100px 4%;background:linear-gradient(180deg,transparent,rgba(21,101,192,.04),transparent);}
+.cities-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1050px;margin:0 auto;}
+.city{padding:30px 18px;border-radius:14px;background:rgba(10,15,40,.7);border:1px solid rgba(255,255,255,.05);text-align:center;transition:all .4s;position:relative;overflow:hidden;}
+.city::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 14px 14px;}
+.cc1::before{background:linear-gradient(90deg,var(--scarlet),transparent);}
+.cc2::before{background:linear-gradient(90deg,var(--accent2),transparent);}
+.cc3::before{background:linear-gradient(90deg,var(--teal),transparent);}
+.cc4::before{background:linear-gradient(90deg,#9C27B0,transparent);}
+.cc5::before{background:linear-gradient(90deg,#4CAF50,transparent);}
+.city:hover{transform:translateY(-7px);border-color:rgba(255,255,255,.1);}
+.city-em{font-size:2.2rem;display:block;margin-bottom:12px;}
+.city-type{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:3px;margin-bottom:4px;}
+.cc1 .city-type{color:var(--scarlet);}
+.cc2 .city-type{color:var(--accent2);}
+.cc3 .city-type{color:var(--teal);}
+.cc4 .city-type{color:#ce93d8;}
+.cc5 .city-type{color:#81c784;}
+.city-name{font-family:'Rozha One',serif;font-size:1.3rem;margin-bottom:4px;}
+.city-desc{font-size:.72rem;color:var(--text2);line-height:1.5;}
 
 /* TESTIMONIALS */
-.testimonials-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-overflow: hidden;
-}
-.testimonials-track-wrapper {
-overflow: hidden;
-margin: 0 -5%;
-padding: 20px 5%;
-}
-.testimonials-track {
-display: flex;
-gap: 25px;
-animation: testimonialScroll 35s linear infinite;
-}
-.testimonials-track:hover { animation-play-state: paused; }
-@keyframes testimonialScroll {
-0% { transform: translateX(0); }
-100% { transform: translateX(-50%); }
-}
-.testi-card {
-flex-shrink: 0;
-width: 320px;
-padding: 30px;
-border-radius: 16px;
-background: rgba(10,15,40,0.8);
-border: 1px solid rgba(255,255,255,0.06);
-backdrop-filter: blur(20px);
-}
-.testi-stars {
-color: #FFC107;
-font-size: 0.9rem;
-margin-bottom: 15px;
-letter-spacing: 3px;
-}
-.testi-text {
-font-size: 0.9rem;
-color: rgba(255,255,255,0.8);
-line-height: 1.7;
-margin-bottom: 20px;
-font-family: 'Tiro Devanagari Hindi', serif;
-font-style: italic;
-}
-.testi-author {
-display: flex;
-align-items: center;
-gap: 12px;
-}
-.testi-avatar {
-width: 44px; height: 44px;
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-font-weight: 700;
-font-size: 1.1rem;
-color: #fff;
-flex-shrink: 0;
-}
-.testi-name { font-weight: 700; font-size: 0.9rem; }
-.testi-case { font-size: 0.73rem; color: var(--text-secondary); }
+.testi-sec{position:relative;z-index:2;padding:100px 4%;overflow:hidden;}
+.testi-wrapper{overflow:hidden;margin:0 -4%;padding:16px 4%;}
+.testi-track{display:flex;gap:22px;animation:tScroll 35s linear infinite;}
+.testi-track:hover{animation-play-state:paused;}
+@keyframes tScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.testi{flex-shrink:0;width:300px;padding:26px;border-radius:14px;background:rgba(10,15,40,.8);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px);}
+.testi-stars{color:#FFC107;font-size:.85rem;margin-bottom:12px;letter-spacing:3px;}
+.testi-text{font-size:.87rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:18px;font-family:'Tiro Devanagari Hindi',serif;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.testi-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:#fff;flex-shrink:0;}
+.testi-name{font-weight:700;font-size:.87rem;}
+.testi-case{font-size:.7rem;color:var(--text2);}
 
 /* CONTACT */
-.contact-section {
-position: relative; z-index: 2;
-padding: 120px 5%;
-background: linear-gradient(180deg, transparent, rgba(139,0,0,0.05), transparent);
-}
-.contact-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 60px;
-max-width: 1100px;
-margin: 0 auto;
-}
-.contact-info { }
-.contact-cta-title {
-font-family: 'Rozha One', serif;
-font-size: 2.5rem;
-line-height: 1.3;
-margin-bottom: 20px;
-}
-.contact-cta-desc {
-font-size: 1rem;
-color: var(--text-secondary);
-line-height: 1.8;
-margin-bottom: 40px;
-}
-.contact-items { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
-.contact-item {
-display: flex;
-align-items: center;
-gap: 20px;
-padding: 20px 25px;
-border-radius: 12px;
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(255,255,255,0.06);
-transition: all 0.3s;
-text-decoration: none;
-}
-.contact-item:hover {
-background: rgba(220,20,60,0.06);
-border-color: rgba(220,20,60,0.2);
-transform: translateX(5px);
-}
-.ci-icon {
-width: 48px; height: 48px;
-border-radius: 12px;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.4rem;
-background: rgba(220,20,60,0.1);
-border: 1px solid rgba(220,20,60,0.2);
-flex-shrink: 0;
-}
-.ci-label { font-size: 0.73rem; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 2px; }
-.ci-value { font-weight: 700; color: #fff; font-size: 0.95rem; }
-.contact-form-wrapper {
-background: rgba(10,15,40,0.8);
-border: 1px solid rgba(255,255,255,0.07);
-border-radius: 24px;
-padding: 45px 40px;
-backdrop-filter: blur(20px);
-}
-.form-title {
-font-family: 'Rozha One', serif;
-font-size: 1.6rem;
-margin-bottom: 30px;
-color: #fff;
-}
-.form-group {
-margin-bottom: 22px;
-}
-.form-label {
-display: block;
-font-size: 0.8rem;
-font-weight: 600;
-color: var(--text-secondary);
-margin-bottom: 8px;
-letter-spacing: 1px;
-}
-.form-label span.req { color: var(--scarlet); }
-.form-control {
-width: 100%;
-padding: 14px 18px;
-background: rgba(255,255,255,0.04);
-border: 1px solid rgba(255,255,255,0.08);
-border-radius: 10px;
-color: #fff;
-font-family: 'Baloo 2', sans-serif;
-font-size: 0.95rem;
-outline: none;
-transition: all 0.3s;
-}
-.form-control:focus {
-border-color: rgba(220,20,60,0.4);
-background: rgba(220,20,60,0.04);
-box-shadow: 0 0 0 3px rgba(220,20,60,0.08);
-}
-.form-control::placeholder { color: rgba(255,255,255,0.2); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-textarea.form-control { resize: vertical; min-height: 100px; }
-select.form-control {
-appearance: none;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-background-repeat: no-repeat;
-background-position: right 15px center;
-}
-select.form-control option { background: #0a0f2e; color: #fff; }
-.submit-btn {
-width: 100%;
-padding: 16px;
-background: linear-gradient(135deg, var(--scarlet), #a00000);
-border: none;
-border-radius: 12px;
-color: #fff;
-font-family: 'Baloo 2', sans-serif;
-font-size: 1rem;
-font-weight: 700;
-cursor: pointer;
-transition: all 0.3s;
-box-shadow: 0 8px 25px rgba(220,20,60,0.3);
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-}
-.submit-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 15px 35px rgba(220,20,60,0.4);
-}
-.form-privacy {
-text-align: center;
-font-size: 0.75rem;
-color: rgba(255,255,255,0.35);
-margin-top: 15px;
-}
+.contact-sec{position:relative;z-index:2;padding:100px 4%;background:linear-gradient(180deg,transparent,rgba(139,0,0,.05),transparent);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;max-width:1050px;margin:0 auto;}
+.contact-cta-title{font-family:'Rozha One',serif;font-size:2.3rem;line-height:1.3;margin-bottom:18px;}
+.contact-cta-desc{font-size:.98rem;color:var(--text2);line-height:1.8;margin-bottom:36px;}
+.contact-items{display:flex;flex-direction:column;gap:18px;margin-bottom:36px;}
+.ci-item{display:flex;align-items:center;gap:18px;padding:18px 22px;border-radius:11px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .3s;text-decoration:none;}
+.ci-item:hover{background:rgba(220,20,60,.06);border-color:rgba(220,20,60,.2);transform:translateX(5px);}
+.ci-ico{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:rgba(220,20,60,.1);border:1px solid rgba(220,20,60,.2);flex-shrink:0;}
+.ci-lbl{font-size:.7rem;color:var(--text2);letter-spacing:2px;margin-bottom:2px;}
+.ci-val{font-weight:700;color:#fff;font-size:.92rem;}
+.form-wrap{background:rgba(10,15,40,.8);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:40px 36px;backdrop-filter:blur(20px);}
+.form-title{font-family:'Rozha One',serif;font-size:1.5rem;margin-bottom:26px;color:#fff;}
+.form-group{margin-bottom:20px;}
+.form-label{display:block;font-size:.77rem;font-weight:600;color:var(--text2);margin-bottom:7px;letter-spacing:1px;}
+.form-label .req{color:var(--scarlet);}
+.form-ctrl{width:100%;padding:13px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:9px;color:#fff;font-family:'Baloo 2',sans-serif;font-size:.92rem;outline:none;transition:all .3s;}
+.form-ctrl:focus{border-color:rgba(220,20,60,.4);background:rgba(220,20,60,.04);box-shadow:0 0 0 3px rgba(220,20,60,.08);}
+.form-ctrl::placeholder{color:rgba(255,255,255,.2);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+textarea.form-ctrl{resize:vertical;min-height:90px;}
+select.form-ctrl{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+select.form-ctrl option{background:#0a0f2e;color:#fff;}
+.submit-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--scarlet),#a00000);border:none;border-radius:11px;color:#fff;font-family:'Baloo 2',sans-serif;font-size:.97rem;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 7px 22px rgba(220,20,60,.3);display:flex;align-items:center;justify-content:center;gap:9px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(220,20,60,.4);}
+.form-priv{text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:13px;}
 
 /* FOOTER */
-footer {
-position: relative; z-index: 2;
-background: rgba(3,5,15,0.95);
-border-top: 1px solid rgba(220,20,60,0.1);
-padding: 80px 5% 40px;
-}
-.footer-grid {
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
-gap: 50px;
-max-width: 1200px;
-margin: 0 auto 60px;
-}
-.footer-brand { }
-.footer-logo {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 20px;
-}
-.footer-logo-icon {
-width: 50px; height: 50px;
-background: linear-gradient(135deg, var(--scarlet), var(--royal-blue));
-border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.4rem;
-box-shadow: 0 0 25px var(--glow-red);
-}
-.footer-logo-name {
-font-family: 'Rozha One', serif;
-font-size: 1.2rem;
-}
-.footer-tagline {
-font-family: 'Cinzel', serif;
-font-size: 0.65rem;
-color: var(--scarlet);
-letter-spacing: 3px;
-}
-.footer-desc {
-font-size: 0.88rem;
-color: var(--text-secondary);
-line-height: 1.8;
-margin-bottom: 25px;
-}
-.footer-latin {
-font-family: 'Cinzel', serif;
-font-size: 0.75rem;
-color: rgba(255,255,255,0.3);
-letter-spacing: 3px;
-}
-.footer-heading {
-font-family: 'Cinzel', serif;
-font-size: 0.7rem;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(--scarlet);
-margin-bottom: 20px;
-}
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 10px; }
-.footer-links a {
-color: var(--text-secondary);
-text-decoration: none;
-font-size: 0.88rem;
-transition: color 0.3s;
-display: flex; align-items: center; gap: 8px;
-}
-.footer-links a:hover { color: #fff; }
-.footer-links a::before {
-content: '›';
-color: var(--scarlet);
-font-size: 1.1rem;
-}
-.footer-bottom {
-border-top: 1px solid rgba(255,255,255,0.06);
-padding-top: 30px;
-max-width: 1200px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-gap: 15px;
-}
-.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.3); }
-.footer-moto {
-font-family: 'Cinzel', serif;
-font-size: 0.72rem;
-color: rgba(255,255,255,0.25);
-letter-spacing: 2px;
-}
+footer{position:relative;z-index:2;background:rgba(3,5,15,.96);border-top:1px solid rgba(220,20,60,.1);padding:70px 4% 36px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;max-width:1150px;margin:0 auto 50px;}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.footer-logo-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--scarlet),var(--royal-blue));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 0 22px var(--glow-red);}
+.footer-logo-name{font-family:'Rozha One',serif;font-size:1.1rem;}
+.footer-logo-tag{font-family:'Cinzel',serif;font-size:.6rem;color:var(--scarlet);letter-spacing:3px;}
+.footer-desc{font-size:.85rem;color:var(--text2);line-height:1.8;margin-bottom:22px;}
+.footer-latin{font-family:'Cinzel',serif;font-size:.72rem;color:rgba(255,255,255,.28);letter-spacing:3px;}
+.footer-heading{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--scarlet);margin-bottom:18px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:9px;}
+.footer-links a{color:var(--text2);text-decoration:none;font-size:.85rem;transition:color .3s;display:flex;align-items:center;gap:7px;}
+.footer-links a:hover{color:#fff;}
+.footer-links a::before{content:'›';color:var(--scarlet);font-size:1rem;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:26px;max-width:1150px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.28);}
+.footer-moto{font-family:'Cinzel',serif;font-size:.68rem;color:rgba(255,255,255,.22);letter-spacing:2px;}
 
-/* ANIMATIONS */
-@keyframes fadeInDown { from { opacity:0; transform: translateY(-30px); } to { opacity:1; transform:none; } }
-@keyframes fadeInUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform:none; } }
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:all .8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.rl{opacity:0;transform:translateX(-36px);transition:all .8s ease;}
+.rl.visible{opacity:1;transform:none;}
+.rr{opacity:0;transform:translateX(36px);transition:all .8s ease;}
+.rr.visible{opacity:1;transform:none;}
 
-.reveal {
-opacity: 0;
-transform: translateY(40px);
-transition: all 0.8s ease;
-}
-.reveal.visible {
-opacity: 1;
-transform: none;
-}
-.reveal-left {
-opacity: 0;
-transform: translateX(-40px);
-transition: all 0.8s ease;
-}
-.reveal-left.visible {
-opacity: 1;
-transform: none;
-}
-.reveal-right {
-opacity: 0;
-transform: translateX(40px);
-transition: all 0.8s ease;
-}
-.reveal-right.visible {
-opacity: 1;
-transform: none;
-}
+/* FAB */
+.fab{position:fixed;bottom:24px;right:24px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.fab-btn{width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all .3s;box-shadow:0 7px 22px rgba(0,0,0,.4);}
+.fab-main{background:linear-gradient(135deg,var(--scarlet),#a00000);box-shadow:0 7px 22px var(--glow-red);}
+.fab-main:hover{transform:scale(1.1) rotate(10deg);}
+.fab-wa{background:#25D366;box-shadow:0 7px 22px rgba(37,211,102,.4);width:44px;height:44px;}
+.fab-wa:hover{transform:scale(1.1);}
 
-/* MOBILE */
-@media (max-width: 1100px) {
-.chakravyuh-arena { grid-template-columns: 1fr; }
-#chakravyuh-main { width: 100%; max-width: 450px; height: 450px; margin: 0 auto; }
-.chakravyuh-arena { gap: 30px; }
+/* ==================
+   RESPONSIVE
+   ================== */
+@media(max-width:1050px){
+.chak-arena{grid-template-columns:1fr 380px 1fr;}
+#chak-main{width:380px;height:380px;}
 }
-@media (max-width: 900px) {
-.nav-links { display: none; }
-.stats-grid { grid-template-columns: repeat(2,1fr); }
-.about-grid { grid-template-columns: 1fr; }
-.practice-grid { grid-template-columns: 1fr; }
-.team-grid { grid-template-columns: 1fr; }
-.team-stats { grid-template-columns: repeat(2,1fr); }
-.jurisdiction-grid { grid-template-columns: repeat(2,1fr); }
-.whyus-grid { grid-template-columns: repeat(2,1fr); }
-.features-grid { grid-template-columns: repeat(2,1fr); }
-.cities-grid { grid-template-columns: repeat(2,1fr); }
-.contact-grid { grid-template-columns: 1fr; }
-.footer-grid { grid-template-columns: 1fr 1fr; }
-.chakravyuh-steps { grid-template-columns: 1fr 1fr; }
+@media(max-width:900px){
+.nav-links{display:none;}
+.nav-ham{display:flex;}
+.stats-grid{grid-template-columns:repeat(2,1fr);}
+.about-grid{grid-template-columns:1fr;}
+.practice-grid{grid-template-columns:1fr;}
+.team-grid{grid-template-columns:1fr;}
+.team-stats{grid-template-columns:repeat(2,1fr);}
+.juris-grid{grid-template-columns:repeat(2,1fr);}
+.why-grid{grid-template-columns:repeat(2,1fr);}
+.feat-grid{grid-template-columns:repeat(2,1fr);}
+.cities-grid{grid-template-columns:repeat(3,1fr);}
+.contact-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+.chak-steps{grid-template-columns:1fr 1fr;}
+.chak-arena{grid-template-columns:1fr;}
+#chak-main{width:100%;max-width:420px;height:420px;margin:0 auto;}
+.chak-canvas-wrap{justify-content:center;}
 }
-@media (max-width: 600px) {
-.stats-grid { grid-template-columns: repeat(2,1fr); }
-.whyus-grid { grid-template-columns: 1fr; }
-.features-grid { grid-template-columns: repeat(2,1fr); }
-.cities-grid { grid-template-columns: repeat(2,1fr); }
-.footer-grid { grid-template-columns: 1fr; }
-.chakravyuh-steps { grid-template-columns: 1fr; }
-.jurisdiction-grid { grid-template-columns: 1fr; }
-.form-row { grid-template-columns: 1fr; }
+@media(max-width:600px){
+.stats-grid{grid-template-columns:repeat(2,1fr);}
+.why-grid{grid-template-columns:1fr;}
+.feat-grid{grid-template-columns:repeat(2,1fr);}
+.cities-grid{grid-template-columns:repeat(2,1fr);}
+.footer-grid{grid-template-columns:1fr;}
+.chak-steps{grid-template-columns:1fr;}
+.juris-grid{grid-template-columns:1fr 1fr;}
+.form-row{grid-template-columns:1fr;}
+.about-badges{position:static;display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+.ab1,.ab2,.ab3{position:static;}
+.chak-arena{gap:20px;}
+.caveat-box{padding:24px 20px;}
+.hero-btns{flex-direction:column;align-items:center;}
+.btn-p,.btn-s{width:100%;max-width:300px;justify-content:center;}
+#chak-main{height:340px;}
+.chak-title{font-size:clamp(2rem,7vw,3rem);}
 }
-
-/* FLOATING ACTION */
-.fab {
-position: fixed;
-bottom: 30px; right: 30px;
-z-index: 1000;
-display: flex;
-flex-direction: column;
-align-items: flex-end;
-gap: 12px;
+@media(max-width:400px){
+nav{padding:0 3%;}
+.about-sec,.chak-sec,.practice-sec,.team-sec,.juris-sec,.why-sec,.feat-sec,.cities-sec,.testi-sec,.contact-sec{padding:70px 3%;}
+.cities-grid{grid-template-columns:1fr 1fr;}
+#chak-main{height:300px;}
 }
-.fab-btn {
-width: 56px; height: 56px;
-border-radius: 50%;
-border: none;
-cursor: none;
-display: flex; align-items: center; justify-content: center;
-font-size: 1.4rem;
-transition: all 0.3s;
-box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-}
-.fab-main {
-background: linear-gradient(135deg, var(--scarlet), #a00000);
-box-shadow: 0 8px 25px var(--glow-red);
-}
-.fab-main:hover { transform: scale(1.1) rotate(10deg); }
-.fab-wa {
-background: #25D366;
-box-shadow: 0 8px 25px rgba(37,211,102,0.4);
-width: 48px; height: 48px;
-}
-.fab-wa:hover { transform: scale(1.1); }
 </style>
 </head>
 <body>
 
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursorFollower"></div>
+<div class="cursor" id="cur"></div>
+<div class="cursor-f" id="curf"></div>
 
-<!-- Cosmos Background Canvas -->
-<canvas id="cosmos-canvas"></canvas>
+<canvas id="cosmos"></canvas>
 
-<!-- NAVBAR -->
-<nav id="navbar">
+<!-- NAV -->
+<nav id="nav">
 <a href="#" class="nav-logo">
 <div class="nav-logo-icon">⚖</div>
 <div class="nav-logo-text">
@@ -1797,811 +574,472 @@ width: 48px; height: 48px;
 </a>
 <div class="nav-links">
 <a href="#parichay">परिचय</a>
-<a href="#visheshagyta">विशेषज्ञता</a>
+<a href="#vishesh">विशेषज्ञता</a>
 <a href="#chakravyuh">चक्रव्यूह</a>
-<a href="#nyay-kshetra">न्याय क्षेत्र</a>
+<a href="#nyay">न्याय क्षेत्र</a>
 <a href="#team">हमारी टीम</a>
 <a href="#contact" class="nav-cta">निःशुल्क परामर्श</a>
 </div>
+<div class="nav-ham" id="ham" onclick="toggleMob()">
+<span></span><span></span><span></span>
+</div>
 </nav>
+<div class="mob-menu" id="mobMenu">
+<a href="#parichay" onclick="toggleMob()">परिचय</a>
+<a href="#vishesh" onclick="toggleMob()">विशेषज्ञता</a>
+<a href="#chakravyuh" onclick="toggleMob()">चक्रव्यूह</a>
+<a href="#nyay" onclick="toggleMob()">न्याय क्षेत्र</a>
+<a href="#team" onclick="toggleMob()">हमारी टीम</a>
+<a href="#contact" class="mob-cta" onclick="toggleMob()">निःशुल्क परामर्श लें →</a>
+</div>
 
 <!-- HERO -->
-<section class="hero" id="top">
-<canvas id="hero-canvas-3d"></canvas>
+<section class="hero">
+<canvas id="hero3d"></canvas>
 <div class="hero-bg"></div>
 <div class="hero-content">
-<div class="hero-badge">
-<span></span>
-EST. 2014 · ग्यारह वर्षों की विधिक सेवा
-</div>
+<div class="hero-badge"><span></span>EST. 2014 · ग्यारह वर्षों की विधिक सेवा</div>
 <h1 class="hero-title">राजवर्धन<br>&amp; Associates</h1>
-<div class="hero-subtitle-en">Rajvardhan &amp; Associates · Since 2014</div>
-<p class="hero-tagline">जहाँ हम प्रतिरक्षा के लिए खड़े होते हैं, वहां केवल सत्य बोलता हैं</p>
+<div class="hero-sub-en">Rajvardhan &amp; Associates · Since 2014</div>
+<p class="hero-tag">जहाँ सत्य बोलता है, वहाँ हम खड़े हैं</p>
 <div class="hero-latin">✦ Vincit Omnia Veritas ✦</div>
-<p class="hero-desc">ग्यारह वर्षों से हम उन लोगों की आवाज बने हैं जिन्हें न्याय की सबसे अधिक आवश्यकता होती है। आपराधिक मुक़दमे में बचाव हो या सिविल विवाद, राजस्व मामले हों या साइबर अपराध - प्रत्येक क्षेत्र में हमारी विधिक समझ और अजेय रणनीति आपके पक्ष में सदैव निर्णायक भूमिका निभाती है।</p>
-<div class="hero-buttons">
-<a href="tel:+917466806524" class="btn-primary">📞 अभी बात करें - निःशुल्क</a>
-<a href="#visheshagyta" class="btn-secondary">हमारी विशेषज्ञता →</a>
+<p class="hero-desc">ग्यारह वर्षों से हम उन लोगों की आवाज बने हैं जिन्हें न्याय की सबसे अधिक आवश्यकता होती है। आपराधिक बचाव हो या सिविल विवाद, राजस्व मामले हों या साइबर अपराध — प्रत्येक क्षेत्र में हमारी गहन विधिक समझ और अजेय रणनीति आपके पक्ष में निर्णायक भूमिका निभाती है।</p>
+<div class="hero-btns">
+<a href="tel:+917466806524" class="btn-p">📞 अभी बात करें — निःशुल्क</a>
+<a href="#vishesh" class="btn-s">हमारी विशेषज्ञता →</a>
 </div>
 </div>
-<div class="scroll-indicator">
-<span>नीचे जाएं</span>
-<div class="scroll-line"></div>
-</div>
+<div class="scroll-ind"><span>नीचे जाएं</span><div class="scroll-line"></div></div>
 </section>
 
 <!-- STATS -->
 <section class="stats-bar" id="parichay">
 <div class="stats-grid">
-<div class="stat-item reveal">
-<div class="stat-number"><span class="count" data-target="11">0</span></div>
-<div class="stat-label"> 11 वर्षों का अनुभव</div>
-<div class="stat-sub">SINCE 2014</div>
-</div>
-<div class="stat-item reveal">
-<div class="stat-number"><span class="count" data-target="500">0</span><span class="stat-suffix">+</span></div>
-<div class="stat-label">सफल मामले</div>
-<div class="stat-sub">SUCCESSFUL CASES</div>
-</div>
-<div class="stat-item reveal">
-<div class="stat-number"><span class="count" data-target="98">0</span><span class="stat-suffix">%</span></div>
-<div class="stat-label">मुवक्किल संतुष्टि</div>
-<div class="stat-sub">CLIENT SATISFACTION</div>
-</div>
-<div class="stat-item reveal">
-<div class="stat-number"><span class="count" data-target="5">0</span></div>
-<div class="stat-label">शहरों में उपस्थिति</div>
-<div class="stat-sub">CITIES SERVED</div>
-</div>
+<div class="stat-item reveal"><div class="stat-num"><span class="count" data-t="11">0</span></div><div class="stat-label">वर्षों का अनुभव</div><div class="stat-sub">SINCE 2014</div></div>
+<div class="stat-item reveal"><div class="stat-num"><span class="count" data-t="500">0</span><span class="stat-suf">+</span></div><div class="stat-label">सफल मामले</div><div class="stat-sub">SUCCESSFUL CASES</div></div>
+<div class="stat-item reveal"><div class="stat-num"><span class="count" data-t="98">0</span><span class="stat-suf">%</span></div><div class="stat-label">मुवक्किल संतुष्टि</div><div class="stat-sub">CLIENT SATISFACTION</div></div>
+<div class="stat-item reveal"><div class="stat-num"><span class="count" data-t="5">0</span></div><div class="stat-label">शहरों में उपस्थिति</div><div class="stat-sub">CITIES SERVED</div></div>
 </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-section">
+<div class="marquee-sec">
 <div class="marquee-track">
-<span>⚖️ आपराधिक बचाव <span class="dot"></span></span>
-<span>दहेज प्रकरण <span class="dot"></span></span>
-<span>NDPS रक्षा <span class="dot"></span></span>
-<span>साइबर अपराध <span class="dot"></span></span>
-<span>भूमि विवाद <span class="dot"></span></span>
-<span>जमानत <span class="dot"></span></span>
-<span>उच्च न्यायालय <span class="dot"></span></span>
-<span>राजस्व विधि <span class="dot"></span></span>
-<span>सिविल वाद <span class="dot"></span></span>
-<span>हत्या बचाव <span class="dot"></span></span>
-<span>⚖️ आपराधिक बचाव <span class="dot"></span></span>
-<span>दहेज प्रकरण <span class="dot"></span></span>
-<span>NDPS रक्षा <span class="dot"></span></span>
-<span>साइबर अपराध <span class="dot"></span></span>
-<span>भूमि विवाद <span class="dot"></span></span>
-<span>जमानत <span class="dot"></span></span>
-<span>उच्च न्यायालय <span class="dot"></span></span>
-<span>राजस्व विधि <span class="dot"></span></span>
-<span>सिविल वाद <span class="dot"></span></span>
-<span>हत्या बचाव <span class="dot"></span></span>
+<span>⚖️ आपराधिक बचाव<span class="dot"></span></span>
+<span>दहेज प्रकरण<span class="dot"></span></span>
+<span>NDPS रक्षा<span class="dot"></span></span>
+<span>साइबर अपराध<span class="dot"></span></span>
+<span>भूमि विवाद<span class="dot"></span></span>
+<span>जमानत<span class="dot"></span></span>
+<span>उच्च न्यायालय<span class="dot"></span></span>
+<span>राजस्व विधि<span class="dot"></span></span>
+<span>सिविल वाद<span class="dot"></span></span>
+<span>हत्या बचाव<span class="dot"></span></span>
+<span>⚖️ आपराधिक बचाव<span class="dot"></span></span>
+<span>दहेज प्रकरण<span class="dot"></span></span>
+<span>NDPS रक्षा<span class="dot"></span></span>
+<span>साइबर अपराध<span class="dot"></span></span>
+<span>भूमि विवाद<span class="dot"></span></span>
+<span>जमानत<span class="dot"></span></span>
+<span>उच्च न्यायालय<span class="dot"></span></span>
+<span>राजस्व विधि<span class="dot"></span></span>
+<span>सिविल वाद<span class="dot"></span></span>
+<span>हत्या बचाव<span class="dot"></span></span>
 </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about-section" id="about">
+<section class="about-sec" id="about">
 <div class="about-grid">
-<div class="about-visual reveal-left">
-<div class="about-3d-container">
-<canvas id="about-canvas"></canvas>
-</div>
+<div class="about-visual rl">
+<div class="about-3d"><canvas id="about-canvas"></canvas></div>
 <div class="about-badges">
-<div class="about-badge-item ab1">🏛️ 11 वर्ष · अटूट निष्ठा</div>
-<div class="about-badge-item ab2">⚖️ 500+ सफल मामले</div>
-<div class="about-badge-item ab3">🛡️ 100% गोपनीयता</div>
+<div class="ab-item ab1">🏛️ 11 वर्ष · अटूट निष्ठा</div>
+<div class="ab-item ab2">⚖️ 500+ सफल मामले</div>
+<div class="ab-item ab3">🛡️ 100% गोपनीयता</div>
 </div>
 </div>
-<div class="about-content reveal-right">
-<div class="section-eyebrow eyebrow-red">हमारे बारे में</div>
-<h2 class="section-title gradient-text-red">एक ऐसी फर्म जो<br>आपकी लडाई को<br>अपना खुद का युद्ध मानती है।</h2>
-<div class="section-line line-red"></div>
-<p class="about-quote">"न्याय किसी को खुद मिलता नहीं —<br>उसे कठिन परिश्रम से हासिल करना पडता है।"</p>
-<p class="about-text">राजवर्धन एंड एसोसिएट्स की स्थापना 2014 में हुयी। ग्यारह वर्षों में हमने सैकडों परिवारों के लिए न्याय का मार्ग प्रशस्त किया है। जिला न्यायालय से उच्च न्यायालय तक - हर मंच पर हमारी तैयारी, निष्ठा और विधिक ज्ञान से न्याय आपके पक्ष में बोलता है। हम केवल अधिवक्ता नहीं, आपके न्यायिक योद्धा हैं।</p>
+<div class="rr">
+<div class="sec-header" style="text-align:left;margin-bottom:30px;">
+<div class="eyebrow ey-red">हमारे बारे में</div>
+<h2 class="sec-title gred">एक ऐसी फर्म जो<br>आपकी लड़ाई<br>अपनी मानती है</h2>
+<div class="sec-line sl-red" style="margin-left:0;"></div>
+</div>
+<p class="about-quote">"न्याय किसी को मिलता नहीं —<br>उसे हासिल करना पड़ता है।"</p>
+<p class="about-text">राजवर्धन एंड एसोसिएट्स की स्थापना 2014 में हुई। ग्यारह वर्षों में हमने सैकड़ों परिवारों के लिए न्याय का मार्ग प्रशस्त किया है। जिला न्यायालय से उच्च न्यायालय तक — हर मंच पर हमारी तैयारी, निष्ठा और विधिक ज्ञान आपके पक्ष में बोलता है। हम केवल वकील नहीं, आपके न्यायिक योद्धा हैं।</p>
 <div class="about-pillars">
-<div class="pillar-card">
-<div class="pillar-icon">⚖️</div>
-<div class="pillar-title">05 शहरों में</div>
-<div class="pillar-text">दिल्ली से देहरादून तक</div>
+<div class="pillar"><div class="pillar-icon">⚖️</div><div class="pillar-title">5 शहरों में</div><div class="pillar-text">दिल्ली से देहरादून तक</div></div>
+<div class="pillar"><div class="pillar-icon">🔍</div><div class="pillar-title">गहन अनुसंधान</div><div class="pillar-text">हर विवरण पर ध्यान</div></div>
+<div class="pillar"><div class="pillar-icon">🛡️</div><div class="pillar-title">पूर्ण गोपनीयता</div><div class="pillar-text">आपका राज, हमारा दायित्व</div></div>
+<div class="pillar"><div class="pillar-icon">📞</div><div class="pillar-title">24×7 उपलब्ध</div><div class="pillar-text">आपात स्थिति में तत्पर</div></div>
 </div>
-<div class="pillar-card">
-<div class="pillar-icon">🔍</div>
-<div class="pillar-title">गहन अनुसंधान</div>
-<div class="pillar-text">हर विवरण पर ध्यान</div>
-</div>
-<div class="pillar-card">
-<div class="pillar-icon">🛡️</div>
-<div class="pillar-title">पूर्ण गोपनीयता</div>
-<div class="pillar-text">आपका राज, हमारा दायित्व</div>
-</div>
-<div class="pillar-card">
-<div class="pillar-icon">📞</div>
-<div class="pillar-title">24×7 उपलब्ध</div>
-<div class="pillar-text">आपात स्थिति में तत्पर</div>
-</div>
-</div>
-<a href="#contact" class="btn-primary">निःशुल्क परामर्श लें →</a>
+<a href="#contact" class="btn-p">निःशुल्क परामर्श लें →</a>
 </div>
 </div>
 </section>
 
-<!-- CHAKRAVYUH MASTERPIECE -->
-<section class="chakravyuh-section" id="chakravyuh">
-<canvas id="chakravyuh-canvas"></canvas>
-
-<div class="chakravyuh-content">
-<div class="chakravyuh-header reveal">
-<div class="section-eyebrow eyebrow-red">विधिक युद्धनीति · LEGAL WARFARE</div>
-<h2 class="chakravyuh-title">चक्रव्यूह रणनीति</h2>
-<p class="chakravyuh-subtitle">एक बार आपके खिलाफ का गवाह हमारे चक्रव्यूह में प्रवेश करता है, fir उसका हमारे विधिक चक्रव्यूह से निकलना असंभव है</p>
-<p class="chakravyuh-desc">महाभारत के चक्रव्यूह में प्रवेश तो सरल था, परंतु बाहर निकलना असम्भव था। ठीक इसी सिद्धांत पर हमारी न्यायिक रणनीति आधारित होती है। हम गवाह के लिए प्रश्नों का ऐसा अभेद्य जाल रचते हैं कि वह स्वयं अपने बयानों में उलझकर सत्य स्वीकार करने पर मजबूर हो जाता है।</p>
-<blockquote class="chakravyuh-quote">
-"हम गवाह के लिए ऐसा चक्रव्यूह रचते हैं जिससे बाहर निकलना उसके लिए असम्भव हो जाता है। वह उसमें फँसकर मुकदमे को बरी करने के लिए स्वयं मजबूर हो जाता है।"
-</blockquote>
+<!-- CHAKRAVYUH -->
+<section class="chak-sec" id="chakravyuh">
+<canvas id="chak-bg"></canvas>
+<div class="chak-content">
+<div class="chak-header reveal">
+<div class="eyebrow ey-red">विधिक युद्धनीति · LEGAL WARFARE</div>
+<h2 class="chak-title">चक्रव्यूह रणनीति</h2>
+<p class="chak-sub">जहाँ से प्रवेश है, वहाँ से निकास नहीं</p>
+<p class="chak-desc">महाभारत के चक्रव्यूह में प्रवेश तो सरल था, परंतु बाहर निकलना असम्भव। ठीक इसी सिद्धांत पर हमारी न्यायिक रणनीति आधारित है। हम गवाह के लिए प्रश्नों का ऐसा अभेद्य जाल रचते हैं कि वह स्वयं अपने बयानों में उलझकर सत्य स्वीकार करने पर मजबूर हो जाता है।</p>
+<blockquote class="chak-quote">"हम गवाह के लिए ऐसा चक्रव्यूह रचते हैं जिससे बाहर निकलना उसके लिए असम्भव हो जाता है। वह उसमें फँसकर मुकदमे को बरी करने के लिए स्वयं मजबूर हो जाता है।"</blockquote>
 </div>
 
-<!-- MAIN ANIMATION ARENA -->
-<div class="chakravyuh-arena">
-<!-- LEFT: Witness Panel -->
-<div class="witness-panel reveal-left">
-<div class="witness-panel-title">हमारा सामना करने से पहले गवाह की स्थिति -</div>
-
+<!-- ARENA -->
+<div class="chak-arena">
+<!-- LEFT: Witness -->
+<div class="witness-panel rl">
+<div class="panel-label">गवाह की स्थिति</div>
 <div class="witness-figure">
-<div class="witness-avatar" id="witnessAvatar">🧑‍💼</div>
-<div class="witness-name" id="witnessName">मुख्य गवाह</div>
+<div class="witness-svg-wrap" id="wsvg">
+<!-- Attractive SVG witness figure -->
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="witnessSVG">
+<!-- Robe/gown body -->
+<defs>
+<radialGradient id="headG" cx="50%" cy="40%" r="50%">
+<stop offset="0%" stop-color="#FFDAB9"/>
+<stop offset="100%" stop-color="#D2965A"/>
+</radialGradient>
+<radialGradient id="robeG" cx="50%" cy="30%" r="70%">
+<stop offset="0%" stop-color="#1a237e" id="robeTop"/>
+<stop offset="100%" stop-color="#0d1b6e" id="robeBot"/>
+</radialGradient>
+<filter id="glow">
+<feGaussianBlur stdDeviation="2" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<!-- Shadow -->
+<ellipse cx="50" cy="98" rx="22" ry="4" fill="rgba(0,0,0,0.3)"/>
+<!-- Robe body -->
+<path d="M28 55 Q24 98 22 98 L78 98 Q76 98 72 55 Q60 62 40 62 Z" fill="url(#robeG)" opacity="0.95"/>
+<!-- White collar/shirt -->
+<path d="M42 52 L50 58 L58 52 L55 48 L50 52 L45 48 Z" fill="white" opacity="0.9"/>
+<!-- Robe lapels -->
+<path d="M40 52 Q36 60 30 65 L28 55 Q34 53 40 52Z" fill="#283593" opacity="0.8"/>
+<path d="M60 52 Q64 60 70 65 L72 55 Q66 53 60 52Z" fill="#283593" opacity="0.8"/>
+<!-- Tie/court badge -->
+<rect x="47" y="56" width="6" height="18" rx="2" fill="#DC143C" opacity="0.85"/>
+<!-- Arms -->
+<path id="armL" d="M32 60 Q18 70 16 80" stroke="#FFDAB9" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path id="armR" d="M68 60 Q82 70 84 80" stroke="#FFDAB9" stroke-width="7" stroke-linecap="round" fill="none"/>
+<!-- Hands -->
+<circle cx="16" cy="81" r="5" fill="#FFDAB9"/>
+<circle cx="84" cy="81" r="5" fill="#FFDAB9"/>
+<!-- Neck -->
+<rect x="46" y="42" width="8" height="10" rx="3" fill="#D2965A"/>
+<!-- Head -->
+<circle cx="50" cy="34" r="16" fill="url(#headG)"/>
+<!-- Hair -->
+<path d="M34 30 Q36 18 50 16 Q64 18 66 30 Q62 22 50 22 Q38 22 34 30Z" fill="#2C1A0E"/>
+<!-- Eyes - change with stress -->
+<g id="eyeGroup">
+<circle cx="44" cy="32" r="3" fill="white"/>
+<circle cx="56" cy="32" r="3" fill="white"/>
+<circle cx="44" cy="32" r="1.8" fill="#1a237e" id="pupilL"/>
+<circle cx="56" cy="32" r="1.8" fill="#1a237e" id="pupilR"/>
+</g>
+<!-- Eyebrows - animate with stress -->
+<line id="browL" x1="41" y1="27" x2="47" y2="26" stroke="#2C1A0E" stroke-width="1.5" stroke-linecap="round"/>
+<line id="browR" x1="53" y1="26" x2="59" y2="27" stroke="#2C1A0E" stroke-width="1.5" stroke-linecap="round"/>
+<!-- Mouth -->
+<path id="mouthPath" d="M45 40 Q50 43 55 40" stroke="#8B4513" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+<!-- Sweat drops (hidden initially) -->
+<circle id="sweat1" cx="38" cy="28" r="2" fill="#87CEEB" opacity="0"/>
+<circle id="sweat2" cx="66" cy="26" r="1.5" fill="#87CEEB" opacity="0"/>
+<!-- Panic marks -->
+<text id="panicMark" x="70" y="20" font-size="10" fill="#DC143C" opacity="0" font-family="serif">?!</text>
+<!-- Court papers in hand -->
+<rect x="8" y="76" width="12" height="16" rx="1" fill="white" opacity="0.8"/>
+<line x1="10" y1="80" x2="18" y2="80" stroke="#ccc" stroke-width="0.8"/>
+<line x1="10" y1="83" x2="18" y2="83" stroke="#ccc" stroke-width="0.8"/>
+<line x1="10" y1="86" x2="16" y2="86" stroke="#ccc" stroke-width="0.8"/>
+</svg>
+</div>
+<div class="witness-name" id="wName">मुख्य गवाह</div>
 <div class="witness-role">PROSECUTION WITNESS</div>
 </div>
-
-<div class="stress-meter">
-<div class="stress-label">
-<span>आत्मविश्वास स्तर</span>
-<span id="stressVal">100%</span>
+<div class="meter-group">
+<div class="meter-label"><span>आत्मविश्वास</span><span id="confVal">100%</span></div>
+<div class="meter-bg"><div class="meter-fill m-conf" id="confFill" style="width:100%"></div></div>
 </div>
-<div class="stress-bar-bg">
-<div class="stress-bar-fill" id="stressFill" style="width:100%"></div>
+<div class="meter-group">
+<div class="meter-label"><span>विरोधाभास</span><span id="contraV">0%</span></div>
+<div class="meter-bg"><div class="meter-fill m-contra" id="contraF" style="width:0%"></div></div>
 </div>
-</div>
-
-<div class="stress-meter" style="margin-top:10px">
-<div class="stress-label">
-<span>विरोधाभास</span>
-<span id="contraVal">0</span>
-</div>
-<div class="stress-bar-bg">
-<div class="stress-bar-fill" id="contraFill" style="width:0%; background: linear-gradient(90deg,#DC143C,#ff4444)"></div>
+<div style="font-size:.7rem;color:var(--text2);margin:14px 0 8px;letter-spacing:1px;">CONTRADICTION LOG</div>
+<div class="contra-log" id="contraLog">
+<div style="font-size:.72rem;color:rgba(255,255,255,.2);text-align:center;padding:18px 0;">प्रतीक्षा करें...</div>
 </div>
 </div>
 
-<div style="margin-top: 20px; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 10px; letter-spacing: 1px;">CONTRADICTION LOG</div>
-<div class="contradiction-log" id="contraLog">
-<div style="font-size:0.75rem; color: rgba(255,255,255,0.2); text-align:center; padding: 20px 0;">
-प्रतीक्षा करें...
+<!-- CENTER CANVAS -->
+<div class="chak-canvas-wrap">
+<canvas id="chak-main"></canvas>
 </div>
+
+<!-- RIGHT: Advocate -->
+<div class="adv-panel rr">
+<div class="adv-label">अधिवक्ता की रणनीति</div>
+<div class="q-display" id="qDisplay">
+<span class="q-phase">जिरह प्रारम्भ होने की प्रतीक्षा...</span>
+पहला प्रश्न साधारण होगा।<br>गवाह को लगेगा सब ठीक है।<br>यही हमारी रणनीति का प्रारम्भ है।
+</div>
+<div style="font-size:.72rem;color:var(--text2);margin-bottom:10px;letter-spacing:2px;">रणनीति के चरण</div>
+<div class="phase-track" id="phTrack">
+<div class="ph-item" id="ph0"><div class="ph-num">01</div><div class="ph-name">गवाह विश्लेषण</div><div class="ph-st" id="ps0">—</div></div>
+<div class="ph-item" id="ph1"><div class="ph-num">02</div><div class="ph-name">सरल प्रश्न</div><div class="ph-st" id="ps1">—</div></div>
+<div class="ph-item" id="ph2"><div class="ph-num">03</div><div class="ph-name">जाल विस्तार</div><div class="ph-st" id="ps2">—</div></div>
+<div class="ph-item" id="ph3"><div class="ph-num">04</div><div class="ph-name">विरोधाभास प्रकट</div><div class="ph-st" id="ps3">—</div></div>
+<div class="ph-item" id="ph4"><div class="ph-num">05</div><div class="ph-name">पूर्ण उलझन</div><div class="ph-st" id="ps4">—</div></div>
+<div class="ph-item" id="ph5"><div class="ph-num">06</div><div class="ph-name">⚖️ बरी!</div><div class="ph-st" id="ps5">—</div></div>
+</div>
+<button class="start-btn" id="startBtn">▶ चक्रव्यूह आरम्भ करें</button>
 </div>
 </div>
 
-<!-- CENTER: Chakravyuh Canvas -->
-<div class="chakravyuh-main-canvas-wrapper">
-<canvas id="chakravyuh-main"></canvas>
+<!-- STEP CARDS -->
+<div class="chak-steps">
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">01</div><div class="step-icon">🔍</div><div class="step-title">गवाह का गहन विश्लेषण</div><div class="step-text">FIR, धारा 161 CrPC के बयान और न्यायालय के बयानों का तुलनात्मक अध्ययन। प्रत्येक विरोधाभास चिन्हित।</div></div>
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">02</div><div class="step-icon">🌀</div><div class="step-title">प्रश्नों का चक्रव्यूह</div><div class="step-text">प्रत्येक प्रश्न अगले का आधार बनता है। गवाह जहाँ से लौट नहीं सकता, वहाँ तक ले जाया जाता है।</div></div>
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">03</div><div class="step-icon">⚖️</div><div class="step-title">साक्ष्य खंडन</div><div class="step-text">FSL रिपोर्ट, पंचनामा और FIR की विसंगतियों से अखंडनीय तर्क निर्मित। साक्ष्य की श्रृंखला तोड़ी जाती है।</div></div>
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">04</div><div class="step-icon">🏛️</div><div class="step-title">न्यायिक दृष्टांत</div><div class="step-text">सर्वोच्च न्यायालय के निर्णयों का सटीक शस्त्र के रूप में प्रयोग। हर तर्क न्यायशास्त्र में स्थापित।</div></div>
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">05</div><div class="step-icon">🎯</div><div class="step-title">मनोवैज्ञानिक रणनीति</div><div class="step-text">गवाह का मनोविज्ञान पढ़कर उसकी विश्वसनीयता संदिग्ध बनाई जाती है। Section 145 IEA का सटीक उपयोग।</div></div>
+<div class="step-card reveal"><div class="step-top"></div><div class="step-snum">06</div><div class="step-icon">🔐</div><div class="step-title">अभेद्य दुर्ग निर्माण</div><div class="step-text">विपक्षी के तर्क प्रस्तुत होने से पहले ही खंडन तैयार। हमारी स्थिति अटूट और अखंडनीय।</div></div>
 </div>
 
-<!-- RIGHT: Advocate Panel -->
-<div class="advocate-panel reveal-right">
-<div class="advocate-panel-title">हमारी रणनीति देखिये - (नीचे चक्रव्यूह आरम्भ करें का बटन क्लिक करें)</div>
-
-<div class="question-display" id="questionDisplay">
-<span class="q-phase-label">जिरह प्रारम्भ होने की प्रतीक्षा...</span>
-पहला प्रश्न साधारण।<br>गवाह को लगेगा आसान है।<br>यहीं से हमारी रणनीति प्रारंभ होती है।
-</div>
-
-<div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 12px; letter-spacing: 2px;">रणनीति के चरण</div>
-<div class="phase-tracker" id="phaseTracker">
-<div class="phase-item" id="phase-0">
-<div class="phase-num">01</div>
-<div class="phase-name">गवाह विश्लेषण</div>
-<div class="phase-status" id="ps-0">—</div>
-</div>
-<div class="phase-item" id="phase-1">
-<div class="phase-num">02</div>
-<div class="phase-name">सरल प्रश्न</div>
-<div class="phase-status" id="ps-1">—</div>
-</div>
-<div class="phase-item" id="phase-2">
-<div class="phase-num">03</div>
-<div class="phase-name">जाल का विस्तार</div>
-<div class="phase-status" id="ps-2">—</div>
-</div>
-<div class="phase-item" id="phase-3">
-<div class="phase-num">04</div>
-<div class="phase-name">विरोधाभासों का प्रकट होना</div>
-<div class="phase-status" id="ps-3">—</div>
-</div>
-<div class="phase-item" id="phase-4">
-<div class="phase-num">05</div>
-<div class="phase-name">गवाह की पूर्ण उलझन</div>
-<div class="phase-status" id="ps-4">—</div>
-</div>
-<div class="phase-item" id="phase-5">
-<div class="phase-num">06</div>
-<div class="phase-name">⚖️ हमारा क्लाइंट बरी!</div>
-<div class="phase-status" id="ps-5">—</div>
-</div>
-</div>
-
-<button class="btn-primary" id="startChakra" style="width:100%; justify-content:center; margin-top:10px; font-size:0.9rem; padding: 12px;">
-▶ चक्रव्यूह आरम्भ करें
-</button>
-</div>
-</div>
-
-<!-- STEPS -->
-<div class="chakravyuh-steps">
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">01</div>
-<div class="step-icon">🔍</div>
-<div class="step-title">गवाह का गहन विश्लेषण</div>
-<div class="step-text">FIR, धारा 161 CrPC के बयान और न्यायालय के बयानों का तुलनात्मक अध्ययन। प्रत्येक विरोधाभास चिन्हित।</div>
-</div>
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">02</div>
-<div class="step-icon">🌀</div>
-<div class="step-title">प्रश्नों का चक्रव्यूह</div>
-<div class="step-text">प्रत्येक प्रश्न अगले का आधार बनता है। गवाह जहाँ से लौट नहीं सकता, वहाँ तक ले जाया जाता है।</div>
-</div>
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">03</div>
-<div class="step-icon">⚖️</div>
-<div class="step-title">साक्ष्य खंडन</div>
-<div class="step-text">FSL रिपोर्ट, पंचनामा और FIR की विसंगतियों से अखंडनीय तर्क निर्मित। साक्ष्य की श्रृंखला तोड़ी जाती है।</div>
-</div>
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">04</div>
-<div class="step-icon">🏛️</div>
-<div class="step-title">न्यायिक दृष्टांत</div>
-<div class="step-text">सर्वोच्च न्यायालय के निर्णयों का सटीक शस्त्र के रूप में प्रयोग। हर तर्क न्यायशास्त्र में स्थापित।</div>
-</div>
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">05</div>
-<div class="step-icon">🎯</div>
-<div class="step-title">मनोवैज्ञानिक रणनीति</div>
-<div class="step-text">गवाह का मनोविज्ञान पढ़कर उसकी विश्वसनीयता संदिग्ध बनाई जाती है। Section 145 IEA का सटीक उपयोग।</div>
-</div>
-<div class="step-card reveal">
-<div class="step-top-bar"></div>
-<div class="step-num">06</div>
-<div class="step-icon">🔐</div>
-<div class="step-title">अभेद्य दुर्ग निर्माण</div>
-<div class="step-text">विपक्षी के तर्क प्रस्तुत होने से पहले ही खंडन तैयार। हमारी स्थिति अटूट और अखंडनीय।</div>
-</div>
-</div>
-
-<!-- CAVEAT -->
 <div class="caveat-box reveal">
 <div class="caveat-label">⚠ CAVEAT OPPONENS · विपक्षी को चेतावनी</div>
-<p class="caveat-text">"कानून की किताबों में गवाह के हर झूठ का जवाब लिखा है, और हम वह जवाब पढना जानते हैं। विपक्षी के तर्क प्रस्तुत होने से पहले ही हमारे पास उसके खंडन तैयार होते हैं।"</p>
+<p class="caveat-text">"कानून की किताब में हर गलती का जवाब लिखा है, और हम वह जवाब पढ़ना जानते हैं। विपक्षी के तर्क प्रस्तुत होने से पहले ही हमारे पास खंडन तैयार होते हैं।"</p>
 </div>
 </div>
 </section>
 
-<!-- PRACTICE AREAS -->
-<section class="practice-section" id="visheshagyta">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-blue">AREAS OF PRACTICE</div>
-<h2 class="section-title gradient-text-blue">विधि के चार प्रमुख स्तंभ</h2>
-<div class="section-line line-blue"></div>
-<p class="section-desc">प्रत्येक क्षेत्र में गहन विशेषज्ञता और वर्षों का व्यावहारिक अनुभव।</p>
+<!-- PRACTICE -->
+<section class="practice-sec" id="vishesh">
+<div class="sec-header reveal">
+<div class="eyebrow ey-blue">AREAS OF PRACTICE</div>
+<h2 class="sec-title gblue">विधि के चार प्रमुख स्तंभ</h2>
+<div class="sec-line sl-blue"></div>
+<p class="sec-desc">प्रत्येक क्षेत्र में गहन विशेषज्ञता और वर्षों का व्यावहारिक अनुभव।</p>
 </div>
 <div class="practice-grid">
-<div class="practice-card pc-1 reveal-left">
-<div class="pc-number">01</div>
-<div class="pc-icon">💍</div>
-<div class="pc-latin">Matrimonium et Iustitia</div>
-<div class="pc-title">दहेज एवं वैवाहिक प्रकरण</div>
-<div class="pc-desc">IPC 498A, दहेज निषेध अधिनियम और घरेलू हिंसा अधिनियम की बारीकियों में गहरी पकड़। झूठे मामलों में तत्काल बचाव और सच्चे मामलों में न्याय।</div>
-<div class="pc-tags">
-<span class="pc-tag">IPC 498A</span>
-<span class="pc-tag">दहेज निषेध</span>
-<span class="pc-tag">घरेलू हिंसा</span>
-<span class="pc-tag">तलाक</span>
-<span class="pc-tag">अभिरक्षा</span>
-</div>
-</div>
-<div class="practice-card pc-2 reveal-right">
-<div class="pc-number">02</div>
-<div class="pc-icon">⚔️</div>
-<div class="pc-latin">Actus Reus et Mens Rea</div>
-<div class="pc-title">हत्या एवं गंभीर अपराध बचाव</div>
-<div class="pc-desc">IPC 302/307 में साक्ष्यों का गहन विश्लेषण। सत्र न्यायालय से उच्च न्यायालय तक - गैर-जमानती मामलों में भी जमानत और बरी करवाने की अजेय रणनीति।</div>
-<div class="pc-tags">
-<span class="pc-tag">IPC 302/307</span>
-<span class="pc-tag">सत्र न्यायालय</span>
-<span class="pc-tag">जमानत</span>
-<span class="pc-tag">उच्च न्यायालय</span>
-</div>
-</div>
-<div class="practice-card pc-3 reveal-left">
-<div class="pc-number">03</div>
-<div class="pc-icon">🔒</div>
-<div class="pc-latin">Strictissimi Juris</div>
-<div class="pc-title">NDPS - मादक द्रव्य रक्षा</div>
-<div class="pc-desc">Section 50 से FSL रिपोर्ट तक - हर प्रक्रियागत खामी ढूँढते हैं। Chain of Custody की जाँच से व्यावसायिक मात्रा में भी जमानत और बरी।</div>
-<div class="pc-tags">
-<span class="pc-tag">Sec 50, 52A</span>
-<span class="pc-tag">FSL Challenge</span>
-<span class="pc-tag">Chain of Custody</span>
-<span class="pc-tag">Bail</span>
-</div>
-</div>
-<div class="practice-card pc-4 reveal-right">
-<div class="pc-number">04</div>
-<div class="pc-icon">💻</div>
-<div class="pc-latin">Digital Juris Prudentia</div>
-<div class="pc-title">साइबर अपराध एवं IT विधि</div>
-<div class="pc-desc">IT Act 2000 — तकनीकी और कानूनी दोनों दृष्टिकोण। डिजिटल साक्ष्य की जाँच, ऑनलाइन धोखाधड़ी और सोशल मीडिया मामलों में विशेषज्ञता।</div>
-<div class="pc-tags">
-<span class="pc-tag">Sec 43, 66</span>
-<span class="pc-tag">Sec 66C, 67</span>
-<span class="pc-tag">डिजिटल साक्ष्य</span>
-<span class="pc-tag">साइबर धोखाधड़ी</span>
-</div>
-</div>
+<div class="pc pc1 rl"><div class="pc-num">01</div><div class="pc-icon">💍</div><div class="pc-latin">Matrimonium et Iustitia</div><div class="pc-title">दहेज एवं वैवाहिक प्रकरण</div><div class="pc-desc">IPC 498A, दहेज निषेध अधिनियम और घरेलू हिंसा अधिनियम की बारीकियों में गहरी पकड़। झूठे मामलों में तत्काल बचाव और सच्चे मामलों में न्याय।</div><div class="pc-tags"><span class="pc-tag">IPC 498A</span><span class="pc-tag">दहेज निषेध</span><span class="pc-tag">घरेलू हिंसा</span><span class="pc-tag">तलाक</span><span class="pc-tag">अभिरक्षा</span></div></div>
+<div class="pc pc2 rr"><div class="pc-num">02</div><div class="pc-icon">⚔️</div><div class="pc-latin">Actus Reus et Mens Rea</div><div class="pc-title">हत्या एवं गंभीर अपराध बचाव</div><div class="pc-desc">IPC 302/307 में साक्ष्यों का गहन विश्लेषण। सत्र न्यायालय से उच्च न्यायालय तक — गैर-जमानती मामलों में भी जमानत और बरी करवाने की अजेय रणनीति।</div><div class="pc-tags"><span class="pc-tag">IPC 302/307</span><span class="pc-tag">सत्र न्यायालय</span><span class="pc-tag">जमानत</span><span class="pc-tag">उच्च न्यायालय</span></div></div>
+<div class="pc pc3 rl"><div class="pc-num">03</div><div class="pc-icon">🔒</div><div class="pc-latin">Strictissimi Juris</div><div class="pc-title">NDPS — मादक द्रव्य रक्षा</div><div class="pc-desc">Section 50 से FSL रिपोर्ट तक — हर प्रक्रियागत खामी ढूँढते हैं। Chain of Custody की जाँच से व्यावसायिक मात्रा में भी जमानत और बरी।</div><div class="pc-tags"><span class="pc-tag">Sec 50, 52A</span><span class="pc-tag">FSL Challenge</span><span class="pc-tag">Chain of Custody</span><span class="pc-tag">Bail</span></div></div>
+<div class="pc pc4 rr"><div class="pc-num">04</div><div class="pc-icon">💻</div><div class="pc-latin">Digital Juris Prudentia</div><div class="pc-title">साइबर अपराध एवं IT विधि</div><div class="pc-desc">IT Act 2000 — तकनीकी और कानूनी दोनों दृष्टिकोण। डिजिटल साक्ष्य की जाँच, ऑनलाइन धोखाधड़ी और सोशल मीडिया मामलों में विशेषज्ञता।</div><div class="pc-tags"><span class="pc-tag">Sec 43, 66</span><span class="pc-tag">Sec 66C, 67</span><span class="pc-tag">डिजिटल साक्ष्य</span><span class="pc-tag">साइबर धोखाधड़ी</span></div></div>
 </div>
 </section>
 
 <!-- TEAM -->
-<section class="team-section" id="team">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-teal">OUR TEAM</div>
-<h2 class="section-title gradient-text-teal">वे कुछ योद्धा जो आपके लिये लडते हैं</h2>
-<div class="section-line line-teal"></div>
-<p class="section-desc">अनुभव, ज्ञान और अदम्य साहस के साथ आपके पक्ष में खड़े रहने वाले विधि-योद्धा।</p>
+<section class="team-sec" id="team">
+<div class="sec-header reveal">
+<div class="eyebrow ey-teal">OUR TEAM</div>
+<h2 class="sec-title gteal">वे योद्धा जो लड़ते हैं</h2>
+<div class="sec-line sl-teal"></div>
+<p class="sec-desc">अनुभव, ज्ञान और अदम्य साहस के साथ आपके पक्ष में खड़े रहने वाले विधि-योद्धा।</p>
 </div>
 <div class="team-grid">
-<div class="team-card tc-1 reveal-left">
-<div class="tc-avatar">
-👨‍⚖️
+<div class="tc tc1 rl">
+<div class="tc-photo-wrap">
+<!-- Replace src with actual photo URL -->
+<img src="https://i.imgur.com/placeholder_rajvardhan.jpg"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+alt="राजवर्धन" class="tc-photo">
+<div class="tc-photo-placeholder" style="display:none;">👨‍⚖️</div>
 <span class="tc-badge">FOUNDER</span>
 </div>
-<div class="tc-name">एडवोकेट श्री अंकुर एस राजवर्धन</div>
+<div class="tc-name">राजवर्धन</div>
 <div class="tc-role">Senior Advocate</div>
 <div class="tc-since">• विधिक सेवा 2014 से •</div>
-<div class="tc-desc">आपराधिक विधि, सिविल वाद और राजस्व मामलों में अतुलनीय पकड़। ग्यारह वर्षों मे सैकडों जटिल मामलों में सफलता। इलाहाबाद एवं उत्तराखंड उच्च न्यायालय में सक्रिय पैरवी की व्यवस्था।</div>
-<div class="tc-skills">
-<span class="tc-skill">आपराधिक</span>
-<span class="tc-skill">दहेज</span>
-<span class="tc-skill">NDPS</span>
-<span class="tc-skill">साइबर</span>
-<span class="tc-skill">सिविल</span>
-<span class="tc-skill">उच्च न्यायालय</span>
+<div class="tc-desc">आपराधिक विधि, सिविल वाद और राजस्व मामलों में अतुलनीय पकड़। ग्यारह वर्षों में सैकड़ों जटिल मामलों में सफलता। इलाहाबाद एवं उत्तराखंड उच्च न्यायालय में सक्रिय पैरवी।</div>
+<div class="tc-skills"><span class="tc-skill">आपराधिक</span><span class="tc-skill">दहेज</span><span class="tc-skill">NDPS</span><span class="tc-skill">साइबर</span><span class="tc-skill">सिविल</span><span class="tc-skill">उच्च न्यायालय</span></div>
 </div>
+<div class="tc tc2 rr">
+<div class="tc-photo-wrap">
+<!-- Replace src with actual photo URL -->
+<img src="https://i.imgur.com/placeholder_sanjeev.jpg"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+alt="संजीव कुमार" class="tc-photo">
+<div class="tc-photo-placeholder" style="display:none;">👨‍💼</div>
+<span class="tc-badge">PARTNER</span>
 </div>
-<div class="team-card tc-2 reveal-right">
-<div class="tc-avatar">
-👨‍💼
-<span class="tc-badge">PARTNER AND ASSOCIATE</span>
-</div>
-<div class="tc-name">एडवोकेट श्री संजीव कुमार</div>
+<div class="tc-name">संजीव कुमार</div>
 <div class="tc-role">Revenue Law Expert</div>
 <div class="tc-since">• राजस्व विधि विशेषज्ञ •</div>
-<div class="tc-desc">राजस्व विधि के अग्रणी विशेषज्ञ। भूमि विवाद, नामांतरण, खतौनी और चकबंदी मामलों में अद्वितीय सफलता दर। SDM से तहसील न्यायालय तक अनुभवी प्रतिनिधित्व।</div>
-<div class="tc-skills">
-<span class="tc-skill">राजस्व</span>
-<span class="tc-skill">भूमि विवाद</span>
-<span class="tc-skill">नामांतरण</span>
-<span class="tc-skill">चकबंदी</span>
-<span class="tc-skill">खतौनी</span>
-</div>
+<div class="tc-desc">राजस्व विधि के अग्रणी विशेषज्ञ। भूमि विवाद, नामांतरण, खतौनी और चकबंदी मामलों में अद्वितीय सफलता दर। SDM से तहसील न्यायालय तक अनुभवी पैरोकार।</div>
+<div class="tc-skills"><span class="tc-skill">राजस्व</span><span class="tc-skill">भूमि विवाद</span><span class="tc-skill">नामांतरण</span><span class="tc-skill">चकबंदी</span><span class="tc-skill">खतौनी</span></div>
 </div>
 </div>
 <div class="team-stats">
-<div class="ts-item ts-1 reveal">
-<div class="ts-num">9+</div>
-<div class="ts-label">वर्षों का संयुक्त अनुभव</div>
-</div>
-<div class="ts-item ts-2 reveal">
-<div class="ts-num">445</div>
-<div class="ts-label">सफल मामले</div>
-</div>
-<div class="ts-item ts-3 reveal">
-<div class="ts-num">5</div>
-<div class="ts-label">शहरों में उपस्थिति</div>
-</div>
-<div class="ts-item ts-4 reveal">
-<div class="ts-num">98%</div>
-<div class="ts-label">मुवक्किल संतुष्टि</div>
-</div>
+<div class="ts ts1 reveal"><div class="ts-num">9+</div><div class="ts-label">वर्षों का संयुक्त अनुभव</div></div>
+<div class="ts ts2 reveal"><div class="ts-num">445</div><div class="ts-label">सफल मामले</div></div>
+<div class="ts ts3 reveal"><div class="ts-num">4</div><div class="ts-label">शहरों में उपस्थिति</div></div>
+<div class="ts ts4 reveal"><div class="ts-num">98%</div><div class="ts-label">मुवक्किल संतुष्टि</div></div>
 </div>
 </section>
 
 <!-- JURISDICTION -->
-<section class="jurisdiction-section" id="nyay-kshetra">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-purple">JURISDICTION</div>
-<h2 class="section-title gradient-text-purple">जहाँ हम आपके लिए लडते हैं</h2>
-<div class="section-line" style="background: linear-gradient(90deg,#9C27B0,transparent)"></div>
-<p class="section-desc">जिला न्यायालय से सर्वोच्च न्यायालय तक - हर मंच पर हमारी उपस्थिति और परफेक्ट तैयारी होती है।</p>
+<section class="juris-sec" id="nyay">
+<div class="sec-header reveal">
+<div class="eyebrow ey-purple">JURISDICTION</div>
+<h2 class="sec-title gpurple">जहाँ हम लड़ते हैं</h2>
+<div class="sec-line" style="background:linear-gradient(90deg,#9C27B0,transparent)"></div>
+<p class="sec-desc">जिला न्यायालय से सर्वोच्च न्यायालय तक — हर मंच पर हमारी उपस्थिति और तैयारी।</p>
 </div>
-<div class="jurisdiction-grid">
-<div class="juris-card jc-1 reveal">
-<span class="juris-icon">🏛️</span>
-<div class="juris-type">Civil</div>
-<div class="juris-title">सिविल न्यायालय</div>
-<div class="juris-items">CJ Jansath · CJ MZN<br>भूमि अधिग्रहण<br>सिविल वाद · घोषणा</div>
-</div>
-<div class="juris-card jc-2 reveal">
-<span class="juris-icon">⚔️</span>
-<div class="juris-type">Criminal</div>
-<div class="juris-title">आपराधिक न्यायालय</div>
-<div class="juris-items">CJM Jansath<br>Sessions Court MZN<br>FIR से Acquittal तक</div>
-</div>
-<div class="juris-card jc-3 reveal">
-<span class="juris-icon">📜</span>
-<div class="juris-type">Revenue</div>
-<div class="juris-title">राजस्व न्यायालय</div>
-<div class="juris-items">SDM Jansath<br>तहसील न्यायालय<br>नामांतरण · चकबंदी</div>
-</div>
-<div class="juris-card jc-4 reveal">
-<span class="juris-icon">🏢</span>
-<div class="juris-type">Appellate</div>
-<div class="juris-title">अपीलीय न्यायालय</div>
-<div class="juris-items">इलाहाबाद उच्च न्यायालय<br>उत्तराखंड उच्च न्यायालय<br>अपील · पुनरीक्षण</div>
-</div>
-<div class="juris-card jc-5 reveal">
-<span class="juris-icon">🤝</span>
-<div class="juris-type">Family</div>
-<div class="juris-title">पारिवारिक न्यायालय</div>
-<div class="juris-items">तलाक · अभिरक्षा<br>भरण-पोषण<br>वैवाहिक विवाद</div>
-</div>
-<div class="juris-card jc-6 reveal">
-<span class="juris-icon">🔐</span>
-<div class="juris-type">Bail</div>
-<div class="juris-title">जमानत सेवा</div>
-<div class="juris-items">Anticipatory Bail<br>Regular Bail<br>24×7 आपात सेवा</div>
-</div>
+<div class="juris-grid">
+<div class="jc jc1 reveal"><span class="jc-icon">🏛️</span><div class="jc-type">Civil</div><div class="jc-title">सिविल न्यायालय</div><div class="jc-items">CJ Jansath · CJ MZN<br>भूमि अधिग्रहण<br>सिविल वाद · घोषणा</div></div>
+<div class="jc jc2 reveal"><span class="jc-icon">⚔️</span><div class="jc-type">Criminal</div><div class="jc-title">आपराधिक न्यायालय</div><div class="jc-items">CJM Jansath<br>Sessions Court MZN<br>FIR से Acquittal तक</div></div>
+<div class="jc jc3 reveal"><span class="jc-icon">📜</span><div class="jc-type">Revenue</div><div class="jc-title">राजस्व न्यायालय</div><div class="jc-items">SDM Jansath<br>तहसील न्यायालय<br>नामांतरण · चकबंदी</div></div>
+<div class="jc jc4 reveal"><span class="jc-icon">🏢</span><div class="jc-type">Appellate</div><div class="jc-title">अपीलीय न्यायालय</div><div class="jc-items">इलाहाबाद उच्च न्यायालय<br>उत्तराखंड उच्च न्यायालय<br>अपील · पुनरीक्षण</div></div>
+<div class="jc jc5 reveal"><span class="jc-icon">🤝</span><div class="jc-type">Family</div><div class="jc-title">पारिवारिक न्यायालय</div><div class="jc-items">तलाक · अभिरक्षा<br>भरण-पोषण<br>वैवाहिक विवाद</div></div>
+<div class="jc jc6 reveal"><span class="jc-icon">🔐</span><div class="jc-type">Bail</div><div class="jc-title">जमानत सेवा</div><div class="jc-items">Anticipatory Bail<br>Regular Bail<br>24×7 आपात सेवा</div></div>
 </div>
 </section>
 
 <!-- WHY US -->
-<section class="whyus-section">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-green">WHY US</div>
-<h2 class="section-title" style="background: linear-gradient(135deg,#fff,#C8E6C9,#4CAF50); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">छह कारण जो हमें<br>अलग बनाते हैं</h2>
-<div class="section-line" style="background: linear-gradient(90deg,#4CAF50,transparent)"></div>
+<section class="why-sec">
+<div class="sec-header reveal">
+<div class="eyebrow ey-green">WHY US</div>
+<h2 class="sec-title" style="background:linear-gradient(135deg,#fff,#C8E6C9,#4CAF50);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">छह कारण जो हमें<br>अलग बनाते हैं</h2>
+<div class="sec-line" style="background:linear-gradient(90deg,#4CAF50,transparent)"></div>
 </div>
-<div class="whyus-grid">
-<div class="why-card wc-1 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">📖</div>
-<div class="why-title">गहरी कानूनी समझ</div>
-<div class="why-text">न्यायाधीश किस तर्क को महत्व देते हैं और किस साक्ष्य पर निर्णय टिकता है - यह हम जानते हैं।</div>
-</div>
-<div class="why-card wc-2 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">⚡</div>
-<div class="why-title">त्वरित कार्रवाई</div>
-<div class="why-text">Anticipatory Bail हो या रात का आपात - हम हर क्षण तत्काल उपलब्ध हैं। एक कॉल, तत्काल सहायता।</div>
-</div>
-<div class="why-card wc-3 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">🛡️</div>
-<div class="why-title">पूर्ण गोपनीयता</div>
-<div class="why-text">वकील-मुवक्किल गोपनीयता हमारा अनुलंघनीय दायित्व है। आपकी हर बात सुरक्षित रहती है।</div>
-</div>
-<div class="why-card wc-4 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">🗺️</div>
-<div class="why-title">बहु-क्षेत्र अनुभव</div>
-<div class="why-text">पाँच शहरों में सक्रियता - स्थानीय न्यायिक परम्पराओं और न्यायाधीशों की कार्यशैली की गहरी समझ।</div>
-</div>
-<div class="why-card wc-5 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">💬</div>
-<div class="why-title">स्पष्ट और सरल संवाद</div>
-<div class="why-text">सरल हिंदी में पूरी जानकारी - आप हमेशा जानते हैं कि आपका केस किस दिशा में जा रहा है।</div>
-</div>
-<div class="why-card wc-6 reveal">
-<div class="why-glow"></div>
-<div class="why-icon">❤️</div>
-<div class="why-title">मानवीय दृष्टिकोण</div>
-<div class="why-text">हम केवल मामला नहीं लड़ते - आपके परिवार की पीडा को समझकर संवेदनशीलता से सहायता करते हैं।</div>
-</div>
+<div class="why-grid">
+<div class="wc wc1 reveal"><div class="wc-glow"></div><div class="wc-icon">📖</div><div class="wc-title">गहरी कानूनी समझ</div><div class="wc-text">न्यायाधीश किस तर्क को महत्व देते हैं और किस साक्ष्य पर निर्णय टिकता है — यह हम जानते हैं।</div></div>
+<div class="wc wc2 reveal"><div class="wc-glow"></div><div class="wc-icon">⚡</div><div class="wc-title">त्वरित कार्रवाई</div><div class="wc-text">Anticipatory Bail हो या रात का आपात — हम हर क्षण तत्काल उपलब्ध हैं। एक कॉल, तत्काल सहायता।</div></div>
+<div class="wc wc3 reveal"><div class="wc-glow"></div><div class="wc-icon">🛡️</div><div class="wc-title">पूर्ण गोपनीयता</div><div class="wc-text">वकील-मुवक्किल गोपनीयता हमारा अनुलंघनीय दायित्व है। आपकी हर बात सुरक्षित रहती है।</div></div>
+<div class="wc wc4 reveal"><div class="wc-glow"></div><div class="wc-icon">🗺️</div><div class="wc-title">बहु-क्षेत्र अनुभव</div><div class="wc-text">पाँच शहरों में सक्रियता — स्थानीय न्यायिक परम्पराओं और न्यायाधीशों की कार्यशैली की गहरी समझ।</div></div>
+<div class="wc wc5 reveal"><div class="wc-glow"></div><div class="wc-icon">💬</div><div class="wc-title">स्पष्ट और सरल संवाद</div><div class="wc-text">सरल हिंदी में पूरी जानकारी — आप हमेशा जानते हैं कि आपका केस किस दिशा में जा रहा है।</div></div>
+<div class="wc wc6 reveal"><div class="wc-glow"></div><div class="wc-icon">❤️</div><div class="wc-title">मानवीय दृष्टिकोण</div><div class="wc-text">हम केवल मामला नहीं लड़ते — आपके परिवार की पीड़ा को समझकर संवेदनशीलता से सेवा करते हैं।</div></div>
 </div>
 </section>
 
 <!-- FEATURES -->
-<section class="features-section">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-red">FEATURES</div>
-<h2 class="section-title gradient-text-red">हमारी बीस प्रीमियम विशेषताएँ</h2>
-<div class="section-line line-red"></div>
+<section class="feat-sec">
+<div class="sec-header reveal">
+<div class="eyebrow ey-red">FEATURES</div>
+<h2 class="sec-title gred">बीस प्रीमियम विशेषताएँ</h2>
+<div class="sec-line sl-red"></div>
 </div>
-<div class="features-grid">
-<div class="feat-card reveal"><span class="feat-icon">⚡</span><div class="feat-title">FIR परामर्श</div><div class="feat-text">तत्काल रणनीति</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🔍</span><div class="feat-title">डिजिटल साक्ष्य</div><div class="feat-text">तकनीकी विश्लेषण</div></div>
-<div class="feat-card reveal"><span class="feat-icon">📱</span><div class="feat-title">WhatsApp अपडेट</div><div class="feat-text">हर सुनवाई की सूचना</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🌙</span><div class="feat-title">रात्रि सेवा</div><div class="feat-text">24×7 आपात सहायता</div></div>
-<div class="feat-card reveal"><span class="feat-icon">📋</span><div class="feat-title">दस्तावेज तैयारी</div><div class="feat-text">सटीक और त्वरित</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🏛️</span><div class="feat-title">बहु-न्यायालय</div><div class="feat-text">5 क्षेत्र एक साथ</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🎯</span><div class="feat-title">लक्षित बचाव</div><div class="feat-text">अनूठी रणनीति</div></div>
-<div class="feat-card reveal"><span class="feat-icon">📚</span><div class="feat-title">निरंतर अध्ययन</div><div class="feat-text">नवीनतम निर्णय</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🤝</span><div class="feat-title">व्यक्तिगत ध्यान</div><div class="feat-text">हर मुवक्किल खास</div></div>
-<div class="feat-card reveal"><span class="feat-icon">💰</span><div class="feat-title">उचित शुल्क</div><div class="feat-text">पूर्ण पारदर्शिता</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🔐</span><div class="feat-title">गोपनीयता</div><div class="feat-text">100% सुरक्षित</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🌐</span><div class="feat-title">ऑनलाइन परामर्श</div><div class="feat-text">वीडियो कॉल सुविधा</div></div>
-<div class="feat-card reveal"><span class="feat-icon">⚖️</span><div class="feat-title">कठिन जमानत</div><div class="feat-text">असम्भव में भी सम्भव</div></div>
-<div class="feat-card reveal"><span class="feat-icon">📊</span><div class="feat-title">केस प्रगति रिपोर्ट</div><div class="feat-text">नियमित जानकारी</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🏆</span><div class="feat-title">HC विशेषज्ञता</div><div class="feat-text">इलाहाबाद, उत्तराखंड</div></div>
-<div class="feat-card reveal"><span class="feat-icon">👨‍👩‍👧</span><div class="feat-title">परिवार केंद्रित</div><div class="feat-text">भावनात्मक सहयोग</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🔬</span><div class="feat-title">फॉरेंसिक विश्लेषण</div><div class="feat-text">FSL रिपोर्ट चुनौती</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🎓</span><div class="feat-title">विधिक जागरूकता</div><div class="feat-text">आपके अधिकार जानें</div></div>
-<div class="feat-card reveal"><span class="feat-icon">🚀</span><div class="feat-title">शीघ्र न्याय</div><div class="feat-text">देरी रोकथाम रणनीति</div></div>
-<div class="feat-card reveal"><span class="feat-icon">💎</span><div class="feat-title">प्रीमियम सेवा</div><div class="feat-text">विश्व स्तरीय गुणवत्ता</div></div>
+<div class="feat-grid">
+<div class="feat reveal"><span class="feat-icon">⚡</span><div class="feat-title">FIR परामर्श</div><div class="feat-text">तत्काल रणनीति</div></div>
+<div class="feat reveal"><span class="feat-icon">🔍</span><div class="feat-title">डिजिटल साक्ष्य</div><div class="feat-text">तकनीकी विश्लेषण</div></div>
+<div class="feat reveal"><span class="feat-icon">📱</span><div class="feat-title">WhatsApp अपडेट</div><div class="feat-text">हर सुनवाई की सूचना</div></div>
+<div class="feat reveal"><span class="feat-icon">🌙</span><div class="feat-title">रात्रि सेवा</div><div class="feat-text">24×7 आपात सहायता</div></div>
+<div class="feat reveal"><span class="feat-icon">📋</span><div class="feat-title">दस्तावेज तैयारी</div><div class="feat-text">सटीक और त्वरित</div></div>
+<div class="feat reveal"><span class="feat-icon">🏛️</span><div class="feat-title">बहु-न्यायालय</div><div class="feat-text">5 क्षेत्र एक साथ</div></div>
+<div class="feat reveal"><span class="feat-icon">🎯</span><div class="feat-title">लक्षित बचाव</div><div class="feat-text">अनूठी रणनीति</div></div>
+<div class="feat reveal"><span class="feat-icon">📚</span><div class="feat-title">निरंतर अध्ययन</div><div class="feat-text">नवीनतम निर्णय</div></div>
+<div class="feat reveal"><span class="feat-icon">🤝</span><div class="feat-title">व्यक्तिगत ध्यान</div><div class="feat-text">हर मुवक्किल खास</div></div>
+<div class="feat reveal"><span class="feat-icon">💰</span><div class="feat-title">उचित शुल्क</div><div class="feat-text">पूर्ण पारदर्शिता</div></div>
+<div class="feat reveal"><span class="feat-icon">🔐</span><div class="feat-title">गोपनीयता</div><div class="feat-text">100% सुरक्षित</div></div>
+<div class="feat reveal"><span class="feat-icon">🌐</span><div class="feat-title">ऑनलाइन परामर्श</div><div class="feat-text">वीडियो कॉल सुविधा</div></div>
+<div class="feat reveal"><span class="feat-icon">⚖️</span><div class="feat-title">कठिन जमानत</div><div class="feat-text">असम्भव में भी सम्भव</div></div>
+<div class="feat reveal"><span class="feat-icon">📊</span><div class="feat-title">केस प्रगति रिपोर्ट</div><div class="feat-text">नियमित जानकारी</div></div>
+<div class="feat reveal"><span class="feat-icon">🏆</span><div class="feat-title">HC विशेषज्ञता</div><div class="feat-text">इलाहाबाद, उत्तराखंड</div></div>
+<div class="feat reveal"><span class="feat-icon">👨‍👩‍👧</span><div class="feat-title">परिवार केंद्रित</div><div class="feat-text">भावनात्मक सहयोग</div></div>
+<div class="feat reveal"><span class="feat-icon">🔬</span><div class="feat-title">फॉरेंसिक विश्लेषण</div><div class="feat-text">FSL रिपोर्ट चुनौती</div></div>
+<div class="feat reveal"><span class="feat-icon">🎓</span><div class="feat-title">विधिक जागरूकता</div><div class="feat-text">आपके अधिकार जानें</div></div>
+<div class="feat reveal"><span class="feat-icon">🚀</span><div class="feat-title">शीघ्र न्याय</div><div class="feat-text">देरी रोकथाम रणनीति</div></div>
+<div class="feat reveal"><span class="feat-icon">💎</span><div class="feat-title">प्रीमियम सेवा</div><div class="feat-text">विश्व स्तरीय गुणवत्ता</div></div>
 </div>
 </section>
 
 <!-- CITIES -->
-<section class="cities-section">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-blue">PRESENCE</div>
-<h2 class="section-title gradient-text-blue">पाँच शहर, एक प्रतिबद्धता</h2>
-<div class="section-line line-blue"></div>
-<p class="section-desc">दिल्ली से देहरादून तक - हर क्षेत्र में हमारी मजबूत उपस्थिति।</p>
+<section class="cities-sec">
+<div class="sec-header reveal">
+<div class="eyebrow ey-blue">PRESENCE</div>
+<h2 class="sec-title gblue">पाँच शहर, एक प्रतिबद्धता</h2>
+<div class="sec-line sl-blue"></div>
+<p class="sec-desc">दिल्ली से देहरादून तक — हर क्षेत्र में हमारी मजबूत उपस्थिति।</p>
 </div>
 <div class="cities-grid">
-<div class="city-card cc-1 reveal">
-<span class="city-emoji">🏙️</span>
-<div class="city-type">Capital</div>
-<div class="city-name">Delhi</div>
-<div class="city-desc">राजधानी<br>उच्च न्यायालय</div>
-</div>
-<div class="city-card cc-2 reveal">
-<span class="city-emoji">🌾</span>
-<div class="city-type">Headquarters</div>
-<div class="city-name">Jansath</div>
-<div class="city-desc">मुख्यालय<br>JM 1st Class· SDM</div>
-</div>
-<div class="city-card cc-3 reveal">
-<span class="city-emoji">⚖️</span>
-<div class="city-type">U.P.</div>
-<div class="city-name">M.Nagar</div>
-<div class="city-desc">मुजफ्फरनगर<br>Sessions Court</div>
-</div>
-<div class="city-card cc-4 reveal">
-<span class="city-emoji">🕉️</span>
-<div class="city-type">Uttarakhand</div>
-<div class="city-name">Haridwar</div>
-<div class="city-desc">हरिद्वार<br>जिला न्यायालय</div>
-</div>
-<div class="city-card cc-5 reveal">
-<span class="city-emoji">🏔️</span>
-<div class="city-type">HC City</div>
-<div class="city-name">Dehradun</div>
-<div class="city-desc">Doon Sessions Court<br>उत्तराखंड HC</div>
-</div>
+<div class="city cc1 reveal"><span class="city-em">🏙️</span><div class="city-type">Capital</div><div class="city-name">Delhi</div><div class="city-desc">राजधानी<br>उच्च न्यायालय</div></div>
+<div class="city cc2 reveal"><span class="city-em">🌾</span><div class="city-type">Headquarters</div><div class="city-name">Jansath</div><div class="city-desc">मुख्यालय<br>CJM · SDM</div></div>
+<div class="city cc3 reveal"><span class="city-em">⚖️</span><div class="city-type">U.P.</div><div class="city-name">Muzaffarnagar</div><div class="city-desc">मुजफ्फरनगर<br>Sessions Court</div></div>
+<div class="city cc4 reveal"><span class="city-em">🕉️</span><div class="city-type">Uttarakhand</div><div class="city-name">Haridwar</div><div class="city-desc">हरिद्वार<br>जिला न्यायालय</div></div>
+<div class="city cc5 reveal"><span class="city-em">🏔️</span><div class="city-type">HC City</div><div class="city-name">Dehradun</div><div class="city-desc">देहरादून<br>उत्तराखंड HC</div></div>
 </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials-section">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-teal">TESTIMONIALS</div>
-<h2 class="section-title gradient-text-teal">भरोसा किया, न्याय मिला</h2>
-<div class="section-line line-teal"></div>
-<p class="section-desc">हमारे मुवक्किलों के शब्द — सबसे बड़ा पुरस्कार।</p>
+<section class="testi-sec">
+<div class="sec-header reveal">
+<div class="eyebrow ey-teal">TESTIMONIALS</div>
+<h2 class="sec-title gteal">भरोसा किया, न्याय मिला</h2>
+<div class="sec-line sl-teal"></div>
+<p class="sec-desc">हमारे मुवक्किलों के शब्द — सबसे बड़ा पुरस्कार।</p>
 </div>
-<div class="testimonials-track-wrapper">
-<div class="testimonials-track">
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"IPC 498A के मामले में अंकुर एस राजवर्धन जी ने जिस कुशलता से पैरवी की, सभी आरोप निराधार साबित हो गए। पूरे परिवार को न्याय मिला।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#DC143C,#a00000);">R</div>
-<div><div class="testi-name">रमेश शर्मा</div><div class="testi-case">IPC 498A · मुजफ्फरनगर</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"NDPS के जटिल मामले में Section 50 की प्रक्रियागत खामी निकाली और जमानत दिलाई। अविश्वसनीय कानूनी दक्षता।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#1565C0,#0d47a1);">S</div>
-<div><div class="testi-name">सुनीता देवी</div><div class="testi-case">NDPS · जानसठ</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"पाँच वर्षों का भूमि विवाद एडवोकेट श्री संजीव जी की विशेषज्ञता से सुलझ गया। राजस्व विधि की इतनी गहरी समझ दुर्लभ है।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#00695C,#004D40);">M</div>
-<div><div class="testi-name">मोहम्मद इकबाल</div><div class="testi-case">भूमि विवाद · राजस्व</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"साइबर धोखाधड़ी में आरोपी की पहचान करवाई और IT Act के तहत कार्रवाई हुई। डिजिटल मामलों में कमाल का अनुभव।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#4A148C,#6A1B9A);">P</div>
-<div><div class="testi-name">प्रिया वर्मा</div><div class="testi-case">साइबर अपराध · देहरादून</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"रात को फोन किया, सुबह तक Bail तैयार था। IPC 302 जैसे गंभीर मामले में इतनी त्वरित सहायता अद्भुत है।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#E65100,#BF360C);">V</div>
-<div><div class="testi-name">विनोद कुमार</div><div class="testi-case">IPC 302 · हरिद्वार</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"अटका हुआ नामांतरण का मामला चुटकियों में सुलझा। SDM कोर्ट में श्री संजीव जी की पकड बेमिसाल है। पूरी तरह संतुष्ट।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#2E7D32,#1B5E20);">A</div>
-<div><div class="testi-name">अनिल सिंह</div><div class="testi-case">नामांतरण · SDM</div></div>
-</div>
-</div>
-<!-- Duplicates for loop -->
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"IPC 498A मामले में श्री अंकुर एस राजवर्धन जी ने जिस कुशलता से पैरवी की, सभी आरोप निराधार साबित हो गए।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#DC143C,#a00000);">R</div>
-<div><div class="testi-name">रमेश शर्मा</div><div class="testi-case">IPC 498A · मुजफ्फरनगर</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"NDPS के जटिल मामले में Section 50 की प्रक्रियागत खामी निकाली और जमानत दिलाई।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#1565C0,#0d47a1);">S</div>
-<div><div class="testi-name">सुनीता देवी</div><div class="testi-case">NDPS · जानसठ</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"पाँच वर्षों का भूमि विवाद संजीव जी की विशेषज्ञता से सुलझ गया।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#00695C,#004D40);">M</div>
-<div><div class="testi-name">मोहम्मद इकबाल</div><div class="testi-case">भूमि विवाद · राजस्व</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"साइबर धोखाधडी में आरोपी की पहचान करवाई। IT Act में कमाल का अनुभव।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#4A148C,#6A1B9A);">P</div>
-<div><div class="testi-name">प्रिया वर्मा</div><div class="testi-case">साइबर · देहरादून</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"रात को फोन, सुबह तक Bail। IPC 302 में इतनी त्वरित सहायता अद्भुत।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#E65100,#BF360C);">V</div>
-<div><div class="testi-name">विनोद कुमार</div><div class="testi-case">IPC 302 · हरिद्वार</div></div>
-</div>
-</div>
-<div class="testi-card">
-<div class="testi-stars">★★★★★</div>
-<div class="testi-text">"नामांतरण महीनों में सुलझा। SDM Court में बेमिसाल पकड़।"</div>
-<div class="testi-author">
-<div class="testi-avatar" style="background: linear-gradient(135deg,#2E7D32,#1B5E20);">A</div>
-<div><div class="testi-name">अनिल सिंह</div><div class="testi-case">नामांतरण · SDM</div></div>
-</div>
-</div>
+<div class="testi-wrapper">
+<div class="testi-track">
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"IPC 498A के मामले में राजवर्धन जी ने जिस कुशलता से पैरवी की, सभी आरोप निराधार साबित हो गए। पूरे परिवार को न्याय मिला।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#DC143C,#a00000)">R</div><div><div class="testi-name">रमेश शर्मा</div><div class="testi-case">IPC 498A · मुजफ्फरनगर</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"NDPS के जटिल मामले में Section 50 की प्रक्रियागत खामी निकाली और जमानत दिलाई। अविश्वसनीय कानूनी दक्षता।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#1565C0,#0d47a1)">S</div><div><div class="testi-name">सुनीता देवी</div><div class="testi-case">NDPS · जनसठ</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"पाँच वर्षों का भूमि विवाद संजीव जी की विशेषज्ञता से सुलझ गया। राजस्व विधि की इतनी गहरी समझ दुर्लभ है।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#00695C,#004D40)">M</div><div><div class="testi-name">मोहम्मद इकबाल</div><div class="testi-case">भूमि विवाद · राजस्व</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"साइबर धोखाधड़ी में आरोपी की पहचान करवाई और IT Act के तहत कार्रवाई हुई। डिजिटल मामलों में कमाल का अनुभव।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#4A148C,#6A1B9A)">P</div><div><div class="testi-name">प्रिया वर्मा</div><div class="testi-case">साइबर अपराध · देहरादून</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"रात को फोन किया, सुबह तक Bail तैयार था। IPC 302 जैसे गंभीर मामले में इतनी त्वरित सहायता अद्भुत है।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#E65100,#BF360C)">V</div><div><div class="testi-name">विनोद कुमार</div><div class="testi-case">IPC 302 · हरिद्वार</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"नामांतरण का मामला महीनों में सुलझा। SDM कोर्ट में संजीव जी की पकड़ बेमिसाल है। पूरी तरह संतुष्ट।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#2E7D32,#1B5E20)">A</div><div><div class="testi-name">अनिल सिंह</div><div class="testi-case">नामांतरण · SDM</div></div></div></div>
+<!-- duplicates for seamless loop -->
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"IPC 498A के मामले में राजवर्धन जी ने जिस कुशलता से पैरवी की, सभी आरोप निराधार साबित हो गए।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#DC143C,#a00000)">R</div><div><div class="testi-name">रमेश शर्मा</div><div class="testi-case">IPC 498A · मुजफ्फरनगर</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"NDPS के जटिल मामले में Section 50 की प्रक्रियागत खामी निकाली और जमानत दिलाई।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#1565C0,#0d47a1)">S</div><div><div class="testi-name">सुनीता देवी</div><div class="testi-case">NDPS · जनसठ</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"पाँच वर्षों का भूमि विवाद संजीव जी की विशेषज्ञता से सुलझ गया।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#00695C,#004D40)">M</div><div><div class="testi-name">मोहम्मद इकबाल</div><div class="testi-case">भूमि विवाद · राजस्व</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"साइबर धोखाधड़ी में आरोपी की पहचान करवाई। IT Act में कमाल का अनुभव।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#4A148C,#6A1B9A)">P</div><div><div class="testi-name">प्रिया वर्मा</div><div class="testi-case">साइबर · देहरादून</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"रात को फोन, सुबह तक Bail। IPC 302 में इतनी त्वरित सहायता अद्भुत।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#E65100,#BF360C)">V</div><div><div class="testi-name">विनोद कुमार</div><div class="testi-case">IPC 302 · हरिद्वार</div></div></div></div>
+<div class="testi"><div class="testi-stars">★★★★★</div><div class="testi-text">"नामांतरण महीनों में सुलझा। SDM Court में बेमिसाल पकड़।"</div><div class="testi-author"><div class="testi-av" style="background:linear-gradient(135deg,#2E7D32,#1B5E20)">A</div><div><div class="testi-name">अनिल सिंह</div><div class="testi-case">नामांतरण · SDM</div></div></div></div>
 </div>
 </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-<div class="section-header reveal">
-<div class="section-eyebrow eyebrow-red">CONTACT</div>
-<h2 class="section-title gradient-text-red">न्याय का समय केवल अभी है।</h2>
-<div class="section-line line-red"></div>
-<p class="section-desc">हर देरी विपक्ष को मजबूत बनाती है। पहला परामर्श सदैव निःशुल्क।</p>
+<section class="contact-sec" id="contact">
+<div class="sec-header reveal">
+<div class="eyebrow ey-red">CONTACT</div>
+<h2 class="sec-title gred">न्याय का समय अभी है।</h2>
+<div class="sec-line sl-red"></div>
+<p class="sec-desc">हर देरी विपक्ष को मजबूत बनाती है। पहला परामर्श सदैव निःशुल्क।</p>
 </div>
 <div class="contact-grid">
-<div class="contact-info reveal-left">
-<h3 class="contact-cta-title">सीधे बात करें,<br><span style="color: var(--scarlet);">तुरंत सहायता पाएं</span></h3>
-<p class="contact-cta-desc">आपकी समस्या चाहे कितनी भी जटिल क्यों न हो - हमारी ग्यारह वर्षों की विशेषज्ञता आपके साथ है। रात हो या दिन, हम सुनते हैं।</p>
+<div class="rl">
+<h3 class="contact-cta-title">सीधे बात करें,<br><span style="color:var(--scarlet)">तुरंत सहायता पाएं</span></h3>
+<p class="contact-cta-desc">आपकी समस्या चाहे कितनी भी जटिल क्यों न हो — हमारी ग्यारह वर्षों की विशेषज्ञता आपके साथ है। रात हो या दिन, हम सुनते हैं।</p>
 <div class="contact-items">
-<a href="tel:+917466806524" class="contact-item">
-<div class="ci-icon">📞</div>
-<div>
-<div class="ci-label">PHONE · 24×7</div>
-<div class="ci-value">+91 74668 06524</div>
+<a href="tel:+917466806524" class="ci-item"><div class="ci-ico">📞</div><div><div class="ci-lbl">PHONE · 24×7</div><div class="ci-val">+91 74668 06524</div></div></a>
+<a href="mailto:legaleaglemzn@gmail.com" class="ci-item"><div class="ci-ico">✉️</div><div><div class="ci-lbl">EMAIL</div><div class="ci-val">legaleaglemzn@gmail.com</div></div></a>
+<div class="ci-item"><div class="ci-ico">📍</div><div><div class="ci-lbl">OFFICE</div><div class="ci-val">Jansath, Muzaffarnagar, U.P.</div></div></div>
+<div class="ci-item"><div class="ci-ico">🕐</div><div><div class="ci-lbl">HOURS</div><div class="ci-val">सोम–शनि 9AM–7PM · आपात 24×7</div></div></div>
 </div>
-</a>
-<a href="mailto:legaleaglemzn@gmail.com" class="contact-item">
-<div class="ci-icon">✉️</div>
-<div>
-<div class="ci-label">EMAIL</div>
-<div class="ci-value">legaleaglemzn@gmail.com</div>
-</div>
-</a>
-<div class="contact-item">
-<div class="ci-icon">📍</div>
-<div>
-<div class="ci-label">OFFICE</div>
-<div class="ci-value">जानसठ, मुजफ्फरनगर, उ.प्र.</div>
-</div>
-</div>
-<div class="contact-item">
-<div class="ci-icon">🕐</div>
-<div>
-<div class="ci-label">HOURS</div>
-<div class="ci-value">सोम–शनि 9AM–7PM · आपात 24×7</div>
-</div>
-</div>
-</div>
-<div style="padding: 20px; border-radius: 12px; background: rgba(220,20,60,0.06); border: 1px solid rgba(220,20,60,0.15); font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
+<div style="padding:18px;border-radius:10px;background:rgba(220,20,60,.06);border:1px solid rgba(220,20,60,.15);font-size:.85rem;color:var(--text2);line-height:1.7;">
 🔒 <strong style="color:#fff;">पूर्ण गोपनीयता की गारंटी</strong><br>
-आपकी हर बात वकील-मुवक्किल गोपनीयता के तहत सुरक्षित। कोई लीक नहीं।
+आपकी हर बात वकील-मुवक्किल गोपनीयता के तहत सुरक्षित। कोई रिकॉर्डिंग नहीं, कोई लीक नहीं।
 </div>
 </div>
-<div class="contact-form-wrapper reveal-right">
+<div class="form-wrap rr">
 <div class="form-title">⚖ निःशुल्क परामर्श</div>
-<form id="consultForm">
+<form id="cForm">
 <div class="form-row">
-<div class="form-group">
-<label class="form-label">नाम <span class="req">*</span></label>
-<input type="text" class="form-control" placeholder="पूरा नाम" required>
+<div class="form-group"><label class="form-label">नाम <span class="req">*</span></label><input type="text" class="form-ctrl" placeholder="पूरा नाम" required></div>
+<div class="form-group"><label class="form-label">मोबाइल <span class="req">*</span></label><input type="tel" class="form-ctrl" placeholder="+91 XXXXX XXXXX" required></div>
 </div>
-<div class="form-group">
-<label class="form-label">मोबाइल <span class="req">*</span></label>
-<input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
-</div>
-</div>
-<div class="form-group">
-<label class="form-label">ई-मेल</label>
-<input type="email" class="form-control" placeholder="email@example.com">
-</div>
+<div class="form-group"><label class="form-label">ईमेल</label><input type="email" class="form-ctrl" placeholder="email@example.com"></div>
 <div class="form-row">
-<div class="form-group">
-<label class="form-label">मामले का प्रकार <span class="req">*</span></label>
-<select class="form-control" required>
+<div class="form-group"><label class="form-label">मामले का प्रकार <span class="req">*</span></label>
+<select class="form-ctrl" required>
 <option value="" disabled selected>चुनें</option>
-<option>आपराधिक बचाव</option>
-<option>दहेज / IPC 498A</option>
-<option>NDPS रक्षा</option>
-<option>साइबर अपराध</option>
-<option>भूमि विवाद</option>
-<option>जमानत</option>
-<option>उच्च न्यायालय</option>
-<option>राजस्व विधि</option>
-<option>सिविल वाद</option>
-<option>अन्य</option>
-</select>
-</div>
-<div class="form-group">
-<label class="form-label">शहर</label>
-<select class="form-control">
+<option>आपराधिक बचाव</option><option>दहेज / IPC 498A</option><option>NDPS रक्षा</option><option>साइबर अपराध</option><option>भूमि विवाद</option><option>जमानत</option><option>उच्च न्यायालय</option><option>राजस्व विधि</option><option>सिविल वाद</option><option>अन्य</option>
+</select></div>
+<div class="form-group"><label class="form-label">शहर</label>
+<select class="form-ctrl">
 <option value="" disabled selected>चुनें</option>
-<option>जानसठ</option>
-<option>मुजफ्फरनगर</option>
-<option>हरिद्वार</option>
-<option>देहरादून</option>
-<option>दिल्ली</option>
-<option>अन्य</option>
-</select>
+<option>जनसठ</option><option>मुजफ्फरनगर</option><option>हरिद्वार</option><option>देहरादून</option><option>दिल्ली</option><option>अन्य</option>
+</select></div>
 </div>
-</div>
-<div class="form-group">
-<label class="form-label">मामले का संक्षिप्त विवरण</label>
-<textarea class="form-control" placeholder="अपनी समस्या संक्षेप में बताएं... (गोपनीय रहेगा)"></textarea>
-</div>
-<button type="submit" class="submit-btn">
-⚖ परामर्श अनुरोध भेजें →
-</button>
-<div class="form-privacy">🔒 पूर्णतः गोपनीय · ALWAYS FREE CONSULTATION</div>
+<div class="form-group"><label class="form-label">मामले का संक्षिप्त विवरण</label><textarea class="form-ctrl" placeholder="अपनी समस्या संक्षेप में बताएं... (गोपनीय रहेगा)"></textarea></div>
+<button type="submit" class="submit-btn">⚖ परामर्श अनुरोध भेजें →</button>
+<div class="form-priv">🔒 पूर्णतः गोपनीय · ALWAYS FREE CONSULTATION</div>
 </form>
 </div>
 </div>
@@ -2610,37 +1048,24 @@ EST. 2014 · ग्यारह वर्षों की विधिक से
 <!-- FOOTER -->
 <footer>
 <div class="footer-grid">
-<div class="footer-brand">
+<div>
 <div class="footer-logo">
 <div class="footer-logo-icon">⚖</div>
-<div>
-<div class="footer-logo-name">राजवर्धन एंड एसोसिएट्स</div>
-<div class="footer-tagline">VINCIT OMNIA VERITAS · EST. 2014</div>
+<div><div class="footer-logo-name">राजवर्धन एंड एसोसिएट्स</div><div class="footer-logo-tag">VINCIT OMNIA VERITAS · EST. 2014</div></div>
 </div>
-</div>
-<p class="footer-desc">2014 से विधिक सेवा में समर्पित। ग्यारह वर्षों में सैकडों परिवारों को न्याय दिलाया। जिला न्यायालय से उच्च न्यायालय तक - हर मंच पर हमारी अजेय उपस्थिति है।</p>
+<p class="footer-desc">2014 से विधिक सेवा में समर्पित। ग्यारह वर्षों में सैकड़ों परिवारों को न्याय दिलाया। जिला न्यायालय से उच्च न्यायालय तक — हर मंच पर हमारी अजेय उपस्थिति।</p>
 <div class="footer-latin">✦ सत्यमेव जयते ✦ Vincit Omnia Veritas ✦</div>
 </div>
 <div>
 <div class="footer-heading">विशेषज्ञता</div>
 <ul class="footer-links">
-<li><a href="#">दहेज प्रकरण</a></li>
-<li><a href="#">आपराधिक बचाव</a></li>
-<li><a href="#">NDPS रक्षा</a></li>
-<li><a href="#">साइबर अपराध</a></li>
-<li><a href="#">सिविल वाद</a></li>
-<li><a href="#">राजस्व विधि</a></li>
+<li><a href="#">दहेज प्रकरण</a></li><li><a href="#">आपराधिक बचाव</a></li><li><a href="#">NDPS रक्षा</a></li><li><a href="#">साइबर अपराध</a></li><li><a href="#">सिविल वाद</a></li><li><a href="#">राजस्व विधि</a></li>
 </ul>
 </div>
 <div>
 <div class="footer-heading">न्यायालय</div>
 <ul class="footer-links">
-<li><a href="#">जिला न्यायालय</a></li>
-<li><a href="#">सत्र न्यायालय</a></li>
-<li><a href="#">CJM Jansath</a></li>
-<li><a href="#">इलाहाबाद HC</a></li>
-<li><a href="#">उत्तराखंड HC</a></li>
-<li><a href="#">SDM / तहसील</a></li>
+<li><a href="#">जिला न्यायालय</a></li><li><a href="#">सत्र न्यायालय</a></li><li><a href="#">CJM Jansath</a></li><li><a href="#">इलाहाबाद HC</a></li><li><a href="#">उत्तराखंड HC</a></li><li><a href="#">SDM / तहसील</a></li>
 </ul>
 </div>
 <div>
@@ -2648,8 +1073,8 @@ EST. 2014 · ग्यारह वर्षों की विधिक से
 <ul class="footer-links">
 <li><a href="tel:+917466806524">📞 +91 74668 06524</a></li>
 <li><a href="mailto:legaleaglemzn@gmail.com">✉️ legaleaglemzn@gmail.com</a></li>
-<li><a href="#">📍 जानसठ, मुजफ्फरनगर</a></li>
-<li><a href="#">🕐 सोम-शनि 10AM-05PM</a></li>
+<li><a href="#">📍 Jansath, Muzaffarnagar</a></li>
+<li><a href="#">🕐 सोम-शनि 9AM-7PM</a></li>
 <li><a href="#">🚨 आपात: 24×7</a></li>
 </ul>
 </div>
@@ -2660,810 +1085,26 @@ EST. 2014 · ग्यारह वर्षों की विधिक से
 </div>
 </footer>
 
-<!-- Floating Action Button -->
+<!-- FAB -->
 <div class="fab">
-<a href="https://wa.me/917466806524" target="_blank" class="fab-btn fab-wa" title="WhatsApp">💬</a>
-<a href="tel:+917466806524" class="fab-btn fab-main" title="Call Now">📞</a>
+<a href="https://wa.me/917466806524" target="_blank" class="fab-btn fab-wa">💬</a>
+<a href="tel:+917466806524" class="fab-btn fab-main">📞</a>
 </div>
 
 <script>
-// =============================================
-// CURSOR
-// =============================================
-const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursorFollower');
-let mx = 0, my = 0, fx = 0, fy = 0;
-document.addEventListener('mousemove', e => {
-mx = e.clientX; my = e.clientY;
-cursor.style.left = mx - 6 + 'px';
-cursor.style.top = my - 6 + 'px';
-});
-function animateCursor() {
-fx += (mx - fx) * 0.12;
-fy += (my - fy) * 0.12;
-follower.style.left = fx - 18 + 'px';
-follower.style.top = fy - 18 + 'px';
-requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// =============================================
-// NAVBAR SCROLL
-// =============================================
-window.addEventListener('scroll', () => {
-const nav = document.getElementById('navbar');
-if (window.scrollY > 50) nav.classList.add('scrolled');
-else nav.classList.remove('scrolled');
-});
-
-// =============================================
-// COSMOS CANVAS - Starfield + Particles
-// =============================================
-(function() {
-const canvas = document.getElementById('cosmos-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, stars = [], nebulae = [];
-
-function resize() {
-W = canvas.width = window.innerWidth;
-H = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-for (let i = 0; i < 200; i++) {
-stars.push({
-x: Math.random() * 2000,
-y: Math.random() * 2000,
-r: Math.random() * 1.5 + 0.2,
-a: Math.random(),
-speed: Math.random() * 0.0005 + 0.0002,
-color: ['#fff','#FFCDD2','#BBDEFB','#B2EBF2'][Math.floor(Math.random()*4)]
-});
-}
-for (let i = 0; i < 5; i++) {
-nebulae.push({
-x: Math.random() * 2000,
-y: Math.random() * 2000,
-r: 200 + Math.random() * 300,
-color: ['rgba(139,0,0','rgba(21,101,192','rgba(74,20,140'][Math.floor(Math.random()*3)],
-phase: Math.random() * Math.PI * 2
-});
+// ==============================
+// CURSOR (desktop only)
+// ==============================
+if(window.innerWidth>1024){
+const cur=document.getElementById('cur'),curf=document.getElementById('curf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-5+'px';cur.style.top=my-5+'px';});
+(function animC(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;curf.style.left=fx-16+'px';curf.style.top=fy-16+'px';requestAnimationFrame(animC);})();
 }
 
-let t = 0;
-function drawCosmos() {
-ctx.clearRect(0,0,W,H);
-nebulae.forEach(n => {
-const alpha = 0.03 + 0.01 * Math.sin(t * 0.3 + n.phase);
-const grd = ctx.createRadialGradient(n.x % W, n.y % H, 0, n.x % W, n.y % H, n.r);
-grd.addColorStop(0, `${n.color},${alpha})`);
-grd.addColorStop(1, `${n.color},0)`);
-ctx.fillStyle = grd;
-ctx.beginPath();
-ctx.arc(n.x % W, n.y % H, n.r, 0, Math.PI*2);
-ctx.fill();
-});
-stars.forEach(s => {
-s.a += s.speed;
-const alpha = 0.3 + 0.5 * Math.abs(Math.sin(s.a));
-ctx.beginPath();
-ctx.arc(s.x % W, s.y % H, s.r, 0, Math.PI*2);
-ctx.fillStyle = s.color.replace(')',`,${alpha})`).replace('#','rgba(').replace('rgba(','rgba(');
-ctx.globalAlpha = alpha;
-ctx.fill();
-ctx.globalAlpha = 1;
-});
-t++;
-requestAnimationFrame(drawCosmos);
-}
-drawCosmos();
-})();
+// NAVBAR
+window.addEventListener('scroll',()=>{const n=document.getElementById('nav');n.classList.toggle('scrolled',window.scrollY>50);});
+function toggleMob(){const m=document.getElementById('mobMenu');m.style.display=m.style.display==='flex'?'none':'flex';}
 
-// =============================================
-// HERO 3D CANVAS - Rotating Scale of Justice
-// =============================================
-(function() {
-const canvas = document.getElementById('hero-canvas-3d');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-window.addEventListener('resize', () => {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-});
-
-let t = 0;
-const cx = canvas.width / 2;
-const cy = canvas.height / 2;
-
-function drawHero() {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-ctx.clearRect(0,0,canvas.width,canvas.height);
-const cx = canvas.width / 2;
-const cy = canvas.height / 2;
-
-// Draw rotating rings
-for (let i = 0; i < 5; i++) {
-const r = 150 + i * 60;
-const alpha = 0.03 - i * 0.004;
-ctx.beginPath();
-ctx.ellipse(cx, cy, r * 2, r * 0.5, t * 0.2 + i * 0.3, 0, Math.PI * 2);
-ctx.strokeStyle = `rgba(220,20,60,${alpha})`;
-ctx.lineWidth = 1;
-ctx.stroke();
-}
-for (let i = 0; i < 4; i++) {
-const r = 180 + i * 70;
-const alpha = 0.025 - i * 0.004;
-ctx.beginPath();
-ctx.ellipse(cx, cy, r * 2, r * 0.4, -t * 0.15 + i * 0.4, 0, Math.PI * 2);
-ctx.strokeStyle = `rgba(21,101,192,${alpha})`;
-ctx.lineWidth = 1;
-ctx.stroke();
-}
-
-// Floating particles around center
-for (let i = 0; i < 20; i++) {
-const angle = (i / 20) * Math.PI * 2 + t * 0.5;
-const dist = 200 + 50 * Math.sin(t * 2 + i);
-const px = cx + Math.cos(angle) * dist;
-const py = cy + Math.sin(angle) * dist * 0.3;
-const alpha = 0.2 + 0.2 * Math.sin(t * 3 + i);
-ctx.beginPath();
-ctx.arc(px, py, 2, 0, Math.PI*2);
-ctx.fillStyle = `rgba(220,20,60,${alpha})`;
-ctx.fill();
-}
-// Blue particles
-for (let i = 0; i < 15; i++) {
-const angle = (i / 15) * Math.PI * 2 - t * 0.4;
-const dist = 280 + 40 * Math.cos(t * 1.5 + i);
-const px = cx + Math.cos(angle) * dist;
-const py = cy + Math.sin(angle) * dist * 0.25;
-const alpha = 0.15 + 0.15 * Math.sin(t * 2 + i);
-ctx.beginPath();
-ctx.arc(px, py, 1.5, 0, Math.PI*2);
-ctx.fillStyle = `rgba(21,101,192,${alpha})`;
-ctx.fill();
-}
-
-t += 0.008;
-requestAnimationFrame(drawHero);
-}
-drawHero();
-})();
-
-// =============================================
-// ABOUT 3D CANVAS - Rotating Justice Symbol
-// =============================================
-(function() {
-const canvas = document.getElementById('about-canvas');
-if (!canvas) return;
-const ctx = canvas.getContext('2d');
-const size = canvas.parentElement.offsetWidth;
-canvas.width = size;
-canvas.height = size;
-
-let t = 0;
-function draw() {
-const W = canvas.width, H = canvas.height;
-ctx.clearRect(0,0,W,H);
-const cx = W/2, cy = H/2;
-
-// Glow bg
-const grd = ctx.createRadialGradient(cx,cy,0,cx,cy,W*0.5);
-grd.addColorStop(0,'rgba(139,0,0,0.08)');
-grd.addColorStop(1,'transparent');
-ctx.fillStyle = grd;
-ctx.fillRect(0,0,W,H);
-
-// Outer rings
-for(let i=0;i<4;i++){
-const r = W*0.35 + i*W*0.04;
-const alpha = 0.08 - i*0.015;
-ctx.beginPath();
-ctx.arc(cx,cy,r,0,Math.PI*2);
-ctx.strokeStyle=`rgba(220,20,60,${alpha})`;
-ctx.lineWidth=1;
-ctx.stroke();
-}
-// Inner circles
-for(let i=0;i<3;i++){
-const r = W*0.15 + i*W*0.06;
-const alpha = 0.06 - i*0.01;
-ctx.beginPath();
-ctx.arc(cx,cy,r,0,Math.PI*2);
-ctx.strokeStyle=`rgba(21,101,192,${alpha})`;
-ctx.lineWidth=1;
-ctx.stroke();
-}
-
-// Rotating dashed ring
-ctx.save();
-ctx.translate(cx,cy);
-ctx.rotate(t);
-ctx.beginPath();
-ctx.arc(0,0,W*0.3,0,Math.PI*2);
-ctx.setLineDash([10,8]);
-ctx.strokeStyle='rgba(220,20,60,0.15)';
-ctx.lineWidth=1.5;
-ctx.stroke();
-ctx.setLineDash([]);
-ctx.restore();
-
-// Rotating opposite
-ctx.save();
-ctx.translate(cx,cy);
-ctx.rotate(-t*0.7);
-ctx.beginPath();
-ctx.arc(0,0,W*0.38,0,Math.PI*2);
-ctx.setLineDash([5,15]);
-ctx.strokeStyle='rgba(21,101,192,0.12)';
-ctx.lineWidth=1;
-ctx.stroke();
-ctx.setLineDash([]);
-ctx.restore();
-
-// Orbiting dots (red)
-for(let i=0;i<8;i++){
-const ang = (i/8)*Math.PI*2 + t*1.2;
-const px = cx + Math.cos(ang)*W*0.3;
-const py = cy + Math.sin(ang)*W*0.3;
-ctx.beginPath();
-ctx.arc(px,py,4,0,Math.PI*2);
-const a = 0.4 + 0.4*Math.sin(t*3+i);
-ctx.fillStyle=`rgba(220,20,60,${a})`;
-ctx.fill();
-}
-// Orbiting dots (blue)
-for(let i=0;i<6;i++){
-const ang = (i/6)*Math.PI*2 - t*0.8;
-const px = cx + Math.cos(ang)*W*0.22;
-const py = cy + Math.sin(ang)*W*0.22;
-ctx.beginPath();
-ctx.arc(px,py,3,0,Math.PI*2);
-const a = 0.3 + 0.3*Math.sin(t*2+i);
-ctx.fillStyle=`rgba(21,101,192,${a})`;
-ctx.fill();
-}
-
-// Center symbol
-ctx.save();
-ctx.translate(cx,cy);
-// Pillar
-ctx.fillStyle='rgba(220,20,60,0.25)';
-ctx.fillRect(-4,-W*0.18,8,W*0.36);
-// Top bar
-ctx.fillRect(-W*0.12,-W*0.18-8,W*0.24,8);
-// Scales
-const swingLeft = Math.sin(t*1.5)*12;
-const swingRight = -Math.sin(t*1.5)*12;
-// Left arm
-ctx.strokeStyle='rgba(220,20,60,0.5)';
-ctx.lineWidth=2;
-ctx.beginPath();
-ctx.moveTo(0,-W*0.18);
-ctx.lineTo(-W*0.12,-W*0.12);
-ctx.stroke();
-// Right arm
-ctx.beginPath();
-ctx.moveTo(0,-W*0.18);
-ctx.lineTo(W*0.12,-W*0.12);
-ctx.stroke();
-// Left pan
-ctx.beginPath();
-ctx.arc(-W*0.12, -W*0.12+swingLeft, W*0.06, 0, Math.PI*2);
-ctx.strokeStyle='rgba(220,20,60,0.4)';
-ctx.stroke();
-// Right pan
-ctx.beginPath();
-ctx.arc(W*0.12, -W*0.12+swingRight, W*0.06, 0, Math.PI*2);
-ctx.stroke();
-// Base
-ctx.fillStyle='rgba(220,20,60,0.2)';
-ctx.fillRect(-W*0.1,W*0.17,W*0.2,W*0.015);
-ctx.restore();
-
-// Pulsing glow center
-const grd2 = ctx.createRadialGradient(cx,cy,0,cx,cy,W*0.12);
-const ga = 0.15 + 0.1*Math.sin(t*2);
-grd2.addColorStop(0,`rgba(220,20,60,${ga})`);
-grd2.addColorStop(1,'transparent');
-ctx.fillStyle=grd2;
-ctx.beginPath();
-ctx.arc(cx,cy,W*0.12,0,Math.PI*2);
-ctx.fill();
-
-t+=0.015;
-requestAnimationFrame(draw);
-}
-draw();
-})();
-
-// =============================================
-// CHAKRAVYUH BACKGROUND CANVAS
-// =============================================
-(function() {
-const canvas = document.getElementById('chakravyuh-canvas');
-if (!canvas) return;
-const ctx = canvas.getContext('2d');
-function resize() {
-canvas.width = canvas.parentElement.offsetWidth;
-canvas.height = canvas.parentElement.offsetHeight;
-}
-resize();
-window.addEventListener('resize', resize);
-
-let t = 0, particles = [];
-for(let i=0;i<60;i++){
-particles.push({
-x: Math.random()*2000, y: Math.random()*1500,
-vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
-r: Math.random()*2+0.5,
-a: Math.random(),
-color: Math.random()>0.5 ? 'rgba(220,20,60,' : 'rgba(21,101,192,'
-});
-}
-
-function draw() {
-const W = canvas.width, H = canvas.height;
-if(W===0||H===0){ t+=0.01; requestAnimationFrame(draw); return; }
-ctx.clearRect(0,0,W,H);
-
-// Big spiral rings in background
-for(let ring=0;ring<7;ring++){
-const cx = W/2, cy = H/2;
-const r = (ring+1)*Math.min(W,H)*0.08;
-const rotAngle = t*(ring%2===0?0.3:-0.25)+ring*0.5;
-ctx.save();
-ctx.translate(cx,cy);
-ctx.rotate(rotAngle);
-ctx.beginPath();
-ctx.ellipse(0,0,r,r*0.5,0,0,Math.PI*2);
-ctx.strokeStyle=`rgba(220,20,60,${0.05 - ring*0.005})`;
-ctx.lineWidth=1;
-ctx.stroke();
-ctx.restore();
-}
-
-// Particles
-particles.forEach(p => {
-p.x += p.vx; p.y += p.vy;
-if(p.x<0) p.x=W; if(p.x>W) p.x=0;
-if(p.y<0) p.y=H; if(p.y>H) p.y=0;
-p.a += 0.01;
-const alpha = 0.2+0.3*Math.abs(Math.sin(p.a));
-ctx.beginPath();
-ctx.arc(p.x%W, p.y%H, p.r, 0, Math.PI*2);
-ctx.fillStyle = p.color+alpha+')';
-ctx.fill();
-});
-
-t+=0.008;
-requestAnimationFrame(draw);
-}
-draw();
-})();
-
-// =============================================
-// CHAKRAVYUH MAIN CANVAS - THE MASTERPIECE
-// Witness trapped in spiral rings
-// =============================================
-(function() {
-const canvas = document.getElementById('chakravyuh-main');
-if(!canvas) return;
-const ctx = canvas.getContext('2d');
-const SIZE = 500;
-canvas.width = SIZE;
-canvas.height = SIZE;
-const cx = SIZE/2, cy = SIZE/2;
-
-let t = 0;
-let phase = 0; // 0=idle, 1=active
-let stress = 0; // 0-100
-let ringClose = 0; // rings closing in
-let winnerFlash = 0;
-
-window._chakravyuhState = { phase, stress, ringClose };
-
-function draw() {
-ctx.clearRect(0,0,SIZE,SIZE);
-
-// Dark bg
-const bg = ctx.createRadialGradient(cx,cy,0,cx,cy,SIZE*0.6);
-bg.addColorStop(0,'rgba(20,5,5,0.95)');
-bg.addColorStop(1,'rgba(5,5,20,0.98)');
-ctx.fillStyle=bg;
-ctx.fillRect(0,0,SIZE,SIZE);
-
-const state = window._chakravyuhState;
-const s = state.stress;
-const rc = state.ringClose;
-
-// RINGS - They close in as stress increases
-const numRings = 8;
-for(let i=0;i<numRings;i++){
-const baseR = (SIZE*0.45) - i*(SIZE*0.04);
-const closedR = (SIZE*0.06) + (numRings-i)*(SIZE*0.025);
-const r = baseR - (baseR - closedR) * (rc/100);
-const rotSpeed = (i%2===0?1:-1) * 0.015 * (1 + s*0.02);
-const angle = t * rotSpeed + i * (Math.PI/numRings);
-
-// Ring glow
-const ringAlpha = 0.12 + (s/100)*0.25 + 0.08*Math.sin(t*2+i);
-const ringColor = i%3===0 ? `rgba(220,20,60,${ringAlpha})` :
-i%3===1 ? `rgba(21,101,192,${ringAlpha*0.8})` :
-`rgba(180,0,30,${ringAlpha*0.6})`;
-
-ctx.save();
-ctx.translate(cx,cy);
-ctx.rotate(angle);
-
-// Glow effect
-ctx.shadowBlur = 15 + s*0.3;
-ctx.shadowColor = i%2===0 ? `rgba(220,20,60,0.6)` : `rgba(21,101,192,0.4)`;
-
-ctx.beginPath();
-ctx.arc(0,0,r,0,Math.PI*2);
-ctx.strokeStyle=ringColor;
-ctx.lineWidth=1.5;
-ctx.stroke();
-
-// Spikes/notches on ring
-const numSpikes = 6 + i*2;
-for(let j=0;j<numSpikes;j++){
-const sa = (j/numSpikes)*Math.PI*2;
-const sp1x = Math.cos(sa)*r;
-const sp1y = Math.sin(sa)*r;
-const sp2x = Math.cos(sa)*(r+8);
-const sp2y = Math.sin(sa)*(r+8);
-ctx.beginPath();
-ctx.moveTo(sp1x,sp1y);
-ctx.lineTo(sp2x,sp2y);
-ctx.strokeStyle=ringColor;
-ctx.lineWidth=1;
-ctx.stroke();
-}
-
-ctx.shadowBlur=0;
-ctx.restore();
-}
-
-// SPIRAL PATH
-ctx.save();
-ctx.translate(cx,cy);
-ctx.rotate(t*0.1);
-for(let i=0;i<300;i++){
-const a = i*0.15 + t*0.3;
-const r = i * 0.65 * (1 - rc*0.006);
-if(r<2) break;
-const px = Math.cos(a)*r;
-const py = Math.sin(a)*r;
-const alpha = 0.04 + (s/100)*0.06;
-if(i%3===0){
-ctx.beginPath();
-ctx.arc(px,py,0.8,0,Math.PI*2);
-ctx.fillStyle=`rgba(220,20,60,${alpha})`;
-ctx.fill();
-}
-}
-ctx.restore();
-
-// WITNESS FIGURE (center, trapped)
-const witnessScale = 1 - rc*0.003;
-const wobble = phase===1 ? Math.sin(t*8)*3*(s/100) : 0;
-ctx.save();
-ctx.translate(cx + wobble, cy);
-ctx.scale(witnessScale, witnessScale);
-
-// Panic color based on stress
-const panicR = Math.min(255, 100 + s*1.5);
-const panicG = Math.max(0, 200 - s*2);
-const personColor = `rgb(${panicR},${panicG},80)`;
-
-// Person body
-ctx.fillStyle=personColor;
-// Head
-ctx.beginPath();
-ctx.arc(0,-30,16,0,Math.PI*2);
-ctx.fill();
-// Body
-ctx.fillRect(-10,-14,20,30);
-// Arms
-ctx.save();
-const armSwing = Math.sin(t*5)*0.5*(s/100);
-ctx.rotate(armSwing);
-ctx.fillRect(-28,-10,18,8);
-ctx.restore();
-ctx.save();
-ctx.rotate(-armSwing);
-ctx.fillRect(10,-10,18,8);
-ctx.restore();
-// Legs
-ctx.fillRect(-12,16,8,22);
-ctx.fillRect(4,16,8,22);
-
-// Stress expression
-ctx.fillStyle='#000';
-ctx.beginPath();
-ctx.arc(-5,-33,3,0,Math.PI*2);
-ctx.arc(5,-33,3,0,Math.PI*2);
-ctx.fill();
-// Mouth - changes with stress
-ctx.beginPath();
-ctx.strokeStyle='#000';
-ctx.lineWidth=2;
-if(s < 30) {
-ctx.arc(0,-28,5, 0.2, Math.PI-0.2);
-} else if(s < 70) {
-ctx.moveTo(-5,-28); ctx.lineTo(5,-28);
-} else {
-ctx.arc(0,-24, 5, Math.PI+0.2, -0.2);
-}
-ctx.stroke();
-
-// Panic text
-if(s > 60){
-ctx.fillStyle=`rgba(255,100,100,${(s-60)/60})`;
-ctx.font=`bold ${10*(1+(s-60)/200)}px Cinzel`;
-ctx.textAlign='center';
-const panicTexts=['?!','...','!!'];
-ctx.fillText(panicTexts[Math.floor(t*2)%3], 30, -50);
-}
-ctx.restore();
-
-// Winner state
-if(state.stress >= 100){
-winnerFlash += 0.05;
-// Victory rays
-const numRays = 16;
-for(let i=0;i<numRays;i++){
-const ra = (i/numRays)*Math.PI*2 + t*0.5;
-const rLen = 60 + 30*Math.abs(Math.sin(t*3+i));
-const alpha = 0.5 + 0.4*Math.abs(Math.sin(winnerFlash*2+i));
-ctx.beginPath();
-ctx.moveTo(cx,cy);
-ctx.lineTo(cx+Math.cos(ra)*rLen, cy+Math.sin(ra)*rLen);
-ctx.strokeStyle=`rgba(220,20,60,${alpha})`;
-ctx.lineWidth=2;
-ctx.stroke();
-}
-// WIN text
-ctx.save();
-ctx.translate(cx,cy-90);
-const winAlpha = Math.abs(Math.sin(winnerFlash));
-ctx.fillStyle=`rgba(255,255,100,${winAlpha})`;
-ctx.font='bold 22px Cinzel';
-ctx.textAlign='center';
-ctx.fillText('⚖ बरी!', 0, 0);
-ctx.fillStyle=`rgba(100,255,100,${winAlpha*0.8})`;
-ctx.font='11px Cinzel';
-ctx.fillText('ACQUITTED', 0, 20);
-ctx.restore();
-}
-
-// Corner arrows
-const arrowAlpha = 0.15 + 0.1*Math.sin(t*2);
-ctx.fillStyle=`rgba(220,20,60,${arrowAlpha})`;
-ctx.font='16px serif';
-ctx.textAlign='center';
-['↗','↖','↘','↙'].forEach((a,i)=>{
-const ax = i<2 ? SIZE-25 : 25;
-const ay = i%2===0 ? 30 : SIZE-15;
-ctx.fillText(a,ax,ay);
-});
-
-// Border glow
-const edgeGrd = ctx.createLinearGradient(0,0,SIZE,SIZE);
-edgeGrd.addColorStop(0,`rgba(220,20,60,${0.1+s*0.003})`);
-edgeGrd.addColorStop(1,`rgba(21,101,192,${0.05+s*0.002})`);
-ctx.strokeStyle=edgeGrd;
-ctx.lineWidth=3;
-ctx.strokeRect(1,1,SIZE-2,SIZE-2);
-
-t+=0.02;
-requestAnimationFrame(draw);
-}
-draw();
-})();
-
-// =============================================
-// CHAKRAVYUH INTERACTIVE LOGIC
-// =============================================
-(function(){
-const btn = document.getElementById('startChakra');
-const questionDisplay = document.getElementById('questionDisplay');
-const stressFill = document.getElementById('stressFill');
-const stressVal = document.getElementById('stressVal');
-const contraFill = document.getElementById('contraFill');
-const contraVal = document.getElementById('contraVal');
-const contraLog = document.getElementById('contraLog');
-const witnessAvatar = document.getElementById('witnessAvatar');
-const witnessName = document.getElementById('witnessName');
-
-const phases = [
-{
-q: `<span class="q-phase-label">चरण 01 · गवाह विश्लेषण</span>
-"गवाह, आपने FIR में क्या बताया था?" <br><br>
-<em style="font-size:0.8rem;color:#666;">(सरल प्रश्न... गवाह सहज है)</em>`,
-phaseId: 0, stress: 10, contra: 5,
-logType: 'ci-q', logText: '📋 FIR बयान पूछा — गवाह सहज',
-phaseStatus: '✓ पूर्ण'
-},
-{
-q: `<span class="q-phase-label">चरण 02 · सरल प्रश्न</span>
-"और धारा 161 में अपना बयान क्या दिया था पुलिस को?" <br><br>
-<em style="font-size:0.8rem;color:#666;">(विस्तार आरम्भ... गवाह अभी भी आश्वस्त)</em>`,
-phaseId: 1, stress: 25, contra: 15,
-logType: 'ci-q', logText: '🔍 161 बयान की तुलना शुरू',
-phaseStatus: '✓ पूर्ण'
-},
-{
-q: `<span class="q-phase-label">चरण 03 · जाल विस्तार</span>
-"परंतु आपने न्यायालय में अभी जो कहा — वह FIR से भिन्न क्यों है? आपने FIR में 'रात 9 बजे' कहा, अब '11 बजे' कह रहे हैं?" <br><br>
-<em style="font-size:0.8rem;color:var(--scarlet);">(पहला विरोधाभास प्रकट!)</em>`,
-phaseId: 2, stress: 50, contra: 40,
-logType: 'ci-trap', logText: '⚡ विरोधाभास: समय में अंतर — FIR vs 164 CrPC',
-phaseStatus: '✓ पूर्ण'
-},
-{
-q: `<span class="q-phase-label">चरण 04 · विरोधाभास प्रकट</span>
-"Section 145 IEA के तहत — क्या आपका यह पूर्व का बयान सत्य था? यदि हाँ, तो आज का बयान झूठ है। यदि आज सच बोल रहे हैं, तो FIR झूठी है!" <br><br>
-<em style="font-size:0.8rem;color:var(--scarlet);">⚠ गवाह उलझ गया — दोनों ओर जाल!</em>`,
-phaseId: 3, stress: 75, contra: 65,
-logType: 'ci-trap', logText: '🌀 Sec 145 IEA लागू — गवाह द्विधा में!',
-phaseStatus: '✓ पूर्ण'
-},
-{
-q: `<span class="q-phase-label">चरण 05 · पूर्ण उलझन</span>
-"FSL रिपोर्ट कहती है अभियुक्त 5 मीटर दूर था — आपने '2 फीट' कहा। पंचनामे में मौके पर आपकी उपस्थिति नहीं। आप वहाँ थे ही नहीं!" <br><br>
-<em style="font-size:0.8rem;color:orange;">🔥 गवाह की विश्वसनीयता ध्वस्त!</em>`,
-phaseId: 4, stress: 92, contra: 88,
-logType: 'ci-trap', logText: '💥 FSL + पंचनामा विरोधाभास — गवाह बेबस!',
-phaseStatus: '✓ पूर्ण'
-},
-{
-q: `<span class="q-phase-label">चरण 06 · ⚖️ विजय!</span>
-"माननीय न्यायाधीश महोदय — गवाह के तीन बयान परस्पर विरोधाभासी हैं। FSL और पंचनामा आरोप को असत्य सिद्ध करते हैं। इस अभियोजन में संदेह से परे प्रमाण का अभाव है। अभियुक्त को बरी किया जाए!" <br><br>
-<strong style="color:#4CAF50;">✅ चक्रव्यूह सम्पूर्ण — अभियुक्त बरी!</strong>`,
-phaseId: 5, stress: 100, contra: 100,
-logType: 'ci-win', logText: '⚖️ बरी! अभियुक्त दोषमुक्त — चक्रव्यूह सफल!',
-phaseStatus: '⚖ बरी!'
-}
-];
-
-let running = false, step = 0, interval;
-
-function setPhase(pId, status) {
-for(let i=0;i<6;i++){
-const el=document.getElementById(`phase-${i}`);
-const ps=document.getElementById(`ps-${i}`);
-if(i < pId){ el.className='phase-item done'; ps.textContent='✓'; }
-else if(i===pId){ el.className='phase-item active'; ps.textContent=status; }
-else { el.className='phase-item'; ps.textContent='—'; }
-}
-}
-
-function addLog(type, text){
-const old = contraLog.querySelector('div[style]');
-if(old) old.remove();
-const div = document.createElement('div');
-div.className=`contradiction-item ${type}`;
-div.textContent=text;
-contraLog.appendChild(div);
-setTimeout(()=>div.classList.add('show'),50);
-contraLog.scrollTop=contraLog.scrollHeight;
-}
-
-function animateStress(target, fill, val) {
-const current = parseInt(fill.style.width)||0;
-let c = current;
-const step = (target-c)/30;
-const timer = setInterval(()=>{
-c+=step;
-if((step>0&&c>=target)||(step<0&&c<=target)){c=target;clearInterval(timer);}
-fill.style.width=Math.max(0,Math.min(100,c))+'%';
-if(val) val.textContent=Math.round(c)+'%';
-if(fill===stressFill){
-window._chakravyuhState.stress=c;
-}
-if(fill===contraFill){
-window._chakravyuhState.ringClose = c;
-}
-},30);
-}
-
-btn.addEventListener('click', ()=>{
-if(running){
-// Reset
-clearTimeout(interval);
-running=false;
-step=0;
-btn.textContent='▶ चक्रव्यूह आरम्भ करें';
-window._chakravyuhState={phase:0, stress:0, ringClose:0};
-stressFill.style.width='100%';
-stressVal.textContent='100%';
-contraFill.style.width='0%';
-contraVal.textContent='0';
-contraLog.innerHTML='<div style="font-size:0.75rem;color:rgba(255,255,255,0.2);text-align:center;padding:20px 0;">प्रतीक्षा करें...</div>';
-setPhase(-1,'—');
-questionDisplay.innerHTML='<span class="q-phase-label">जिरह प्रारम्भ होने की प्रतीक्षा...</span>पहला प्रश्न साधारण होगा।<br>गवाह को लगेगा सब ठीक है।<br>यही हमारी रणनीति का प्रारम्भ है।';
-witnessAvatar.classList.remove('shaking');
-witnessName.textContent='मुख्य गवाह';
-return;
-}
-running=true;
-btn.textContent='■ पुनः प्रारम्भ करें';
-contraLog.innerHTML='';
-
-function runStep(){
-if(step>=phases.length){ return; }
-const p=phases[step];
-questionDisplay.innerHTML=p.q;
-setPhase(p.phaseId, p.phaseStatus);
-animateStress(100-p.stress, stressFill, stressVal);
-animateStress(p.contra, contraFill, null);
-contraVal.textContent=p.contra+'%';
-window._chakravyuhState.ringClose=p.contra;
-addLog(p.logType, p.logText);
-if(p.stress>40) witnessAvatar.classList.add('shaking');
-if(p.stress>70) witnessName.textContent='⚠ गवाह घबराया!';
-if(p.stress>=100) witnessName.textContent='🏛 बरी! विजय!';
-step++;
-if(step<phases.length){
-interval=setTimeout(runStep,3000);
-}
-}
-runStep();
-});
-})();
-
-// =============================================
-// COUNT UP
-// =============================================
-function countUp(){
-document.querySelectorAll('.count').forEach(el=>{
-const target=parseInt(el.dataset.target);
-let c=0;
-const step=target/60;
-const timer=setInterval(()=>{
-c+=step;
-if(c>=target){c=target;clearInterval(timer);}
-el.textContent=Math.floor(c);
-},25);
-});
-}
-
-// =============================================
-// SCROLL REVEAL
-// =============================================
-const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const io = new IntersectionObserver((entries)=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add('visible');
-if(e.target.closest('.stats-bar')) countUp();
-}
-});
-}, {threshold:0.15});
-revealEls.forEach(el=>io.observe(el));
-
-// =============================================
-// FORM SUBMIT
-// =============================================
-document.getElementById('consultForm').addEventListener('submit',function(e){
-e.preventDefault();
-const btn=this.querySelector('.submit-btn');
-btn.textContent='✓ परामर्श अनुरोध भेजा गया!';
-btn.style.background='linear-gradient(135deg,#2E7D32,#1B5E20)';
-setTimeout(()=>{
-btn.innerHTML='⚖ परामर्श अनुरोध भेजें →';
-btn.style.background='';
-this.reset();
-},4000);
-});
-</script>
-</body>
-</html>
+// ==============================
+// COSMOS - Rich starfield + floating particles + 
