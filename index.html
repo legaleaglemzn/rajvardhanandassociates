@@ -1,464 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rajvardhan & Associates | The Ultimate Legal Masterpiece</title>
+    <title>राजवर्धन एंड एसोसिएट्स | अंतिम कानूनी उत्कृष्ट कृति</title>
     
-    <!-- Ultra Premium Fonts: Cinzel for Royal Authority, Manrope for Modern Crispness -->
+    <!-- Premium Devanagari & English Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800;900&family=Manrope:wght@200;300;400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Ultra Luxury Color Palette */
-            --bg-obsidian: #030303;
-            --bg-charcoal: #0a0a0c;
-            --bg-glass: rgba(15, 15, 18, 0.6);
-            --gold-light: #F9E596;
+            /* Ultimate Luxury Color Palette */
+            --bg-void: #000000;
+            --bg-obsidian: #050505;
+            --bg-panel: rgba(15, 15, 15, 0.6);
+            --gold-light: #FFE58F;
             --gold-main: #D4AF37;
-            --gold-dark: #997A15;
-            --crimson-blood: #8A0303;
-            --crimson-glow: #FF1E1E;
+            --gold-dark: #8B6914;
+            --crimson-blood: #5A0000;
+            --crimson-glow: #FF0000;
             --text-pure: #FFFFFF;
-            --text-silver: #A0A0A5;
+            --text-silver: #B0B0B0;
             
-            --font-royal: 'Cinzel', serif;
-            --font-modern: 'Manrope', sans-serif;
-            --font-italic: 'Cormorant Garamond', serif;
+            /* Typography */
+            --font-royal: 'Yatra One', cursive; /* For massive, aggressive headings */
+            --font-serif: 'Tiro Devanagari Hindi', serif; /* For elegant reading */
+            --font-sans: 'Gotu', sans-serif; /* For clean UI elements */
+            --font-eng: 'Cinzel', serif; /* For numbers and specific english accents */
 
-            --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* Reset & Global */
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Custom cursor */ }
-        html { scroll-behavior: auto; /* Handled by custom smooth scroll or native OS smooth */ background-color: var(--bg-obsidian); }
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        html { 
+            background-color: var(--bg-void); 
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        html::-webkit-scrollbar { display: none; /* Hide scrollbar for clean Apple look */ }
+        
         body { 
-            font-family: var(--font-modern); 
-            background-color: var(--bg-obsidian); 
+            font-family: var(--font-serif); 
+            background-color: var(--bg-void); 
             color: var(--text-pure); 
             overflow-x: hidden; 
-            font-size: 16px; 
+            font-size: 18px; 
             -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-obsidian); }
-        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
-
-        /* Custom Cursor for Premium Feel */
-        .cursor-dot { width: 8px; height: 8px; background: var(--gold-main); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; }
-        .cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.1s ease-out; }
-
-        /* Cinematic Noise Overlay */
-        .noise-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9000; opacity: 0.03; background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E'); }
-
-        /* Global Canvas */
-        .bg-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        /* Custom Cinematic Cursor */
+        #cursor-dot { width: 6px; height: 6px; background: var(--gold-main); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.2s var(--ease-apple); box-shadow: 0 0 10px var(--gold-main); }
+        #cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.5); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, border-color 0.3s, background 0.3s; }
         
-        /* Layout Utilities */
-        .section-wrapper { position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 100px 5%; border-bottom: 1px solid rgba(212, 175, 55, 0.05); }
-        .container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 10; width: 100%; }
+        /* Noise Grain Overlay */
+        .grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9000; opacity: 0.04; background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="n"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23n)"/%3E%3C/svg%3E'); }
 
-        /* Typography */
-        h1, h2, h3, h4 { font-family: var(--font-royal); font-weight: 800; letter-spacing: 1px; line-height: 1.1; }
-        .text-gold-gradient { background: linear-gradient(to right, var(--gold-light), var(--gold-main), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .text-silver { color: var(--text-silver); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; }
-        .subtitle { font-family: var(--font-modern); font-weight: 600; text-transform: uppercase; letter-spacing: 6px; font-size: 0.85rem; color: var(--gold-main); margin-bottom: 20px; display: block; }
-        
-        /* Reveal Animations (Apple Style) */
-        .reveal { opacity: 0; transform: translateY(60px); transition: all 1.2s var(--ease-apple); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.2s; }
-        .reveal-delay-2 { transition-delay: 0.4s; }
+        /* Typography Utilities */
+        h1, h2, h3, h4 { font-family: var(--font-royal); font-weight: normal; line-height: 1.2; }
+        .text-gold { background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-main) 50%, var(--gold-dark) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-crimson { background: linear-gradient(135deg, #FF4D4D 0%, var(--crimson-glow) 50%, var(--crimson-blood) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .eng-num { font-family: var(--font-eng); font-weight: 700; letter-spacing: 2px; }
+        .section-tag { font-family: var(--font-sans); font-size: 1rem; color: var(--gold-main); text-transform: uppercase; letter-spacing: 5px; display: block; margin-bottom: 2vh; }
+
+        /* Layout & Spacing */
+        .container { max-width: 1600px; margin: 0 auto; padding: 0 5vw; position: relative; z-index: 10; width: 100%; }
+        section { position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 15vh 0; overflow: hidden; }
+        .full-screen { min-height: 100vh; }
+
+        /* Global Background Canvas */
+        .ambient-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0; opacity: 0.4; }
 
         /* Navigation */
-        nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s var(--ease-apple); }
-        nav.scrolled { padding: 15px 5%; background: rgba(3, 3, 3, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-        .logo { font-family: var(--font-royal); font-size: 1.8rem; color: var(--text-pure); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 800; }
-        .logo-mark { width: 50px; height: 50px; border: 2px solid var(--gold-main); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold-main); font-size: 1.5rem; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); position: relative; }
-        .logo-mark::after { content: ''; position: absolute; inset: -5px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; animation: spin 10s linear infinite; }
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { color: var(--text-pure); text-decoration: none; font-family: var(--font-modern); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; transition: color 0.3s; position: relative; }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--gold-main); transition: width 0.4s var(--ease-apple); }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--gold-main); }
+        nav { position: fixed; top: 0; width: 100%; padding: 40px 5vw; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.6s var(--ease-apple); }
+        nav.scrolled { padding: 20px 5vw; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        .logo { font-family: var(--font-royal); font-size: 2.2rem; color: var(--text-pure); text-decoration: none; display: flex; align-items: center; gap: 20px; text-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+        .logo-emblem { width: 60px; height: 60px; position: relative; display: flex; justify-content: center; align-items: center; font-family: var(--font-eng); font-size: 2rem; color: var(--gold-main); }
+        .logo-emblem::before { content: ''; position: absolute; inset: 0; border: 2px solid var(--gold-main); border-radius: 50%; transform: rotate(45deg); transition: transform 0.5s; }
+        .logo-emblem::after { content: ''; position: absolute; inset: -5px; border: 1px dashed rgba(212, 175, 55, 0.5); border-radius: 50%; animation: slowSpin 20s linear infinite; }
+        .logo:hover .logo-emblem::before { transform: rotate(135deg); }
         
-        .btn-premium { background: transparent; border: 1px solid var(--gold-main); color: var(--gold-main); padding: 15px 35px; font-family: var(--font-modern); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border-radius: 4px; position: relative; overflow: hidden; transition: all 0.4s; }
-        .btn-premium::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent); transition: left 0.5s; }
-        .btn-premium:hover::before { left: 100%; }
-        .btn-premium:hover { background: var(--gold-main); color: var(--bg-obsidian); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
-
-        /* 1. Ultra Hero Section */
-        #hero { padding-top: 0; }
-        .hero-content { text-align: center; max-width: 1200px; margin: 0 auto; margin-top: 10vh; }
-        .hero-title { font-size: clamp(3rem, 8vw, 7.5rem); text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 20px 40px rgba(0,0,0,0.8); }
-        .hero-tagline { font-family: var(--font-italic); font-size: clamp(1.8rem, 4vw, 3rem); color: var(--gold-light); margin-bottom: 40px; font-style: italic; font-weight: 400; }
-        .hero-desc { max-width: 800px; margin: 0 auto 50px; font-size: clamp(1.2rem, 2vw, 1.5rem); }
-
-        /* Parallax Marquee */
-        .marquee-container { position: absolute; bottom: 5%; left: 0; width: 100%; overflow: hidden; white-space: nowrap; opacity: 0.1; transform: rotate(-2deg); }
-        .marquee-text { display: inline-block; font-family: var(--font-royal); font-size: 8vw; color: transparent; -webkit-text-stroke: 1px var(--gold-main); animation: scroll-left 40s linear infinite; }
-        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        /* 2. Philosophy Section (Apple Style Text Reveal) */
-        #philosophy { background: linear-gradient(180deg, var(--bg-obsidian), var(--bg-charcoal)); align-items: center; text-align: center; }
-        .huge-text { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.4; max-width: 1000px; font-family: var(--font-royal); }
-        .highlight { color: var(--gold-main); }
-
-        /* 3. Premium Mastery & 3D Scale */
-        .mastery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .mastery-text-box { padding: 40px; background: rgba(20, 20, 22, 0.5); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 20px; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
-        .scale-3d-container { height: 700px; position: relative; perspective: 1500px; display: flex; justify-content: center; align-items: center; }
+        .nav-menu { display: flex; gap: 50px; }
+        .nav-menu a { font-family: var(--font-sans); color: var(--text-pure); text-decoration: none; font-size: 1.1rem; position: relative; overflow: hidden; padding: 5px 0; }
+        .nav-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--gold-main); transform: translateX(-101%); transition: transform 0.4s var(--ease-apple); }
+        .nav-menu a:hover::after { transform: translateX(0); }
         
-        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .stat-item { padding: 30px 0; border-top: 1px solid rgba(212, 175, 55, 0.2); }
-        .stat-number { font-family: var(--font-royal); font-size: 4rem; color: var(--gold-light); margin-bottom: 10px; }
+        .btn-gold { background: transparent; border: 1px solid var(--gold-main); color: var(--gold-main); padding: 15px 40px; font-family: var(--font-sans); font-size: 1.1rem; border-radius: 30px; position: relative; overflow: hidden; transition: color 0.4s; }
+        .btn-gold::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold-main); transform: scaleX(0); transform-origin: right; transition: transform 0.5s var(--ease-apple); z-index: -1; }
+        .btn-gold:hover { color: var(--bg-void); }
+        .btn-gold:hover::before { transform: scaleX(1); transform-origin: left; }
 
-        /* 4. The Chakravyuh (Hotel Leela Masterpiece Vibe) */
-        #chakravyuh { background: radial-gradient(circle at center, #1a0505 0%, var(--bg-obsidian) 70%); border-top: 1px solid rgba(138, 3, 3, 0.5); border-bottom: 1px solid rgba(138, 3, 3, 0.5); }
-        .chakra-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; background: rgba(5, 5, 5, 0.6); backdrop-filter: blur(30px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 30px; padding: 50px; box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 80px rgba(138,3,3,0.1); }
+        /* General Reveal Classes */
+        .reveal-up { opacity: 0; transform: translateY(100px); transition: opacity 1.5s var(--ease-apple), transform 1.5s var(--ease-apple); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+
+        /* 1. HERO SECTION (Canvas Intensive) */
+        #hero { padding-top: 0; height: 100vh; justify-content: flex-end; padding-bottom: 15vh; }
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 1200px; }
+        .hero-title { font-size: clamp(4rem, 8vw, 9rem); line-height: 1; margin-bottom: 20px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8)); }
+        .hero-subtitle { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.5rem); color: var(--gold-light); margin-bottom: 30px; font-style: italic; }
+        .hero-desc { font-family: var(--font-sans); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--text-silver); max-width: 800px; line-height: 1.8; margin-bottom: 50px; }
+
+        /* Scroll Indicator */
+        .scroll-down { position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10; opacity: 0.6; }
+        .scroll-text { font-family: var(--font-sans); font-size: 0.9rem; letter-spacing: 3px; color: var(--gold-main); text-transform: uppercase; }
+        .scroll-line { width: 1px; height: 60px; background: rgba(212, 175, 55, 0.2); position: relative; overflow: hidden; }
+        .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%; background: var(--gold-main); animation: scrollDrop 2s cubic-bezier(0.64, 0.04, 0.35, 1) infinite; }
+
+        @keyframes slowSpin { 100% { transform: rotate(360deg); } }
+        @keyframes scrollDrop { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
+
+        /* 2. PARICHAY (Philosophy) - Giant Typography */
+        #parichay { background: linear-gradient(to bottom, var(--bg-void), var(--bg-obsidian)); text-align: center; }
+        .massive-text { font-size: clamp(3rem, 6vw, 6rem); line-height: 1.3; font-family: var(--font-royal); max-width: 1400px; margin: 0 auto; color: rgba(255,255,255,0.1); background: linear-gradient(to right, #fff, #fff); background-size: 0% 100%; background-repeat: no-repeat; -webkit-background-clip: text; background-clip: text; transition: background-size 0.1s ease; }
         
-        .chakra-visual { width: 100%; height: 600px; position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); background: #000; box-shadow: inset 0 0 100px rgba(0,0,0,1); }
-        .chakra-badge { position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.8); border: 1px solid var(--gold-main); padding: 5px 15px; font-family: var(--font-modern); font-size: 0.7rem; letter-spacing: 2px; color: var(--gold-main); text-transform: uppercase; z-index: 10; }
-
-        .terminal-ui { display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
-        .terminal-header { font-family: var(--font-royal); font-size: 2.5rem; color: var(--text-pure); margin-bottom: 20px; }
-        .terminal-log { flex-grow: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; font-size: 1.1rem; }
+        /* 3. FOUNDER (Sansthapak) - Parallax Hologram */
+        #founder { position: relative; }
+        .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; align-items: center; }
+        .founder-img-container { position: relative; width: 100%; height: 80vh; border-radius: 20px; overflow: hidden; perspective: 1000px; }
+        .founder-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; mix-blend-mode: screen; }
+        .founder-box { background: linear-gradient(145deg, rgba(30,30,30,0.5), rgba(10,10,10,0.8)); border: 1px solid rgba(212, 175, 55, 0.2); height: 100%; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; transform-style: preserve-3d; transition: transform 0.5s var(--ease-apple); }
+        .founder-name { font-size: 4rem; color: var(--gold-main); font-family: var(--font-royal); transform: translateZ(50px); }
+        .founder-title { font-family: var(--font-sans); font-size: 1.5rem; color: var(--text-pure); letter-spacing: 2px; margin-bottom: 20px; transform: translateZ(30px); }
+        .founder-text { font-size: 1.3rem; color: var(--text-silver); transform: translateZ(20px); }
         
-        .log-entry { opacity: 0; transform: translateY(10px); animation: fadeInUp 0.6s forwards; }
-        .log-advocate { font-family: var(--font-italic); color: var(--gold-light); font-size: 1.3rem; border-left: 2px solid var(--gold-main); padding-left: 15px; }
-        .log-witness { font-family: var(--font-modern); color: var(--text-silver); text-align: right; border-right: 2px solid #555; padding-right: 15px; font-weight: 300; }
-        .log-trap { color: var(--crimson-glow); font-weight: 800; text-align: center; font-family: var(--font-modern); letter-spacing: 3px; font-size: 0.9rem; text-transform: uppercase; background: rgba(138,3,3,0.1); padding: 10px; border-radius: 4px; }
-        .log-victory { color: var(--gold-main); font-family: var(--font-royal); font-size: 2rem; text-align: center; text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); padding: 20px; border: 1px solid var(--gold-main); }
+        .stat-banner { display: flex; gap: 40px; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; }
+        .stat-item h4 { font-family: var(--font-eng); font-size: 4rem; color: var(--gold-light); line-height: 1; }
+        .stat-item p { font-family: var(--font-sans); font-size: 1.1rem; color: var(--text-silver); text-transform: uppercase; letter-spacing: 2px; }
 
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-
-        .btn-trap { width: 100%; margin-top: 30px; background: linear-gradient(45deg, #4A0000, #8A0303); border: 1px solid var(--crimson-glow); color: #fff; padding: 20px; font-family: var(--font-royal); font-size: 1.2rem; letter-spacing: 4px; border-radius: 5px; transition: all 0.4s; box-shadow: 0 10px 30px rgba(138,3,3,0.3); }
-        .btn-trap:hover { background: linear-gradient(45deg, #8A0303, #FF1E1E); box-shadow: 0 10px 40px rgba(255,30,30,0.5); transform: translateY(-2px); }
-
-        /* 5. Practice Areas (3D Hover Cards) */
-        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; perspective: 1000px; }
-        .area-card { height: 450px; background: rgba(15, 15, 18, 0.8); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; position: relative; overflow: hidden; transform-style: preserve-3d; transition: transform 0.1s ease-out, border-color 0.5s; }
-        .area-card:hover { border-color: var(--gold-main); z-index: 20; }
+        /* 4. CHAKRAVYUH (Apple-Style Scroll Tunnel) */
+        #chakravyuh-tunnel { height: 400vh; /* Massive scroll area */ position: relative; background: #000; }
+        .sticky-container { position: sticky; top: 0; height: 100vh; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        #tunnel-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         
-        .card-bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.3; transition: opacity 0.5s; z-index: 1; }
-        .area-card:hover .card-bg-canvas { opacity: 0.8; }
+        .tunnel-text-container { position: relative; z-index: 10; text-align: center; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 1000px; }
+        .tunnel-step { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) translateZ(-1000px); opacity: 0; width: 80%; max-width: 1000px; text-align: center; transition: opacity 0.5s, transform 0.5s; }
+        .tunnel-step h2 { font-size: clamp(3rem, 6vw, 6rem); text-shadow: 0 0 40px rgba(255, 0, 0, 0.5); margin-bottom: 20px; }
+        .tunnel-step p { font-family: var(--font-sans); font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--text-silver); }
         
-        .card-content { position: absolute; inset: 0; padding: 40px; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 100%); transform: translateZ(40px); /* 3D depth */ }
-        .card-icon { font-size: 3rem; color: var(--gold-main); margin-bottom: 20px; font-family: var(--font-royal); }
-        .card-title { font-size: 2rem; margin-bottom: 15px; }
-        .card-desc { font-size: 1rem; color: #aaa; opacity: 0; transform: translateY(20px); transition: all 0.4s var(--ease-apple); }
-        .area-card:hover .card-desc { opacity: 1; transform: translateY(0); }
+        /* 5. EXPERTISE (Magnetic Fluid Cards) */
+        #expertise { background: #020202; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 80px; }
+        .exp-card { position: relative; height: 500px; border-radius: 20px; background: rgba(15,15,15,0.8); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; padding: 50px; display: flex; flex-direction: column; justify-content: flex-end; transition: border-color 0.4s; }
+        .exp-card:hover { border-color: var(--gold-main); }
+        .exp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; z-index: 1; mix-blend-mode: screen; }
+        .exp-card:hover .exp-canvas { opacity: 1; }
+        .exp-content { position: relative; z-index: 2; transform: translateY(40px); transition: transform 0.5s var(--ease-apple); }
+        .exp-card:hover .exp-content { transform: translateY(0); }
+        .exp-num { font-family: var(--font-eng); font-size: 5rem; color: rgba(212, 175, 55, 0.2); position: absolute; top: 30px; right: 40px; line-height: 1; transition: color 0.4s; }
+        .exp-card:hover .exp-num { color: var(--gold-main); }
+        .exp-title { font-size: 3rem; margin-bottom: 15px; }
+        .exp-desc { font-size: 1.2rem; color: var(--text-silver); opacity: 0; transition: opacity 0.5s; }
+        .exp-card:hover .exp-desc { opacity: 1; }
 
-        /* Footer */
-        footer { background: #010101; padding: 100px 5% 40px; border-top: 1px solid rgba(212, 175, 55, 0.2); position: relative; overflow: hidden; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; position: relative; z-index: 10; }
-        .footer-logo { font-family: var(--font-royal); font-size: 2.5rem; color: var(--gold-main); margin-bottom: 20px; display: block; }
-        .f-title { font-family: var(--font-modern); color: var(--text-pure); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        /* 6. TIMELINE / STRATEGY (SVG Scroll Path) */
+        #ranniti { background: var(--bg-obsidian); }
+        .strategy-container { position: relative; max-width: 1000px; margin: 100px auto 0; padding-left: 100px; }
+        .svg-path-container { position: absolute; top: 0; left: 40px; width: 10px; height: 100%; }
+        .step-block { margin-bottom: 150px; position: relative; opacity: 0; transform: translateX(50px); transition: all 1s var(--ease-apple); }
+        .step-block.active { opacity: 1; transform: translateX(0); }
+        .step-block::before { content: ''; position: absolute; left: -66px; top: 10px; width: 20px; height: 20px; background: var(--bg-void); border: 3px solid var(--gold-main); border-radius: 50%; box-shadow: 0 0 20px var(--gold-main); transition: background 0.4s; }
+        .step-block.active::before { background: var(--gold-main); }
+        .step-title { font-size: 3rem; color: var(--gold-light); margin-bottom: 15px; }
+        .step-desc { font-size: 1.4rem; color: var(--text-silver); font-family: var(--font-sans); }
+
+        /* 7. MEGA FOOTER & CONTACT */
+        footer { position: relative; background: #000; padding: 150px 0 50px; overflow: hidden; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        #footer-canvas { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.3; }
+        .footer-content { position: relative; z-index: 10; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 80px; }
+        .footer-brand { font-size: 3.5rem; font-family: var(--font-royal); color: var(--text-pure); margin-bottom: 20px; line-height: 1.1; }
+        .contact-huge { font-family: var(--font-eng); font-size: clamp(3rem, 5vw, 4.5rem); color: var(--gold-main); text-decoration: none; display: block; margin: 30px 0; text-shadow: 0 0 30px rgba(212, 175, 55, 0.4); transition: transform 0.3s; }
+        .contact-huge:hover { transform: scale(1.05); transform-origin: left; }
+        .f-heading { font-family: var(--font-sans); font-size: 1.3rem; color: var(--text-silver); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .f-links { list-style: none; }
-        .f-links li { margin-bottom: 15px; }
-        .f-links a { color: var(--text-silver); text-decoration: none; font-size: 1.1rem; transition: color 0.3s; }
+        .f-links li { margin-bottom: 20px; }
+        .f-links a { color: var(--text-pure); text-decoration: none; font-size: 1.3rem; transition: color 0.3s; }
         .f-links a:hover { color: var(--gold-main); }
-        .f-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; margin-top: 80px; font-family: var(--font-modern); font-size: 0.8rem; color: #666; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 10; }
+        .copyright { text-align: center; margin-top: 100px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); font-family: var(--font-eng); font-size: 0.9rem; letter-spacing: 3px; color: #555; }
 
-        /* Media Queries */
+        /* Media Queries for Mobile/Tablet */
         @media (max-width: 1200px) {
-            .chakra-container, .mastery-grid { grid-template-columns: 1fr; }
-            .scale-3d-container { height: 500px; }
-            .chakra-visual { height: 400px; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .founder-img-container { height: 50vh; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 900px) {
-            .cards-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; /* Add hamburger for real prod */ }
-            .footer-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
-            .section-wrapper { padding: 80px 5%; }
-            .cursor-dot, .cursor-ring { display: none; } /* Disable custom cursor on mobile */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; /* Add hamburger logic for prod */ }
+            .hero-title { font-size: 3.5rem; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .strategy-container { padding-left: 50px; }
+            .svg-path-container { left: 15px; }
+            .step-block::before { left: -41px; width: 14px; height: 14px; top: 15px; }
+            .footer-content { grid-template-columns: 1fr; gap: 50px; }
+            #cursor-dot, #cursor-ring { display: none; }
             * { cursor: auto; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cinematic Grain Overlay -->
-    <div class="noise-overlay"></div>
+    <!-- Cinematic Grain Background -->
+    <div class="grain"></div>
 
-    <!-- Custom Premium Cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
 
-    <!-- Global Background WebGL-like Canvas -->
-    <canvas id="globalBgCanvas" class="bg-canvas" style="position: fixed;"></canvas>
+    <!-- Ambient Slow Particle Canvas (Global Background) -->
+    <canvas id="ambient-bg" class="ambient-canvas"></canvas>
 
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
-            <div class="logo-mark">R</div>
-            <span>Rajvardhan & Associates</span>
+            <div class="logo-emblem">R</div>
+            <span>राजवर्धन & एसोसिएट्स</span>
         </a>
-        <div class="nav-links">
-            <a href="#philosophy">The Philosophy</a>
-            <a href="#mastery">Mastery</a>
-            <a href="#chakravyuh">Chakravyuh</a>
-            <a href="#expertise">Expertise</a>
+        <div class="nav-menu">
+            <a href="#parichay">दर्शन (Philosophy)</a>
+            <a href="#chakravyuh-tunnel">चक्रव्यूह (The Trap)</a>
+            <a href="#expertise">विशेषज्ञता (Expertise)</a>
+            <a href="#ranniti">रणनीति (Strategy)</a>
         </div>
-        <a href="#contact" style="text-decoration: none;"><button class="btn-premium">Consult Elite</button></a>
+        <a href="#contact" style="text-decoration: none;"><button class="btn-gold">न्यायिक परामर्श</button></a>
     </nav>
 
-    <!-- SECTION 1: Ultra Hero -->
-    <section class="section-wrapper" id="hero">
-        <canvas id="heroCanvas" class="bg-canvas"></canvas>
+    <!-- 1. HERO SECTION -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
         <div class="container hero-content">
-            <h1 class="hero-title text-gold-gradient reveal">Satyamev Jayate,</h1>
-            <p class="hero-tagline reveal reveal-delay-1">Par Siddha Hum Karte Hain.</p>
-            <p class="text-silver hero-desc reveal reveal-delay-2">
-                India's most aggressive and result-oriented legal powerhouse. We don't just read the law; we orchestrate masterpieces in the courtroom. For over 11 years, we have shattered falsehoods to pave the golden path of victory for our clients.
-            </p>
-            <div class="reveal reveal-delay-2">
-                <button class="btn-premium" style="padding: 20px 50px; font-size: 1.1rem;">Commence Your Battle</button>
+            <div class="reveal-up active">
+                <span class="section-tag" style="color: var(--gold-light);">The Supreme Defense</span>
+                <h1 class="hero-title text-gold">सत्यमेव जयते,</h1>
+            </div>
+            <div class="reveal-up active delay-1">
+                <h2 class="hero-subtitle">पर सिद्ध हम करते हैं।</h2>
+            </div>
+            <div class="reveal-up active delay-2">
+                <p class="hero-desc">
+                    भारत की सबसे आक्रामक और परिणाम-उन्मुख लॉ फर्म। अदालत के कमरे में न्याय मांगा नहीं जाता, उसे छीना जाता है। पिछले <span class="eng-num text-gold">11+</span> वर्षों से हम विरोधी के हर झूठ को नेस्तनाबूद कर, अपने मुवक्किलों के लिए विजय का मार्ग प्रशस्त कर रहे हैं।
+                </p>
+                <a href="#contact" style="text-decoration: none;"><button class="btn-gold" style="padding: 20px 50px; font-size: 1.3rem;">अपनी लड़ाई शुरू करें</button></a>
             </div>
         </div>
         
-        <!-- Premium Marquee -->
-        <div class="marquee-container">
-            <div class="marquee-text">
-                CRIMINAL DEFENSE &nbsp; • &nbsp; SUPREME COURT &nbsp; • &nbsp; HIGH COURT &nbsp; • &nbsp; ACQUITTAL MASTERS &nbsp; • &nbsp;
-                CRIMINAL DEFENSE &nbsp; • &nbsp; SUPREME COURT &nbsp; • &nbsp; HIGH COURT &nbsp; • &nbsp; ACQUITTAL MASTERS &nbsp; • &nbsp;
-            </div>
+        <div class="scroll-down">
+            <span class="scroll-text">नीचे स्क्रॉल करें</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- SECTION 2: The Philosophy -->
-    <section class="section-wrapper" id="philosophy">
-        <div class="container" style="display: flex; justify-content: center;">
-            <p class="huge-text reveal">
-                Ordinary lawyers argue.<br>
-                <span class="highlight">We dismantle.</span><br><br>
-                Through 3D legal mapping and surgical cross-examination, even the most impenetrable allegations collapse into dust.
+    <!-- 2. PARICHAY (Scroll Fill Text) -->
+    <section id="parichay">
+        <div class="container">
+            <p class="massive-text" id="scroll-text-fill">
+                सामान्य वकील कानून पढ़ते हैं और अदालत में केवल बहस करते हैं। हम कानून की गहराइयों को अपना अस्त्र बनाते हैं और विरोधी के अस्तित्व को ध्वस्त करते हैं।
             </p>
         </div>
     </section>
 
-    <!-- SECTION 3: Premium Mastery (The Scale) -->
-    <section class="section-wrapper" id="mastery">
-        <div class="container mastery-grid">
-            <div class="mastery-text-box reveal">
-                <span class="subtitle">Adwitiya Kanooni Vishleshan</span>
-                <h2 class="text-gold-gradient" style="font-size: 3.5rem; margin-bottom: 30px;">The Weight of Truth</h2>
-                <p class="text-silver" style="margin-bottom: 20px;">
-                    Whether it's a grave charge under IPC 302 or a complex web of NDPS, our approach is strictly scientific, hyper-aggressive, and solely victory-oriented. 
+    <!-- 3. FOUNDER SECTION -->
+    <section id="founder">
+        <div class="container founder-grid">
+            <div class="reveal-up">
+                <span class="section-tag">संस्थापक (Founder & Chief Counsel)</span>
+                <h2 class="text-gold" style="font-size: 4.5rem; margin-bottom: 20px;">राजवर्धन सिंह</h2>
+                <p class="founder-text" style="margin-bottom: 30px;">
+                    जब सबूत आपके खिलाफ हों और हर दरवाजा बंद लगे, तब राजवर्धन सिंह की कानूनी प्रतिभा काम आती है। 3D एविडेंस मैपिंग और मनोवैज्ञानिक जिरह (Cross-Examination) के उस्ताद, इन्होंने उन मुकदमों में जीत हासिल की है जिन्हें दुनिया असंभव मान चुकी थी।
                 </p>
-                <p class="text-silver">
-                    We don't leave justice to chance; we tip the scales with irrefutable evidence engineering.
+                <p class="founder-text">
+                    "कानून की किताब में हार-जीत नहीं लिखी होती, वह वकील के दिमाग में तय होती है।"
                 </p>
                 
-                <div class="stat-grid">
+                <div class="stat-banner">
                     <div class="stat-item">
-                        <div class="stat-number">11+</div>
-                        <div class="text-silver" style="font-size: 1rem;">Years of Imperial Legacy</div>
+                        <h4 class="eng-num">500<span style="color:var(--text-pure)">+</span></h4>
+                        <p>ऐतिहासिक विजय</p>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="text-silver" style="font-size: 1rem;">Acquittals & Triumphs</div>
+                        <h4 class="eng-num">11<span style="color:var(--text-pure)">+</span></h4>
+                        <p>वर्षों का साम्राज्य</p>
                     </div>
                 </div>
             </div>
             
-            <div class="scale-3d-container reveal reveal-delay-1" id="tiltScale">
-                <!-- High-end 3D Scale Canvas -->
-                <canvas id="scaleCanvas" style="width: 100%; height: 100%;"></canvas>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: The Chakravyuh (Hotel Leela Vibe) -->
-    <section class="section-wrapper" id="chakravyuh">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
-                <span class="subtitle" style="color: var(--crimson-glow);">The Ultimate Trap</span>
-                <h2 class="text-gold-gradient" style="font-size: 4.5rem;">Chakravyuh Ranniti</h2>
-                <p class="text-silver" style="max-width: 800px; margin: 20px auto 0;">
-                    A legendary courtroom labyrinth. When we cross-examine, we construct a 3D web of facts and contradictions. The witness enters, but lies cannot escape.
-                </p>
-            </div>
-
-            <div class="chakra-container reveal reveal-delay-1">
-                <!-- Terminal UI -->
-                <div class="terminal-ui">
-                    <h3 class="terminal-header">Live Cross-Examination</h3>
-                    <div class="terminal-log" id="chLog">
-                        <div style="text-align: center; color: #555; margin-top: 20%;">Awaiting execution sequence...</div>
-                    </div>
-                    <button class="btn-trap" id="startChakravyuhBtn">INITIATE CHAKRAVYUH</button>
-                </div>
-
-                <!-- 3D Geometric Mandala Canvas -->
-                <div class="chakra-visual">
-                    <div class="chakra-badge">Target Lock: Active</div>
-                    <canvas id="chakravyuhCanvas" style="width: 100%; height: 100%;"></canvas>
+            <div class="founder-img-container reveal-up delay-1" id="founder-tilt">
+                <div class="founder-box">
+                    <canvas class="founder-canvas" id="founder-hologram"></canvas>
+                    <h3 class="founder-name">RAJVARDHAN</h3>
+                    <p class="founder-title">The Architect of Acquittals</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: Practice Areas -->
-    <section class="section-wrapper" id="expertise">
+    <!-- 4. CHAKRAVYUH (Apple Style 3D Scroll Tunnel) -->
+    <div id="chakravyuh-tunnel">
+        <div class="sticky-container">
+            <canvas id="tunnel-canvas"></canvas>
+            <div class="tunnel-text-container">
+                <div class="tunnel-step" id="step-0">
+                    <span class="section-tag" style="color: var(--crimson-glow);">अभेद्य दुर्ग</span>
+                    <h2 class="text-crimson">हमारा चक्रव्यूह</h2>
+                    <p>अदालत में जब विरोधी गवाह झूठ बोलता है, तो हम एक अदृश्य जाल बुनते हैं। स्क्रॉल करें और देखें कि कैसे एक झूठ टूटता है...</p>
+                </div>
+                <div class="tunnel-step" id="step-1">
+                    <h2 class="text-gold">पहला चरण : भ्रम</h2>
+                    <p>"गवाह आत्मविश्वास के साथ अपनी झूठी कहानी सुनाता है। हम उसे बोलने देते हैं, क्योंकि हर झूठ में एक सुराख होता है।"</p>
+                </div>
+                <div class="tunnel-step" id="step-2">
+                    <h2 class="text-gold">दूसरा चरण : प्रहार</h2>
+                    <p>"अचानक 161 CrPC के बयान और कॉल डिटेल रिकॉर्ड (CDR) का विरोधाभास सामने रखा जाता है। गवाह घबराता है।"</p>
+                </div>
+                <div class="tunnel-step" id="step-3">
+                    <h2 class="text-crimson" style="font-size: 8rem;">ध्वस्त</h2>
+                    <p style="font-size: 2.5rem; color: var(--gold-main);">झूठ बेनकाब। केस समाप्त। मुवक्किल बरी (Acquitted)।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. EXPERTISE (Magnetic Fluid Hover Cards) -->
+    <section id="expertise">
         <div class="container">
-            <span class="subtitle reveal">Areas of Imperial Expertise</span>
-            <h2 class="text-gold-gradient reveal" style="font-size: 4rem;">Nyay Ke Chaar Stambh</h2>
+            <span class="section-tag">न्याय के चार स्तंभ</span>
+            <h2 class="text-gold" style="font-size: 5rem; text-align: center; margin-bottom: 5vh;">अद्वितीय विशेषज्ञता</h2>
             
-            <div class="cards-grid">
-                <!-- Card 1 -->
-                <div class="area-card reveal">
-                    <canvas class="card-bg-canvas" data-hue="0"></canvas> <!-- Reddish -->
-                    <div class="card-content">
-                        <div class="card-icon">I</div>
-                        <h3 class="card-title">Criminal Defense</h3>
-                        <p class="card-desc">Murder (IPC 302), NDPS, & severe allegations. We shatter the chain of evidence to prove absolute innocence.</p>
+            <div class="expertise-grid">
+                <div class="exp-card reveal-up">
+                    <canvas class="exp-canvas fluid-canvas" data-color="255, 0, 0"></canvas>
+                    <div class="exp-num">I</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title text-pure">आपराधिक बचाव<br><span style="font-size: 1.5rem; font-family: var(--font-sans);">(Criminal Defense)</span></h3>
+                        <p class="exp-desc">हत्या (IPC 302), NDPS, और अन्य गंभीर आरोप। हम साक्ष्यों की श्रृंखला (Chain of Evidence) को तोड़कर निर्दोषता प्रमाणित करते हैं।</p>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="area-card reveal reveal-delay-1">
-                    <canvas class="card-bg-canvas" data-hue="200"></canvas> <!-- Blueish -->
-                    <div class="card-content">
-                        <div class="card-icon">II</div>
-                        <h3 class="card-title">Cyber & IT Law</h3>
-                        <p class="card-desc">Navigating digital footprints, hacking frames, and complex financial frauds with advanced tech-legal defense.</p>
+                
+                <div class="exp-card reveal-up delay-1">
+                    <canvas class="exp-canvas fluid-canvas" data-color="212, 175, 55"></canvas>
+                    <div class="exp-num">II</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title text-pure">साइबर व आईटी कानून<br><span style="font-size: 1.5rem; font-family: var(--font-sans);">(Cyber & IT Law)</span></h3>
+                        <p class="exp-desc">डिजिटल फुटप्रिंट्स, हैकिंग, और ऑनलाइन धोखाधड़ी के मामलों में सबसे उन्नत तकनीकी बचाव।</p>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="area-card reveal reveal-delay-2">
-                    <canvas class="card-bg-canvas" data-hue="280"></canvas> <!-- Purple/Gold -->
-                    <div class="card-content">
-                        <div class="card-icon">III</div>
-                        <h3 class="card-title">Matrimonial Elite</h3>
-                        <p class="card-desc">Dismantling false 498A, dowry allegations, and securing high-net-worth divorce proceedings with dominance.</p>
+                
+                <div class="exp-card reveal-up">
+                    <canvas class="exp-canvas fluid-canvas" data-color="0, 150, 255"></canvas>
+                    <div class="exp-num">III</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title text-pure">पारिवारिक विवाद<br><span style="font-size: 1.5rem; font-family: var(--font-sans);">(Matrimonial Elite)</span></h3>
+                        <p class="exp-desc">झूठे 498A, दहेज के मामलों और हाई-प्रोफाइल तलाक की कार्यवाही में आक्रामक बचाव और पूर्ण न्यायिक विजय।</p>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal-up delay-1">
+                    <canvas class="exp-canvas fluid-canvas" data-color="255, 255, 255"></canvas>
+                    <div class="exp-num">IV</div>
+                    <div class="exp-content">
+                        <h3 class="exp-title text-pure">सर्वोच्च न्यायालय<br><span style="font-size: 1.5rem; font-family: var(--font-sans);">(Supreme Court Appeals)</span></h3>
+                        <p class="exp-desc">निचली अदालतों के फैसलों को चुनौती देने और सुप्रीम कोर्ट व हाई कोर्ट में न्याय सुनिश्चित करने में महारत।</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 6. STRATEGY TIMELINE (Scroll SVG Drawing) -->
+    <section id="ranniti">
+        <div class="container">
+            <span class="section-tag">काम करने की शैली</span>
+            <h2 class="text-gold" style="font-size: 5rem; margin-bottom: 5vh;">विजय की रणनीति</h2>
+            
+            <div class="strategy-container">
+                <div class="svg-path-container">
+                    <svg viewBox="0 0 10 1000" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                        <line x1="5" y1="0" x2="5" y2="1000" stroke="rgba(212, 175, 55, 0.2)" stroke-width="4" />
+                        <line id="draw-line" x1="5" y1="0" x2="5" y2="1000" stroke="#D4AF37" stroke-width="4" stroke-dasharray="1000" stroke-dashoffset="1000" />
+                    </svg>
+                </div>
+                
+                <div class="step-block step-trigger">
+                    <h3 class="step-title">01. केस की चीर-फाड़ (Surgical Analysis)</h3>
+                    <p class="step-desc">एफआईआर (FIR) के हर शब्द और पुलिस चार्जशीट की एक-एक लाइन का 3D तकनीकी विश्लेषण। झूठ यहीं से पकड़ में आना शुरू होता है।</p>
+                </div>
+                
+                <div class="step-block step-trigger">
+                    <h3 class="step-title">02. साक्ष्यों का विध्वंस (Evidence Destruction)</h3>
+                    <p class="step-desc">मेडिकल रिपोर्ट, एफएसएल (FSL) रिपोर्ट और इलेक्ट्रॉनिक सबूतों की खामियों को उजागर कर अभियोजन पक्ष (Prosecution) को पंगु बनाना।</p>
+                </div>
+                
+                <div class="step-block step-trigger">
+                    <h3 class="step-title">03. मनोवैज्ञानिक जिरह (Psychological Cross)</h3>
+                    <p class="step-desc">गवाहों से इस स्तर की जिरह करना कि वे खुद अदालत के सामने अपना झूठ स्वीकार कर लें। हमारा चक्रव्यूह यहीं काम करता है।</p>
+                </div>
+                
+                <div class="step-block step-trigger">
+                    <h3 class="step-title">04. अंतिम प्रहार (The Final Blow)</h3>
+                    <p class="step-desc">सुप्रीम कोर्ट और हाई कोर्ट के पुराने ऐतिहासिक फैसलों (Precedents) का सटीक उपयोग कर जज साहब के सामने जीत को अपरिहार्य बना देना।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MEGA FOOTER & CONTACT -->
     <footer id="contact">
-        <canvas id="footerCanvas" class="bg-canvas" style="opacity: 0.1;"></canvas>
-        <div class="container footer-grid reveal">
-            <div>
-                <span class="footer-logo">Rajvardhan<br>& Associates</span>
-                <p class="text-silver">Satyamev Jayate. We are the warriors of law who fight until the absolute end, ensuring victory is not a probability, but a certainty.</p>
+        <canvas id="footer-canvas"></canvas>
+        <div class="container footer-content">
+            <div class="reveal-up">
+                <h2 class="footer-brand">राजवर्धन & एसोसिएट्स</h2>
+                <p style="font-family: var(--font-sans); font-size: 1.2rem; color: var(--text-silver); max-width: 500px; margin-bottom: 40px;">
+                    जब स्वतंत्रता और सम्मान दांव पर हो, तो समझौता नहीं किया जाता। हम न्याय के वो योद्धा हैं जो अंत तक लड़ते हैं और जीत सुनिश्चित करते हैं।
+                </p>
+                <span class="f-heading">आपातकालीन संपर्क (24x7)</span>
+                <a href="tel:+917466806524" class="contact-huge">+91 74668 06524</a>
+                <a href="mailto:legaleaglemzn@gmail.com" style="font-family: var(--font-eng); font-size: 1.5rem; color: var(--text-pure); text-decoration: none;">legaleaglemzn@gmail.com</a>
             </div>
-            <div>
-                <div class="f-title">Jurisdiction</div>
+            
+            <div class="reveal-up delay-1">
+                <div class="f-heading">कार्यक्षेत्र (Jurisdiction)</div>
                 <ul class="f-links">
-                    <li><a href="#">Hon'ble Supreme Court of India</a></li>
-                    <li><a href="#">Allahabad High Court</a></li>
-                    <li><a href="#">Uttarakhand High Court</a></li>
-                    <li><a href="#">Delhi NCR Courts</a></li>
-                    <li><a href="#">Sessions Court Muzaffarnagar</a></li>
+                    <li><a href="#">भारत का सर्वोच्च न्यायालय (Supreme Court)</a></li>
+                    <li><a href="#">इलाहाबाद उच्च न्यायालय</a></li>
+                    <li><a href="#">उत्तराखंड उच्च न्यायालय</a></li>
+                    <li><a href="#">दिल्ली एनसीआर न्यायालय</a></li>
+                    <li><a href="#">सत्र न्यायालय (Sessions Court), मुज़फ्फरनगर</a></li>
                 </ul>
             </div>
-            <div>
-                <div class="f-title">Elite Contact</div>
-                <ul class="f-links">
-                    <li><a href="tel:+917466806524" style="color: var(--gold-main); font-size: 1.5rem; font-family: var(--font-royal);">+91 74668 06524</a></li>
-                    <li><a href="mailto:legaleaglemzn@gmail.com">legaleaglemzn@gmail.com</a></li>
-                    <li style="color: var(--text-silver); margin-top: 20px;">Headquarters:<br>Jansath, Muzaffarnagar, U.P.</li>
-                    <li><span style="color: var(--crimson-glow); font-weight: 800; font-size: 0.9rem; letter-spacing: 2px;">24/7 EMERGENCY BAIL</span></li>
-                </ul>
+            
+            <div class="reveal-up delay-2">
+                <div class="f-heading">मुख्यालय</div>
+                <p style="font-family: var(--font-sans); font-size: 1.3rem; color: var(--text-pure); line-height: 2;">
+                    जानसठ, मुज़फ्फरनगर<br>
+                    उत्तर प्रदेश, भारत
+                </p>
+                <div style="margin-top: 50px;">
+                    <a href="#" style="color: var(--gold-main); font-family: var(--font-sans); font-size: 1.2rem; text-decoration: none; border-bottom: 1px solid var(--gold-main); padding-bottom: 5px;">Google Maps पर देखें</a>
+                </div>
             </div>
         </div>
-        <div class="f-bottom">
-            &copy; 2014 - 2026 RAJVARDHAN & ASSOCIATES. ALL RIGHTS RESERVED. | THE ULTIMATE LEGAL MASTERPIECE
+        
+        <div class="container">
+            <div class="copyright">
+                &copy; 2014 - 2026 RAJVARDHAN & ASSOCIATES. ALL RIGHTS RESERVED. | DESIGNED FOR THE ELITE.
+            </div>
         </div>
     </footer>
 
     <script>
-        // --- Custom Premium Cursor ---
-        const cursorDot = document.getElementById('cursorDot');
-        const cursorRing = document.getElementById('cursorRing');
-        
+        // --- 1. Custom Smooth Cursor ---
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
         window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            
-            // Add slight delay to ring for smooth effect
-            setTimeout(() => {
-                cursorRing.style.left = `${posX}px`;
-                cursorRing.style.top = `${posY}px`;
-            }, 50);
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
         });
 
-        document.querySelectorAll('a, button').forEach(el => {
+        // Lerp for smooth ring follow
+        function animateCursor() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor interactions
+        document.querySelectorAll('a, button, .exp-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorRing.style.width = '60px';
-                cursorRing.style.height = '60px';
+                cursorRing.style.width = '70px';
+                cursorRing.style.height = '70px';
                 cursorRing.style.borderColor = 'var(--crimson-glow)';
-                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorRing.style.background = 'rgba(255, 0, 0, 0.05)';
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(2)';
             });
             el.addEventListener('mouseleave', () => {
                 cursorRing.style.width = '40px';
                 cursorRing.style.height = '40px';
-                cursorRing.style.borderColor = 'rgba(212, 175, 55, 0.4)';
+                cursorRing.style.borderColor = 'rgba(212, 175, 55, 0.5)';
+                cursorRing.style.background = 'transparent';
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
 
-        // --- Navbar Scroll & Apple-Style Reveal ---
+        // --- 2. Navbar Scroll Logic ---
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            if(window.scrollY > 50) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
-        const revealElements = document.querySelectorAll('.reveal');
+        // --- 3. Scroll Reveal Animations (Intersection Observer) ---
+        const revealElements = document.querySelectorAll('.reveal-up, .step-trigger');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // --- 3D Hover Effect for Cards & Scale Container ---
-        function apply3DTilt(elementSelector, intensity = 10) {
-            document.querySelectorAll(elementSelector).forEach(el => {
-                el.addEventListener('mousemove', (e) => {
-                    const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -intensity;
-                    const rotateY = ((x - centerX) / centerX) * intensity;
-                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-                el.addEventListener('mouseleave', () => {
-                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-                });
-            });
-        }
-        apply3DTilt('.area-card', 8);
-        apply3DTilt('#tiltScale', 5);
-
-        // --- Canvas Setup Utility ---
-        function setupCanvas(id) {
-            const canvas = document.getElementById(id);
-            if (!canvas) return null;
-            const ctx = canvas.getContext('2d', { alpha: false }); // optimize
-            if (canvas.classList.contains('bg-canvas') || id === 'globalBgCanvas') {
-                 ctx.canvas.getContext('2d', {alpha: true}); // need alpha for some
+        // --- 4. Text Fill on Scroll (Parichay Section) ---
+        const fillText = document.getElementById('scroll-text-fill');
+        window.addEventListener('scroll', () => {
+            const rect = fillText.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if(rect.top < windowHeight && rect.bottom > 0) {
+                // Calculate percentage visible
+                let percent = 100 - ((rect.top / windowHeight) * 100);
+                percent = Math.max(0, Math.min(100, percent * 1.5)); // Multiply to make it fill faster
+                fillText.style.backgroundSize = `${percent}% 100%`;
             }
-            
+        });
+
+        // --- 5. Timeline SVG Line Draw ---
+        const drawLine = document.getElementById('draw-line');
+        const strategySection = document.getElementById('ranniti');
+        window.addEventListener('scroll', () => {
+            const rect = strategySection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if(rect.top < windowHeight && rect.bottom > 0) {
+                let scrollPercent = (windowHeight - rect.top) / (rect.height + windowHeight);
+                scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+                const drawLength = 1000 * scrollPercent;
+                drawLine.style.strokeDashoffset = 1000 - drawLength;
+            }
+        });
+
+        // --- 6. 3D Tilt for Founder Card ---
+        const founderCard = document.getElementById('founder-tilt');
+        const founderBox = founderCard.querySelector('.founder-box');
+        founderCard.addEventListener('mousemove', (e) => {
+            const rect = founderCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -15;
+            const rotateY = ((x - centerX) / centerX) * 15;
+            founderBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        founderCard.addEventListener('mouseleave', () => {
+            founderBox.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+
+        // --- CANVAS UTILITY ---
+        function setupCanvas(id, withAlpha=true) {
+            const canvas = document.getElementById(id);
+            if(!canvas) return null;
+            const ctx = canvas.getContext('2d', { alpha: withAlpha });
             const resize = () => {
-                const parent = id === 'globalBgCanvas' ? window : canvas.parentElement;
+                const parent = (id==='ambient-bg' || id==='tunnel-canvas') ? window : canvas.parentElement;
                 canvas.width = parent.innerWidth || parent.clientWidth;
                 canvas.height = parent.innerHeight || parent.clientHeight;
             };
@@ -467,376 +572,319 @@
             return { canvas, ctx };
         }
 
-        // --- Animation 1: Global Slow Dust (8000k feel) ---
-        (function initGlobalDust() {
-            const setup = setupCanvas('globalBgCanvas');
+        // --- CANVAS 1: Hero Interactive Particle Universe ---
+        (function initHero() {
+            const setup = setupCanvas('hero-canvas');
             if(!setup) return;
             const { canvas, ctx } = setup;
-            // Need transparency here
-            const ctxAlpha = canvas.getContext('2d');
             
             let particles = [];
-            for(let i=0; i<100; i++) {
+            const numParticles = window.innerWidth > 768 ? 150 : 60;
+            
+            for(let i=0; i<numParticles; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    s: Math.random() * 1.5,
-                    vx: (Math.random() - 0.5) * 0.2,
-                    vy: (Math.random() - 0.5) * 0.2,
+                    vx: (Math.random() - 0.5) * 1,
+                    vy: (Math.random() - 0.5) * 1,
+                    baseX: Math.random() * canvas.width,
+                    baseY: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5
                 });
             }
 
             function animate() {
-                ctxAlpha.clearRect(0, 0, canvas.width, canvas.height);
-                ctxAlpha.fillStyle = 'rgba(212, 175, 55, 0.3)';
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                particles.forEach(p => {
-                    p.x += p.vx; p.y += p.vy;
-                    if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
-                    if(p.y < 0) p.y = canvas.height; if(p.y > canvas.height) p.y = 0;
-                    
-                    ctxAlpha.beginPath();
-                    ctxAlpha.arc(p.x, p.y, p.s, 0, Math.PI*2);
-                    ctxAlpha.fill();
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        })();
-
-        // --- Animation 2: Hero Golden Nexus ---
-        (function initHeroCanvas() {
-            const setup = setupCanvas('heroCanvas');
-            if(!setup) return;
-            const { canvas, ctx } = setup;
-            
-            let time = 0;
-            function animate() {
-                // Clear with fade for trails
-                ctx.fillStyle = 'rgba(3, 3, 3, 0.1)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                const cx = canvas.width / 2;
-                const cy = canvas.height / 2;
-                
-                ctx.strokeStyle = 'rgba(212, 175, 55, 0.05)';
-                ctx.lineWidth = 1;
-                
-                // Draw rotating 3D looking toroids
-                for(let i=0; i<3; i++) {
-                    ctx.save();
-                    ctx.translate(cx, cy);
-                    ctx.rotate(time * (0.001 + i*0.0005));
-                    ctx.scale(1, 0.3 + (i*0.2)); // 3D tilt illusion
-                    
-                    ctx.beginPath();
-                    ctx.arc(0, 0, 300 + Math.sin(time*0.01)*50 + (i*100), 0, Math.PI*2);
-                    ctx.stroke();
-                    
-                    // Light nodes
-                    const nodeX = Math.cos(time*0.02) * (300 + (i*100));
-                    const nodeY = Math.sin(time*0.02) * (300 + (i*100));
-                    ctx.fillStyle = 'rgba(212, 175, 55, 0.8)';
-                    ctx.shadowBlur = 20;
-                    ctx.shadowColor = '#D4AF37';
-                    ctx.beginPath();
-                    ctx.arc(nodeX, nodeY, 3, 0, Math.PI*2);
-                    ctx.fill();
-                    ctx.restore();
-                }
-                
-                time++;
-                requestAnimationFrame(animate);
-            }
-            animate();
-        })();
-
-        // --- Animation 3: 3D Masterpiece Law Scale ---
-        (function initScaleCanvas() {
-            const setup = setupCanvas('scaleCanvas');
-            if(!setup) return;
-            const { canvas, ctx } = setup;
-            // Get proper context with alpha for clearing
-            const ctxAlpha = canvas.getContext('2d');
-            
-            let rotY = 0;
-            function animate() {
-                ctxAlpha.clearRect(0, 0, canvas.width, canvas.height);
-                const cx = canvas.width / 2;
-                const cy = canvas.height / 2 + 100;
-                
-                ctxAlpha.save();
-                ctxAlpha.translate(cx, cy);
-                
-                // Glow behind scale
-                const bgGlow = ctxAlpha.createRadialGradient(0,-150,0, 0,-150, 300);
-                bgGlow.addColorStop(0, 'rgba(212, 175, 55, 0.1)');
-                bgGlow.addColorStop(1, 'transparent');
-                ctxAlpha.fillStyle = bgGlow;
-                ctxAlpha.fillRect(-300, -450, 600, 600);
-
-                // Pillar Base
-                ctxAlpha.fillStyle = '#111';
-                ctxAlpha.strokeStyle = '#D4AF37';
-                ctxAlpha.lineWidth = 2;
-                ctxAlpha.beginPath();
-                ctxAlpha.moveTo(-80, 0); ctxAlpha.lineTo(80, 0);
-                ctxAlpha.lineTo(60, -40); ctxAlpha.lineTo(-60, -40);
-                ctxAlpha.fill(); ctxAlpha.stroke();
-                
-                // Pillar
-                const pillarGrad = ctxAlpha.createLinearGradient(-15, 0, 15, 0);
-                pillarGrad.addColorStop(0, '#0a0a0c'); 
-                pillarGrad.addColorStop(0.5, '#222'); 
-                pillarGrad.addColorStop(1, '#0a0a0c');
-                ctxAlpha.fillStyle = pillarGrad;
-                ctxAlpha.fillRect(-15, -350, 30, 310);
-                ctxAlpha.strokeRect(-15, -350, 30, 310);
-
-                // 3D Beam Mathematics
-                rotY += 0.005; // Slow majestic rotation
-                const beamWidth = 220;
-                const p1x = Math.cos(rotY) * beamWidth;
-                const p1z = Math.sin(rotY) * beamWidth;
-                const p2x = -Math.cos(rotY) * beamWidth;
-                const p2z = -Math.sin(rotY) * beamWidth;
-
-                // Perspective scaling
-                const perspective = 500;
-                const s1 = perspective / (perspective - p1z);
-                const s2 = perspective / (perspective - p2z);
-
-                // Draw Beam
-                ctxAlpha.strokeStyle = '#D4AF37';
-                ctxAlpha.lineWidth = 6;
-                ctxAlpha.lineCap = 'round';
-                ctxAlpha.beginPath();
-                ctxAlpha.moveTo(p1x * s1, -340);
-                ctxAlpha.lineTo(p2x * s2, -340);
-                ctxAlpha.stroke();
-
-                // Draw Pan Function
-                function drawPan(x, scale, isFront) {
-                    ctxAlpha.save();
-                    ctxAlpha.translate(x, -340);
-                    
-                    // Chains
-                    ctxAlpha.strokeStyle = 'rgba(212, 175, 55, 0.4)';
-                    ctxAlpha.lineWidth = 2 * scale;
-                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(-50*scale, 150*scale); ctxAlpha.stroke();
-                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(50*scale, 150*scale); ctxAlpha.stroke();
-                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(0, 150*scale); ctxAlpha.stroke();
-                    
-                    // Pan Bowl
-                    ctxAlpha.translate(0, 150*scale);
-                    const bowlGrad = ctxAlpha.createRadialGradient(0,0,0, 0,0, 60*scale);
-                    bowlGrad.addColorStop(0, 'rgba(20,20,22,0.9)');
-                    bowlGrad.addColorStop(1, 'rgba(212,175,55,0.2)');
-                    ctxAlpha.fillStyle = bowlGrad;
-                    ctxAlpha.beginPath(); ctxAlpha.ellipse(0, 0, 60*scale, 20*scale, 0, 0, Math.PI*2); ctxAlpha.fill();
-                    ctxAlpha.strokeStyle = '#D4AF37';
-                    ctxAlpha.lineWidth = 3 * scale;
-                    ctxAlpha.stroke();
-                    
-                    // If front pan, add some glowing evidence (cubes)
-                    if(isFront) {
-                        ctxAlpha.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                        ctxAlpha.shadowBlur = 10;
-                        ctxAlpha.shadowColor = '#fff';
-                        ctxAlpha.fillRect(-10*scale, -10*scale, 20*scale, 20*scale);
+                // Draw connections
+                ctx.lineWidth = 0.5;
+                for(let i=0; i<particles.length; i++) {
+                    for(let j=i+1; j<particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        
+                        if(dist < 120) {
+                            ctx.strokeStyle = `rgba(212, 175, 55, ${1 - dist/120})`;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
                     }
+                }
+
+                // Update & Draw particles
+                ctx.fillStyle = '#D4AF37';
+                particles.forEach(p => {
+                    // Mouse interaction
+                    const rect = canvas.getBoundingClientRect();
+                    const mx = mouseX - rect.left;
+                    const my = mouseY - rect.top;
+                    const dx = mx - p.x;
+                    const dy = my - p.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
                     
-                    ctxAlpha.restore();
-                }
+                    if(dist < 200) {
+                        const force = (200 - dist) / 200;
+                        p.vx -= (dx / dist) * force * 0.5;
+                        p.vy -= (dy / dist) * force * 0.5;
+                    }
 
-                // Z-Sorting for Pans
-                if(p1z < p2z) {
-                    drawPan(p1x * s1, s1, false); drawPan(p2x * s2, s2, true);
-                } else {
-                    drawPan(p2x * s2, s2, true); drawPan(p1x * s1, s1, false);
-                }
+                    // Return to base slowly
+                    p.vx += (p.baseX - p.x) * 0.001;
+                    p.vy += (p.baseY - p.y) * 0.001;
 
-                // Center Pivot Gem
-                ctxAlpha.fillStyle = '#fff';
-                ctxAlpha.shadowBlur = 20;
-                ctxAlpha.shadowColor = '#D4AF37';
-                ctxAlpha.beginPath(); ctxAlpha.arc(0, -340, 15, 0, Math.PI*2); ctxAlpha.fill();
+                    // Friction
+                    p.vx *= 0.95;
+                    p.vy *= 0.95;
 
-                ctxAlpha.restore();
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                    ctx.fill();
+                });
+                
                 requestAnimationFrame(animate);
             }
             animate();
         })();
 
-        // --- Animation 4: The Chakravyuh Masterpiece ---
-        (function initChakravyuh() {
-            const setup = setupCanvas('chakravyuhCanvas');
+        // --- CANVAS 2: THE CHAKRAVYUH (Apple Scroll Tunnel) ---
+        (function initTunnel() {
+            const setup = setupCanvas('tunnel-canvas');
             if(!setup) return;
             const { canvas, ctx } = setup;
             
-            let time = 0;
-            let trapIntensity = 0; // 0 to 1
-            let isTrapping = false;
+            const tunnelSection = document.getElementById('chakravyuh-tunnel');
+            const steps = [
+                document.getElementById('step-0'),
+                document.getElementById('step-1'),
+                document.getElementById('step-2'),
+                document.getElementById('step-3')
+            ];
+            
+            let rings = [];
+            const numRings = 40;
+            for(let i=0; i<numRings; i++) {
+                rings.push({
+                    z: i * 200, // Z depth
+                    sides: 6 + (i%4), // Hexagons, Octagons etc.
+                    rot: Math.random() * Math.PI
+                });
+            }
 
-            // Intricate Mandala Drawing
-            function drawMandalaLayer(cx, cy, radius, sides, rotation, color, lineWidth) {
-                ctx.strokeStyle = color;
-                ctx.lineWidth = lineWidth;
+            let scrollProgress = 0; // 0 to 1
+
+            window.addEventListener('scroll', () => {
+                const rect = tunnelSection.getBoundingClientRect();
+                const viewH = window.innerHeight;
+                // Calculate progress only when section is in view
+                if(rect.top <= 0 && rect.bottom >= viewH) {
+                    scrollProgress = Math.abs(rect.top) / (rect.height - viewH);
+                } else if(rect.top > 0) {
+                    scrollProgress = 0;
+                } else {
+                    scrollProgress = 1;
+                }
+
+                // Handle Text Steps opacity & transform based on progress
+                steps.forEach((step, index) => {
+                    const stepStart = index * 0.25;
+                    const stepEnd = stepStart + 0.25;
+                    
+                    if(scrollProgress >= stepStart && scrollProgress < stepEnd) {
+                        // Math for fade in and out within the quarter
+                        let localProgress = (scrollProgress - stepStart) / 0.25;
+                        let opacity = 0;
+                        let zTrans = -1000 + (localProgress * 1500); // Fly towards camera
+                        
+                        if(localProgress < 0.2) opacity = localProgress * 5; // Fade in
+                        else if(localProgress > 0.8) opacity = (1 - localProgress) * 5; // Fade out
+                        else opacity = 1;
+
+                        step.style.opacity = opacity;
+                        step.style.transform = `translate(-50%, -50%) translateZ(${zTrans}px) scale(${1 + localProgress*0.5})`;
+                    } else {
+                        step.style.opacity = 0;
+                    }
+                });
+            });
+
+            function drawRing(cx, cy, radius, sides, rot, isRed) {
                 ctx.beginPath();
                 for(let i=0; i<=sides; i++) {
-                    const angle = rotation + (i * (Math.PI*2) / sides);
+                    const angle = rot + (i * Math.PI * 2) / sides;
                     const x = cx + Math.cos(angle) * radius;
                     const y = cy + Math.sin(angle) * radius;
                     if(i===0) ctx.moveTo(x,y);
                     else ctx.lineTo(x,y);
                 }
+                ctx.strokeStyle = isRed ? `rgba(255, 0, 0, ${Math.min(1, 200/radius)})` : `rgba(212, 175, 55, ${Math.min(1, 200/radius)})`;
+                ctx.lineWidth = Math.max(1, radius * 0.01);
                 ctx.stroke();
             }
 
             function animate() {
-                // Motion blur fade
-                ctx.fillStyle = `rgba(0, 0, 0, ${0.1 + (trapIntensity*0.2)})`;
+                // Clear with black for 3D depth feeling
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 
                 const cx = canvas.width / 2;
                 const cy = canvas.height / 2;
                 
-                // Color interpolation: Gold to Crimson
-                const r = Math.floor(212 + trapIntensity * (255 - 212));
-                const g = Math.floor(175 - trapIntensity * 175);
-                const b = Math.floor(55 - trapIntensity * 55);
-                const baseColor = `rgb(${r},${g},${b})`;
-                
-                ctx.shadowBlur = 10 + (trapIntensity * 30);
-                ctx.shadowColor = baseColor;
+                // Camera Z moves through the tunnel based on scroll
+                const cameraZ = scrollProgress * (numRings * 200);
 
-                // Base Rings
-                for(let i=1; i<=6; i++) {
-                    const radius = (i * 40) - (trapIntensity * i * 15); // Rings close in
-                    const rotSpeed = time * (0.002 * i) * (1 + trapIntensity*5); // Speeds up
-                    const dir = i % 2 === 0 ? 1 : -1;
+                rings.forEach((ring, i) => {
+                    // Relative Z to camera
+                    let rZ = ring.z - cameraZ;
                     
-                    drawMandalaLayer(cx, cy, Math.max(10, radius), 8 + i*2, rotSpeed * dir, baseColor, 2 - (trapIntensity*1));
+                    // If behind camera, loop to front (infinite tunnel illusion)
+                    if(rZ < 0) rZ += (numRings * 200);
                     
-                    // Draw connecting webs
-                    if(i < 6) {
-                        ctx.beginPath();
-                        ctx.arc(cx, cy, radius, 0, Math.PI*2);
-                        ctx.strokeStyle = `rgba(${r},${g},${b}, 0.2)`;
-                        ctx.stroke();
+                    // Perspective projection
+                    const fov = 300;
+                    if(rZ > 0) {
+                        const scale = fov / rZ;
+                        const radius = 50 * scale; // Base size multiplied by scale
+                        
+                        // Ring rotates slowly
+                        ring.rot += 0.002 * (i%2===0?1:-1);
+                        
+                        // Make rings turn red as we go deeper (higher scroll progress)
+                        const isRed = scrollProgress > 0.5 && Math.random() < scrollProgress;
+                        
+                        drawRing(cx, cy, radius, ring.sides, ring.rot, isRed);
+                        
+                        // Connecting lines to create a web/tunnel
+                        if(i > 0 && rZ > 50) {
+                             ctx.beginPath();
+                             ctx.arc(cx, cy, radius, 0, Math.PI*2);
+                             ctx.strokeStyle = `rgba(255,255,255, ${0.05 * scale})`;
+                             ctx.stroke();
+                        }
                     }
-                }
+                });
 
-                // Core (The Witness)
-                const corePulse = Math.abs(Math.sin(time * (0.05 + trapIntensity*0.2))) * 10;
-                ctx.fillStyle = trapIntensity > 0.8 ? '#FF1E1E' : '#fff';
-                ctx.beginPath();
-                ctx.arc(cx, cy, 15 - (trapIntensity*10) + corePulse, 0, Math.PI*2);
-                ctx.fill();
-
-                // Flash on Win
-                if(trapIntensity >= 1) {
-                    ctx.fillStyle = `rgba(138, 3, 3, ${Math.abs(Math.sin(time*0.5))*0.4})`;
-                    ctx.fillRect(0,0, canvas.width, canvas.height);
-                }
-
-                time++;
                 requestAnimationFrame(animate);
             }
             animate();
-
-            // Terminal Logic
-            const btn = document.getElementById('startChakravyuhBtn');
-            const logContainer = document.getElementById('chLog');
-            
-            const logs = [
-                { type: 'log-advocate', text: "Q: 'You stated you were present at the crime scene at 9 PM?'", delay: 1000 },
-                { type: 'log-witness', text: "A: 'Yes, exactly 9 PM.'", delay: 1500 },
-                { type: 'log-trap', text: "SYSTEM: CONTRADICTION DETECTED IN 161 CrPC STATEMENT.", delay: 800 },
-                { type: 'log-advocate', text: "Q: 'Then why does your CDR (Call Detail Record) show your location 50km away at 9:05 PM?'", delay: 2000 },
-                { type: 'log-witness', text: "A: 'I... I might have left my phone at home.'", delay: 1500 },
-                { type: 'log-trap', text: "SYSTEM: WITNESS STRESS LEVEL CRITICAL. ALIBI COLLAPSING.", delay: 800 },
-                { type: 'log-advocate', text: "Q: 'The tower data shows outgoing calls made BY YOU during that time. Are you lying now, or were you lying then?'", delay: 2500 },
-                { type: 'log-victory', text: "CHECKMATE. WITNESS DESTROYED.", delay: 1000 }
-            ];
-
-            btn.addEventListener('click', () => {
-                if(isTrapping) return;
-                isTrapping = true;
-                btn.textContent = "EXECUTING...";
-                btn.style.opacity = "0.5";
-                btn.style.pointerEvents = "none";
-                logContainer.innerHTML = '';
-                
-                let currentStep = 0;
-                
-                function processLog() {
-                    if(currentStep >= logs.length) {
-                        setTimeout(() => {
-                            btn.textContent = "RESET CHAKRAVYUH";
-                            btn.style.opacity = "1";
-                            btn.style.pointerEvents = "auto";
-                            isTrapping = false;
-                        }, 2000);
-                        return;
-                    }
-
-                    const log = logs[currentStep];
-                    setTimeout(() => {
-                        const div = document.createElement('div');
-                        div.className = `log-entry ${log.type}`;
-                        div.textContent = log.text;
-                        logContainer.appendChild(div);
-                        logContainer.scrollTop = logContainer.scrollHeight;
-                        
-                        // Increase visual trap intensity
-                        trapIntensity = currentStep / (logs.length - 1);
-                        
-                        currentStep++;
-                        processLog();
-                    }, log.delay);
-                }
-                
-                processLog();
-            });
         })();
 
-        // --- Animation 5: Practice Cards Fluid Canvas ---
-        document.querySelectorAll('.card-bg-canvas').forEach(canvas => {
-            const ctx = canvas.getContext('2d', {alpha: true});
-            const hue = canvas.getAttribute('data-hue');
-            
+        // --- CANVAS 3: Expertise Fluid Hover Effect ---
+        document.querySelectorAll('.exp-canvas').forEach(canvas => {
+            const ctx = canvas.getContext('2d');
+            const color = canvas.getAttribute('data-color');
             const resize = () => { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; };
             window.addEventListener('resize', resize);
             resize();
 
             let time = Math.random() * 100;
+            canvas.parentElement.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const mx = e.clientX - rect.left;
+                const my = e.clientY - rect.top;
+                
+                ctx.clearRect(0,0,canvas.width, canvas.height);
+                
+                // Draw fluid radial gradient tracking mouse
+                const grad = ctx.createRadialGradient(mx, my, 0, mx, my, 300);
+                grad.addColorStop(0, `rgba(${color}, 0.8)`);
+                grad.addColorStop(0.5, `rgba(${color}, 0.2)`);
+                grad.addColorStop(1, 'transparent');
+                
+                ctx.fillStyle = grad;
+                ctx.fillRect(0,0,canvas.width, canvas.height);
+                
+                // Add some math fluid waves
+                ctx.beginPath();
+                for(let x=0; x<=canvas.width; x+=20) {
+                    const y = canvas.height/2 + Math.sin(x*0.02 + time)*30 + Math.cos(x*0.01 + time)*20;
+                    if(x===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+                }
+                ctx.strokeStyle = `rgba(${color}, 0.5)`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                time += 0.05;
+            });
+            
+            // Clear on leave
+            canvas.parentElement.addEventListener('mouseleave', () => {
+                ctx.clearRect(0,0,canvas.width, canvas.height);
+            });
+        });
+
+        // --- CANVAS 4: Footer Golden Liquid Wave ---
+        (function initFooterWave() {
+            const setup = setupCanvas('footer-canvas');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
+            let time = 0;
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const cx = canvas.width/2;
-                const cy = canvas.height; // Bottom heavy
                 
                 ctx.beginPath();
                 ctx.moveTo(0, canvas.height);
-                for(let x=0; x<=canvas.width; x+=20) {
-                    // Fluid wave math
-                    const y = cy - 100 + Math.sin(x*0.01 + time)*40 + Math.cos(x*0.02 - time*0.5)*20;
+                for(let x=0; x<=canvas.width; x+=10) {
+                    const y = canvas.height - 150 + Math.sin(x*0.005 + time)*50 + Math.sin(x*0.01 + time*1.2)*30;
                     ctx.lineTo(x, y);
                 }
                 ctx.lineTo(canvas.width, canvas.height);
                 ctx.closePath();
                 
-                const grad = ctx.createLinearGradient(0, cy-150, 0, cy);
-                grad.addColorStop(0, `hsla(${hue}, 80%, 40%, 0.1)`);
-                grad.addColorStop(1, `hsla(${hue}, 80%, 30%, 0.6)`);
+                const grad = ctx.createLinearGradient(0, canvas.height-200, 0, canvas.height);
+                grad.addColorStop(0, 'rgba(212, 175, 55, 0.0)');
+                grad.addColorStop(1, 'rgba(212, 175, 55, 0.3)');
                 ctx.fillStyle = grad;
                 ctx.fill();
                 
-                time += 0.03;
+                // Second wave
+                ctx.beginPath();
+                ctx.moveTo(0, canvas.height);
+                for(let x=0; x<=canvas.width; x+=10) {
+                    const y = canvas.height - 100 + Math.cos(x*0.006 + time*0.8)*40;
+                    ctx.lineTo(x, y);
+                }
+                ctx.lineTo(canvas.width, canvas.height);
+                ctx.fillStyle = 'rgba(90, 0, 0, 0.4)'; // Crimson hint
+                ctx.fill();
+
+                time += 0.02;
                 requestAnimationFrame(animate);
             }
             animate();
-        });
+        })();
+
+        // --- CANVAS 5: Founder Hologram (Subtle Noise/Glitch) ---
+        (function initHologram() {
+            const setup = setupCanvas('founder-hologram');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
+            function animate() {
+                ctx.clearRect(0,0, canvas.width, canvas.height);
+                if(Math.random() > 0.95) { // Glitch randomly
+                    const y = Math.random() * canvas.height;
+                    const h = Math.random() * 50;
+                    ctx.fillStyle = 'rgba(212, 175, 55, 0.1)';
+                    ctx.fillRect(0, y, canvas.width, h);
+                }
+                // Scanline
+                const scanY = (Date.now() / 10) % canvas.height;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                ctx.fillRect(0, scanY, canvas.width, 2);
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // Ensure page starts at top on refresh for scroll effects to sync
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
 
     </script>
 </body>
