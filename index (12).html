@@ -1,0 +1,2494 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राजवर्धन & एसोसिएट्स | The Supreme Defense</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Baloo+2:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           ROOT VARIABLES & GLOBAL RESET
+        ============================================ */
+        :root {
+            --deep-blue: #030418;
+            --blue-dark: #060830;
+            --electric-purple: #7c3aed;
+            --purple-light: #a855f7;
+            --purple-glow: #c084fc;
+            --vibrant-cyan: #06b6d4;
+            --cyan-light: #22d3ee;
+            --cyan-glow: #67e8f9;
+            --magenta: #d946ef;
+            --magenta-light: #e879f9;
+            --rich-teal: #0d9488;
+            --teal-light: #14b8a6;
+            --teal-glow: #5eead4;
+            --neon-blue: #3b82f6;
+            --glass-bg: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.1);
+            --text-primary: #f0f4ff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Baloo 2', sans-serif;
+            background: var(--deep-blue);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ============================================
+           CUSTOM CURSOR
+        ============================================ */
+        .cursor-main {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--cyan-light), var(--electric-purple));
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, width 0.3s, height 0.3s;
+            box-shadow: 0 0 20px var(--cyan-light), 0 0 40px var(--electric-purple);
+            mix-blend-mode: screen;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(6,182,212,0.4);
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.15s ease, left 0.15s ease, top 0.15s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        /* ============================================
+           ANIMATED BACKGROUND
+        ============================================ */
+        .bg-animation {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: orbFloat 8s ease-in-out infinite alternate;
+        }
+
+        .orb-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--electric-purple), transparent);
+            top: -200px; left: -100px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--vibrant-cyan), transparent);
+            top: 30%; right: -150px;
+            animation-delay: -3s;
+        }
+        .orb-3 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--magenta), transparent);
+            bottom: 10%; left: 20%;
+            animation-delay: -5s;
+        }
+        .orb-4 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, var(--rich-teal), transparent);
+            top: 60%; right: 30%;
+            animation-delay: -2s;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -50px) scale(1.1); }
+        }
+
+        /* Particles Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 9000;
+            padding: 0 40px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(3, 4, 24, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(124,58,237,0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(3, 4, 24, 0.95);
+            border-bottom-color: rgba(6,182,212,0.3);
+            box-shadow: 0 4px 30px rgba(124,58,237,0.2);
+        }
+
+        .nav-logo {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan-light), var(--electric-purple), var(--magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan-light);
+            background: rgba(6,182,212,0.08);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .toggle-switch {
+            width: 36px;
+            height: 18px;
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan));
+            border-radius: 9px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .toggle-knob {
+            position: absolute;
+            top: 3px; left: 3px;
+            width: 12px; height: 12px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+            box-shadow: 0 0 6px rgba(0,0,0,0.3);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan));
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(124,58,237,0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(6,182,212,0.5);
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            text-align: center;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(124,58,237,0.12);
+            border: 1px solid rgba(124,58,237,0.35);
+            border-radius: 50px;
+            padding: 8px 22px;
+            font-size: 0.8rem;
+            color: var(--purple-glow);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        .badge-dot {
+            width: 8px; height: 8px;
+            background: var(--vibrant-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--vibrant-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, 
+                var(--cyan-light) 0%, 
+                var(--electric-purple) 30%, 
+                var(--magenta) 60%, 
+                var(--teal-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease-in-out infinite, fadeInUp 1s ease forwards;
+            text-shadow: none;
+            filter: drop-shadow(0 0 40px rgba(124,58,237,0.5));
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease 0.2s both;
+            font-style: italic;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .tagline-word {
+            display: inline-block;
+            padding: 4px 16px;
+            margin: 0 6px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .tw-1 { color: var(--cyan-light); border-bottom: 2px solid var(--vibrant-cyan); }
+        .tw-2 { color: var(--purple-glow); border-bottom: 2px solid var(--electric-purple); }
+        .tw-3 { color: var(--magenta-light); border-bottom: 2px solid var(--magenta); }
+
+        .hero-manifesto {
+            max-width: 700px;
+            margin: 0 auto 16px;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-manifesto strong {
+            color: var(--cyan-light);
+            font-weight: 700;
+        }
+
+        .hero-quote {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero-quote span {
+            color: var(--magenta-light);
+        }
+
+        .hero-stats-mini {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 30px 0;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-mini {
+            text-align: center;
+        }
+
+        .stat-mini-num {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--vibrant-cyan), var(--electric-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-mini-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.7s both;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary-glow {
+            position: relative;
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan));
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(124,58,237,0.5), 0 0 60px rgba(6,182,212,0.2);
+            overflow: hidden;
+        }
+
+        .btn-primary-glow::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary-glow:hover::before { left: 100%; }
+        .btn-primary-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(124,58,237,0.7), 0 0 80px rgba(6,182,212,0.4);
+        }
+
+        .btn-glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6,182,212,0.3);
+            color: var(--cyan-light);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glass:hover {
+            background: rgba(6,182,212,0.1);
+            border-color: var(--cyan-light);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(6,182,212,0.3);
+        }
+
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .scroll-arrow {
+            width: 40px; height: 40px;
+            border: 1px solid rgba(6,182,212,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounceDown 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* Floating 3D Elements */
+        .floating-el {
+            position: absolute;
+            pointer-events: none;
+            animation: floatEl 6s ease-in-out infinite;
+        }
+
+        .float-scales {
+            top: 15%; left: 5%;
+            font-size: 5rem;
+            opacity: 0.15;
+            animation-delay: -2s;
+            filter: drop-shadow(0 0 20px var(--vibrant-cyan));
+        }
+
+        .float-gavel {
+            top: 20%; right: 5%;
+            font-size: 4rem;
+            opacity: 0.15;
+            animation-delay: -4s;
+            filter: drop-shadow(0 0 20px var(--magenta));
+        }
+
+        .float-star {
+            bottom: 25%; left: 8%;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation-delay: -1s;
+            filter: drop-shadow(0 0 15px var(--electric-purple));
+        }
+
+        .float-diamond {
+            bottom: 20%; right: 8%;
+            font-size: 2.5rem;
+            opacity: 0.2;
+            animation-delay: -3s;
+            filter: drop-shadow(0 0 15px var(--teal-light));
+        }
+
+        @keyframes floatEl {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Glowing ring */
+        .hero-ring {
+            position: absolute;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            border: 1px solid rgba(124,58,237,0.15);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: ringPulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-ring-2 {
+            width: 800px; height: 800px;
+            border-color: rgba(6,182,212,0.08);
+            animation-delay: -2s;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.02); }
+        }
+
+        /* ============================================
+           SECTION COMMON STYLES
+        ============================================ */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 40px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--vibrant-cyan);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px; height: 1px;
+            background: var(--vibrant-cyan);
+            box-shadow: 0 0 8px var(--vibrant-cyan);
+        }
+
+        .section-title {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--cyan-light), var(--electric-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-2 {
+            background: linear-gradient(135deg, var(--magenta-light), var(--purple-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-3 {
+            background: linear-gradient(135deg, var(--teal-light), var(--vibrant-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(124,58,237,0.4);
+            box-shadow: 0 20px 60px rgba(124,58,237,0.15), 0 0 0 1px rgba(6,182,212,0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Divider */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124,58,237,0.3), rgba(6,182,212,0.3), transparent);
+            margin: 0;
+        }
+
+        /* ============================================
+           PHILOSOPHY SECTION
+        ============================================ */
+        .philosophy-section {
+            background: linear-gradient(180deg, transparent, rgba(124,58,237,0.05), transparent);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-text h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .philosophy-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-quote {
+            background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05));
+            border-left: 3px solid var(--electric-purple);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .philosophy-visual {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .diff-card {
+            padding: 20px 24px;
+            border-radius: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diff-card-bad {
+            background: rgba(239,68,68,0.05);
+            border: 1px solid rgba(239,68,68,0.15);
+        }
+
+        .diff-card-good {
+            background: rgba(6,182,212,0.05);
+            border: 1px solid rgba(6,182,212,0.2);
+        }
+
+        .diff-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .diff-card-bad .diff-label { color: rgba(239,68,68,0.7); }
+        .diff-card-good .diff-label { color: var(--teal-light); }
+
+        .diff-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           FOUNDER SECTION
+        ============================================ */
+        .founder-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .founder-photo-wrapper {
+            position: relative;
+        }
+
+        .founder-photo-frame {
+            position: relative;
+            width: 380px;
+            height: 480px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .founder-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Placeholder for founder photo */
+        .founder-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2));
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border: 2px dashed rgba(124,58,237,0.3);
+        }
+
+        .placeholder-icon {
+            font-size: 5rem;
+            margin-bottom: 16px;
+            opacity: 0.4;
+        }
+
+        .placeholder-label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--electric-purple);
+            font-weight: 600;
+        }
+
+        .founder-photo-glow {
+            position: absolute;
+            inset: -2px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan), var(--magenta));
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(8px);
+        }
+
+        .founder-frame-corner {
+            position: absolute;
+            width: 30px; height: 30px;
+            border-color: var(--vibrant-cyan);
+            border-style: solid;
+            opacity: 0.8;
+        }
+
+        .corner-tl { top: -5px; left: -5px; border-width: 2px 0 0 2px; border-radius: 4px 0 0 0; }
+        .corner-tr { top: -5px; right: -5px; border-width: 2px 2px 0 0; border-radius: 0 4px 0 0; }
+        .corner-bl { bottom: -5px; left: -5px; border-width: 0 0 2px 2px; border-radius: 0 0 0 4px; }
+        .corner-br { bottom: -5px; right: -5px; border-width: 0 2px 2px 0; border-radius: 0 0 4px 0; }
+
+        .founder-badge-float {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan));
+            border-radius: 16px;
+            padding: 16px 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(124,58,237,0.4);
+        }
+
+        .badge-num {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+        }
+
+        .founder-info h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .founder-title-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6,182,212,0.1);
+            border: 1px solid rgba(6,182,212,0.25);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: var(--cyan-light);
+            margin-bottom: 20px;
+        }
+
+        .founder-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .founder-quote-box {
+            background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.05));
+            border: 1px solid rgba(124,58,237,0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: var(--electric-purple);
+            opacity: 0.3;
+            line-height: 0.5;
+            position: absolute;
+            top: 16px; left: 16px;
+        }
+
+        .founder-quote-box p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding-left: 20px;
+        }
+
+        .founder-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .f-stat {
+            text-align: center;
+            padding: 16px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        .f-stat:hover {
+            border-color: rgba(6,182,212,0.3);
+            background: rgba(6,182,212,0.05);
+        }
+
+        .f-stat-num {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--vibrant-cyan), var(--electric-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .f-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           CHAKRAVYUH / TRAP SECTION
+        ============================================ */
+        .chakravyuh-section {
+            background: linear-gradient(180deg, transparent, rgba(217,70,239,0.04), transparent);
+            overflow: hidden;
+        }
+
+        .chakravyuh-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .chakravyuh-stages {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .chakravyuh-stages::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: calc(16.66% + 20px);
+            right: calc(16.66% + 20px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-purple), var(--vibrant-cyan));
+            z-index: 0;
+        }
+
+        .stage-card {
+            position: relative;
+            z-index: 1;
+            padding: 36px 28px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .stage-1 {
+            background: linear-gradient(135deg, rgba(217,70,239,0.08), rgba(124,58,237,0.06));
+            border: 1px solid rgba(217,70,239,0.2);
+        }
+
+        .stage-2 {
+            background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.06));
+            border: 1px solid rgba(124,58,237,0.25);
+        }
+
+        .stage-3 {
+            background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(13,148,136,0.06));
+            border: 1px solid rgba(6,182,212,0.25);
+        }
+
+        .stage-num {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .stage-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stage-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .stage-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .stage-result {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(6,182,212,0.1), rgba(13,148,136,0.08));
+            border: 1px solid rgba(6,182,212,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stage-result::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(6,182,212,0.05));
+        }
+
+        .result-text {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--teal-light), var(--vibrant-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        /* ============================================
+           EXPERTISE SECTION
+        ============================================ */
+        .expertise-section {
+            background: linear-gradient(180deg, transparent, rgba(6,182,212,0.03), transparent);
+        }
+
+        .expertise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .expertise-cards-scroll {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .expertise-card {
+            padding: 36px 24px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--card-gradient, linear-gradient(90deg, var(--vibrant-cyan), var(--electric-purple)));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .exp-1 {
+            background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.04));
+            border: 1px solid rgba(124,58,237,0.2);
+            --card-gradient: linear-gradient(90deg, var(--electric-purple), var(--vibrant-cyan));
+        }
+        .exp-2 {
+            background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(217,70,239,0.04));
+            border: 1px solid rgba(6,182,212,0.2);
+            --card-gradient: linear-gradient(90deg, var(--vibrant-cyan), var(--magenta));
+        }
+        .exp-3 {
+            background: linear-gradient(135deg, rgba(217,70,239,0.08), rgba(124,58,237,0.04));
+            border: 1px solid rgba(217,70,239,0.2);
+            --card-gradient: linear-gradient(90deg, var(--magenta), var(--electric-purple));
+        }
+        .exp-4 {
+            background: linear-gradient(135deg, rgba(13,148,136,0.08), rgba(6,182,212,0.04));
+            border: 1px solid rgba(13,148,136,0.2);
+            --card-gradient: linear-gradient(90deg, var(--rich-teal), var(--vibrant-cyan));
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(124,58,237,0.2);
+        }
+
+        .exp-icon {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .exp-num {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .exp-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .exp-subtitle {
+            font-size: 0.8rem;
+            color: var(--vibrant-cyan);
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .exp-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           STRATEGY SECTION
+        ============================================ */
+        .strategy-section {
+            background: linear-gradient(180deg, transparent, rgba(124,58,237,0.04), transparent);
+        }
+
+        .strategy-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        .strategy-steps::before {
+            content: '';
+            position: absolute;
+            left: 39px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--electric-purple), var(--vibrant-cyan), var(--magenta), var(--teal-light));
+            z-index: 0;
+        }
+
+        .strategy-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 40px;
+            padding: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-num-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .step-circle {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .sc-1 { background: linear-gradient(135deg, var(--electric-purple), var(--purple-glow)); box-shadow: 0 0 30px rgba(124,58,237,0.4); }
+        .sc-2 { background: linear-gradient(135deg, var(--vibrant-cyan), var(--teal-light)); box-shadow: 0 0 30px rgba(6,182,212,0.4); }
+        .sc-3 { background: linear-gradient(135deg, var(--magenta), var(--purple-glow)); box-shadow: 0 0 30px rgba(217,70,239,0.4); }
+        .sc-4 { background: linear-gradient(135deg, var(--rich-teal), var(--vibrant-cyan)); box-shadow: 0 0 30px rgba(13,148,136,0.4); }
+
+        .step-num-text {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .step-label-text {
+            font-size: 0.6rem;
+            opacity: 0.7;
+        }
+
+        .step-content {
+            padding-top: 10px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .step-title span {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+        ============================================ */
+        .contact-section {
+            background: linear-gradient(180deg, transparent, rgba(6,182,212,0.04), rgba(124,58,237,0.04), transparent);
+            overflow: hidden;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(6,182,212,0.3);
+            background: rgba(6,182,212,0.05);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ci-phone { background: rgba(6,182,212,0.15); }
+        .ci-email { background: rgba(124,58,237,0.15); }
+        .ci-loc { background: rgba(217,70,239,0.15); }
+
+        .contact-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .contact-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .jurisdiction-section {
+            margin-top: 30px;
+        }
+
+        .jurisdiction-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .jurisdiction-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .j-tag {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+
+        .j-tag:hover {
+            border-color: rgba(124,58,237,0.3);
+            color: var(--purple-glow);
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            padding: 40px;
+            border-radius: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+
+        .form-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: rgba(124,58,237,0.5);
+            box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+        }
+
+        .form-input::placeholder { color: var(--text-muted); }
+
+        textarea.form-input {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan));
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            transition: all 0.3s;
+            box-shadow: 0 0 25px rgba(124,58,237,0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(124,58,237,0.5);
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 60px 40px 30px;
+            border-top: 1px solid rgba(124,58,237,0.2);
+            background: linear-gradient(180deg, transparent, rgba(3,4,24,0.9));
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand-name {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--cyan-light), var(--electric-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--electric-purple);
+            padding: 10px 16px;
+            border-left: 2px solid var(--electric-purple);
+            background: rgba(124,58,237,0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .footer-col-title {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--vibrant-cyan);
+            padding-left: 6px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-copy span {
+            color: var(--vibrant-cyan);
+        }
+
+        .footer-disclaimer {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            max-width: 400px;
+            text-align: right;
+            line-height: 1.5;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, rgba(217,70,239,0.1), rgba(124,58,237,0.1));
+            border: 1px solid rgba(217,70,239,0.2);
+            border-radius: 16px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .emergency-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .emergency-icon {
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--magenta-light);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .emergency-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .emergency-phone {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--magenta-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .emergency-phone:hover {
+            color: white;
+            text-shadow: 0 0 20px var(--magenta);
+        }
+
+        /* ============================================
+           UTILITIES
+        ============================================ */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1024px) {
+            .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+            .founder-photo-frame { width: 300px; height: 380px; margin: 0 auto; }
+            .expertise-cards-scroll { grid-template-columns: repeat(2, 1fr); }
+            .chakravyuh-stages { grid-template-columns: 1fr; }
+            .chakravyuh-stages::before { display: none; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            section { padding: 70px 20px; }
+            .hero { padding: 100px 20px 60px; }
+            .expertise-cards-scroll { grid-template-columns: 1fr; }
+            .founder-stats { flex-direction: column; gap: 12px; }
+            .hero-stats-mini { gap: 20px; }
+            .strategy-step { grid-template-columns: 60px 1fr; gap: 20px; }
+            .strategy-steps::before { left: 29px; }
+            .step-circle { width: 60px; height: 60px; }
+            .emergency-banner { flex-direction: column; gap: 16px; text-align: center; }
+            .expertise-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+            footer { padding: 40px 20px 20px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-disclaimer { text-align: center; }
+        }
+
+        /* Neon glow text animation */
+        .neon-text {
+            animation: neonGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 10px rgba(6,182,212,0.5), 0 0 20px rgba(6,182,212,0.3); }
+            to { text-shadow: 0 0 20px rgba(124,58,237,0.8), 0 0 40px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.2); }
+        }
+
+        /* Grid background pattern */
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-main" id="cursorMain"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient-orb orb-1"></div>
+        <div class="bg-gradient-orb orb-2"></div>
+        <div class="bg-gradient-orb orb-3"></div>
+        <div class="bg-gradient-orb orb-4"></div>
+    </div>
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- ============================================
+         NAVIGATION
+    ============================================ -->
+    <nav id="mainNav">
+        <a href="#" class="nav-logo">R &amp; A</a>
+        <ul class="nav-links">
+            <li><a href="#philosophy">दर्शन</a></li>
+            <li><a href="#founder">संस्थापक</a></li>
+            <li><a href="#chakravyuh">चक्रव्यूह</a></li>
+            <li><a href="#expertise">विशेषज्ञता</a></li>
+            <li><a href="#strategy">रणनीति</a></li>
+            <li><a href="#contact">संपर्क</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="dark-toggle" onclick="toggleMode()">
+                <span>🌙</span>
+                <div class="toggle-switch">
+                    <div class="toggle-knob" id="toggleKnob" style="left: 21px;"></div>
+                </div>
+            </div>
+            <a href="#contact" class="nav-cta">🛡️ परामर्श लें</a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero" id="home">
+        <!-- Grid pattern -->
+        <div class="grid-pattern"></div>
+
+        <!-- Glowing rings -->
+        <div class="hero-ring"></div>
+        <div class="hero-ring hero-ring-2"></div>
+
+        <!-- Floating elements -->
+        <div class="floating-el float-scales">⚖️</div>
+        <div class="floating-el float-gavel">🔨</div>
+        <div class="floating-el float-star">✦</div>
+        <div class="floating-el float-diamond">◆</div>
+
+        <!-- Hero Content -->
+        <div class="hero-badge">
+            <div class="badge-dot"></div>
+            <span>The Supreme Defense · स्थापित 2014</span>
+        </div>
+
+        <div class="hero-title-wrapper">
+            <h1 class="hero-title">राजवर्धन &amp; एसोसिएट्स</h1>
+        </div>
+
+        <p class="hero-subtitle">Rajvardhan &amp; Associates · Advocates &amp; Legal Consultants</p>
+
+        <div class="hero-tagline">
+            <span class="tagline-word tw-1">न्याय।</span>
+            <span class="tagline-word tw-2">विशेषज्ञता।</span>
+            <span class="tagline-word tw-3">विश्वास।</span>
+        </div>
+
+        <div class="hero-quote">
+            <span>"सत्यमेव जयते,</span><br>पर सिद्ध <span>हम</span> करते हैं।"
+        </div>
+
+        <p class="hero-manifesto">
+            भारत की सबसे <strong>आक्रामक और परिणाम-उन्मुख</strong> लॉ फर्म। अदालत के कमरे में न्याय मांगा नहीं जाता, <strong>उसे छीना जाता है।</strong> पिछले 11+ वर्षों से हम विरोधी के हर झूठ को नेस्तनाबूद कर, अपने मुवक्किलों के लिए विजय का मार्ग प्रशस्त कर रहे हैं।
+        </p>
+
+        <div class="hero-stats-mini">
+            <div class="stat-mini">
+                <div class="stat-mini-num">500+</div>
+                <div class="stat-mini-label">ऐतिहासिक विजय</div>
+            </div>
+            <div class="stat-mini" style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); padding: 0 40px;">
+                <div class="stat-mini-num">11+</div>
+                <div class="stat-mini-label">वर्षों का साम्राज्य</div>
+            </div>
+            <div class="stat-mini">
+                <div class="stat-mini-num">98%</div>
+                <div class="stat-mini-label">सफलता दर</div>
+            </div>
+        </div>
+
+        <div class="hero-cta-group">
+            <a href="#contact" class="btn-primary-glow">
+                ⚡ अपनी लड़ाई शुरू करें
+            </a>
+            <a href="#chakravyuh" class="btn-glass">
+                🔍 हमारी रणनीति देखें
+            </a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>नीचे स्क्रॉल करें</span>
+            <div class="scroll-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         PHILOSOPHY SECTION
+    ============================================ -->
+    <section class="philosophy-section" id="philosophy">
+        <div class="section-inner">
+            <div class="philosophy-grid">
+                <div class="philosophy-text reveal-left">
+                    <div class="section-label">दर्शन · Philosophy</div>
+                    <h2 class="section-title">
+                        <span class="gradient-text">हम सिर्फ</span><br>
+                        बहस नहीं करते,<br>
+                        <span class="gradient-text-2">ध्वस्त</span> करते हैं।
+                    </h2>
+                    <p>सामान्य वकील कानून पढ़ते हैं और अदालत में केवल बहस करते हैं। हम कानून की गहराइयों को अपना अस्त्र बनाते हैं और विरोधी के अस्तित्व को ध्वस्त करते हैं।</p>
+                    <div class="philosophy-quote">
+                        "कानून की किताब में हार-जीत नहीं लिखी होती, वह वकील के दिमाग में तय होती है।"<br>
+                        <strong style="font-size:0.9rem; color: var(--vibrant-cyan); font-style: normal;">— श्री अंकुर एस राजवर्धन</strong>
+                    </div>
+                </div>
+                <div class="philosophy-visual reveal-right">
+                    <div class="diff-card diff-card-bad glass-card">
+                        <div class="diff-label">❌ साधारण वकील</div>
+                        <p>कानून की किताब में जो लिखा है, वही पढ़कर अदालत में प्रस्तुत करते हैं। बहस करते हैं और परिणाम की उम्मीद रखते हैं।</p>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 12px 0; font-size: 2rem;">↓</div>
+                    <div class="diff-card diff-card-good glass-card">
+                        <div class="diff-label">✅ राजवर्धन &amp; एसोसिएट्स</div>
+                        <p>3D एविडेंस मैपिंग, मनोवैज्ञानिक जिरह, और ऐतिहासिक precedents के बल पर विरोधी पक्ष को पूरी तरह ध्वस्त करते हैं। हम जीत को अपरिहार्य बना देते हैं।</p>
+                    </div>
+                    <div style="margin-top: 20px; padding: 20px 24px; background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(124,58,237,0.05)); border: 1px solid rgba(6,182,212,0.15); border-radius: 14px;">
+                        <div style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--vibrant-cyan); font-weight: 700; margin-bottom: 8px;">RAJVARDHAN</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">The Architect of Acquittals</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">अभेद्य दुर्ग · अजेय रणनीति</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         FOUNDER SECTION
+    ============================================ -->
+    <section class="founder-section" id="founder">
+        <div class="section-inner">
+            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+                <div class="section-label" style="justify-content: center;">हमारे संस्थापक · Our Founder</div>
+                <h2 class="section-title gradient-text">जब सबूत आपके खिलाफ हों...</h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">तब राजवर्धन सिंह की कानूनी प्रतिभा काम आती है।</p>
+            </div>
+
+            <div class="founder-grid">
+                <!-- Photo -->
+                <div class="founder-photo-wrapper reveal-left">
+                    <div class="founder-photo-glow"></div>
+                    <div class="founder-photo-frame">
+                        <!-- Replace src with actual FOUNDER.JPG -->
+                        <img src="FOUNDER.JPG" alt="श्री अंकुर एस राजवर्धन" class="founder-photo-img"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="founder-photo-placeholder" style="display:none;">
+                            <div class="placeholder-icon">👤</div>
+                            <div class="placeholder-label">FOUNDER.JPG</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; text-align: center; padding: 0 20px;">श्री अंकुर एस राजवर्धन<br>संस्थापक एवं मुख्य अधिवक्ता</div>
+                        </div>
+                        <!-- Frame corners -->
+                        <div class="founder-frame-corner corner-tl"></div>
+                        <div class="founder-frame-corner corner-tr"></div>
+                        <div class="founder-frame-corner corner-bl"></div>
+                        <div class="founder-frame-corner corner-br"></div>
+                    </div>
+                    <div class="founder-badge-float">
+                        <div class="badge-num">11+</div>
+                        <div class="badge-text">वर्षों का<br>अनुभव</div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="founder-info reveal-right">
+                    <div class="section-label">Chief Counsel · मुख्य अधिवक्ता</div>
+                    <h2>श्री अंकुर एस राजवर्धन</h2>
+                    <div class="founder-title-tag">
+                        ⚖️ संस्थापक एवं वरिष्ठ अधिवक्ता
+                    </div>
+                    <p class="founder-desc">
+                        3D एविडेंस मैपिंग और मनोवैज्ञानिक जिरह (Cross-Examination) के उस्ताद, इन्होंने उन मुकदमों में जीत हासिल की है जिन्हें दुनिया <strong style="color: var(--cyan-light);">असंभव</strong> मान चुकी थी। जब हर दरवाजा बंद लगे, तब इनकी कानूनी प्रतिभा नया मार्ग प्रशस्त करती है।
+                    </p>
+                    <div class="founder-quote-box">
+                        <div class="quote-mark">"</div>
+                        <p>कानून की किताब में हार-जीत नहीं लिखी होती, वह वकील के दिमाग में तय होती है। हम हर मुकदमे को एक युद्ध की तरह लड़ते हैं।</p>
+                    </div>
+                    <div class="founder-stats">
+                        <div class="f-stat">
+                            <div class="f-stat-num">500+</div>
+                            <div class="f-stat-label">ऐतिहासिक<br>विजय</div>
+                        </div>
+                        <div class="f-stat">
+                            <div class="f-stat-num">11+</div>
+                            <div class="f-stat-label">वर्षों का<br>साम्राज्य</div>
+                        </div>
+                        <div class="f-stat">
+                            <div class="f-stat-num">5</div>
+                            <div class="f-stat-label">न्यायालय<br>क्षेत्राधिकार</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         CHAKRAVYUH SECTION
+    ============================================ -->
+    <section class="chakravyuh-section" id="chakravyuh">
+        <div class="section-inner">
+            <div class="chakravyuh-header reveal">
+                <div class="section-label" style="justify-content: center;">चक्रव्यूह · The Trap</div>
+                <h2 class="section-title" style="text-align: center;">
+                    हमारा <span class="gradient-text-2">अभेद्य दुर्ग</span>
+                </h2>
+                <p class="section-desc" style="margin: 0 auto; text-align: center;">अदालत में जब विरोधी गवाह झूठ बोलता है, तो हम एक अदृश्य जाल बुनते हैं। देखें कैसे एक झूठ टूटता है...</p>
+            </div>
+
+            <div class="chakravyuh-stages">
+                <div class="stage-card stage-1 glass-card reveal" style="transition-delay: 0.1s;">
+                    <div class="stage-num" style="color: var(--magenta);">01</div>
+                    <span class="stage-icon">🎭</span>
+                    <div class="stage-title">पहला चरण: भ्रम</div>
+                    <div class="stage-desc">"गवाह आत्मविश्वास के साथ अपनी झूठी कहानी सुनाता है। हम उसे बोलने देते हैं, क्योंकि हर झूठ में एक सुराख होता है।"</div>
+                </div>
+                <div class="stage-card stage-2 glass-card reveal" style="transition-delay: 0.25s;">
+                    <div class="stage-num" style="color: var(--electric-purple);">02</div>
+                    <span class="stage-icon">⚡</span>
+                    <div class="stage-title">दूसरा चरण: प्रहार</div>
+                    <div class="stage-desc">"अचानक 161 CrPC के बयान और कॉल डिटेल रिकॉर्ड (CDR) का विरोधाभास सामने रखा जाता है। गवाह घबराता है।"</div>
+                </div>
+                <div class="stage-card stage-3 glass-card reveal" style="transition-delay: 0.4s;">
+                    <div class="stage-num" style="color: var(--teal-light);">03</div>
+                    <span class="stage-icon">🏆</span>
+                    <div class="stage-title">ध्वस्त</div>
+                    <div class="stage-desc">"झूठ बेनकाब। Case समाप्त। मुवक्किल <strong style='color: var(--teal-light);'>बरी (Acquitted)</strong>।"</div>
+                </div>
+            </div>
+
+            <div class="stage-result reveal" style="transition-delay: 0.5s;">
+                <div class="result-text">न्यायिक विजय। हर बार।</div>
+                <p style="color: var(--text-secondary); font-size: 1rem;">जब सबूत आपके खिलाफ हों, जब हर दरवाजा बंद लगे — तब राजवर्धन &amp; एसोसिएट्स का चक्रव्यूह काम करता है।</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         EXPERTISE SECTION
+    ============================================ -->
+    <section class="expertise-section" id="expertise">
+        <div class="section-inner">
+            <div class="expertise-header reveal">
+                <div>
+                    <div class="section-label">विशेषज्ञता · Expertise</div>
+                    <h2 class="section-title">न्याय के <span class="gradient-text">चार स्तंभ</span></h2>
+                </div>
+                <p class="section-desc" style="max-width: 300px;">अद्वितीय विशेषज्ञता, अजेय रणनीति, अपराजेय परिणाम।</p>
+            </div>
+
+            <div class="expertise-cards-scroll">
+                <div class="expertise-card exp-1 reveal" style="transition-delay: 0.1s;">
+                    <span class="exp-icon">🛡️</span>
+                    <div class="exp-num">I · Criminal Defense</div>
+                    <div class="exp-title">आपराधिक बचाव</div>
+                    <div class="exp-subtitle">Criminal Defense</div>
+                    <p class="exp-desc">हत्या (IPC 302), NDPS, और अन्य गंभीर आरोप। हम साक्ष्यों की श्रृंखला (Chain of Evidence) को तोड़कर निर्दोषता प्रमाणित करते हैं।</p>
+                </div>
+                <div class="expertise-card exp-2 reveal" style="transition-delay: 0.2s;">
+                    <span class="exp-icon">💻</span>
+                    <div class="exp-num">II · Cyber & IT Law</div>
+                    <div class="exp-title">साइबर व आईटी कानून</div>
+                    <div class="exp-subtitle">Cyber &amp; IT Law</div>
+                    <p class="exp-desc">डिजिटल फुटप्रिंट्स, हैकिंग, और ऑनलाइन धोखाधड़ी के मामलों में सबसे उन्नत तकनीकी बचाव।</p>
+                </div>
+                <div class="expertise-card exp-3 reveal" style="transition-delay: 0.3s;">
+                    <span class="exp-icon">🏛️</span>
+                    <div class="exp-num">III · Matrimonial Elite</div>
+                    <div class="exp-title">पारिवारिक विवाद</div>
+                    <div class="exp-subtitle">Matrimonial Elite</div>
+                    <p class="exp-desc">झूठे 498A, दहेज के मामलों और हाई-प्रोफाइल तलाक की कार्यवाही में आक्रामक बचाव और पूर्ण न्यायिक विजय।</p>
+                </div>
+                <div class="expertise-card exp-4 reveal" style="transition-delay: 0.4s;">
+                    <span class="exp-icon">⚖️</span>
+                    <div class="exp-num">IV · Supreme Court</div>
+                    <div class="exp-title">सर्वोच्च न्यायालय</div>
+                    <div class="exp-subtitle">Supreme Court Appeals</div>
+                    <p class="exp-desc">निचली अदालतों के फैसलों को चुनौती देने और सुप्रीम कोर्ट व हाई कोर्ट में न्याय सुनिश्चित करने में महारत।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         STRATEGY SECTION
+    ============================================ -->
+    <section class="strategy-section" id="strategy">
+        <div class="section-inner">
+            <div class="reveal" style="margin-bottom: 60px;">
+                <div class="section-label">रणनीति · Strategy</div>
+                <h2 class="section-title">विजय की <span class="gradient-text-3">रणनीति</span></h2>
+                <p class="section-desc">काम करने की शैली जो हमें भारत की सबसे परिणाम-उन्मुख लॉ फर्म बनाती है।</p>
+            </div>
+
+            <div class="strategy-steps">
+                <div class="strategy-step reveal" style="transition-delay: 0.1s;">
+                    <div class="step-num-wrapper">
+                        <div class="step-circle sc-1">
+                            <span class="step-num-text">01</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">केस की चीर-फाड़ <span>(Surgical Analysis)</span></div>
+                        <p class="step-desc">एफआईआर (FIR) के हर शब्द और पुलिस चार्जशीट की एक-एक लाइन का 3D तकनीकी विश्लेषण। झूठ यहीं से पकड़ में आना शुरू होता है।</p>
+                    </div>
+                </div>
+                <div class="strategy-step reveal" style="transition-delay: 0.2s;">
+                    <div class="step-num-wrapper">
+                        <div class="step-circle sc-2">
+                            <span class="step-num-text">02</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">साक्ष्यों का विध्वंस <span>(Evidence Destruction)</span></div>
+                        <p class="step-desc">मेडिकल रिपोर्ट, एफएसएल (FSL) रिपोर्ट और इलेक्ट्रॉनिक सबूतों की खामियों को उजागर कर अभियोजन पक्ष (Prosecution) को पंगु बनाना।</p>
+                    </div>
+                </div>
+                <div class="strategy-step reveal" style="transition-delay: 0.3s;">
+                    <div class="step-num-wrapper">
+                        <div class="step-circle sc-3">
+                            <span class="step-num-text">03</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">मनोवैज्ञानिक जिरह <span>(Psychological Cross)</span></div>
+                        <p class="step-desc">गवाहों से इस स्तर की जिरह करना कि वे खुद अदालत के सामने अपना झूठ स्वीकार कर लें। हमारा चक्रव्यूह यहीं काम करता है।</p>
+                    </div>
+                </div>
+                <div class="strategy-step reveal" style="transition-delay: 0.4s;">
+                    <div class="step-num-wrapper">
+                        <div class="step-circle sc-4">
+                            <span class="step-num-text">04</span>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">अंतिम प्रहार <span>(The Final Blow)</span></div>
+                        <p class="step-desc">सुप्रीम कोर्ट और हाई कोर्ट के पुराने ऐतिहासिक फैसलों (Precedents) का सटीक उपयोग कर जज साहब के सामने जीत को अपरिहार्य बना देना।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         CONTACT SECTION
+    ============================================ -->
+    <section class="contact-section" id="contact">
+        <div class="section-inner">
+            <div class="emergency-banner reveal">
+                <div class="emergency-left">
+                    <div class="emergency-icon">🚨</div>
+                    <div class="emergency-text">
+                        <strong>आपातकालीन कानूनी सहायता 24×7</strong>
+                        <span>कभी भी, कहीं भी — हम आपके साथ हैं।</span>
+                    </div>
+                </div>
+                <a href="tel:+917466806524" class="emergency-phone">+91 74668 06524</a>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="section-label">संपर्क करें · न्यायिक परामर्श</div>
+                    <h2>जब स्वतंत्रता दांव पर हो,<br><span class="gradient-text">समझौता नहीं होता।</span></h2>
+                    <p>हम न्याय के वो योद्धा हैं जो अंत तक लड़ते हैं और जीत सुनिश्चित करते हैं। आज ही अपना पहला कदम उठाएं।</p>
+
+                    <a href="tel:+917466806524" class="contact-item">
+                        <div class="contact-icon ci-phone">📞</div>
+                        <div class="contact-text">
+                            <strong>+91 74668 06524</strong>
+                            <span>आपातकालीन संपर्क · 24×7 उपलब्ध</span>
+                        </div>
+                    </a>
+                    <a href="mailto:legaleaglemzn@gmail.com" class="contact-item">
+                        <div class="contact-icon ci-email">✉️</div>
+                        <div class="contact-text">
+                            <strong>legaleaglemzn@gmail.com</strong>
+                            <span>ईमेल परामर्श · 24 घंटे में उत्तर</span>
+                        </div>
+                    </a>
+                    <div class="contact-item">
+                        <div class="contact-icon ci-loc">📍</div>
+                        <div class="contact-text">
+                            <strong>जानसठ, मुज़फ्फरनगर, उत्तर प्रदेश</strong>
+                            <span>मुख्यालय · Headquarters</span>
+                        </div>
+                    </div>
+
+                    <div class="jurisdiction-section">
+                        <div class="jurisdiction-title">🏛️ कार्यक्षेत्र · Jurisdiction</div>
+                        <div class="jurisdiction-tags">
+                            <span class="j-tag">सर्वोच्च न्यायालय</span>
+                            <span class="j-tag">इलाहाबाद उच्च न्यायालय</span>
+                            <span class="j-tag">उत्तराखंड उच्च न्यायालय</span>
+                            <span class="j-tag">दिल्ली एनसीआर</span>
+                            <span class="j-tag">सत्र न्यायालय, मुज़फ्फरनगर</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-right">
+                    <div class="contact-form-wrapper">
+                        <div class="form-title">🔐 गोपनीय परामर्श अनुरोध</div>
+                        <div class="form-group">
+                            <label class="form-label">आपका नाम *</label>
+                            <input type="text" class="form-input" placeholder="अपना पूरा नाम लिखें">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">मोबाइल नंबर *</label>
+                            <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">मामले का प्रकार *</label>
+                            <select class="form-input" style="cursor: pointer;">
+                                <option value="" style="background: #060830; color: #f0f4ff;">मामला चुनें...</option>
+                                <option style="background: #060830; color: #f0f4ff;">आपराधिक बचाव (Criminal Defense)</option>
+                                <option style="background: #060830; color: #f0f4ff;">साइबर व आईटी कानून</option>
+                                <option style="background: #060830; color: #f0f4ff;">पारिवारिक विवाद (498A / तलाक)</option>
+                                <option style="background: #060830; color: #f0f4ff;">सर्वोच्च न्यायालय अपील</option>
+                                <option style="background: #060830; color: #f0f4ff;">अन्य कानूनी मामला</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">संक्षिप्त विवरण</label>
+                            <textarea class="form-input" placeholder="अपने मामले का संक्षिप्त विवरण लिखें... (यह जानकारी पूर्णतः गोपनीय रहेगी)"></textarea>
+                        </div>
+                        <button class="form-submit">⚡ अभी परामर्श अनुरोध भेजें</button>
+                        <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 12px;">🔒 आपकी सभी जानकारी पूर्णतः गोपनीय और सुरक्षित है।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-brand-name">राजवर्धन &amp; एसोसिएट्स</div>
+                    <p class="footer-brand-desc">भारत की सबसे आक्रामक और परिणाम-उन्मुख लॉ फर्म। जब स्वतंत्रता और सम्मान दांव पर हो, तब हम आपके साथ खड़े हैं।</p>
+                    <div class="footer-tagline">"सत्यमेव जयते, पर सिद्ध हम करते हैं।"</div>
+                </div>
+                <div>
+                    <div class="footer-col-title">त्वरित लिंक</div>
+                    <ul class="footer-links">
+                        <li><a href="#philosophy">दर्शन</a></li>
+                        <li><a href="#founder">संस्थापक</a></li>
+                        <li><a href="#chakravyuh">चक्रव्यूह</a></li>
+                        <li><a href="#expertise">विशेषज्ञता</a></li>
+                        <li><a href="#strategy">रणनीति</a></li>
+                        <li><a href="#contact">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">सेवाएं</div>
+                    <ul class="footer-links">
+                        <li><a href="#expertise">आपराधिक बचाव</a></li>
+                        <li><a href="#expertise">साइबर कानून</a></li>
+                        <li><a href="#expertise">पारिवारिक विवाद</a></li>
+                        <li><a href="#expertise">सर्वोच्च न्यायालय</a></li>
+                        <li><a href="tel:+917466806524">24×7 आपातकाल</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copy">
+                    © 2014 - 2026 <span>RAJVARDHAN &amp; ASSOCIATES</span>. ALL RIGHTS RESERVED.<br>
+                    <span style="color: var(--electric-purple); font-size: 0.7rem;">DESIGNED FOR THE ELITE.</span>
+                </div>
+                <div class="footer-disclaimer">
+                    यह वेबसाइट केवल सूचनात्मक उद्देश्यों के लिए है। यहाँ उपलब्ध जानकारी कानूनी सलाह नहीं है।<br>
+                    Bar Council of India Rules के अंतर्गत।
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT
+    ============================================ -->
+    <script>
+    // ============================================
+    // CUSTOM CURSOR
+    // ============================================
+    const cursorMain = document.getElementById('cursorMain');
+    const cursorTrail = document.getElementById('cursorTrail');
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorMain.style.left = mouseX + 'px';
+        cursorMain.style.top = mouseY + 'px';
+    });
+
+    function animateTrail() {
+        trailX += (mouseX - trailX) * 0.12;
+        trailY += (mouseY - trailY) * 0.12;
+        cursorTrail.style.left = trailX + 'px';
+        cursorTrail.style.top = trailY + 'px';
+        requestAnimationFrame(animateTrail);
+    }
+    animateTrail();
+
+    document.querySelectorAll('a, button, .glass-card, .expertise-card, .stage-card').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursorMain.style.width = '30px';
+            cursorMain.style.height = '30px';
+            cursorTrail.style.width = '60px';
+            cursorTrail.style.height = '60px';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursorMain.style.width = '20px';
+            cursorMain.style.height = '20px';
+            cursorTrail.style.width = '40px';
+            cursorTrail.style.height = '40px';
+        });
+    });
+
+    // ============================================
+    // PARTICLE SYSTEM
+    // ============================================
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    const colors = [
+        'rgba(124,58,237,',
+        'rgba(6,182,212,',
+        'rgba(217,70,239,',
+        'rgba(13,148,136,',
+        'rgba(59,130,246,'
+    ];
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.size = Math.random() * 2 + 0.5;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.alpha = Math.random() * 0.5 + 0.1;
+            this.life = 0;
+            this.maxLife = Math.random() * 300 + 200;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.life++;
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height || this.life > this.maxLife) {
+                this.reset();
+            }
+        }
+        draw() {
+            const lifeRatio = this.life / this.maxLife;
+            const fade = lifeRatio < 0.1 ? lifeRatio * 10 : lifeRatio > 0.9 ? (1 - lifeRatio) * 10 : 1;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + (this.alpha * fade) + ')';
+            ctx.fill();
+        }
+    }
+
+    const particles = [];
+    for (let i = 0; i < 120; i++) {
+        particles.push(new Particle());
+    }
+
+    // Connection lines between close particles
+    function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 100) {
+                    const alpha = (1 - dist / 100) * 0.08;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(124,58,237,${alpha})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawConnections();
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ============================================
+    // SCROLL EFFECTS
+    // ============================================
+    const nav = document.getElementById('mainNav');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Intersection Observer for reveal animations
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ============================================
+    // DARK MODE TOGGLE
+    // ============================================
+    let isDark = true;
+    function toggleMode() {
+        isDark = !isDark;
+        const knob = document.getElementById('toggleKnob');
+        if (isDark) {
+            knob.style.left = '21px';
+            document.documentElement.style.setProperty('--deep-blue', '#030418');
+            document.documentElement.style.setProperty('--blue-dark', '#060830');
+        } else {
+            knob.style.left = '3px';
+            document.documentElement.style.setProperty('--deep-blue', '#0a0520');
+            document.documentElement.style.setProperty('--blue-dark', '#0d0830');
+        }
+    }
+
+    // ============================================
+    // COUNTER ANIMATION
+    // ============================================
+    function animateCounter(el, target, suffix = '') {
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current) + suffix;
+        }, 30);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const numEls = entry.target.querySelectorAll('.f-stat-num, .stat-mini-num');
+                numEls.forEach(el => {
+                    const text = el.textContent;
+                    const num = parseInt(text);
+                    const suffix = text.includes('+') ? '+' : text.includes('%') ? '%' : '';
+                    if (!isNaN(num)) animateCounter(el, num, suffix);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.founder-stats, .hero-stats-mini').forEach(el => {
+        statsObserver.observe(el);
+    });
+
+    // ============================================
+    // FORM SUBMIT HANDLER
+    // ============================================
+    document.querySelector('.form-submit').addEventListener('click', function(e) {
+        e.preventDefault();
+        this.textContent = '✅ अनुरोध भेजा गया! जल्द संपर्क होगा।';
+        this.style.background = 'linear-gradient(135deg, var(--rich-teal), var(--vibrant-cyan))';
+        setTimeout(() => {
+            this.textContent = '⚡ अभी परामर्श अनुरोध भेजें';
+            this.style.background = 'linear-gradient(135deg, var(--electric-purple), var(--vibrant-cyan))';
+        }, 3000);
+    });
+
+    // ============================================
+    // SMOOTH NAV LINKS
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ============================================
+    // PARALLAX ON MOUSE MOVE
+    // ============================================
+    document.addEventListener('mousemove', (e) => {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const dx = (e.clientX - centerX) / centerX;
+        const dy = (e.clientY - centerY) / centerY;
+
+        document.querySelectorAll('.floating-el').forEach((el, i) => {
+            const speed = (i + 1) * 8;
+            el.style.transform = `translate(${dx * speed}px, ${dy * speed}px)`;
+        });
+
+        document.querySelectorAll('.hero-ring').forEach((el, i) => {
+            const speed = (i + 1) * 4;
+            el.style.transform = `translate(calc(-50% + ${dx * speed}px), calc(-50% + ${dy * speed}px))`;
+        });
+    });
+    </script>
+</body>
+</html>
