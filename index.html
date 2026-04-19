@@ -3,517 +3,839 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Rajvardhan & Associates | Elite Legal Counsel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;0,800;1,500&display=swap" rel="stylesheet">
+    <title>Rajvardhan & Associates | The Ultimate Legal Masterpiece</title>
+    
+    <!-- Ultra Premium Fonts: Cinzel for Royal Authority, Manrope for Modern Crispness -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800;900&family=Manrope:wght@200;300;400;600;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-ultra-dark: #020205;
-            --bg-panel: rgba(12, 14, 25, 0.6);
-            --bg-glass: rgba(255, 255, 255, 0.02);
-            --sapphire: #0A2463;
-            --emerald: #00FF88;
-            --ruby: #FF0055;
-            --cyan: #00E5FF;
-            --platinum: #E2E8F0;
-            --text-muted: #8A9BB2;
-            --font-head: 'Playfair Display', serif;
-            --font-sub: 'Cormorant Garamond', serif;
-            --font-body: 'Montserrat', sans-serif;
+            /* Ultra Luxury Color Palette */
+            --bg-obsidian: #030303;
+            --bg-charcoal: #0a0a0c;
+            --bg-glass: rgba(15, 15, 18, 0.6);
+            --gold-light: #F9E596;
+            --gold-main: #D4AF37;
+            --gold-dark: #997A15;
+            --crimson-blood: #8A0303;
+            --crimson-glow: #FF1E1E;
+            --text-pure: #FFFFFF;
+            --text-silver: #A0A0A5;
+            
+            --font-royal: 'Cinzel', serif;
+            --font-modern: 'Manrope', sans-serif;
+            --font-italic: 'Cormorant Garamond', serif;
+
+            --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; background: var(--bg-ultra-dark); }
-        body { font-family: var(--font-body); color: var(--platinum); overflow-x: hidden; line-height: 1.7; font-size: 16px; }
+        /* Reset & Global */
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* Custom cursor */ }
+        html { scroll-behavior: auto; /* Handled by custom smooth scroll or native OS smooth */ background-color: var(--bg-obsidian); }
+        body { 
+            font-family: var(--font-modern); 
+            background-color: var(--bg-obsidian); 
+            color: var(--text-pure); 
+            overflow-x: hidden; 
+            font-size: 16px; 
+            -webkit-font-smoothing: antialiased;
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-ultra-dark); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--cyan), var(--sapphire)); border-radius: 10px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-obsidian); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 10px; }
+
+        /* Custom Cursor for Premium Feel */
+        .cursor-dot { width: 8px; height: 8px; background: var(--gold-main); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s; }
+        .cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(212, 175, 55, 0.4); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: 0.1s ease-out; }
+
+        /* Cinematic Noise Overlay */
+        .noise-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9000; opacity: 0.03; background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E'); }
+
+        /* Global Canvas */
+        .bg-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        
+        /* Layout Utilities */
+        .section-wrapper { position: relative; width: 100%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 100px 5%; border-bottom: 1px solid rgba(212, 175, 55, 0.05); }
+        .container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 10; width: 100%; }
 
         /* Typography */
-        h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1.1; letter-spacing: -0.5px; }
-        .lux-text { background: linear-gradient(to right, #ffffff, #a0b0c0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .text-cyan { color: var(--cyan); }
-        .text-ruby { color: var(--ruby); }
+        h1, h2, h3, h4 { font-family: var(--font-royal); font-weight: 800; letter-spacing: 1px; line-height: 1.1; }
+        .text-gold-gradient { background: linear-gradient(to right, var(--gold-light), var(--gold-main), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-silver { color: var(--text-silver); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.8; font-weight: 300; }
+        .subtitle { font-family: var(--font-modern); font-weight: 600; text-transform: uppercase; letter-spacing: 6px; font-size: 0.85rem; color: var(--gold-main); margin-bottom: 20px; display: block; }
         
-        .section-title { font-size: clamp(3rem, 6vw, 5.5rem); text-align: center; margin-bottom: 20px; }
-        .section-subtitle { text-align: center; font-family: var(--font-sub); font-size: clamp(1.2rem, 2vw, 1.8rem); color: var(--text-muted); font-style: italic; margin-bottom: 60px; }
-
-        /* Global Layout */
-        .container { max-width: 1500px; margin: 0 auto; padding: 150px 5%; position: relative; z-index: 10; }
-        .canvas-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-
-        /* Premium Navigation */
-        nav { position: fixed; width: 100%; top: 0; z-index: 9999; padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border-bottom: 1px solid transparent; }
-        nav.scrolled { padding: 15px 5%; background: rgba(2, 2, 5, 0.85); backdrop-filter: blur(30px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-        .logo { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 15px; letter-spacing: 1px; }
-        .nav-links { display: flex; gap: 40px; align-items: center; }
-        .nav-links a { color: var(--platinum); text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--cyan); }
-
-        /* Apple-style Buttons */
-        .btn { display: inline-block; padding: 18px 40px; border-radius: 40px; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: all 0.4s ease; text-decoration: none; backdrop-filter: blur(10px); }
-        .btn-primary { background: rgba(0, 229, 255, 0.1); border: 1px solid var(--cyan); color: var(--cyan); box-shadow: 0 0 20px rgba(0, 229, 255, 0.1); }
-        .btn-primary:hover { background: var(--cyan); color: #000; box-shadow: 0 0 40px rgba(0, 229, 255, 0.4); transform: translateY(-3px); }
-        .btn-ruby { background: rgba(255, 0, 85, 0.1); border: 1px solid var(--ruby); color: var(--ruby); }
-        .btn-ruby:hover { background: var(--ruby); color: #fff; box-shadow: 0 0 40px rgba(255, 0, 85, 0.4); transform: translateY(-3px); }
-
-        /* Scroll Reveals */
-        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Reveal Animations (Apple Style) */
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1.2s var(--ease-apple); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.2s; }
+        .reveal-delay-2 { transition-delay: 0.4s; }
 
-        /* ================= HERO SECTION ================= */
-        .hero { position: relative; min-height: 120vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: hidden; padding-top: 100px; }
-        .hero-content { position: relative; z-index: 10; max-width: 1200px; padding: 0 20px; }
-        .hero h1 { font-size: clamp(4rem, 9vw, 8rem); margin-bottom: 20px; text-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .hero p.desc { font-family: var(--font-sub); font-size: clamp(1.4rem, 2.5vw, 2rem); color: var(--text-muted); margin-bottom: 50px; max-width: 900px; margin-inline: auto; line-height: 1.5; }
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; padding: 30px 5%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s var(--ease-apple); }
+        nav.scrolled { padding: 15px 5%; background: rgba(3, 3, 3, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        .logo { font-family: var(--font-royal); font-size: 1.8rem; color: var(--text-pure); text-decoration: none; display: flex; align-items: center; gap: 15px; font-weight: 800; }
+        .logo-mark { width: 50px; height: 50px; border: 2px solid var(--gold-main); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold-main); font-size: 1.5rem; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); position: relative; }
+        .logo-mark::after { content: ''; position: absolute; inset: -5px; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 50%; animation: spin 10s linear infinite; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { color: var(--text-pure); text-decoration: none; font-family: var(--font-modern); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; transition: color 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: var(--gold-main); transition: width 0.4s var(--ease-apple); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--gold-main); }
         
-        /* 3D Glass Cards (Apple Style) */
-        .glass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 80px; width: 100%; padding: 0 5%; z-index: 10; }
-        .glass-card { background: var(--bg-panel); border: 1px solid rgba(255,255,255,0.03); border-radius: 30px; padding: 50px; backdrop-filter: blur(40px); transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s; position: relative; overflow: hidden; }
-        .glass-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top right, rgba(0,229,255,0.1), transparent 50%); opacity: 0; transition: opacity 0.5s; }
-        .glass-card:hover { transform: translateY(-10px) rotateX(5deg) rotateY(-5deg); box-shadow: -20px 30px 50px rgba(0,0,0,0.5), 0 0 30px rgba(0, 229, 255, 0.1); border-color: rgba(0, 229, 255, 0.2); }
-        .glass-card:hover::before { opacity: 1; }
-        .glass-card h3 { font-size: 2.2rem; margin-bottom: 20px; transform: translateZ(30px); }
-        .glass-card p { color: var(--text-muted); font-size: 1.1rem; transform: translateZ(20px); }
+        .btn-premium { background: transparent; border: 1px solid var(--gold-main); color: var(--gold-main); padding: 15px 35px; font-family: var(--font-modern); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border-radius: 4px; position: relative; overflow: hidden; transition: all 0.4s; }
+        .btn-premium::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent); transition: left 0.5s; }
+        .btn-premium:hover::before { left: 100%; }
+        .btn-premium:hover { background: var(--gold-main); color: var(--bg-obsidian); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
 
-        /* ================= THE MASTERPIECE CHAKRAVYUH ================= */
-        .chakravyuh-section { position: relative; background: #010103; min-height: 100vh; display: flex; align-items: center; border-top: 1px solid rgba(255,0,85,0.1); border-bottom: 1px solid rgba(255,0,85,0.1); overflow: hidden; }
-        .ch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; max-width: 1500px; margin: 0 auto; padding: 100px 5%; position: relative; z-index: 10; }
-        .ch-content h2 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 30px; }
-        .ch-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
-        .ch-interactive { position: relative; height: 600px; border-radius: 40px; overflow: hidden; background: #000; border: 1px solid rgba(255,0,85,0.2); box-shadow: inset 0 0 100px rgba(255,0,85,0.1); }
-        #chakravyuhCanvas { width: 100%; height: 100%; display: block; }
+        /* 1. Ultra Hero Section */
+        #hero { padding-top: 0; }
+        .hero-content { text-align: center; max-width: 1200px; margin: 0 auto; margin-top: 10vh; }
+        .hero-title { font-size: clamp(3rem, 8vw, 7.5rem); text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        .hero-tagline { font-family: var(--font-italic); font-size: clamp(1.8rem, 4vw, 3rem); color: var(--gold-light); margin-bottom: 40px; font-style: italic; font-weight: 400; }
+        .hero-desc { max-width: 800px; margin: 0 auto 50px; font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+        /* Parallax Marquee */
+        .marquee-container { position: absolute; bottom: 5%; left: 0; width: 100%; overflow: hidden; white-space: nowrap; opacity: 0.1; transform: rotate(-2deg); }
+        .marquee-text { display: inline-block; font-family: var(--font-royal); font-size: 8vw; color: transparent; -webkit-text-stroke: 1px var(--gold-main); animation: scroll-left 40s linear infinite; }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* 2. Philosophy Section (Apple Style Text Reveal) */
+        #philosophy { background: linear-gradient(180deg, var(--bg-obsidian), var(--bg-charcoal)); align-items: center; text-align: center; }
+        .huge-text { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.4; max-width: 1000px; font-family: var(--font-royal); }
+        .highlight { color: var(--gold-main); }
+
+        /* 3. Premium Mastery & 3D Scale */
+        .mastery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .mastery-text-box { padding: 40px; background: rgba(20, 20, 22, 0.5); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 20px; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
+        .scale-3d-container { height: 700px; position: relative; perspective: 1500px; display: flex; justify-content: center; align-items: center; }
         
-        .hud-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; }
-        .hud-log { background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); width: 80%; max-height: 250px; overflow-y: hidden; }
-        .log-entry { margin-bottom: 15px; font-family: var(--font-body); font-size: 1rem; opacity: 0; transform: translateX(-20px); animation: slideIn 0.5s forwards; border-left: 3px solid var(--cyan); padding-left: 15px; }
-        .log-entry.critical { border-color: var(--ruby); color: var(--ruby); }
-        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
+        .stat-item { padding: 30px 0; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+        .stat-number { font-family: var(--font-royal); font-size: 4rem; color: var(--gold-light); margin-bottom: 10px; }
 
-        /* ================= NEW LAWS EXPERTISE ================= */
-        .laws-section { position: relative; padding: 150px 5%; background: linear-gradient(to bottom, #020205, #050A15); }
-        .law-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .law-card { padding: 50px; background: rgba(10, 36, 99, 0.1); border-top: 2px solid var(--cyan); border-radius: 0 0 20px 20px; transition: all 0.4s; }
-        .law-card:hover { background: rgba(10, 36, 99, 0.3); transform: translateY(-10px); }
-        .law-card h3 { font-size: 2.5rem; margin-bottom: 15px; color: var(--cyan); font-family: var(--font-head); }
+        /* 4. The Chakravyuh (Hotel Leela Masterpiece Vibe) */
+        #chakravyuh { background: radial-gradient(circle at center, #1a0505 0%, var(--bg-obsidian) 70%); border-top: 1px solid rgba(138, 3, 3, 0.5); border-bottom: 1px solid rgba(138, 3, 3, 0.5); }
+        .chakra-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; background: rgba(5, 5, 5, 0.6); backdrop-filter: blur(30px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 30px; padding: 50px; box-shadow: 0 40px 100px rgba(0,0,0,0.9), inset 0 0 80px rgba(138,3,3,0.1); }
         
-        /* ================= TEAM SECTION ================= */
-        .team-section { padding: 150px 5%; position: relative; }
-        .team-wrapper { display: flex; flex-wrap: wrap; gap: 80px; justify-content: center; }
-        .team-member { flex: 1; min-width: 350px; max-width: 500px; text-align: center; }
-        .img-container { width: 280px; height: 280px; margin: 0 auto 30px; border-radius: 50%; padding: 10px; background: linear-gradient(135deg, var(--sapphire), var(--cyan)); position: relative; overflow: hidden; transition: transform 0.5s; }
-        .img-container:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 0 50px rgba(0,229,255,0.3); }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; filter: grayscale(20%) contrast(120%); }
-        .team-member h3 { font-size: 2.8rem; margin-bottom: 10px; }
-        .team-member h4 { font-family: var(--font-body); font-weight: 400; color: var(--cyan); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-size: 0.9rem; }
+        .chakra-visual { width: 100%; height: 600px; position: relative; border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); background: #000; box-shadow: inset 0 0 100px rgba(0,0,0,1); }
+        .chakra-badge { position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.8); border: 1px solid var(--gold-main); padding: 5px 15px; font-family: var(--font-modern); font-size: 0.7rem; letter-spacing: 2px; color: var(--gold-main); text-transform: uppercase; z-index: 10; }
 
-        /* ================= FOOTER & CONTACT ================= */
-        footer { background: #010102; padding: 120px 5% 50px; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 80px; }
-        .f-col h4 { font-family: var(--font-body); font-size: 1rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
-        .f-col ul { list-style: none; }
-        .f-col ul li { margin-bottom: 15px; }
-        .f-col ul a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; font-size: 1.1rem; }
-        .f-col ul a:hover { color: #fff; }
-        .form-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 15px 0; color: #fff; font-family: var(--font-body); font-size: 1.1rem; margin-bottom: 30px; transition: border-color 0.3s; }
-        .form-input:focus { outline: none; border-bottom-color: var(--cyan); }
-        .f-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; color: var(--text-muted); font-size: 0.9rem; letter-spacing: 1px; }
+        .terminal-ui { display: flex; flex-direction: column; height: 100%; justify-content: space-between; }
+        .terminal-header { font-family: var(--font-royal); font-size: 2.5rem; color: var(--text-pure); margin-bottom: 20px; }
+        .terminal-log { flex-grow: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; font-size: 1.1rem; }
+        
+        .log-entry { opacity: 0; transform: translateY(10px); animation: fadeInUp 0.6s forwards; }
+        .log-advocate { font-family: var(--font-italic); color: var(--gold-light); font-size: 1.3rem; border-left: 2px solid var(--gold-main); padding-left: 15px; }
+        .log-witness { font-family: var(--font-modern); color: var(--text-silver); text-align: right; border-right: 2px solid #555; padding-right: 15px; font-weight: 300; }
+        .log-trap { color: var(--crimson-glow); font-weight: 800; text-align: center; font-family: var(--font-modern); letter-spacing: 3px; font-size: 0.9rem; text-transform: uppercase; background: rgba(138,3,3,0.1); padding: 10px; border-radius: 4px; }
+        .log-victory { color: var(--gold-main); font-family: var(--font-royal); font-size: 2rem; text-align: center; text-shadow: 0 0 20px rgba(212, 175, 55, 0.5); padding: 20px; border: 1px solid var(--gold-main); }
 
-        /* Responsive Media Queries */
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        .btn-trap { width: 100%; margin-top: 30px; background: linear-gradient(45deg, #4A0000, #8A0303); border: 1px solid var(--crimson-glow); color: #fff; padding: 20px; font-family: var(--font-royal); font-size: 1.2rem; letter-spacing: 4px; border-radius: 5px; transition: all 0.4s; box-shadow: 0 10px 30px rgba(138,3,3,0.3); }
+        .btn-trap:hover { background: linear-gradient(45deg, #8A0303, #FF1E1E); box-shadow: 0 10px 40px rgba(255,30,30,0.5); transform: translateY(-2px); }
+
+        /* 5. Practice Areas (3D Hover Cards) */
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; perspective: 1000px; }
+        .area-card { height: 450px; background: rgba(15, 15, 18, 0.8); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; position: relative; overflow: hidden; transform-style: preserve-3d; transition: transform 0.1s ease-out, border-color 0.5s; }
+        .area-card:hover { border-color: var(--gold-main); z-index: 20; }
+        
+        .card-bg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.3; transition: opacity 0.5s; z-index: 1; }
+        .area-card:hover .card-bg-canvas { opacity: 0.8; }
+        
+        .card-content { position: absolute; inset: 0; padding: 40px; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, transparent 100%); transform: translateZ(40px); /* 3D depth */ }
+        .card-icon { font-size: 3rem; color: var(--gold-main); margin-bottom: 20px; font-family: var(--font-royal); }
+        .card-title { font-size: 2rem; margin-bottom: 15px; }
+        .card-desc { font-size: 1rem; color: #aaa; opacity: 0; transform: translateY(20px); transition: all 0.4s var(--ease-apple); }
+        .area-card:hover .card-desc { opacity: 1; transform: translateY(0); }
+
+        /* Footer */
+        footer { background: #010101; padding: 100px 5% 40px; border-top: 1px solid rgba(212, 175, 55, 0.2); position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; position: relative; z-index: 10; }
+        .footer-logo { font-family: var(--font-royal); font-size: 2.5rem; color: var(--gold-main); margin-bottom: 20px; display: block; }
+        .f-title { font-family: var(--font-modern); color: var(--text-pure); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .f-links { list-style: none; }
+        .f-links li { margin-bottom: 15px; }
+        .f-links a { color: var(--text-silver); text-decoration: none; font-size: 1.1rem; transition: color 0.3s; }
+        .f-links a:hover { color: var(--gold-main); }
+        .f-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; margin-top: 80px; font-family: var(--font-modern); font-size: 0.8rem; color: #666; letter-spacing: 4px; text-transform: uppercase; position: relative; z-index: 10; }
+
+        /* Media Queries */
         @media (max-width: 1200px) {
-            .ch-grid { grid-template-columns: 1fr; }
-            .law-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .chakra-container, .mastery-grid { grid-template-columns: 1fr; }
+            .scale-3d-container { height: 500px; }
+            .chakra-visual { height: 400px; }
         }
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Hamburger menu can be added */
-            .hero { min-height: 100vh; padding-top: 150px; }
-            .law-grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .cards-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; /* Add hamburger for real prod */ }
             .footer-grid { grid-template-columns: 1fr; }
-            .glass-card { padding: 30px; }
-            .img-container { width: 220px; height: 220px; }
+            .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .section-wrapper { padding: 80px 5%; }
+            .cursor-dot, .cursor-ring { display: none; } /* Disable custom cursor on mobile */
+            * { cursor: auto; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="globalCanvas" class="canvas-bg" style="position: fixed;"></canvas>
+    <!-- Cinematic Grain Overlay -->
+    <div class="noise-overlay"></div>
 
+    <!-- Custom Premium Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Global Background WebGL-like Canvas -->
+    <canvas id="globalBgCanvas" class="bg-canvas" style="position: fixed;"></canvas>
+
+    <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
-            Rajvardhan & Associates
+            <div class="logo-mark">R</div>
+            <span>Rajvardhan & Associates</span>
         </a>
         <div class="nav-links">
-            <a href="#about">Parichay</a>
-            <a href="#expertise">Visheshagyata</a>
+            <a href="#philosophy">The Philosophy</a>
+            <a href="#mastery">Mastery</a>
             <a href="#chakravyuh">Chakravyuh</a>
-            <a href="#team">Netritva</a>
-            <a href="#contact" class="btn btn-primary" style="padding: 12px 25px;">Paramarsh Lein</a>
+            <a href="#expertise">Expertise</a>
         </div>
+        <a href="#contact" style="text-decoration: none;"><button class="btn-premium">Consult Elite</button></a>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content reveal">
-            <h1 class="lux-text">Nyay Ki Adalat Mein,<br>Hum Keval Jeette Hain.</h1>
-            <p class="desc">
-                Bharatiya kanoon ki gehraiyon ko astra banakar, pichle 11 varshon se humne virodhiyon ke har jhooth ko dhwast kiya hai. Rajvardhan & Associates sirf vakil nahi, balki parinaam-kendra kanooni yoddha hain.
+    <!-- SECTION 1: Ultra Hero -->
+    <section class="section-wrapper" id="hero">
+        <canvas id="heroCanvas" class="bg-canvas"></canvas>
+        <div class="container hero-content">
+            <h1 class="hero-title text-gold-gradient reveal">Satyamev Jayate,</h1>
+            <p class="hero-tagline reveal reveal-delay-1">Par Siddha Hum Karte Hain.</p>
+            <p class="text-silver hero-desc reveal reveal-delay-2">
+                India's most aggressive and result-oriented legal powerhouse. We don't just read the law; we orchestrate masterpieces in the courtroom. For over 11 years, we have shattered falsehoods to pave the golden path of victory for our clients.
             </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Apna Case Shuru Karein</a>
-                <a href="#chakravyuh" class="btn btn-ruby">Chakravyuh Dekhein</a>
+            <div class="reveal reveal-delay-2">
+                <button class="btn-premium" style="padding: 20px 50px; font-size: 1.1rem;">Commence Your Battle</button>
             </div>
         </div>
-
-        <div class="glass-grid">
-            <div class="glass-card reveal">
-                <h3 class="text-cyan">11+ Varsh</h3>
-                <p>Nirantar safalta aur kanooni visheshagyata ka anubhav, jahan har case ek naya masterpiece banta hai.</p>
-            </div>
-            <div class="glass-card reveal" style="transition-delay: 0.1s;">
-                <h3 class="text-cyan">500+ Vijayein</h3>
-                <p>Jatil criminal aur civil mamlon me acquittal aur favorable orders ka ek adwitiya track record.</p>
-            </div>
-            <div class="glass-card reveal" style="transition-delay: 0.2s;">
-                <h3 class="text-cyan">Tech-Driven</h3>
-                <p>AI aur advanced legal research ka upyog karke, hum virodhi ke tark aane se pehle hi use kaat dete hain.</p>
+        
+        <!-- Premium Marquee -->
+        <div class="marquee-container">
+            <div class="marquee-text">
+                CRIMINAL DEFENSE &nbsp; • &nbsp; SUPREME COURT &nbsp; • &nbsp; HIGH COURT &nbsp; • &nbsp; ACQUITTAL MASTERS &nbsp; • &nbsp;
+                CRIMINAL DEFENSE &nbsp; • &nbsp; SUPREME COURT &nbsp; • &nbsp; HIGH COURT &nbsp; • &nbsp; ACQUITTAL MASTERS &nbsp; • &nbsp;
             </div>
         </div>
     </section>
 
-    <section class="chakravyuh-section" id="chakravyuh">
-        <div class="ch-grid">
-            <div class="ch-content reveal">
-                <h2 class="lux-text">Chakravyuh Ranniti</h2>
-                <p>
-                    Gawah se jirah (cross-examination) ek kala hai. Humari team adalat me shabdon aur tathyon ka ek aisa abhedya bhanwar (vortex) rachti hai, jisme jhootha gawah ulajh kar sach bolne par majboor ho jata hai.
+    <!-- SECTION 2: The Philosophy -->
+    <section class="section-wrapper" id="philosophy">
+        <div class="container" style="display: flex; justify-content: center;">
+            <p class="huge-text reveal">
+                Ordinary lawyers argue.<br>
+                <span class="highlight">We dismantle.</span><br><br>
+                Through 3D legal mapping and surgical cross-examination, even the most impenetrable allegations collapse into dust.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Premium Mastery (The Scale) -->
+    <section class="section-wrapper" id="mastery">
+        <div class="container mastery-grid">
+            <div class="mastery-text-box reveal">
+                <span class="subtitle">Adwitiya Kanooni Vishleshan</span>
+                <h2 class="text-gold-gradient" style="font-size: 3.5rem; margin-bottom: 30px;">The Weight of Truth</h2>
+                <p class="text-silver" style="margin-bottom: 20px;">
+                    Whether it's a grave charge under IPC 302 or a complex web of NDPS, our approach is strictly scientific, hyper-aggressive, and solely victory-oriented. 
                 </p>
-                <p style="margin-bottom: 40px;">
-                    Is ranniti ke tahat, FIR, 161 CrPC ke bayan, aur FSL reports ka scientific vishleshan kiya jata hai. Yahan virodhi ke bachne ka koi marg nahi hota.
+                <p class="text-silver">
+                    We don't leave justice to chance; we tip the scales with irrefutable evidence engineering.
                 </p>
-                <button class="btn btn-ruby" id="startVortexBtn">Chakravyuh Prarambh Karein</button>
+                
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">11+</div>
+                        <div class="text-silver" style="font-size: 1rem;">Years of Imperial Legacy</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="text-silver" style="font-size: 1rem;">Acquittals & Triumphs</div>
+                    </div>
+                </div>
             </div>
             
-            <div class="ch-interactive reveal" style="transition-delay: 0.2s;">
-                <canvas id="vortexCanvas"></canvas>
-                <div class="hud-overlay">
-                    <div style="font-family: var(--font-body); color: var(--ruby); letter-spacing: 4px; font-weight: 800; font-size: 0.9rem;">LIVE CROSS-EXAMINATION</div>
-                    <div class="hud-log" id="vortexLog">
-                        <div style="color: rgba(255,255,255,0.3); font-style: italic;">Awaiting execution command...</div>
+            <div class="scale-3d-container reveal reveal-delay-1" id="tiltScale">
+                <!-- High-end 3D Scale Canvas -->
+                <canvas id="scaleCanvas" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: The Chakravyuh (Hotel Leela Vibe) -->
+    <section class="section-wrapper" id="chakravyuh">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;" class="reveal">
+                <span class="subtitle" style="color: var(--crimson-glow);">The Ultimate Trap</span>
+                <h2 class="text-gold-gradient" style="font-size: 4.5rem;">Chakravyuh Ranniti</h2>
+                <p class="text-silver" style="max-width: 800px; margin: 20px auto 0;">
+                    A legendary courtroom labyrinth. When we cross-examine, we construct a 3D web of facts and contradictions. The witness enters, but lies cannot escape.
+                </p>
+            </div>
+
+            <div class="chakra-container reveal reveal-delay-1">
+                <!-- Terminal UI -->
+                <div class="terminal-ui">
+                    <h3 class="terminal-header">Live Cross-Examination</h3>
+                    <div class="terminal-log" id="chLog">
+                        <div style="text-align: center; color: #555; margin-top: 20%;">Awaiting execution sequence...</div>
+                    </div>
+                    <button class="btn-trap" id="startChakravyuhBtn">INITIATE CHAKRAVYUH</button>
+                </div>
+
+                <!-- 3D Geometric Mandala Canvas -->
+                <div class="chakra-visual">
+                    <div class="chakra-badge">Target Lock: Active</div>
+                    <canvas id="chakravyuhCanvas" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Practice Areas -->
+    <section class="section-wrapper" id="expertise">
+        <div class="container">
+            <span class="subtitle reveal">Areas of Imperial Expertise</span>
+            <h2 class="text-gold-gradient reveal" style="font-size: 4rem;">Nyay Ke Chaar Stambh</h2>
+            
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="area-card reveal">
+                    <canvas class="card-bg-canvas" data-hue="0"></canvas> <!-- Reddish -->
+                    <div class="card-content">
+                        <div class="card-icon">I</div>
+                        <h3 class="card-title">Criminal Defense</h3>
+                        <p class="card-desc">Murder (IPC 302), NDPS, & severe allegations. We shatter the chain of evidence to prove absolute innocence.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="area-card reveal reveal-delay-1">
+                    <canvas class="card-bg-canvas" data-hue="200"></canvas> <!-- Blueish -->
+                    <div class="card-content">
+                        <div class="card-icon">II</div>
+                        <h3 class="card-title">Cyber & IT Law</h3>
+                        <p class="card-desc">Navigating digital footprints, hacking frames, and complex financial frauds with advanced tech-legal defense.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="area-card reveal reveal-delay-2">
+                    <canvas class="card-bg-canvas" data-hue="280"></canvas> <!-- Purple/Gold -->
+                    <div class="card-content">
+                        <div class="card-icon">III</div>
+                        <h3 class="card-title">Matrimonial Elite</h3>
+                        <p class="card-desc">Dismantling false 498A, dowry allegations, and securing high-net-worth divorce proceedings with dominance.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="laws-section container" id="expertise">
-        <div class="section-subtitle reveal">Mastering The New Era of Justice</div>
-        <h2 class="section-title lux-text reveal">Naye Kanoon, Nayi Ranniti</h2>
-        <p class="section-subtitle reveal" style="font-family: var(--font-body); font-style: normal; font-size: 1.1rem; max-width: 900px; margin: 0 auto 60px;">
-            Bharat ki kanooni vyavastha badal chuki hai. Humari firm naye aparaadhik kanoonon par poori tarah se updated aur visheshagya hai.
-        </p>
-        
-        <div class="law-grid">
-            <div class="law-card reveal">
-                <h3>BNS, 2023</h3>
-                <p style="font-size: 1.1rem; color: var(--text-muted);">Bharatiya Nyaya Sanhita ke tahat naye aparaadhik pravadhanon, vishesh kar cyber aur aarthik aparaadhon me humara research aur defense model sabse sateek hai.</p>
-            </div>
-            <div class="law-card reveal" style="transition-delay: 0.1s;">
-                <h3>BNSS, 2023</h3>
-                <p style="font-size: 1.1rem; color: var(--text-muted);">Bharatiya Nagarik Suraksha Sanhita ki nayi prakriyaon ke anusar bail (zamanat) aur trial me hum apne muwakkil ke adhikaron ki poori raksha karte hain.</p>
-            </div>
-            <div class="law-card reveal" style="transition-delay: 0.2s;">
-                <h3>BSA, 2023</h3>
-                <p style="font-size: 1.1rem; color: var(--text-muted);">Bharatiya Sakshya Adhiniyam ke tahat digital aur electronic evidence ko adalat me pesh karne aur virodhi ke electronic sabooton ko challenge karne me humari maharat hai.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" style="padding-top: 50px;">
-        <h2 class="section-title lux-text reveal">Karyakshetra (Practice Areas)</h2>
-        <div class="glass-grid" style="margin-top: 50px; padding: 0;">
-            <div class="glass-card reveal">
-                <h3 class="text-cyan" style="font-size: 1.8rem;">Criminal Defense</h3>
-                <p>Hatya, NDPS (Drugs), Fraud aur anya gambhir aparaadhon me zila satra nyayalay se lekar High Court tak prabhavi pairvi.</p>
-            </div>
-            <div class="glass-card reveal">
-                <h3 class="text-cyan" style="font-size: 1.8rem;">Matrimonial Disputes</h3>
-                <p>Jhoothe 498A (Dahej), gharelu hinsa aur talaq ke mukadmon me parivar ko bikhrav aur jhoothe aropor se bachana.</p>
-            </div>
-            <div class="glass-card reveal">
-                <h3 class="text-cyan" style="font-size: 1.8rem;">Revenue & Property</h3>
-                <p>Bhumi vivad, chakbandi, namantaran aur khatauni ke mamlon me SDM aur Tahsil star par tvarit aur anukool parinaam.</p>
-            </div>
-            <div class="glass-card reveal">
-                <h3 class="text-cyan" style="font-size: 1.8rem;">Cyber & IT Law</h3>
-                <p>Digital fraud, hacking aur online financial crimes me technical aur legal dono pakhson par majboot pakad.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="team-section" id="team">
-        <div class="section-subtitle reveal">The Legal Minds</div>
-        <h2 class="section-title lux-text reveal">Humare Yoddha</h2>
-        
-        <div class="team-wrapper" style="margin-top: 80px;">
-            <div class="team-member reveal">
-                <div class="img-container">
-                    <img src="founder.jpg" alt="Advocate Rajvardhan" onerror="this.src='https://via.placeholder.com/400/0A2463/00E5FF?text=Rajvardhan'">
-                </div>
-                <h4>Founder & Senior Advocate</h4>
-                <h3 class="lux-text">Rajvardhan</h3>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 400px; margin: 0 auto;">
-                    Aparaadhik vidhi aur jatil civil mukadmon ke visheshagya. Allahabad aur Uttarakhand High Court me sakriya. Inki jirah aur kanooni vishleshan adalat me virodhiyon ko nishabd kar dete hain.
-                </p>
-            </div>
-            <div class="team-member reveal" style="transition-delay: 0.2s;">
-                <div class="img-container" style="background: linear-gradient(135deg, var(--sapphire), var(--emerald));">
-                    <img src="sanjeev.jpg" alt="Advocate Sanjeev Kumar" onerror="this.src='https://via.placeholder.com/400/0A2463/00FF88?text=Sanjeev'">
-                </div>
-                <h4>Partner & Revenue Law Expert</h4>
-                <h3 class="lux-text">Sanjeev Kumar</h3>
-                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 400px; margin: 0 auto;">
-                    Rajasva vidhi (Revenue Law) ke diggaj. SDM court se lekar revenue board tak inki ranniti itni sateek hoti hai ki zameen aur chakbandi ke vivad hamesha muwakkil ke paksh me sulajhte hain.
-                </p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer id="contact">
-        <div class="footer-grid container" style="padding: 0; padding-bottom: 50px;">
-            <div class="f-col">
-                <a href="#" class="logo" style="margin-bottom: 30px;">
-                    Rajvardhan & Associates
-                </a>
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; padding-right: 40px;">
-                    Satyamev Jayate. Hum kanoon ke ve yoddha hain jo aapke hitaon ki raksha ke liye antt tak ladte hain. 
-                </p>
-                <div style="padding: 20px; background: rgba(255,0,85,0.05); border-left: 3px solid var(--ruby);">
-                    <h4 style="color: var(--ruby); margin-bottom: 5px;">24x7 Emergency Help</h4>
-                    <p style="color: #fff;">Giraftari ya zamanat ke liye turant call karein.</p>
-                </div>
+        <canvas id="footerCanvas" class="bg-canvas" style="opacity: 0.1;"></canvas>
+        <div class="container footer-grid reveal">
+            <div>
+                <span class="footer-logo">Rajvardhan<br>& Associates</span>
+                <p class="text-silver">Satyamev Jayate. We are the warriors of law who fight until the absolute end, ensuring victory is not a probability, but a certainty.</p>
             </div>
-            <div class="f-col">
-                <h4>Nyayalay (Jurisdiction)</h4>
-                <ul>
+            <div>
+                <div class="f-title">Jurisdiction</div>
+                <ul class="f-links">
+                    <li><a href="#">Hon'ble Supreme Court of India</a></li>
                     <li><a href="#">Allahabad High Court</a></li>
                     <li><a href="#">Uttarakhand High Court</a></li>
                     <li><a href="#">Delhi NCR Courts</a></li>
-                    <li><a href="#">District Court Muzaffarnagar</a></li>
-                    <li><a href="#">CJM / SDM Jansath</a></li>
+                    <li><a href="#">Sessions Court Muzaffarnagar</a></li>
                 </ul>
             </div>
-            <div class="f-col">
-                <h4>Sampark (Contact)</h4>
-                <ul>
-                    <li><a href="tel:+917466806524" style="color: var(--cyan); font-weight: 600; font-family: var(--font-body);">+91 74668 06524</a></li>
-                    <li><a href="mailto:legaleaglemzn@gmail.com" style="font-family: var(--font-body);">legaleaglemzn@gmail.com</a></li>
-                    <li style="color: var(--text-muted); margin-top: 20px;">Main Office:<br>Jansath, Muzaffarnagar,<br>Uttar Pradesh</li>
+            <div>
+                <div class="f-title">Elite Contact</div>
+                <ul class="f-links">
+                    <li><a href="tel:+917466806524" style="color: var(--gold-main); font-size: 1.5rem; font-family: var(--font-royal);">+91 74668 06524</a></li>
+                    <li><a href="mailto:legaleaglemzn@gmail.com">legaleaglemzn@gmail.com</a></li>
+                    <li style="color: var(--text-silver); margin-top: 20px;">Headquarters:<br>Jansath, Muzaffarnagar, U.P.</li>
+                    <li><span style="color: var(--crimson-glow); font-weight: 800; font-size: 0.9rem; letter-spacing: 2px;">24/7 EMERGENCY BAIL</span></li>
                 </ul>
-            </div>
-            <div class="f-col">
-                <h4>Nishulk Paramarsh (Consultation)</h4>
-                <form id="contactForm">
-                    <input type="text" class="form-input" placeholder="Aapka Naam" required>
-                    <input type="tel" class="form-input" placeholder="Mobile Number" required>
-                    <input type="text" class="form-input" placeholder="Case ka prakar (Criminal/Civil/etc.)" required>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 10px;">Message Bhejein</button>
-                </form>
             </div>
         </div>
         <div class="f-bottom">
-            <p>© 2014 - 2026 RAJVARDHAN & ASSOCIATES. ALL RIGHTS RESERVED. | THE ELITE LEGAL MASTERPIECE</p>
+            &copy; 2014 - 2026 RAJVARDHAN & ASSOCIATES. ALL RIGHTS RESERVED. | THE ULTIMATE LEGAL MASTERPIECE
         </div>
     </footer>
 
     <script>
-        // --- 1. Navbar Scroll Effect ---
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+        // --- Custom Premium Cursor ---
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorRing = document.getElementById('cursorRing');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            // Add slight delay to ring for smooth effect
+            setTimeout(() => {
+                cursorRing.style.left = `${posX}px`;
+                cursorRing.style.top = `${posY}px`;
+            }, 50);
         });
 
-        // --- 2. Scroll Reveals ---
-        const reveals = document.querySelectorAll('.reveal');
-        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries, obs) => {
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorRing.style.width = '60px';
+                cursorRing.style.height = '60px';
+                cursorRing.style.borderColor = 'var(--crimson-glow)';
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorRing.style.width = '40px';
+                cursorRing.style.height = '40px';
+                cursorRing.style.borderColor = 'rgba(212, 175, 55, 0.4)';
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // --- Navbar Scroll & Apple-Style Reveal ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    obs.unobserve(entry.target);
                 }
             });
-        }, revealOptions);
-        reveals.forEach(el => observer.observe(el));
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        // --- 3. Global 3D Ambient Canvas Background ---
-        const gCanvas = document.getElementById('globalCanvas');
-        const gCtx = gCanvas.getContext('2d');
-        let gW, gH, particles = [];
-
-        function resizeGlobal() {
-            gW = gCanvas.width = window.innerWidth;
-            gH = gCanvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeGlobal);
-        resizeGlobal();
-
-        for (let i = 0; i < 200; i++) {
-            particles.push({
-                x: Math.random() * gW, y: Math.random() * gH,
-                z: Math.random() * 1000,
-                radius: Math.random() * 1.5,
-                color: Math.random() > 0.5 ? '#00E5FF' : '#0A2463'
+        // --- 3D Hover Effect for Cards & Scale Container ---
+        function apply3DTilt(elementSelector, intensity = 10) {
+            document.querySelectorAll(elementSelector).forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -intensity;
+                    const rotateY = ((x - centerX) / centerX) * intensity;
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                });
             });
         }
+        apply3DTilt('.area-card', 8);
+        apply3DTilt('#tiltScale', 5);
 
-        function drawGlobal() {
-            gCtx.clearRect(0, 0, gW, gH);
-            particles.forEach(p => {
-                p.z -= 1; // Move towards camera
-                if (p.z <= 0) { p.z = 1000; p.x = Math.random() * gW; p.y = Math.random() * gH; }
-                
-                // 3D Projection
-                const perspective = 800 / p.z;
-                const px = (p.x - gW/2) * perspective + gW/2;
-                const py = (p.y - gH/2) * perspective + gH/2;
-                const size = Math.max(0.1, p.radius * perspective);
-                const alpha = Math.min(1, Math.max(0, 1 - (p.z / 1000)));
-
-                gCtx.beginPath();
-                gCtx.arc(px, py, size, 0, Math.PI * 2);
-                gCtx.fillStyle = p.color;
-                gCtx.globalAlpha = alpha * 0.5;
-                gCtx.fill();
-            });
-            requestAnimationFrame(drawGlobal);
-        }
-        drawGlobal();
-
-        // --- 4. The Masterpiece Chakravyuh (Vortex) Canvas ---
-        const vCanvas = document.getElementById('vortexCanvas');
-        const vCtx = vCanvas.getContext('2d');
-        let vW, vH;
-
-        function resizeVortex() {
-            const parent = vCanvas.parentElement;
-            vW = vCanvas.width = parent.clientWidth;
-            vH = vCanvas.height = parent.clientHeight;
-        }
-        window.addEventListener('resize', resizeVortex);
-        resizeVortex();
-
-        let vTime = 0;
-        let vortexStress = 0; // 0 to 100
-        let isVortexRunning = false;
-        
-        const chLogs = [
-            { t: 15, class: '', text: "Advocate: 'Aapne FIR me kaha ghatna rat 9 baje hui thi?'" },
-            { t: 35, class: '', text: "Witness: 'Ji haan, lagbhag 9 baje.'" },
-            { t: 55, class: 'critical', text: "Advocate: 'Lekin 161 CrPC bayan me aapne 11 baje bola!'" },
-            { t: 75, class: 'critical', text: "Witness confounds. FSL report proves impossibility." },
-            { t: 95, class: 'critical', text: "⚖️ CASE DESTROYED. ACQUITTAL SECURED." }
-        ];
-
-        function drawVortex() {
-            // Create deep trailing effect for Hotel Leela luxury vibe (deep sapphire/black)
-            vCtx.fillStyle = 'rgba(1, 1, 3, 0.2)'; 
-            vCtx.fillRect(0, 0, vW, vH);
+        // --- Canvas Setup Utility ---
+        function setupCanvas(id) {
+            const canvas = document.getElementById(id);
+            if (!canvas) return null;
+            const ctx = canvas.getContext('2d', { alpha: false }); // optimize
+            if (canvas.classList.contains('bg-canvas') || id === 'globalBgCanvas') {
+                 ctx.canvas.getContext('2d', {alpha: true}); // need alpha for some
+            }
             
-            const cx = vW / 2;
-            const cy = vH / 2;
+            const resize = () => {
+                const parent = id === 'globalBgCanvas' ? window : canvas.parentElement;
+                canvas.width = parent.innerWidth || parent.clientWidth;
+                canvas.height = parent.innerHeight || parent.clientHeight;
+            };
+            window.addEventListener('resize', resize);
+            resize();
+            return { canvas, ctx };
+        }
 
-            // Draw Rings
-            for (let i = 1; i <= 15; i++) {
-                const baseRad = i * 25;
-                const shrink = (vortexStress / 100) * (baseRad * 0.8);
-                const r = Math.max(2, baseRad - shrink);
-                
-                const speed = (i % 2 === 0 ? 1 : -1) * (0.01 + vortexStress * 0.001);
-                const angle = vTime * speed;
-
-                // Color shift from Sapphire -> Ruby
-                const isCritical = vortexStress > 60;
-                vCtx.strokeStyle = isCritical ? '#FF0055' : (i % 3 === 0 ? '#00E5FF' : '#0A2463');
-                vCtx.lineWidth = 1 + (vortexStress/50);
-                vCtx.beginPath();
-                
-                const gaps = 5;
-                const segLen = (Math.PI * 2) / gaps;
-                const gapSize = 0.4 - (vortexStress/300);
-                
-                for(let j=0; j<gaps; j++) {
-                    vCtx.arc(cx, cy, r, angle + j*segLen, angle + j*segLen + segLen - gapSize);
-                }
-                vCtx.stroke();
+        // --- Animation 1: Global Slow Dust (8000k feel) ---
+        (function initGlobalDust() {
+            const setup = setupCanvas('globalBgCanvas');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
+            // Need transparency here
+            const ctxAlpha = canvas.getContext('2d');
+            
+            let particles = [];
+            for(let i=0; i<100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    s: Math.random() * 1.5,
+                    vx: (Math.random() - 0.5) * 0.2,
+                    vy: (Math.random() - 0.5) * 0.2,
+                });
             }
 
-            // Central Witness (Dot)
-            const shakeX = vortexStress > 40 ? (Math.random() - 0.5) * (vortexStress/4) : 0;
-            const shakeY = vortexStress > 40 ? (Math.random() - 0.5) * (vortexStress/4) : 0;
+            function animate() {
+                ctxAlpha.clearRect(0, 0, canvas.width, canvas.height);
+                ctxAlpha.fillStyle = 'rgba(212, 175, 55, 0.3)';
+                
+                particles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if(p.x < 0) p.x = canvas.width; if(p.x > canvas.width) p.x = 0;
+                    if(p.y < 0) p.y = canvas.height; if(p.y > canvas.height) p.y = 0;
+                    
+                    ctxAlpha.beginPath();
+                    ctxAlpha.arc(p.x, p.y, p.s, 0, Math.PI*2);
+                    ctxAlpha.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // --- Animation 2: Hero Golden Nexus ---
+        (function initHeroCanvas() {
+            const setup = setupCanvas('heroCanvas');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
             
-            vCtx.beginPath();
-            vCtx.arc(cx + shakeX, cy + shakeY, Math.max(1, 10 - vortexStress*0.08), 0, Math.PI*2);
-            vCtx.fillStyle = vortexStress < 50 ? '#E2E8F0' : '#FF0055';
-            vCtx.shadowBlur = 20;
-            vCtx.shadowColor = vCtx.fillStyle;
-            vCtx.fill();
-            vCtx.shadowBlur = 0;
+            let time = 0;
+            function animate() {
+                // Clear with fade for trails
+                ctx.fillStyle = 'rgba(3, 3, 3, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                
+                ctx.strokeStyle = 'rgba(212, 175, 55, 0.05)';
+                ctx.lineWidth = 1;
+                
+                // Draw rotating 3D looking toroids
+                for(let i=0; i<3; i++) {
+                    ctx.save();
+                    ctx.translate(cx, cy);
+                    ctx.rotate(time * (0.001 + i*0.0005));
+                    ctx.scale(1, 0.3 + (i*0.2)); // 3D tilt illusion
+                    
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 300 + Math.sin(time*0.01)*50 + (i*100), 0, Math.PI*2);
+                    ctx.stroke();
+                    
+                    // Light nodes
+                    const nodeX = Math.cos(time*0.02) * (300 + (i*100));
+                    const nodeY = Math.sin(time*0.02) * (300 + (i*100));
+                    ctx.fillStyle = 'rgba(212, 175, 55, 0.8)';
+                    ctx.shadowBlur = 20;
+                    ctx.shadowColor = '#D4AF37';
+                    ctx.beginPath();
+                    ctx.arc(nodeX, nodeY, 3, 0, Math.PI*2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+                
+                time++;
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
 
-            vTime++;
-            requestAnimationFrame(drawVortex);
-        }
-        drawVortex();
+        // --- Animation 3: 3D Masterpiece Law Scale ---
+        (function initScaleCanvas() {
+            const setup = setupCanvas('scaleCanvas');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
+            // Get proper context with alpha for clearing
+            const ctxAlpha = canvas.getContext('2d');
+            
+            let rotY = 0;
+            function animate() {
+                ctxAlpha.clearRect(0, 0, canvas.width, canvas.height);
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2 + 100;
+                
+                ctxAlpha.save();
+                ctxAlpha.translate(cx, cy);
+                
+                // Glow behind scale
+                const bgGlow = ctxAlpha.createRadialGradient(0,-150,0, 0,-150, 300);
+                bgGlow.addColorStop(0, 'rgba(212, 175, 55, 0.1)');
+                bgGlow.addColorStop(1, 'transparent');
+                ctxAlpha.fillStyle = bgGlow;
+                ctxAlpha.fillRect(-300, -450, 600, 600);
 
-        // Chakravyuh Interaction
-        const vBtn = document.getElementById('startVortexBtn');
-        const vLogBox = document.getElementById('vortexLog');
+                // Pillar Base
+                ctxAlpha.fillStyle = '#111';
+                ctxAlpha.strokeStyle = '#D4AF37';
+                ctxAlpha.lineWidth = 2;
+                ctxAlpha.beginPath();
+                ctxAlpha.moveTo(-80, 0); ctxAlpha.lineTo(80, 0);
+                ctxAlpha.lineTo(60, -40); ctxAlpha.lineTo(-60, -40);
+                ctxAlpha.fill(); ctxAlpha.stroke();
+                
+                // Pillar
+                const pillarGrad = ctxAlpha.createLinearGradient(-15, 0, 15, 0);
+                pillarGrad.addColorStop(0, '#0a0a0c'); 
+                pillarGrad.addColorStop(0.5, '#222'); 
+                pillarGrad.addColorStop(1, '#0a0a0c');
+                ctxAlpha.fillStyle = pillarGrad;
+                ctxAlpha.fillRect(-15, -350, 30, 310);
+                ctxAlpha.strokeRect(-15, -350, 30, 310);
 
-        vBtn.addEventListener('click', () => {
-            if (isVortexRunning) return;
-            isVortexRunning = true;
-            vortexStress = 0;
-            vLogBox.innerHTML = '';
-            vBtn.textContent = "Executing Cross-Examination...";
-            vBtn.style.opacity = "0.5";
+                // 3D Beam Mathematics
+                rotY += 0.005; // Slow majestic rotation
+                const beamWidth = 220;
+                const p1x = Math.cos(rotY) * beamWidth;
+                const p1z = Math.sin(rotY) * beamWidth;
+                const p2x = -Math.cos(rotY) * beamWidth;
+                const p2z = -Math.sin(rotY) * beamWidth;
 
-            let currentLog = 0;
-            const interval = setInterval(() => {
-                vortexStress += 0.3;
+                // Perspective scaling
+                const perspective = 500;
+                const s1 = perspective / (perspective - p1z);
+                const s2 = perspective / (perspective - p2z);
 
-                if (currentLog < chLogs.length && vortexStress >= chLogs[currentLog].t) {
-                    const log = chLogs[currentLog];
-                    const div = document.createElement('div');
-                    div.className = `log-entry ${log.class}`;
-                    div.textContent = log.text;
-                    vLogBox.appendChild(div);
-                    vLogBox.scrollTop = vLogBox.scrollHeight;
-                    currentLog++;
+                // Draw Beam
+                ctxAlpha.strokeStyle = '#D4AF37';
+                ctxAlpha.lineWidth = 6;
+                ctxAlpha.lineCap = 'round';
+                ctxAlpha.beginPath();
+                ctxAlpha.moveTo(p1x * s1, -340);
+                ctxAlpha.lineTo(p2x * s2, -340);
+                ctxAlpha.stroke();
+
+                // Draw Pan Function
+                function drawPan(x, scale, isFront) {
+                    ctxAlpha.save();
+                    ctxAlpha.translate(x, -340);
+                    
+                    // Chains
+                    ctxAlpha.strokeStyle = 'rgba(212, 175, 55, 0.4)';
+                    ctxAlpha.lineWidth = 2 * scale;
+                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(-50*scale, 150*scale); ctxAlpha.stroke();
+                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(50*scale, 150*scale); ctxAlpha.stroke();
+                    ctxAlpha.beginPath(); ctxAlpha.moveTo(0,0); ctxAlpha.lineTo(0, 150*scale); ctxAlpha.stroke();
+                    
+                    // Pan Bowl
+                    ctxAlpha.translate(0, 150*scale);
+                    const bowlGrad = ctxAlpha.createRadialGradient(0,0,0, 0,0, 60*scale);
+                    bowlGrad.addColorStop(0, 'rgba(20,20,22,0.9)');
+                    bowlGrad.addColorStop(1, 'rgba(212,175,55,0.2)');
+                    ctxAlpha.fillStyle = bowlGrad;
+                    ctxAlpha.beginPath(); ctxAlpha.ellipse(0, 0, 60*scale, 20*scale, 0, 0, Math.PI*2); ctxAlpha.fill();
+                    ctxAlpha.strokeStyle = '#D4AF37';
+                    ctxAlpha.lineWidth = 3 * scale;
+                    ctxAlpha.stroke();
+                    
+                    // If front pan, add some glowing evidence (cubes)
+                    if(isFront) {
+                        ctxAlpha.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                        ctxAlpha.shadowBlur = 10;
+                        ctxAlpha.shadowColor = '#fff';
+                        ctxAlpha.fillRect(-10*scale, -10*scale, 20*scale, 20*scale);
+                    }
+                    
+                    ctxAlpha.restore();
                 }
 
-                if (vortexStress >= 100) {
-                    clearInterval(interval);
-                    vBtn.textContent = "CASE WON. Reset System";
-                    vBtn.style.opacity = "1";
-                    isVortexRunning = false;
+                // Z-Sorting for Pans
+                if(p1z < p2z) {
+                    drawPan(p1x * s1, s1, false); drawPan(p2x * s2, s2, true);
+                } else {
+                    drawPan(p2x * s2, s2, true); drawPan(p1x * s1, s1, false);
                 }
-            }, 30);
-        });
 
-        // --- 5. Form Handling ---
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = "Message Sent Successfully ✓";
-            btn.style.background = "var(--emerald)";
-            btn.style.color = "#000";
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = "";
-                btn.style.color = "";
-                this.reset();
-            }, 3000);
+                // Center Pivot Gem
+                ctxAlpha.fillStyle = '#fff';
+                ctxAlpha.shadowBlur = 20;
+                ctxAlpha.shadowColor = '#D4AF37';
+                ctxAlpha.beginPath(); ctxAlpha.arc(0, -340, 15, 0, Math.PI*2); ctxAlpha.fill();
+
+                ctxAlpha.restore();
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // --- Animation 4: The Chakravyuh Masterpiece ---
+        (function initChakravyuh() {
+            const setup = setupCanvas('chakravyuhCanvas');
+            if(!setup) return;
+            const { canvas, ctx } = setup;
+            
+            let time = 0;
+            let trapIntensity = 0; // 0 to 1
+            let isTrapping = false;
+
+            // Intricate Mandala Drawing
+            function drawMandalaLayer(cx, cy, radius, sides, rotation, color, lineWidth) {
+                ctx.strokeStyle = color;
+                ctx.lineWidth = lineWidth;
+                ctx.beginPath();
+                for(let i=0; i<=sides; i++) {
+                    const angle = rotation + (i * (Math.PI*2) / sides);
+                    const x = cx + Math.cos(angle) * radius;
+                    const y = cy + Math.sin(angle) * radius;
+                    if(i===0) ctx.moveTo(x,y);
+                    else ctx.lineTo(x,y);
+                }
+                ctx.stroke();
+            }
+
+            function animate() {
+                // Motion blur fade
+                ctx.fillStyle = `rgba(0, 0, 0, ${0.1 + (trapIntensity*0.2)})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                
+                // Color interpolation: Gold to Crimson
+                const r = Math.floor(212 + trapIntensity * (255 - 212));
+                const g = Math.floor(175 - trapIntensity * 175);
+                const b = Math.floor(55 - trapIntensity * 55);
+                const baseColor = `rgb(${r},${g},${b})`;
+                
+                ctx.shadowBlur = 10 + (trapIntensity * 30);
+                ctx.shadowColor = baseColor;
+
+                // Base Rings
+                for(let i=1; i<=6; i++) {
+                    const radius = (i * 40) - (trapIntensity * i * 15); // Rings close in
+                    const rotSpeed = time * (0.002 * i) * (1 + trapIntensity*5); // Speeds up
+                    const dir = i % 2 === 0 ? 1 : -1;
+                    
+                    drawMandalaLayer(cx, cy, Math.max(10, radius), 8 + i*2, rotSpeed * dir, baseColor, 2 - (trapIntensity*1));
+                    
+                    // Draw connecting webs
+                    if(i < 6) {
+                        ctx.beginPath();
+                        ctx.arc(cx, cy, radius, 0, Math.PI*2);
+                        ctx.strokeStyle = `rgba(${r},${g},${b}, 0.2)`;
+                        ctx.stroke();
+                    }
+                }
+
+                // Core (The Witness)
+                const corePulse = Math.abs(Math.sin(time * (0.05 + trapIntensity*0.2))) * 10;
+                ctx.fillStyle = trapIntensity > 0.8 ? '#FF1E1E' : '#fff';
+                ctx.beginPath();
+                ctx.arc(cx, cy, 15 - (trapIntensity*10) + corePulse, 0, Math.PI*2);
+                ctx.fill();
+
+                // Flash on Win
+                if(trapIntensity >= 1) {
+                    ctx.fillStyle = `rgba(138, 3, 3, ${Math.abs(Math.sin(time*0.5))*0.4})`;
+                    ctx.fillRect(0,0, canvas.width, canvas.height);
+                }
+
+                time++;
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            // Terminal Logic
+            const btn = document.getElementById('startChakravyuhBtn');
+            const logContainer = document.getElementById('chLog');
+            
+            const logs = [
+                { type: 'log-advocate', text: "Q: 'You stated you were present at the crime scene at 9 PM?'", delay: 1000 },
+                { type: 'log-witness', text: "A: 'Yes, exactly 9 PM.'", delay: 1500 },
+                { type: 'log-trap', text: "SYSTEM: CONTRADICTION DETECTED IN 161 CrPC STATEMENT.", delay: 800 },
+                { type: 'log-advocate', text: "Q: 'Then why does your CDR (Call Detail Record) show your location 50km away at 9:05 PM?'", delay: 2000 },
+                { type: 'log-witness', text: "A: 'I... I might have left my phone at home.'", delay: 1500 },
+                { type: 'log-trap', text: "SYSTEM: WITNESS STRESS LEVEL CRITICAL. ALIBI COLLAPSING.", delay: 800 },
+                { type: 'log-advocate', text: "Q: 'The tower data shows outgoing calls made BY YOU during that time. Are you lying now, or were you lying then?'", delay: 2500 },
+                { type: 'log-victory', text: "CHECKMATE. WITNESS DESTROYED.", delay: 1000 }
+            ];
+
+            btn.addEventListener('click', () => {
+                if(isTrapping) return;
+                isTrapping = true;
+                btn.textContent = "EXECUTING...";
+                btn.style.opacity = "0.5";
+                btn.style.pointerEvents = "none";
+                logContainer.innerHTML = '';
+                
+                let currentStep = 0;
+                
+                function processLog() {
+                    if(currentStep >= logs.length) {
+                        setTimeout(() => {
+                            btn.textContent = "RESET CHAKRAVYUH";
+                            btn.style.opacity = "1";
+                            btn.style.pointerEvents = "auto";
+                            isTrapping = false;
+                        }, 2000);
+                        return;
+                    }
+
+                    const log = logs[currentStep];
+                    setTimeout(() => {
+                        const div = document.createElement('div');
+                        div.className = `log-entry ${log.type}`;
+                        div.textContent = log.text;
+                        logContainer.appendChild(div);
+                        logContainer.scrollTop = logContainer.scrollHeight;
+                        
+                        // Increase visual trap intensity
+                        trapIntensity = currentStep / (logs.length - 1);
+                        
+                        currentStep++;
+                        processLog();
+                    }, log.delay);
+                }
+                
+                processLog();
+            });
+        })();
+
+        // --- Animation 5: Practice Cards Fluid Canvas ---
+        document.querySelectorAll('.card-bg-canvas').forEach(canvas => {
+            const ctx = canvas.getContext('2d', {alpha: true});
+            const hue = canvas.getAttribute('data-hue');
+            
+            const resize = () => { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; };
+            window.addEventListener('resize', resize);
+            resize();
+
+            let time = Math.random() * 100;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const cx = canvas.width/2;
+                const cy = canvas.height; // Bottom heavy
+                
+                ctx.beginPath();
+                ctx.moveTo(0, canvas.height);
+                for(let x=0; x<=canvas.width; x+=20) {
+                    // Fluid wave math
+                    const y = cy - 100 + Math.sin(x*0.01 + time)*40 + Math.cos(x*0.02 - time*0.5)*20;
+                    ctx.lineTo(x, y);
+                }
+                ctx.lineTo(canvas.width, canvas.height);
+                ctx.closePath();
+                
+                const grad = ctx.createLinearGradient(0, cy-150, 0, cy);
+                grad.addColorStop(0, `hsla(${hue}, 80%, 40%, 0.1)`);
+                grad.addColorStop(1, `hsla(${hue}, 80%, 30%, 0.6)`);
+                ctx.fillStyle = grad;
+                ctx.fill();
+                
+                time += 0.03;
+                requestAnimationFrame(animate);
+            }
+            animate();
         });
 
     </script>
