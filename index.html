@@ -7,6 +7,137 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;500;600;700;900&family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* ============================================
+   TASK 2: CURSOR MORPH + TEXT SCRAMBLE SYSTEM
+   ============================================ */
+
+/* --- Cursor: Heading Morph State --- */
+.magnetic-cursor.is-on-heading {
+  width: 120px;
+  height: 120px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 255, 0.15),
+    0 0 40px rgba(0, 255, 255, 0.08),
+    inset 0 0 30px rgba(0, 255, 255, 0.05);
+  mix-blend-mode: screen;
+  backdrop-filter: blur(0px);
+  transition:
+    width 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.magnetic-cursor-ring.is-on-heading {
+  width: 130px;
+  height: 130px;
+  border-color: rgba(139, 92, 246, 0.3);
+  border-width: 1px;
+  opacity: 0.6;
+  transition:
+    width 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    height 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.4s ease;
+}
+
+/* Matrix Canvas that overlays headings */
+.matrix-overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Heading wrapper needed for canvas positioning */
+.heading-matrix-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-matrix-wrap .matrix-overlay-canvas.is-visible {
+  opacity: 1;
+}
+
+/* Ensure heading text stays above canvas */
+.heading-matrix-wrap > *:not(.matrix-overlay-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Text Scramble Container --- */
+.scramble-target {
+  display: inline-block;
+  position: relative;
+}
+
+/* Glitch flash layer during scramble */
+.scramble-target::after {
+  content: '';
+  position: absolute;
+  inset: -4px -8px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  animation: scrambleFlash 0.1s steps(1) infinite;
+}
+
+.scramble-target.is-scrambling::after {
+  opacity: 1;
+}
+
+.scramble-target.is-done::after {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes scrambleFlash {
+  0%   { opacity: 0.6; transform: translateX(-2px); }
+  25%  { opacity: 0;   transform: translateX(1px);  }
+  50%  { opacity: 0.4; transform: translateX(-1px); }
+  75%  { opacity: 0;   transform: translateX(2px);  }
+  100% { opacity: 0.6; transform: translateX(0px);  }
+}
+
+/* Cyan highlight on each scrambling character */
+.scramble-char {
+  display: inline-block;
+  transition: color 0.08s steps(1);
+}
+
+.scramble-char.is-locked {
+  color: inherit;
+}
+
+.scramble-char.is-scrambling-char {
+  color: #00ffff;
+  text-shadow:
+    0 0 8px rgba(0, 255, 255, 0.9),
+    0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Final settle glow pulse */
+@keyframes settleGlow {
+  0%   { text-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.4); }
+  100% { text-shadow: none; }
+}
+
+.scramble-target.is-done {
+  animation: settleGlow 1s ease-out forwards;
+}
 :root{
 --c1:#00e5a0;--c2:#00bfff;--c3:#ff4d6a;--c4:#ff8c42;
 --c1g:linear-gradient(135deg,#00e5a0,#00bfff);
@@ -803,6 +934,278 @@ function addMsg(t,type){const b=document.getElementById('cbBody');const d=docume
 
 // PARALLAX on hero
 if(innerWidth>768){document.addEventListener('mousemove',e=>{const h=document.querySelector('.hero-inner');if(!h)return;const x=(e.clientX/innerWidth-.5)*12;const y=(e.clientY/innerHeight-.5)*12;h.style.transform=`translate(${x}px,${y}px)`})}
+/* ============================================
+   TASK 2A: DEVANAGARI TEXT SCRAMBLE ENGINE
+   ============================================ */
+(() => {
+  // Full Devanagari Unicode scramble pool
+  // Covers vowels, consonants, matras, and common conjuncts
+  const DEVANAGARI_POOL = [
+    'अ','आ','इ','ई','उ','ऊ','ऋ','ए','ऐ','ओ','औ','अं','अः',
+    'क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण',
+    'त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व',
+    'श','ष','स','ह','ळ','क्ष','त्र','ज्ञ','श्र','स्त','न्य',
+    'ा','ि','ी','ु','ू','े','ै','ो','ौ','ं','ः','्',
+    'ड़','ढ़','ज़','ग़','ख़','फ़','य़',
+    'क्','त्','स्','र्','न्','म्','ल्'
+  ];
+
+  // Pick random char from pool
+  const randDev = () =>
+    DEVANAGARI_POOL[Math.floor(Math.random() * DEVANAGARI_POOL.length)];
+
+  class TextScrambler {
+    constructor(el, options = {}) {
+      this.el          = el;
+      this.finalText   = el.getAttribute('data-scramble-text') || el.textContent.trim();
+      this.duration    = options.duration    || 1500; // ms
+      this.fps         = options.fps         || 24;
+      this.lockDelay   = options.lockDelay   || 0.55; // fraction of duration when locking starts
+      this.frameMs     = 1000 / this.fps;
+      this.startTime   = null;
+      this.rafId       = null;
+      this.chars        = [];
+      this.lockedCount = 0;
+
+      // Wrap each final character in a span
+      this._buildSpans();
+    }
+
+    _buildSpans() {
+      this.el.textContent = '';
+      this.el.classList.add('scramble-target', 'is-scrambling');
+
+      // Split preserving multi-byte Devanagari clusters
+      const segments = [...this.finalText];
+      this.chars = segments.map((char) => {
+        const span = document.createElement('span');
+        span.classList.add('scramble-char', 'is-scrambling-char');
+        // Start with random char
+        span.textContent = char === ' ' ? '\u00A0' : randDev();
+        this.el.appendChild(span);
+        return { span, final: char, locked: false };
+      });
+    }
+
+    start() {
+      // Small entrance delay so page paints first
+      setTimeout(() => {
+        this.startTime = performance.now();
+        this._tick();
+      }, 200);
+    }
+
+    _tick() {
+      const now     = performance.now();
+      const elapsed = now - this.startTime;
+      const progress = Math.min(elapsed / this.duration, 1);
+
+      // How many chars should be locked by now (left-to-right reveal)
+      const lockThreshold = this.lockDelay;
+      const lockProgress  = progress < lockThreshold
+        ? 0
+        : (progress - lockThreshold) / (1 - lockThreshold);
+
+      const charsToLock = Math.floor(lockProgress * this.chars.length);
+
+      this.chars.forEach((c, i) => {
+        if (i < charsToLock) {
+          // Lock this character to final
+          if (!c.locked) {
+            c.locked = true;
+            c.span.textContent = c.final === ' ' ? '\u00A0' : c.final;
+            c.span.classList.remove('is-scrambling-char');
+            c.span.classList.add('is-locked');
+          }
+        } else {
+          // Still scrambling
+          if (!c.locked && c.final !== ' ') {
+            c.span.textContent = randDev();
+          }
+        }
+      });
+
+      if (progress < 1) {
+        this.rafId = requestAnimationFrame(() => {
+          // Throttle to target FPS
+          setTimeout(() => this._tick(), this.frameMs);
+        });
+      } else {
+        // Force all to final on completion
+        this._complete();
+      }
+    }
+
+    _complete() {
+      this.chars.forEach((c) => {
+        c.span.textContent = c.final === ' ' ? '\u00A0' : c.final;
+        c.span.classList.remove('is-scrambling-char');
+        c.span.classList.add('is-locked');
+      });
+      this.el.classList.remove('is-scrambling');
+      this.el.classList.add('is-done');
+
+      // Fire custom event for chaining
+      this.el.dispatchEvent(new CustomEvent('scramble:done'));
+    }
+  }
+
+  // --- Auto-init all [data-scramble] elements ---
+  const initScramblers = () => {
+    document.querySelectorAll('[data-scramble]').forEach((el) => {
+      const duration  = parseInt(el.getAttribute('data-scramble-duration') || '1500');
+      const scrambler = new TextScrambler(el, { duration });
+      scrambler.start();
+    });
+  };
+
+  // Wait for DOM + slight delay to feel intentional
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScramblers);
+  } else {
+    initScramblers();
+  }
+
+  // Expose globally so you can trigger on demand
+  window.TextScrambler = TextScrambler;
+})();
+
+
+/* ============================================
+   TASK 2B: CURSOR MORPH + MATRIX RAIN ON HEADINGS
+   ============================================ */
+(() => {
+  const cursor     = document.getElementById('magneticCursor');
+  const cursorRing = document.getElementById('magneticCursorRing');
+  if (!cursor || !cursorRing) return;
+
+  // --- Matrix Rain Mini-Engine ---
+  class MatrixRain {
+    constructor(canvas, el) {
+      this.canvas  = canvas;
+      this.el      = el;
+      this.ctx     = canvas.getContext('2d');
+      this.rafId   = null;
+      this.drops   = [];
+      this.running = false;
+
+      // Devanagari chars for the rain
+      this.pool = [
+        'क','ख','ग','घ','च','ज','ट','त','द','न',
+        'प','ब','म','य','र','ल','व','श','स','ह',
+        'अ','इ','उ','ए','ओ','ं','्','ा','ि','ी',
+        '०','१','२','३','४','५','६','७','८','९'
+      ];
+    }
+
+    resize() {
+      const rect       = this.el.getBoundingClientRect();
+      this.canvas.width  = rect.width;
+      this.canvas.height = rect.height;
+      this.cols = Math.floor(this.canvas.width / 14);
+      this.drops = Array(this.cols).fill(0).map(
+        () => Math.random() * -this.canvas.height
+      );
+    }
+
+    start() {
+      this.resize();
+      this.running = true;
+      this._draw();
+    }
+
+    stop() {
+      this.running = false;
+      cancelAnimationFrame(this.rafId);
+      // Fade out by clearing
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    _draw() {
+      if (!this.running) return;
+
+      const ctx  = this.ctx;
+      const w    = this.canvas.width;
+      const h    = this.canvas.height;
+      const cols = this.cols;
+
+      // Semi-transparent overlay creates trail
+      ctx.fillStyle = 'rgba(5, 8, 15, 0.18)';
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.font      = '11px monospace';
+
+      this.drops.forEach((y, i) => {
+        const char = this.pool[Math.floor(Math.random() * this.pool.length)];
+        const x    = i * 14;
+
+        // Bright head
+        ctx.fillStyle = `rgba(0, 255, 255, ${0.7 + Math.random() * 0.3})`;
+        ctx.fillText(char, x, y);
+
+        // Fade mid trail
+        ctx.fillStyle = `rgba(0, 255, 180, ${0.15 + Math.random() * 0.2})`;
+        ctx.fillText(
+          this.pool[Math.floor(Math.random() * this.pool.length)],
+          x, y - 14
+        );
+
+        // Reset drop
+        if (y > h + 20) {
+          this.drops[i] = Math.random() * -80;
+        } else {
+          this.drops[i] += 14;
+        }
+      });
+
+      this.rafId = requestAnimationFrame(() => this._draw());
+    }
+  }
+
+  // --- Attach matrix canvas to each target heading ---
+  const headingTargets = document.querySelectorAll('h1.hero-h1, h2.sec-t');
+
+  headingTargets.forEach((heading) => {
+    // Wrap if not already wrapped
+    if (!heading.closest('.heading-matrix-wrap')) {
+      const wrap = document.createElement('div');
+      wrap.classList.add('heading-matrix-wrap');
+      heading.parentNode.insertBefore(wrap, heading);
+      wrap.appendChild(heading);
+    }
+
+    const wrap   = heading.closest('.heading-matrix-wrap');
+    const canvas = document.createElement('canvas');
+    canvas.classList.add('matrix-overlay-canvas');
+    wrap.appendChild(canvas);
+
+    const rain = new MatrixRain(canvas, wrap);
+
+    heading.addEventListener('mouseenter', () => {
+      // Cursor morph
+      cursor.classList.add('is-on-heading');
+      cursorRing.classList.add('is-on-heading');
+
+      // Show canvas + start rain
+      canvas.classList.add('is-visible');
+      rain.start();
+    });
+
+    heading.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-on-heading');
+      cursorRing.classList.remove('is-on-heading');
+
+      // Hide canvas + stop rain
+      canvas.classList.remove('is-visible');
+      rain.stop();
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => {
+      if (rain.running) rain.resize();
+    });
+  });
+})();
 </script>
   <script>
   /* ============================================
